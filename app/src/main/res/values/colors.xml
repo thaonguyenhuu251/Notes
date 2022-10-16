@@ -8,6 +8,22 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
+    <color name="background_general">#2598F5</color>
+    <color name="background_grey">#E9E9E9</color>
+    <color name="background_status">#0F3C63</color>
+    <color name="background_red">#E84C39</color>
+
+    <color name="background_orange_light">#FFDEDC</color>
+    <color name="background_yellow_light">#FFF9B8</color>
+    <color name="background_blue_light">#D4EAFF</color>
+    <color name="background_turquoise_light">#DEF8EE</color>
+
+
+    <color name="background_orange_dark">#F9AB49</color>
+    <color name="background_yellow_dark">#FFF8B7</color>
+    <color name="background_blue_dark">#90E4FF</color>
+    <color name="background_turquoise_dark">#C5FFE9</color>
+
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
