@@ -11,9 +11,8 @@
         android:title="Chart" />
 
     <item
-        android:id="@+id/notes"
+        android:id="@+id/note1"
         android:title=" "/>
-
 
     <item
         android:id="@+id/notify"
