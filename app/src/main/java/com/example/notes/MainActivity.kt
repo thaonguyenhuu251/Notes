@@ -28,6 +28,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setBottomMenu () {
+        supportFragmentManager.beginTransaction().replace(R.id.content, homeFragment).commit()
         binding.bottomMenu.bottomNavigationView.background = null
         binding.bottomMenu.bottomNavigationView.menu.getItem(0).isEnabled = true
         binding.bottomMenu.bottomNavigationView.setOnItemSelectedListener(label@ NavigationBarView.OnItemSelectedListener { item: MenuItem ->
