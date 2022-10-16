@@ -25,6 +25,10 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view: View = binding.root
         setContentView(view)
+
+        binding.root.setOnClickListener { FileUtils.hideKeyboard(this) }
+        binding.content.setOnClickListener { FileUtils.hideKeyboard(this)  }
+
         setBottomMenu()
         setDrawer()
         eventSearch()
