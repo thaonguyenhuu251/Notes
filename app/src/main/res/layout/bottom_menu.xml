@@ -33,6 +33,7 @@
         android:contentDescription="@string/app_name"
         android:src="@drawable/ic_add"
         android:layout_marginBottom="@dimen/_24sdp"
+        android:tint="@color/white"
         android:backgroundTint="@color/background_general"
         app:layout_anchor="@id/bottomAppBar"
         tools:ignore="MissingConstraints" />

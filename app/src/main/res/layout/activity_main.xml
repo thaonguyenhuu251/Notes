@@ -26,27 +26,21 @@
                 android:minHeight="?attr/actionBarSize"
                 android:theme="?attr/actionBarTheme">
 
-                <ImageView
+                <TextView
                     android:id="@+id/imgMenu"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:padding="@dimen/_5sdp"
+                    android:drawableTint="@color/white"
+                    android:text="Notes"
+                    android:gravity="center"
+                    android:textSize="@dimen/_18sdp"
+                    android:drawablePadding="@dimen/_10sdp"
+                    android:drawableStart="@drawable/ic_menu"
                     android:textColor="@color/white"
                     android:textStyle="bold"
                     app:tint="@color/white" />
-
-                <TextView
-                    android:id="@+id/txtTitle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginHorizontal="@dimen/_25sdp"
-                    android:paddingVertical="@dimen/_5sdp"
-                    android:text="Home"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/_12ssp"
-                    android:textStyle="bold" />
 
                 <RelativeLayout
                     android:layout_width="match_parent"
