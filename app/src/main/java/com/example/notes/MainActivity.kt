@@ -1,6 +1,8 @@
 package com.example.notes
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -25,6 +27,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(view)
         setBottomMenu()
         setDrawer()
+        eventSearch()
     }
 
     private fun setBottomMenu () {
@@ -34,30 +37,26 @@ class MainActivity : AppCompatActivity() {
         binding.bottomMenu.bottomNavigationView.setOnItemSelectedListener(label@ NavigationBarView.OnItemSelectedListener { item: MenuItem ->
             when (item.itemId) {
                 R.id.home -> {
-                    binding.txtTime.visibility = View.VISIBLE
-                    binding.imgSort.visibility = View.VISIBLE
+                    binding.rltSearch.visibility = View.VISIBLE
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.content, homeFragment).commit()
                     return@OnItemSelectedListener true
                 }
                 R.id.chart -> {
-                    binding.txtTime.visibility = View.GONE
-                    binding.imgSort.visibility = View.GONE
+                    binding.rltSearch.visibility = View.GONE
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.content, chartFragment).commit()
                     return@OnItemSelectedListener true
                 }
 
                 R.id.setting -> {
-                    binding.txtTime.visibility = View.GONE
-                    binding.imgSort.visibility = View.GONE
+                    binding.rltSearch.visibility = View.GONE
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.content, settingFragment).commit()
                     return@OnItemSelectedListener true
                 }
                 R.id.notify -> {
-                    binding.txtTime.visibility = View.GONE
-                    binding.imgSort.visibility = View.GONE
+                    binding.rltSearch.visibility = View.GONE
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.content, notificationFragment).commit()
                     return@OnItemSelectedListener true
@@ -96,4 +95,22 @@ class MainActivity : AppCompatActivity() {
             }
         )
     }
+
+    private fun eventSearch() {
+        binding.edtSearch.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable?) {
+            }
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+            }
+        })
+
+        binding.imgClose.setOnClickListener {
+            binding.edtSearch.setText("")
+        }
+    }
+
 }
