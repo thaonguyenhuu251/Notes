@@ -5,4 +5,233 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/_10sdp"
+            android:orientation="vertical"
+            android:weightSum="5"
+            tools:ignore="ScrollViewSize,UselessLeaf">
+            <!--Vip version weight:1-->
+            <LinearLayout
+                android:id="@+id/lnVipVersion"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginBottom="@dimen/_5sdp"
+                android:layout_weight="1.25"
+                android:background="@drawable/bg_vip_version"
+                android:orientation="horizontal"
+                android:weightSum="10"
+                tools:ignore="DisableBaselineAlignment,UselessParent">
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    tools:ignore="NestedWeights" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="5"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="@dimen/_10sdp"
+                    tools:ignore="NestedWeights">
+
+                    <TextView
+                        android:id="@+id/txtMoreEffectively"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="casual"
+                        android:text="@string/more_effectively"
+                        android:textColor="@color/blue"
+                        android:textSize="@dimen/_10ssp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/txtVipVersion"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="@string/vip_version"
+                        android:textColor="@color/blue"
+                        android:textSize="@dimen/_17ssp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btnSeeMore"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="3"
+                    android:backgroundTint="@color/background_general"
+                    android:text="@string/see_more" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+            </LinearLayout>
+            <!--Tạo ghi chú check list nhanh trên mà hình weight:1-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left|center_vertical"
+                android:weightSum="10"
+                tools:ignore="UselessParent">
+
+                <TextView
+                    android:id="@+id/txtCreateQuickNote"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="7"
+                    android:drawablePadding="@dimen/_10sdp"
+                    android:text="@string/create_quick_notes_on_home_screen"
+                    android:textSize="@dimen/_12ssp"
+                    app:drawableStartCompat="@drawable/ic_add_note"
+                    app:drawableTint="@color/blue" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <Button
+                    android:id="@+id/btnQuickNoteApply"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:layout_weight="2"
+                    android:backgroundTint="@color/background_general"
+                    android:text="@string/apply"
+                    android:textSize="@dimen/_8ssp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left|center_vertical"
+                android:weightSum="10"
+                tools:ignore="UselessParent">
+
+                <TextView
+                    android:id="@+id/txtCreateQuickChecklist"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="7"
+                    android:drawablePadding="@dimen/_10sdp"
+                    android:text="@string/create_quick_checklist_on_home_screen"
+                    android:textSize="@dimen/_12ssp"
+                    app:drawableStartCompat="@drawable/ic_add_checklist"
+                    app:drawableTint="@color/blue" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <Button
+                    android:id="@+id/btnQuickChecklistApply"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:layout_weight="2"
+                    android:backgroundTint="@color/background_general"
+                    android:text="@string/apply"
+                    android:textSize="@dimen/_8ssp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_1sdp"
+                android:background="@color/dark_gray" />
+            <!--Các chức năng-->
+            <TextView
+                android:id="@+id/txtTrash"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:drawableEnd="@drawable/ic_arrow_forward"
+                android:drawablePadding="@dimen/_10sdp"
+                android:text="@string/trash"
+                android:textSize="@dimen/_12ssp"
+                app:drawableStartCompat="@drawable/ic_trash"
+                app:drawableTint="@color/blue" />
+
+            <TextView
+                android:id="@+id/txtDisplay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:drawableEnd="@drawable/ic_arrow_forward"
+                android:drawablePadding="@dimen/_10sdp"
+                android:text="@string/display"
+                android:textSize="@dimen/_12ssp"
+                app:drawableStartCompat="@drawable/ic_display_settings"
+                app:drawableTint="@color/blue" />
+
+            <TextView
+                android:id="@+id/txtShareApp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:drawableEnd="@drawable/ic_arrow_forward"
+                android:drawablePadding="@dimen/_10sdp"
+                android:text="@string/shareApp"
+                android:textSize="@dimen/_12ssp"
+                app:drawableStartCompat="@drawable/ic_share"
+                app:drawableTint="@color/blue" />
+
+            <TextView
+                android:id="@+id/txtViewMode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:drawableEnd="@drawable/ic_arrow_forward"
+                android:drawablePadding="@dimen/_10sdp"
+                android:text="@string/view_mode"
+                android:textSize="@dimen/_12ssp"
+                app:drawableStartCompat="@drawable/ic_view_mode"
+                app:drawableTint="@color/blue" />
+
+            <TextView
+                android:id="@+id/txtLanguage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:drawableEnd="@drawable/ic_arrow_forward"
+                android:drawablePadding="@dimen/_10sdp"
+                android:text="@string/language"
+                android:textSize="@dimen/_12ssp"
+                app:drawableStartCompat="@drawable/ic_language"
+                app:drawableTint="@color/blue" />
+
+            <TextView
+                android:id="@+id/txtPrivacyPolicy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:drawableEnd="@drawable/ic_arrow_forward"
+                android:drawablePadding="@dimen/_10sdp"
+                android:text="@string/privacy_policy"
+                android:textSize="@dimen/_12ssp"
+                app:drawableStartCompat="@drawable/ic_privacy"
+                app:drawableTint="@color/blue" />
+        </LinearLayout>
+    </ScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
