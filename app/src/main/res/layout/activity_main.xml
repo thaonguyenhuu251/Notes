@@ -124,6 +124,7 @@
         android:layout_gravity="start"
         android:fitsSystemWindows="true">
 
+        <include layout="@layout/menu"/>
 
     </com.google.android.material.navigation.NavigationView>
 </androidx.drawerlayout.widget.DrawerLayout>
