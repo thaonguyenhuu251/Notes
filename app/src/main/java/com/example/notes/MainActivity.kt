@@ -1,11 +1,5 @@
 package com.example.notes
 
-import android.Manifest
-import android.annotation.SuppressLint
-import android.content.Intent
-import android.content.pm.PackageManager
-import android.net.Uri
-import android.os.Build
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -36,8 +30,11 @@ class MainActivity : AppCompatActivity() {
         setContentView(view)
 
         binding.root.setOnClickListener { FileUtils.hideKeyboard(this) }
-        binding.content.setOnClickListener { FileUtils.hideKeyboard(this)  }
-
+        binding.content.setOnClickListener { FileUtils.hideKeyboard(this) }
+        binding.bottomMenu.fabAdd.setOnClickListener {
+            val i = Intent(this, AddNoteActivity::class.java)
+            startActivity(i)
+        }
         setBottomMenu()
         setDrawer()
         eventSearch()
@@ -45,7 +42,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    private fun setBottomMenu () {
+    private fun setBottomMenu() {
         supportFragmentManager.beginTransaction().replace(R.id.content, homeFragment).commit()
         binding.bottomMenu.bottomNavigationView.background = null
         binding.bottomMenu.bottomNavigationView.menu.getItem(0).isEnabled = true
