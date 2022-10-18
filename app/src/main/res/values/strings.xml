@@ -2,4 +2,21 @@
     <string name="app_name">Notes</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="settings">SETTINGS</string>
+    <string name="more_effectively">More effectively</string>
+    <string name="vip_version">VIP VERSION</string>
+    <string name="see_more">SEE MORE</string>
+    <string name="create_quick_notes_on_home_screen">Create quick notes on home screen</string>
+    <string name="apply">Apply</string>
+    <string name="create_quick_checklist_on_home_screen">Create quick checklist on home screen</string>
+    <string name="trash">Trash</string>
+    <string name="display">Display</string>
+    <string name="shareApp">Share</string>
+    <string name="language">Language</string>
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="view_mode">View Mode</string>
+    <string name="grid_view">Grid View</string>
+    <string name="list_view">List View</string>
+    <string name="ok">OK</string>
+    <string name="cancel">CANCEL</string>
 </resources>

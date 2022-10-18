@@ -1,12 +1,14 @@
 package com.example.notes
 
-import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.MenuItem
 import android.view.View
+import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.drawerlayout.widget.DrawerLayout.DrawerListener
@@ -36,6 +38,8 @@ class MainActivity : AppCompatActivity() {
         setBottomMenu()
         setDrawer()
         eventSearch()
+
+
     }
 
     private fun setBottomMenu() {
@@ -82,7 +86,10 @@ class MainActivity : AppCompatActivity() {
     private fun openDrawer() {
         val navigationView = binding.navMain
         navigationView.setNavigationItemSelectedListener { true }
-        binding.imgMenu.setOnClickListener { view -> mDrawerLayout.openDrawer(GravityCompat.START) }
+        binding.imgMenu.setOnClickListener { view ->
+            mDrawerLayout.openDrawer(GravityCompat.START)
+            FileUtils.hideKeyboard(this)
+        }
         mDrawerLayout.addDrawerListener(
             object : DrawerListener {
                 override fun onDrawerSlide(drawerView: View, slideOffset: Float) {
@@ -91,6 +98,9 @@ class MainActivity : AppCompatActivity() {
 
                 override fun onDrawerOpened(drawerView: View) {
                     // Respond when the drawer is opened
+                    drawerView.findViewById<TextView>(R.id.text_ContactUs).setOnClickListener {
+                        askPermissionAndCall()
+                    }
                 }
 
                 override fun onDrawerClosed(drawerView: View) {
@@ -118,6 +128,88 @@ class MainActivity : AppCompatActivity() {
 
         binding.imgClose.setOnClickListener {
             binding.edtSearch.setText("")
+        }
+    }
+
+    private fun askPermissionAndCall() {
+
+        // With Android Level >= 23, you have to ask the user
+        // for permission to Call.
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) { // 23
+
+            // Check if we have Call permission
+            val sendSmsPermisson = ActivityCompat.checkSelfPermission(
+                this,
+                Manifest.permission.CALL_PHONE
+            )
+            if (sendSmsPermisson != PackageManager.PERMISSION_GRANTED) {
+                // If don't have permission so prompt the user.
+                requestPermissions(
+                    arrayOf(Manifest.permission.CALL_PHONE),
+                    Constants.MY_PERMISSION_REQUEST_CODE_CALL_PHONE
+                )
+                return
+            }
+        }
+        callNow()
+    }
+
+    @SuppressLint("MissingPermission")
+    private fun callNow() {
+        val callIntent = Intent(Intent.ACTION_CALL)
+        callIntent.data = Uri.parse("tel:0393397641")
+        try {
+            this.startActivity(callIntent)
+        } catch (ex: Exception) {
+            Toast.makeText(
+                applicationContext, "Your call failed... " + ex.message,
+                Toast.LENGTH_LONG
+            ).show()
+            ex.printStackTrace()
+        }
+    }
+
+    // When you have the request results
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions!!, grantResults)
+        when (requestCode) {
+            Constants.MY_PERMISSION_REQUEST_CODE_CALL_PHONE -> {
+
+
+                // Note: If request is cancelled, the result arrays are empty.
+                // Permissions granted (CALL_PHONE).
+                if (grantResults.isNotEmpty()
+                    && grantResults[0] == PackageManager.PERMISSION_GRANTED
+                ) {
+                    Toast.makeText(this, "Permission granted!", Toast.LENGTH_LONG).show()
+                    callNow()
+                } else {
+                    Toast.makeText(this, "Permission denied!", Toast.LENGTH_LONG).show()
+                }
+            }
+        }
+    }
+
+    // When results returned
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == Constants.MY_PERMISSION_REQUEST_CODE_CALL_PHONE) {
+            when (resultCode) {
+                RESULT_OK -> {
+                    // Do something with data (Result returned).
+                    Toast.makeText(this, "Action OK", Toast.LENGTH_LONG).show()
+                }
+                RESULT_CANCELED -> {
+                    Toast.makeText(this, "Action Cancelled", Toast.LENGTH_LONG).show()
+                }
+                else -> {
+                    Toast.makeText(this, "Action Failed", Toast.LENGTH_LONG).show()
+                }
+            }
         }
     }
 
