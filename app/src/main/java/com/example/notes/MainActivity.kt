@@ -1,5 +1,6 @@
 package com.example.notes
 
+import android.app.Activity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -78,7 +79,10 @@ class MainActivity : AppCompatActivity() {
     private fun openDrawer() {
         val navigationView = binding.navMain
         navigationView.setNavigationItemSelectedListener { true }
-        binding.imgMenu.setOnClickListener { view -> mDrawerLayout.openDrawer(GravityCompat.START) }
+        binding.imgMenu.setOnClickListener { view ->
+            mDrawerLayout.openDrawer(GravityCompat.START)
+            FileUtils.hideKeyboard(this)
+        }
         mDrawerLayout.addDrawerListener(
             object : DrawerListener {
                 override fun onDrawerSlide(drawerView: View, slideOffset: Float) {
