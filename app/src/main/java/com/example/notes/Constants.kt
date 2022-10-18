@@ -13,4 +13,6 @@ object Constants {
     const val TIME_OUT = "timeout"
     const val NAME_IN = "namein"
     const val NAME_OUT = "nameout"
+
+    const val MY_PERMISSION_REQUEST_CODE_CALL_PHONE = 555
 }

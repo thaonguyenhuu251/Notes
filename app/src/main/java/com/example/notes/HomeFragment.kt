@@ -18,7 +18,7 @@ class HomeFragment : Fragment() {
 
     private fun initView() {
         binding.viewPager.adapter = HomePagerFragmentAdapter(titles, requireActivity())
-        binding.viewPager.isUserInputEnabled = false
+        binding.viewPager.isUserInputEnabled = true
         setTabLayout()
     }
 

@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:id="@+id/drawerMain">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -69,6 +70,7 @@
         android:textSize="@dimen/_15ssp" />
 
     <TextView
+        android:id="@+id/text_ContactUs"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:drawableStart="@drawable/contact_us"
