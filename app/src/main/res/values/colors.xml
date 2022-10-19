@@ -24,6 +24,10 @@
     <color name="background_blue_dark">#90E4FF</color>
     <color name="background_turquoise_dark">#C5FFE9</color>
 
+    <color name="circle_menu_center_button_color">#ffffff</color>
+    <color name="circle_menu_center_button_icon_color">#444444</color>
+    <color name="circle_menu_button_icon_color">#ffffff</color>
+
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>

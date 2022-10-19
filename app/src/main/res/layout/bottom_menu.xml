@@ -26,17 +26,19 @@
 
     </com.google.android.material.bottomappbar.BottomAppBar>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabAdd"
+    <com.example.notes.circlemenu.CircleMenu
+        android:id="@+id/circleMenu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:contentDescription="@string/app_name"
-        android:src="@drawable/ic_add"
-        android:layout_marginBottom="@dimen/_24sdp"
-        android:tint="@color/white"
-        android:backgroundTint="@color/background_general"
+        app:buttonColors="@array/bottom_bar_colors"
+        app:buttonIcons="@array/bottom_bar_icons"
+        app:iconsColor="?colorAccent"
         app:layout_anchor="@id/bottomAppBar"
-        tools:ignore="MissingConstraints" />
+        android:layout_marginBottom="@dimen/_24sdp"
+        app:maxAngle="180"
+        app:showSelectAnimation="false"
+        app:srcCompat="@drawable/ic_add"
+        app:startAngle="-150"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
