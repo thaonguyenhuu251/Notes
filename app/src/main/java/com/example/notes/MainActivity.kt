@@ -37,10 +37,6 @@ class MainActivity : AppCompatActivity() {
 
         binding.root.setOnClickListener { FileUtils.hideKeyboard(this) }
         binding.content.setOnClickListener { FileUtils.hideKeyboard(this) }
-        /*binding.bottomMenu.fabAdd.setOnClickListener {
-            val i = Intent(this, AddNoteActivity::class.java)
-            startActivity(i)
-        }*/
 
         binding.bottomMenu.circleMenu.setOnItemClickListener {
             when (it) {
