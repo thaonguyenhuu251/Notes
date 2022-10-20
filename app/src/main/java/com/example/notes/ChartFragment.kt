@@ -34,7 +34,7 @@ class ChartFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_chart, container, false)
+        return inflater.inflate(R.layout.fragment_markbook, container, false)
     }
 
     companion object {

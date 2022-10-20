@@ -1,62 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
     android:layout_margin="@dimen/_20sdp"
     android:background="@drawable/custom_circle_editext"
-    android:backgroundTint="@color/light_grey">
+    android:backgroundTint="@color/white"
+    android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/tvTrash"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Trash"
-        android:textSize="@dimen/_18sdp"
-        android:textStyle="bold"
-        android:textColor="@color/black"
-        android:gravity="center"
-        android:padding="@dimen/_8sdp"/>
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:weightSum="5">
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.6"
+            android:src="@drawable/img_grabage" />
+
+        <TextView
+            android:id="@+id/tvTrash"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3.4"
+            android:padding="@dimen/_8sdp"
+            android:text="Delete Notes"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_18sdp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/_7sdp"
+            android:layout_weight="1"
+            android:src="@drawable/ic_clear" />
+    </LinearLayout>
+
 
     <TextView
         android:id="@+id/tvQuestionTrash"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:padding="@dimen/_6sdp"
         android:text="Are you sure want to delete this file?"
-        android:textSize="@dimen/_14ssp"
-        android:textColor="@color/black"
-        android:gravity="center"
-        android:padding="@dimen/_6sdp"/>
+        android:textColor="@color/black_grey"
+        android:textSize="@dimen/_14ssp" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:weightSum="2"
-        android:layout_margin="@dimen/_10sdp">
+        android:layout_margin="@dimen/_10sdp"
+        android:weightSum="2">
+
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnCancle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:backgroundTint="@color/white_smoke"
             android:text="Cancle"
             android:textColor="@color/red"
             android:textSize="@dimen/_14ssp"
             app:icon="@drawable/ic_clear"
             app:iconGravity="textStart"
-            app:iconTint="@color/red"
-            android:backgroundTint="@color/white_smoke" />
+            app:iconTint="@color/red" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnDelete"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
             android:layout_weight="1"
             android:backgroundTint="@color/background_red"
             android:text="delete"
             android:textSize="@dimen/_14ssp"
             app:icon="@drawable/ic_delete"
-            app:iconGravity="textStart"
-            android:layout_marginStart="@dimen/_10sdp"/>
+            app:iconGravity="textStart" />
     </LinearLayout>
 </LinearLayout>

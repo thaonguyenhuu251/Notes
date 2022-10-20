@@ -26,11 +26,12 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
         android:orientation="vertical"
-        android:weightSum="3"
+        android:weightSum="2"
         app:layout_constraintStart_toEndOf="@+id/ivBook"
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
+            android:id="@+id/txtTitle"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_weight="1"
@@ -40,6 +41,7 @@
             android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/txtContent"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_weight="1"
@@ -47,21 +49,19 @@
             android:textColor="@color/white_smoke"
             android:textSize="@dimen/_14sdp" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:text="9/10/2022"
-            android:textColor="@color/white_smoke"
-            android:textSize="@dimen/_14sdp" />
     </LinearLayout>
 
-    <RadioButton
+    <TextView
+        android:id="@+id/txtTime"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:buttonTint="@color/white"
-        android:checked="true"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        android:layout_weight="1"
+        android:text="9/10/2022"
+        android:textColor="@color/white_smoke"
+        android:textSize="@dimen/_14sdp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintHorizontal_bias="0.872"
+        app:layout_constraintStart_toEndOf="@+id/linearLayout" />
 </androidx.constraintlayout.widget.ConstraintLayout>

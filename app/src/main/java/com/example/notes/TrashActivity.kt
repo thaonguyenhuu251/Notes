@@ -6,6 +6,6 @@ import android.os.Bundle
 class TrashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_trash)
+        setContentView(R.layout.trash_setting)
     }
 }

@@ -20,10 +20,10 @@
 
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
-                android:elevation="@dimen/_10sdp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/background_general">
+                android:background="@color/background_general"
+                android:elevation="@dimen/_10sdp">
 
                 <TextView
                     android:id="@+id/imgMenu"
@@ -31,24 +31,24 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginEnd="@dimen/_5sdp"
-                    android:text="Notes"
-                    android:paddingVertical="@dimen/_10sdp"
-                    android:textSize="@dimen/_18sdp"
-                    android:drawablePadding="@dimen/_5sdp"
                     android:drawableStart="@drawable/ic_menu"
+                    android:drawablePadding="@dimen/_5sdp"
+                    android:paddingVertical="@dimen/_10sdp"
+                    android:text="Notes"
                     android:textColor="@color/white"
+                    android:textSize="@dimen/_18sdp"
                     android:textStyle="bold"
-                    app:tint="@color/white"
-                    app:drawableTint="@color/white" />
+                    app:drawableTint="@color/white"
+                    app:tint="@color/white" />
 
                 <RelativeLayout
                     android:id="@+id/rltSearch"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/bg_search"
-                    android:layout_marginVertical="@dimen/_7sdp"
+                    android:layout_gravity="center_vertical"
                     android:layout_marginHorizontal="@dimen/_5sdp"
-                    android:layout_gravity="center_vertical">
+                    android:layout_marginVertical="@dimen/_7sdp"
+                    android:background="@drawable/bg_search">
 
                     <EditText
                         android:id="@+id/edtSearch"
@@ -79,7 +79,7 @@
                         android:layout_centerVertical="true"
                         android:layout_gravity="center_vertical"
                         android:padding="@dimen/_5sdp"
-                        android:src="@drawable/ic_close" />
+                        android:src="@drawable/ic_clear" />
                 </RelativeLayout>
 
             </androidx.appcompat.widget.Toolbar>
@@ -99,8 +99,8 @@
             android:id="@+id/content"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            app:layout_anchor="@id/appBarLayout"
             android:layout_marginBottom="-50dp"
+            app:layout_anchor="@id/appBarLayout"
             app:layout_constraintBottom_toTopOf="@+id/bottomMenu"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -124,7 +124,7 @@
         android:layout_gravity="start"
         android:fitsSystemWindows="true">
 
-        <include layout="@layout/menu"/>
+        <include layout="@layout/menu" />
 
     </com.google.android.material.navigation.NavigationView>
 </androidx.drawerlayout.widget.DrawerLayout>
