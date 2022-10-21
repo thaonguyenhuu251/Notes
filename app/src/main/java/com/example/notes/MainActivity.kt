@@ -7,6 +7,8 @@ import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.MenuItem
@@ -35,14 +37,20 @@ class MainActivity : AppCompatActivity() {
         val view: View = binding.root
         setContentView(view)
 
-        binding.root.setOnClickListener { FileUtils.hideKeyboard(this) }
-        binding.content.setOnClickListener { FileUtils.hideKeyboard(this) }
+        binding.root.setOnClickListener {
+            FileUtils.hideKeyboard(this)
+        }
+        binding.content.setOnClickListener {
+            FileUtils.hideKeyboard(this)
+        }
 
         binding.bottomMenu.circleMenu.setOnItemClickListener {
             when (it) {
                 0-> {
-                    val i = Intent(this, AddNoteActivity::class.java)
-                    startActivity(i)
+                    Handler(Looper.getMainLooper()).postDelayed({
+                        val i = Intent(this, AddNoteActivity::class.java)
+                        startActivity(i)
+                    }, 500)
                 }
             }
 

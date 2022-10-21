@@ -2,8 +2,8 @@
 <resources>
 
     <array name="bottom_bar_icons">
-        <item>@drawable/ic_settings</item>
-        <item>@drawable/ic_close</item>
+        <item>@drawable/ic_add_note</item>
+        <item>@drawable/ic_camera</item>
         <item>@drawable/ic_close</item>
     </array>
 
