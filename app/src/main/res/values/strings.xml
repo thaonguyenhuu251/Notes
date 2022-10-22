@@ -31,4 +31,7 @@
     <string name="plus">plus</string>
     <string name="groupPlusCross">groupPlusCross</string>
 
+    <string name="LoginFingerprint">Fingerprint Login</string>
+    <string name="loginPass">Login Password</string>
+
 </resources>
