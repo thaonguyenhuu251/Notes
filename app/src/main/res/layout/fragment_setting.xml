@@ -39,7 +39,7 @@
                         android:layout_marginTop="@dimen/_20sdp"
                         android:layout_marginStart="@dimen/_20sdp"
                         android:text="@string/more_effectively"
-                        android:textColor="@color/blue"
+                        android:textColor="@color/background_general"
                         android:textSize="@dimen/_10ssp"
                         android:textStyle="bold" />
 
@@ -51,7 +51,7 @@
                     android:layout_alignStart="@+id/txtMoreEffectively"
                     android:fontFamily="sans-serif-medium"
                     android:text="@string/vip_version"
-                    android:textColor="@color/blue"
+                    android:textColor="@color/background_general"
                     android:textSize="@dimen/_17ssp"
                     android:textStyle="bold" />
 
@@ -82,8 +82,10 @@
                     android:drawablePadding="@dimen/_10sdp"
                     android:text="@string/create_quick_notes_on_home_screen"
                     android:textSize="@dimen/_12ssp"
+                    android:paddingEnd="@dimen/_10sdp"
                     app:drawableStartCompat="@drawable/ic_add_note"
-                    app:drawableTint="@color/background_general" />
+                    app:drawableTint="@color/background_general"
+                    tools:ignore="RtlSymmetry" />
 
                 <Button
                     android:id="@+id/btnQuickNoteApply"
@@ -109,10 +111,11 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="7"
+                    android:paddingEnd="@dimen/_10sdp"
                     android:drawablePadding="@dimen/_10sdp"
                     android:text="@string/create_quick_checklist_on_home_screen"
                     android:textSize="@dimen/_12ssp"
-                    app:drawableStartCompat="@drawable/ic_add_checklist"
+                    app:drawableStartCompat="@drawable/ic_file"
                     app:drawableTint="@color/background_general" />
 
                 <Button

@@ -8,9 +8,9 @@
     </array>
 
     <array name="bottom_bar_colors">
-        <item>#FFFFFF</item>
-        <item>#FFFFFF</item>
-        <item>#FFFFFF</item>
+        <item>#FFF9B8</item>
+        <item>#FFDEDC</item>
+        <item>#DEF8EE</item>
     </array>
 
 </resources>

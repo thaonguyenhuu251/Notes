@@ -60,6 +60,8 @@
                         android:layout_gravity="center_vertical"
                         android:layout_toStartOf="@+id/imgClose"
                         android:background="@null"
+                        android:drawableStart="@drawable/ic_search"
+                        android:drawableTint="@color/background_general"
                         android:gravity="center_vertical"
                         android:hint="Search..."
                         android:inputType="text"
@@ -68,8 +70,7 @@
                         android:singleLine="true"
                         android:textColor="@color/black"
                         android:textCursorDrawable="@color/background_general"
-                        android:textSize="@dimen/_12ssp"
-                        app:drawableTint="@color/white" />
+                        android:textSize="@dimen/_12ssp" />
 
                     <ImageView
                         android:id="@+id/imgClose"
@@ -124,7 +125,7 @@
         android:layout_gravity="start"
         android:fitsSystemWindows="true">
 
-        <include layout="@layout/menu"/>
+        <include layout="@layout/layout_menu"/>
 
     </com.google.android.material.navigation.NavigationView>
 </androidx.drawerlayout.widget.DrawerLayout>

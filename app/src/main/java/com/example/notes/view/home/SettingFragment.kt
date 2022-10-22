@@ -27,8 +27,7 @@ class SettingFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.txtPrivacyPolicy.setOnClickListener {
-            val i = Intent(requireContext(), LoginPassword::class.java)
-            startActivity(i)
+
         }
     }
 
