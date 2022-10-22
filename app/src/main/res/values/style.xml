@@ -19,4 +19,10 @@
         <item name="android:windowIsFloating">false</item>
 
     </style>
+
+    <style name="myTimePickerStyle" parent="@android:style/Widget.Material.Light.TimePicker">
+        <item name="android:numbersSelectorColor">@color/background_general</item>
+        <item name="android:headerBackground">@color/background_general</item>
+    </style>
+
 </resources>

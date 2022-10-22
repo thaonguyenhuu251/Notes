@@ -6,10 +6,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
-    <ImageView
+    <TextView
+        android:id="@+id/txtViewModeDialogTiltle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_line"/>
+        android:text="Sorted"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_16ssp"
+        android:gravity="center"
+        android:padding="@dimen/_5sdp"
+        android:background="@drawable/bg_bottom_sheet_blue"
+        app:drawableTint="@color/white" />
 
     <TextView
         android:id="@+id/txtDisplay"
