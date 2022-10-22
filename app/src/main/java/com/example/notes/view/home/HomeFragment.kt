@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.notes.adapter.HomePagerFragmentAdapter
 import com.example.notes.databinding.FragmentHomeBinding
+import com.example.notes.view.components.BottomSheetSort
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 
@@ -18,6 +19,10 @@ class HomeFragment : Fragment() {
     }
 
     private fun initView() {
+        binding.imgSort.setOnClickListener {
+            val bottomSheetSort = BottomSheetSort()
+            bottomSheetSort.show(childFragmentManager, BottomSheetSort.TAG)
+        }
         binding.viewPager.adapter = HomePagerFragmentAdapter(titles, requireActivity())
         binding.viewPager.isUserInputEnabled = true
         setTabLayout()

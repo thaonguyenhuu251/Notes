@@ -74,7 +74,6 @@ class MainActivity : AppCompatActivity() {
         setDrawer()
         eventSearch()
 
-
     }
 
     private fun setBottomMenu() {

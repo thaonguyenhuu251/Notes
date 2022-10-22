@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_bottomsheet"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_line"/>
+
+    <TextView
+        android:id="@+id/txtDisplay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingVertical="@dimen/_10sdp"
+        android:paddingHorizontal="@dimen/_15sdp"
+        android:drawableEnd="@drawable/ic_back_right"
+        android:drawablePadding="@dimen/_10sdp"
+        android:text="Sort By Name ascending"
+        android:textSize="@dimen/_12ssp"
+        app:drawableStartCompat="@drawable/ic_subtitle"
+        app:drawableTint="@color/background_general" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingVertical="@dimen/_10sdp"
+        android:paddingHorizontal="@dimen/_15sdp"
+        android:drawableEnd="@drawable/ic_back_right"
+        android:drawablePadding="@dimen/_10sdp"
+        android:text="Sort By Name decrease"
+        android:textSize="@dimen/_12ssp"
+        app:drawableStartCompat="@drawable/ic_subtitles_dis"
+        app:drawableTint="@color/background_general" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingVertical="@dimen/_10sdp"
+        android:paddingHorizontal="@dimen/_15sdp"
+        android:drawableEnd="@drawable/ic_back_right"
+        android:drawablePadding="@dimen/_10sdp"
+        android:text="Sort By Time ascending"
+        android:textSize="@dimen/_12ssp"
+        app:drawableStartCompat="@drawable/ic_video_time"
+        app:drawableTint="@color/background_general" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingVertical="@dimen/_10sdp"
+        android:paddingHorizontal="@dimen/_15sdp"
+        android:drawableEnd="@drawable/ic_back_right"
+        android:drawablePadding="@dimen/_10sdp"
+        android:text="Sort By Time decrease"
+        android:textSize="@dimen/_12ssp"
+        app:drawableStartCompat="@drawable/ic_calendar"
+        app:drawableTint="@color/background_general" />
+
+</LinearLayout>
