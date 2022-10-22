@@ -172,7 +172,7 @@
                     android:drawablePadding="@dimen/_10sdp"
                     android:text="@string/LoginFingerprint"
                     android:textSize="@dimen/_12ssp"
-                    app:drawableStartCompat="@drawable/ic_fingerprint"
+                    app:drawableStartCompat="@drawable/ic_fingerprint_setting"
                     app:drawableTint="@color/blue" />
                 <Switch
                     android:id="@+id/swLoginFingerprint"
