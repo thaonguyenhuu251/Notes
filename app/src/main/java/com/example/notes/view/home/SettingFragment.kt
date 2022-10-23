@@ -1,11 +1,13 @@
 package com.example.notes.view.home
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.example.notes.R
 import com.example.notes.view.login.LoginPassword
 import com.example.notes.databinding.FragmentSettingBinding
 
@@ -27,8 +29,19 @@ class SettingFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.txtPrivacyPolicy.setOnClickListener {
-
+            val i = Intent(requireContext(), LoginPassword::class.java)
+            startActivity(i)
         }
+        binding.txtDisplay.setOnClickListener {
+            val fragment = DisplaySettingsFragment()
+            toDisplayFragment(fragment)
+        }
+    }
+
+    @SuppressLint("ResourceType")
+    private fun toDisplayFragment(fragment: Fragment) {
+        val fram = fragmentManager?.beginTransaction()?.replace(R.id.content, DisplaySettingsFragment())
+            ?.commit()
     }
 
     companion object {
