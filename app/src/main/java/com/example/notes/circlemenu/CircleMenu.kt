@@ -146,16 +146,22 @@ class CircleMenu @JvmOverloads constructor(
             }
         }
 
-
-
         super.setOnClickListener {
             showMenu()
         }
     }
 
-    private fun showMenu() {
+    fun showMenu() {
         menuLayout.visibility = View.VISIBLE
         menuLayout.open(true)
+    }
+
+    fun showCircleMenu() {
+        menuLayout.visibility = View.VISIBLE
+    }
+
+    fun hideCircleMenu() {
+        menuLayout.visibility = View.GONE
     }
 
     override fun setOnClickListener(l: OnClickListener?) {
@@ -204,6 +210,10 @@ class CircleMenu @JvmOverloads constructor(
 
     fun onButtonClickAnimationEnd(listener: (buttonIndex: Int) -> Unit) {
         this.menuLayout.onButtonClickAnimationEnd(listener)
+    }
+
+    fun showButton(animate: Boolean = true) {
+        this.menuLayout.open(animate)
     }
 
     internal enum class MenuIconType(val code: String) {

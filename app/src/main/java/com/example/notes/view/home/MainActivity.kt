@@ -121,7 +121,8 @@ class MainActivity : AppCompatActivity() {
     private fun openDrawer() {
         val navigationView = binding.navMain
         navigationView.setNavigationItemSelectedListener { true }
-        binding.imgMenu.setOnClickListener { view ->
+        binding.imgMenu.setOnClickListener {
+            binding.bottomMenu.circleMenu.hideCircleMenu()
             mDrawerLayout.openDrawer(GravityCompat.START)
             FileUtils.hideKeyboard(this)
         }
@@ -146,6 +147,7 @@ class MainActivity : AppCompatActivity() {
 
                 override fun onDrawerClosed(drawerView: View) {
                     // Respond when the drawer is closed
+                    binding.bottomMenu.circleMenu.showCircleMenu()
                 }
 
                 override fun onDrawerStateChanged(newState: Int) {
