@@ -33,9 +33,6 @@
             android:name=".view.home.AddNoteActivity"
             android:exported="false" />
         <activity
-            android:name=".view.home.AddWorkActivity"
-            android:exported="false" />
-        <activity
             android:name=".view.home.MainActivity"
             android:windowSoftInputMode="adjustPan"
             android:exported="false">

@@ -33,5 +33,9 @@
 
     <string name="LoginFingerprint">Fingerprint Login</string>
     <string name="loginPass">Login Password</string>
+    <string name="blue">Blue</string>
+    <string name="orange">Orange</string>
+    <string name="turquoise">Turquoise</string>
+    <string name="yellow">Yellow</string>
 
 </resources>
