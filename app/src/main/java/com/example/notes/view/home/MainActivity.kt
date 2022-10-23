@@ -74,7 +74,6 @@ class MainActivity : AppCompatActivity() {
         setDrawer()
         eventSearch()
 
-
     }
 
     private fun setBottomMenu() {
@@ -125,6 +124,7 @@ class MainActivity : AppCompatActivity() {
             mDrawerLayout.openDrawer(GravityCompat.START)
             FileUtils.hideKeyboard(this)
         }
+
         mDrawerLayout.addDrawerListener(
             object : DrawerListener {
                 override fun onDrawerSlide(drawerView: View, slideOffset: Float) {
