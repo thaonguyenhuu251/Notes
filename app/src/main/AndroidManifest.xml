@@ -23,6 +23,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".view.home.TrashActivity"
             android:exported="false" />
@@ -33,11 +34,18 @@
             android:name=".view.home.AddNoteActivity"
             android:exported="false" />
         <activity
+            android:name=".view.home.AddWorkActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.home.MainActivity"
             android:windowSoftInputMode="adjustPan"
             android:exported="false">
 
         </activity>
+
+        <activity
+            android:name=".view.home.DisplaySettingsActivity"
+            android:exported="false" />
     </application>
 
 </manifest>

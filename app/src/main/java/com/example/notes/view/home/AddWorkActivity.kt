@@ -26,17 +26,17 @@ class AddWorkActivity : AppCompatActivity() {
         binding = ActivityAddWorkBinding.inflate(layoutInflater)
         val view: View = binding.root
         setContentView(view)
-        binding.root.setOnClickListener { v: View? -> hideKeyboard(this) }
-        binding.txtBack.setOnClickListener { v: View? -> onBackPressed() }
-        binding.edtTimeComplete.setOnClickListener { v: View? ->
+        binding.root.setOnClickListener { hideKeyboard(this) }
+        binding.txtBack.setOnClickListener { onBackPressed() }
+        binding.edtTimeComplete.setOnClickListener {
             val dialogTime = TimeDialog()
             dialogTime.show(supportFragmentManager, dialogTime.tag)
         }
-        binding.edtStartDay.setOnClickListener { v: View? ->
+        binding.edtStartDay.setOnClickListener {
             val dialogDate = DateDialog()
             dialogDate.show(supportFragmentManager, dialogDate.tag)
         }
-        binding.btnAddWork.setOnClickListener { v: View? ->
+        binding.btnAddWork.setOnClickListener {
             val timeComplete: Float
             val nameWork: String
             val startDay: String
@@ -72,91 +72,5 @@ class AddWorkActivity : AppCompatActivity() {
 
     override fun onBackPressed() {
         super.onBackPressed()
-    } /*private void openDialogTime(int gravity) {
-        final Dialog dialog = new Dialog(this);
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        dialog.setContentView(R.layout.dialog_time);
-
-        Window window = dialog.getWindow();
-        if (window == null) {
-            return;
-        }
-
-        window.setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT);
-        window.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-
-        WindowManager.LayoutParams windowAttributes = window.getAttributes();
-        windowAttributes.gravity = gravity;
-        window.setAttributes(windowAttributes);
-
-        if (Gravity.CENTER == gravity) {
-            dialog.setCancelable(true);
-        } else {
-            dialog.setCancelable(false);
-        }
-        txtDone = dialog.findViewById(R.id.txtDone);
-        txtExit = dialog.findViewById(R.id.txtExit);
-
-        txtDone.setOnClickListener(v->{
-            hour = timepicker.getCurrentHour();
-            minutes = timepicker.getCurrentMinute();
-            binding.edtTimeComplete.setText(FileUtils.formatTimeNew(hour, (int) minutes));
-            dialog.dismiss();
-        });
-
-        txtExit.setOnClickListener(v->{
-            dialog.dismiss();
-        });
-        timepicker = dialog.findViewById(R.id.timePicker);
-        timepicker.setIs24HourView(true);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            timepicker.setHour(01);
-            timepicker.setMinute(00);
-        }
-
-        dialog.show();
-    }*/
-    /*@SuppressLint("DefaultLocale")
-    private void openDialogDay(int gravity) {
-        final Dialog dialog = new Dialog(this);
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        dialog.setContentView(R.layout.dialog_day);
-        datePicker = dialog.findViewById(R.id.dayPicker);
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTimeInMillis(System.currentTimeMillis());
-
-        Window window = dialog.getWindow();
-        if (window == null) {
-            return;
-        }
-
-        window.setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT);
-        window.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-
-        WindowManager.LayoutParams windowAttributes = window.getAttributes();
-        windowAttributes.gravity = gravity;
-        window.setAttributes(windowAttributes);
-
-        if (Gravity.CENTER == gravity) {
-            dialog.setCancelable(true);
-        } else {
-            dialog.setCancelable(false);
-        }
-        txtDone = dialog.findViewById(R.id.txtDone);
-        txtExit = dialog.findViewById(R.id.txtExit);
-
-        txtDone.setOnClickListener(v->{
-            int day = this.datePicker.getDayOfMonth();
-            int year = this.datePicker.getYear();
-            int month = this.datePicker.getMonth() + 1;
-            binding.edtStartDay.setText(FileUtils.formatCalendar(day, month, year));
-            dialog.dismiss();
-        });
-
-        txtExit.setOnClickListener(v->{
-            dialog.dismiss();
-        });
-
-        dialog.show();
-    }*/
+    }
 }
