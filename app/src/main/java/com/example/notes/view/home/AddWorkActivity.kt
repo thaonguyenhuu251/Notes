@@ -10,6 +10,7 @@ import android.view.View
 import android.widget.Toast
 import com.example.notes.databinding.ActivityAddWorkBinding
 import com.example.notes.view.components.DateDialog
+import com.example.notes.view.components.TimeDialog
 import java.lang.Exception
 
 class AddWorkActivity : AppCompatActivity() {
@@ -28,7 +29,8 @@ class AddWorkActivity : AppCompatActivity() {
         binding.root.setOnClickListener { v: View? -> hideKeyboard(this) }
         binding.txtBack.setOnClickListener { v: View? -> onBackPressed() }
         binding.edtTimeComplete.setOnClickListener { v: View? ->
-
+            val dialogTime = TimeDialog()
+            dialogTime.show(supportFragmentManager, dialogTime.tag)
         }
         binding.edtStartDay.setOnClickListener { v: View? ->
             val dialogDate = DateDialog()

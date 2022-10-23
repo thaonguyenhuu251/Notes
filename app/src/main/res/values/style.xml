@@ -53,4 +53,10 @@
         <item name="cornerSize">@dimen/_10sdp</item>
     </style>
 
+    <style name="MyAppThemeDate" parent="Theme.AppCompat.Light.Dialog">
+        <item name="colorPrimary">@color/background_general</item>
+        <item name="colorPrimaryDark">@color/background_general</item>
+        <item name="colorAccent">@color/background_general</item>
+    </style>
+
 </resources>

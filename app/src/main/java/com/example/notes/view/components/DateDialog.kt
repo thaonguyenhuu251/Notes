@@ -6,6 +6,7 @@ import android.view.*
 import androidx.fragment.app.DialogFragment
 import com.example.notes.R
 import com.example.notes.databinding.DialogDayBinding
+import java.util.*
 
 class DateDialog : DialogFragment() {
     private lateinit var binding: DialogDayBinding
@@ -15,7 +16,14 @@ class DateDialog : DialogFragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = DialogDayBinding.inflate(layoutInflater)
+        binding.txtDone.setOnClickListener{
+            val day = binding.dayPicker.dayOfMonth
+            val year = binding.dayPicker.year
+            val month = binding.dayPicker.month + 1
+            dismiss()
+        }
 
+        binding.txtExit.setOnClickListener{ dismiss() }
         return binding.root
     }
 
@@ -31,6 +39,10 @@ class DateDialog : DialogFragment() {
         val windowAttributes: WindowManager.LayoutParams = window.attributes!!
         windowAttributes.gravity = Gravity.CENTER_VERTICAL
         window.attributes = windowAttributes
+
+
+        val calendar = Calendar.getInstance()
+        calendar.timeInMillis = System.currentTimeMillis()
 
     }
 

@@ -36,6 +36,11 @@ class SettingFragment : Fragment() {
             val fragment = DisplaySettingsFragment()
             toDisplayFragment(fragment)
         }
+
+        binding.txtTrash.setOnClickListener {
+            val i = Intent(requireContext(), TrashActivity::class.java)
+            startActivity(i)
+        }
     }
 
     @SuppressLint("ResourceType")
