@@ -26,28 +26,24 @@
                 tools:ignore="UselessParent"
                 android:weightSum="2">
 
-                <ImageView
+                <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/ivBG1"
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="@dimen/_150sdp"
                     android:scaleType="centerCrop"
                     android:layout_margin="@dimen/_10sdp"
-                    android:background="@drawable/bg_dialog_round"
-                    android:clipToOutline="true"
-                    android:src="@drawable/bg_purple_sky"
-                    tools:ignore="ContentDescription,UnusedAttribute" />
-                <ImageView
+                    app:srcCompat="@drawable/bg_purple_sky"
+                    app:shapeAppearanceOverlay="@style/roundedCornersImageView"/>
+                <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/ivBG2"
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="@dimen/_150sdp"
                     android:scaleType="centerCrop"
                     android:layout_margin="@dimen/_10sdp"
-                    android:background="@drawable/bg_dialog_round"
-                    android:clipToOutline="true"
-                    android:src="@drawable/bg_lofi_chill_night"
-                    tools:ignore="ContentDescription,UnusedAttribute" />
+                    app:srcCompat="@drawable/bg_lofi_chill_night"
+                    app:shapeAppearanceOverlay="@style/roundedCornersImageView"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -56,28 +52,24 @@
                 tools:ignore="UselessParent"
                 android:weightSum="2">
 
-                <ImageView
+                <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/ivBG3"
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="@dimen/_150sdp"
                     android:scaleType="centerCrop"
                     android:layout_margin="@dimen/_10sdp"
-                    android:background="@drawable/bg_dialog_round"
-                    android:clipToOutline="true"
-                    android:src="@drawable/bg_moon_night"
-                    tools:ignore="ContentDescription,UnusedAttribute" />
-                <ImageView
+                    app:srcCompat="@drawable/bg_moon_night"
+                    app:shapeAppearanceOverlay="@style/roundedCornersImageView"/>
+                <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/ivBG4"
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="@dimen/_150sdp"
                     android:scaleType="centerCrop"
                     android:layout_margin="@dimen/_10sdp"
-                    android:background="@drawable/bg_dialog_round"
-                    android:clipToOutline="true"
-                    android:src="@drawable/bg_violet_evergarden"
-                    tools:ignore="ContentDescription,UnusedAttribute" />
+                    app:srcCompat="@drawable/bg_violet_evergarden"
+                    app:shapeAppearanceOverlay="@style/roundedCornersImageView"/>
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
