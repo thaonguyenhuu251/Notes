@@ -176,7 +176,7 @@
                     app:drawableStartCompat="@drawable/ic_fingerprint_setting"
                     app:drawableTint="@color/background_general" />
 
-                <Switch
+                <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swLoginFingerprint"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -184,6 +184,8 @@
                     android:gravity="center"
                     android:paddingEnd="@dimen/_10sdp"
                     app:drawableTint="@color/background_general"
+                    app:thumbTint = "@drawable/thumb"
+                    app:trackTint = "@drawable/track"
                     tools:ignore="UnusedAttribute,UseSwitchCompatOrMaterialXml" />
             </LinearLayout>
 
