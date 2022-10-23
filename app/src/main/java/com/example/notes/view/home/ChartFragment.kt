@@ -6,6 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.notes.R
+import com.example.notes.adapter.HomePagerFragmentAdapter
+import com.example.notes.databinding.FragmentChartBinding
+import com.example.notes.databinding.FragmentHomeBinding
+import com.github.mikephil.charting.utils.Utils.init
+import com.google.android.material.tabs.TabLayout
+import com.google.android.material.tabs.TabLayoutMediator
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -22,6 +28,9 @@ class ChartFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
+    private val titles = arrayOf("Note", "Work")
+    private lateinit var binding:FragmentChartBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -34,8 +43,39 @@ class ChartFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_chart, container, false)
+        binding = FragmentChartBinding.inflate(layoutInflater)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        initView()
+    }
+
+    private fun initView() {
+        binding.viewPager.adapter = HomePagerFragmentAdapter(titles, requireActivity())
+        binding.viewPager.isUserInputEnabled = true
+        setTabLayout()
+    }
+
+    private fun setTabLayout() {
+        TabLayoutMediator(binding.tablayout, binding.viewPager) { tab, position ->
+            tab.text = titles[position]
+        }.attach()
+
+        binding.tablayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+            override fun onTabSelected(tab: TabLayout.Tab?) {
+
+
+            }
+
+            override fun onTabUnselected(tab: TabLayout.Tab?) {
+
+            }
+
+            override fun onTabReselected(tab: TabLayout.Tab?) {
+
+            }
+        })
     }
 
     companion object {

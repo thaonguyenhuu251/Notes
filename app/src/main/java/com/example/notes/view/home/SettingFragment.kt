@@ -30,6 +30,11 @@ class SettingFragment : Fragment() {
             val i = Intent(requireContext(), LoginPassword::class.java)
             startActivity(i)
         }
+
+        binding.txtTrash.setOnClickListener {
+            val i = Intent(requireContext(), TrashActivity::class.java)
+            startActivity(i)
+        }
     }
 
     companion object {

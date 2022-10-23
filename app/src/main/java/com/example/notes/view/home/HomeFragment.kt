@@ -12,6 +12,7 @@ import com.google.android.material.tabs.TabLayoutMediator
 
 class HomeFragment : Fragment() {
     private val titles = arrayOf("Note", "Work")
+
     private lateinit var binding: FragmentHomeBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
