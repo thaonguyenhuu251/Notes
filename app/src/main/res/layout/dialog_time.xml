@@ -10,8 +10,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/bg_detail"
-        android:drawableEnd="@drawable/ic_detail"
-        android:drawableTint="@color/white"
         android:padding="@dimen/_10sdp"
         android:text="Select time"
         android:textColor="@color/white"
@@ -19,7 +17,9 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:drawableEndCompat="@drawable/ic_detail"
+        app:drawableTint="@color/white" />
 
 
     <LinearLayout
@@ -34,12 +34,11 @@
 
         <TimePicker
             android:id="@+id/timePicker"
-            style="@style/myTimePickerStyle"
+            android:theme="@style/MyAppThemeDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingHorizontal="@dimen/_20sdp"
-            android:layout_gravity="center"
-            android:timePickerMode="spinner" />
+            android:paddingBottom="@dimen/_20sdp"
+            android:timePickerMode="clock"/>
 
     </LinearLayout>
 

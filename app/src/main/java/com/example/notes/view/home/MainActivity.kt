@@ -24,6 +24,7 @@ import com.example.notes.*
 import com.example.notes.databinding.ActivityMainBinding
 import com.example.notes.util.Constants
 import com.example.notes.util.FileUtils
+import com.example.notes.view.login.LoginPassword
 import com.google.android.material.navigation.NavigationBarView
 
 class MainActivity : AppCompatActivity() {
@@ -135,6 +136,11 @@ class MainActivity : AppCompatActivity() {
                     // Respond when the drawer is opened
                     drawerView.findViewById<TextView>(R.id.text_ContactUs).setOnClickListener {
                         askPermissionAndCall()
+                    }
+
+                    drawerView.findViewById<TextView>(R.id.txtClockApp).setOnClickListener {
+                        val i = Intent(this@MainActivity, LoginPassword::class.java)
+                        startActivity(i)
                     }
                 }
 

@@ -26,6 +26,9 @@
     </style>
 
     <style name="MyDialog" parent="Theme.AppCompat.Light.Dialog">
+        <item name="android:windowMinWidthMajor">80%</item>
+        <item name="android:windowMinWidthMinor">80%</item>
+        <item name="android:windowContentOverlay">@null</item>
         <item name="android:windowBackground">@android:color/transparent</item>
         <item name="android:windowIsFloating">true</item>
         <item name="android:windowCloseOnTouchOutside">true</item>
@@ -57,6 +60,11 @@
         <item name="colorPrimary">@color/background_general</item>
         <item name="colorPrimaryDark">@color/background_general</item>
         <item name="colorAccent">@color/background_general</item>
+    </style>
+
+    <style name="drawer" parent="Theme.AppCompat.Light">
+        <item name="background">@drawable/bg_drawer</item>
+        <item name="android:src">@drawable/bg_moon_night</item>
     </style>
 
 </resources>

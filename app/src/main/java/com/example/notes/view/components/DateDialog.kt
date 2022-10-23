@@ -14,7 +14,7 @@ class DateDialog : DialogFragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = DialogDayBinding.inflate(layoutInflater)
         binding.txtDone.setOnClickListener{
             val day = binding.dayPicker.dayOfMonth
@@ -35,10 +35,10 @@ class DateDialog : DialogFragment() {
             WindowManager.LayoutParams.MATCH_PARENT,
             WindowManager.LayoutParams.WRAP_CONTENT
         )
-        setStyle(STYLE_NO_TITLE, R.style.MyDialog)
-        val windowAttributes: WindowManager.LayoutParams = window.attributes!!
+        setStyle(STYLE_NORMAL, R.style.MyDialog)
+        /*val windowAttributes: WindowManager.LayoutParams = window.attributes!!
         windowAttributes.gravity = Gravity.CENTER_VERTICAL
-        window.attributes = windowAttributes
+        window.attributes = windowAttributes*/
 
 
         val calendar = Calendar.getInstance()
