@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import com.example.notes.databinding.ActivityAddNoteBinding
+import com.example.notes.view.components.DateDialog
+import com.example.notes.view.components.TimeDialog
 
 class AddNoteActivity : AppCompatActivity() {
 
@@ -16,6 +18,11 @@ class AddNoteActivity : AppCompatActivity() {
 
         binding.txtBack.setOnClickListener {
             onBackPressed()
+        }
+
+        binding.tvToday.setOnClickListener {
+            val dialogDate = DateDialog()
+            dialogDate.show(supportFragmentManager, dialogDate.tag)
         }
 
     }
