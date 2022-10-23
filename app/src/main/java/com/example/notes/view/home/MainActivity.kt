@@ -28,7 +28,7 @@ import com.google.android.material.navigation.NavigationBarView
 
 class MainActivity : AppCompatActivity() {
     var homeFragment = HomeFragment()
-    var chartFragment = ChartFragment()
+    var bookMarkFragment = BookMarkFragment()
     var settingFragment = SettingFragment()
     var notificationFragment = NotificationFragment()
 
@@ -91,7 +91,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.chart -> {
                     binding.rltSearch.visibility = View.GONE
                     supportFragmentManager.beginTransaction()
-                        .replace(R.id.content, chartFragment).commit()
+                        .replace(R.id.content, bookMarkFragment).commit()
                     return@OnItemSelectedListener true
                 }
 

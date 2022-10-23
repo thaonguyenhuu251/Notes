@@ -29,6 +29,11 @@ class SettingFragment : Fragment() {
         binding.txtPrivacyPolicy.setOnClickListener {
 
         }
+
+        binding.txtTrash.setOnClickListener {
+            val i = Intent(requireContext(), TrashActivity::class.java)
+            startActivity(i)
+        }
     }
 
     companion object {
