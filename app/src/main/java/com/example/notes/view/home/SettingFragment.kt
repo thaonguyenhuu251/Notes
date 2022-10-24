@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.notes.view.login.LoginPassword
 import com.example.notes.databinding.FragmentSettingBinding
+import com.example.notes.view.components.LanguageDialog
 
 class SettingFragment : Fragment() {
     private lateinit var binding: FragmentSettingBinding
@@ -38,6 +39,11 @@ class SettingFragment : Fragment() {
         binding.txtTrash.setOnClickListener {
             val i = Intent(requireContext(), TrashActivity::class.java)
             startActivity(i)
+        }
+
+        binding.txtLanguage.setOnClickListener {
+            val languageDialog = LanguageDialog()
+            fragmentManager?.let { it1 -> languageDialog.show(it1, languageDialog.tag) }
         }
     }
 
