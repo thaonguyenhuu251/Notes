@@ -1,6 +1,5 @@
 package com.example.notes.view.components
 
-import android.annotation.SuppressLint
 import android.app.Dialog
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,13 +10,13 @@ import androidx.fragment.app.DialogFragment
 import com.example.notes.R
 import com.example.notes.databinding.DialogLanguageBinding
 
-class LanguageDialog:DialogFragment() {
-    private lateinit var binding:DialogLanguageBinding
+class LanguageDialog : DialogFragment() {
+    private lateinit var binding: DialogLanguageBinding
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = DialogLanguageBinding.inflate(layoutInflater)
         binding.txtOKLanguage.setOnClickListener {
             dismiss()

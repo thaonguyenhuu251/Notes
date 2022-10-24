@@ -43,7 +43,7 @@ class SettingFragment : Fragment() {
 
         binding.txtLanguage.setOnClickListener {
             val languageDialog = LanguageDialog()
-            fragmentManager?.let { it1 -> languageDialog.show(it1, languageDialog.tag) }
+            languageDialog.show(childFragmentManager, languageDialog.tag)
         }
     }
 
