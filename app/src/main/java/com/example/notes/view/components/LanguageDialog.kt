@@ -31,12 +31,11 @@ class LanguageDialog : DialogFragment() {
         super.onCreate(savedInstanceState)
         val dialog = Dialog(requireContext())
         val window = dialog.window
-        window?.setBackgroundDrawableResource(R.drawable.bg_dialog_round)
         window!!.setLayout(
             WindowManager.LayoutParams.MATCH_PARENT,
             WindowManager.LayoutParams.WRAP_CONTENT
         )
-        setStyle(STYLE_NORMAL, R.style.MyLanguageDialog)
+        setStyle(STYLE_NORMAL, R.style.MyDialog)
         /*val windowAttributes: WindowManager.LayoutParams = window.attributes!!
         windowAttributes.gravity = Gravity.CENTER_VERTICAL
         window.attributes = windowAttributes*/
@@ -45,7 +44,6 @@ class LanguageDialog : DialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
 
     }
 

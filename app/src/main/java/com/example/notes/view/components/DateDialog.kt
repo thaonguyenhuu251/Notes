@@ -32,7 +32,7 @@ class DateDialog : DialogFragment() {
         val dialog = Dialog(requireContext())
         val window = dialog.window
         window!!.setLayout(
-            WindowManager.LayoutParams.MATCH_PARENT,
+            WindowManager.LayoutParams.WRAP_CONTENT,
             WindowManager.LayoutParams.WRAP_CONTENT
         )
         setStyle(STYLE_NORMAL, R.style.MyDialog)
