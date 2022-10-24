@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.notes.adapter.WorkDoAdapter
 import com.example.notes.databinding.FragmentListWorkBinding
 import com.example.notes.model.Work
+import com.example.notes.util.FileUtils
 
 class ListWorkFragment : Fragment() {
     lateinit var workDoAdapter: WorkDoAdapter
@@ -31,9 +32,7 @@ class ListWorkFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
 
-        }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -41,6 +40,13 @@ class ListWorkFragment : Fragment() {
         binding.recyclerview.setHasFixedSize(true)
         layoutManager = LinearLayoutManager(context)
         binding.recyclerview.layoutManager = layoutManager
+
+        binding.root.setOnClickListener {
+            FileUtils.hideKeyboard(requireActivity())
+        }
+        binding.content.setOnClickListener {
+            FileUtils.hideKeyboard(requireActivity())
+        }
     }
 
     override fun onResume() {
