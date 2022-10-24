@@ -36,6 +36,17 @@
         <item name="marginHorizontal">@dimen/_10sdp</item>
     </style>
 
+    <style name="MyLanguageDialog" parent="Theme.AppCompat.Light.Dialog">
+        <item name="android:windowMinWidthMajor">80%</item>
+        <item name="android:windowMinWidthMinor">80%</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowBackground">@drawable/bg_dialog_round</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowCloseOnTouchOutside">true</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="marginHorizontal">@dimen/_10sdp</item>
+    </style>
+
     <style name="AppDialogTheme" parent="Theme.AppCompat.Light.Dialog">
         <!-- Define color properties as desired -->
         <item name="colorPrimary">@color/dark_blue</item>

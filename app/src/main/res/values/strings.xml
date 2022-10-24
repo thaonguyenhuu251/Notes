@@ -45,5 +45,10 @@
     <string name="chat_with_me">Chat With Me</string>
     <string name="my_profile">My Profile</string>
     <string name="login">Login</string>
+    <string name="vietnam">Vietnam</string>
+    <string name="englishuk">English (UK)</string>
+    <string name="russian">Russian</string>
+    <string name="choose_your_language">Choose your language</string>
+    <string name="south_korea">South Korea</string>
 
 </resources>
