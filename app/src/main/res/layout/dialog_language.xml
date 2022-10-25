@@ -3,7 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/_15sdp"
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/txtChooseLanguage"
@@ -15,6 +17,21 @@
         android:text="@string/choose_your_language"
         android:textColor="@color/white"
         android:textSize="@dimen/_16ssp"
+        android:textStyle="bold" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_2sdp"
+        android:background="@color/white_smoke"/>
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -99,7 +116,13 @@
             android:padding="@dimen/_5sdp"
             android:text="@string/ok"
             android:textColor="@color/red"
-            android:textSize="@dimen/_14ssp" />
+            android:textSize="@dimen/_14ssp"
+            tools:ignore="RtlHardcoded" />
+
+        <View
+            android:layout_width="@dimen/_2sdp"
+            android:layout_height="match_parent"
+            android:background="@color/white_smoke"/>
 
         <TextView
             android:id="@+id/txtCancelLanguage"
@@ -110,7 +133,8 @@
             android:padding="@dimen/_5sdp"
             android:text="@string/cancel"
             android:textColor="@color/red"
-            android:textSize="@dimen/_14ssp" />
+            android:textSize="@dimen/_14ssp"
+            tools:ignore="RtlHardcoded" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
