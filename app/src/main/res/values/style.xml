@@ -65,6 +65,8 @@
     <style name="roundedCornersImageView" parent="">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">@dimen/_10sdp</item>
+        <item name="strokeWidth">@dimen/_2sdp</item>
+        <item name="strokeColor">@color/blue</item>
     </style>
 
     <style name="MyAppThemeDate" parent="Theme.AppCompat.Light.Dialog">
