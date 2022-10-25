@@ -2,102 +2,70 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:layout_margin="@dimen/_12sdp">
+    android:layout_margin="@dimen/_15sdp"
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/txtChooseLanguage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/background_general"
-        android:text="@string/choose_your_language"
-        android:textSize="@dimen/_16ssp"
-        android:textColor="@color/white"
-        android:textStyle="bold"
         android:gravity="center"
-        android:padding="@dimen/_5sdp" />
-    <HorizontalScrollView
+        android:padding="@dimen/_5sdp"
+        android:text="@string/choose_your_language"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_16ssp"
+        android:textStyle="bold" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="@dimen/_2sdp"
-        tools:ignore="UselessLeaf,UselessParent">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            tools:ignore="ScrollViewSize">
-
-            <TextView
-                android:id="@+id/txtVietNam"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/_10sdp"
-                android:text="@string/vietnam"
-                android:textSize="@dimen/_14ssp"
-                android:textStyle="bold"
-                app:drawableTopCompat="@drawable/ic_language_vietnam" />
-
-            <TextView
-                android:id="@+id/txtEnglishUK"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/_10sdp"
-                android:text="@string/englishuk"
-                android:textSize="@dimen/_14ssp"
-                android:textStyle="bold"
-                app:drawableTopCompat="@drawable/ic_language_english_uk" />
-            <TextView
-                android:id="@+id/txtSouthKorea"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/_10sdp"
-                android:text="@string/south_korea"
-                android:textSize="@dimen/_14ssp"
-                android:textStyle="bold"
-                app:drawableTopCompat="@drawable/ic_language_south_korea" />
-
-            <TextView
-                android:id="@+id/txtRussian"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/_10sdp"
-                android:text="@string/russian"
-                android:textSize="@dimen/_14ssp"
-                android:textStyle="bold"
-                app:drawableTopCompat="@drawable/ic_language_russian" />
-        </LinearLayout>
-
-    </HorizontalScrollView>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_2sdp"
+        android:background="@color/white_smoke"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:gravity="center"
         android:weightSum="2">
 
         <TextView
             android:id="@+id/txtOKLanguage"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:gravity="center"
-            android:text="@string/ok"
-            android:textSize="@dimen/_14ssp"
-            android:textColor="@color/red"
             android:padding="@dimen/_5sdp"
+            android:text="@string/ok"
+            android:textColor="@color/red"
+            android:textSize="@dimen/_14ssp"
             tools:ignore="RtlHardcoded" />
+
+        <View
+            android:layout_width="@dimen/_2sdp"
+            android:layout_height="match_parent"
+            android:background="@color/white_smoke"/>
+
         <TextView
             android:id="@+id/txtCancelLanguage"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:gravity="center"
-            android:text="@string/cancel"
-            android:textSize="@dimen/_14ssp"
-            android:textColor="@color/red"
             android:padding="@dimen/_5sdp"
+            android:text="@string/cancel"
+            android:textColor="@color/red"
+            android:textSize="@dimen/_14ssp"
             tools:ignore="RtlHardcoded" />
     </LinearLayout>
 
