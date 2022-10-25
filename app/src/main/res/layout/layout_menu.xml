@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:theme="@style/drawer"
+    android:background="@drawable/bg_purple_sky"
+    android:id="@+id/drawerMain">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_20sdp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="@dimen/_80sdp"
+            android:layout_height="@dimen/_80sdp"
+            android:padding="@dimen/_10sdp"
+            android:layout_margin="@dimen/_20sdp"
+            android:src="@drawable/user" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:drawablePadding="@dimen/_10sdp"
+            android:padding="@dimen/_20sdp"
+            android:text="@string/login"
+            android:textSize="@dimen/_16ssp"
+            app:drawableEndCompat="@drawable/vector" />
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawablePadding="@dimen/_10sdp"
+        android:padding="20dp"
+        android:text="@string/my_profile"
+        android:textSize="@dimen/_15ssp"
+        android:textColor="@color/white"
+        app:drawableTint="@color/white"
+        app:drawableStartCompat="@drawable/personal"
+        app:drawableEndCompat="@drawable/ic_back_right"
+         />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawablePadding="@dimen/_10sdp"
+        android:padding="20dp"
+        android:text="@string/chat_with_me"
+        android:textSize="@dimen/_15ssp"
+        android:textColor="@color/white"
+        app:drawableTint="@color/white"
+        app:drawableEndCompat="@drawable/ic_back_right"
+        app:drawableStartCompat="@drawable/callme" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawablePadding="@dimen/_10sdp"
+        android:padding="20dp"
+        android:text="@string/about_us"
+        android:textSize="@dimen/_15ssp"
+        android:textColor="@color/white"
+        app:drawableTint="@color/white"
+        app:drawableEndCompat="@drawable/ic_back_right"
+        app:drawableStartCompat="@drawable/about_us" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawablePadding="@dimen/_10sdp"
+        android:padding="20dp"
+        android:text="@string/term_privacy"
+        android:textSize="@dimen/_15ssp"
+        android:textColor="@color/white"
+        app:drawableTint="@color/white"
+        app:drawableEndCompat="@drawable/ic_back_right"
+        app:drawableStartCompat="@drawable/term" />
+
+    <TextView
+        android:id="@+id/text_ContactUs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawablePadding="@dimen/_10sdp"
+        android:padding="20dp"
+        android:text="@string/contact_us"
+        android:textSize="@dimen/_15ssp"
+        android:textColor="@color/white"
+        app:drawableTint="@color/white"
+        app:drawableEndCompat="@drawable/ic_back_right"
+        app:drawableStartCompat="@drawable/contact_us" />
+
+    <TextView
+        android:id="@+id/txtClockApp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawablePadding="@dimen/_10sdp"
+        android:padding="20dp"
+        android:text="@string/clock_app"
+        android:textColor="@color/red"
+        android:textSize="@dimen/_15ssp"
+        app:drawableEndCompat="@drawable/ic_back_right"
+        app:drawableStartCompat="@drawable/ic_lock"
+        app:drawableTint="@color/red" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawablePadding="@dimen/_10sdp"
+        android:padding="20dp"
+        android:textColor="@color/white"
+        app:drawableTint="@color/white"
+        android:text="@string/powered_by_squad_2"
+        android:textSize="@dimen/_15ssp"
+        app:drawableStartCompat="@drawable/copyr" />
+</LinearLayout>

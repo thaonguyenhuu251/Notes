@@ -15,6 +15,7 @@
     <string name="language">Language</string>
     <string name="privacy_policy">Privacy Policy</string>
     <string name="view_mode">View Mode</string>
+
     <string name="grid_view">Grid View</string>
     <string name="list_view">List View</string>
     <string name="ok">OK</string>
@@ -29,4 +30,25 @@
 
     <string name="plus">plus</string>
     <string name="groupPlusCross">groupPlusCross</string>
+
+    <string name="LoginFingerprint">Fingerprint Login</string>
+    <string name="loginPass">Login Password</string>
+    <string name="blue">Blue</string>
+    <string name="orange">Orange</string>
+    <string name="turquoise">Turquoise</string>
+    <string name="yellow">Yellow</string>
+    <string name="powered_by_squad_2">Powered by Squad 2</string>
+    <string name="clock_app">Clock App</string>
+    <string name="contact_us">Contact Us</string>
+    <string name="term_privacy">Term Privacy</string>
+    <string name="about_us">About Us</string>
+    <string name="chat_with_me">Chat With Me</string>
+    <string name="my_profile">My Profile</string>
+    <string name="login">Login</string>
+    <string name="vietnam">Vietnam</string>
+    <string name="englishuk">English (UK)</string>
+    <string name="russian">Russian</string>
+    <string name="choose_your_language">Choose your language</string>
+    <string name="south_korea">South Korea</string>
+
 </resources>

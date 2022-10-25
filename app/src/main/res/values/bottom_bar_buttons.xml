@@ -2,15 +2,15 @@
 <resources>
 
     <array name="bottom_bar_icons">
-        <item>@drawable/ic_settings</item>
-        <item>@drawable/ic_close</item>
-        <item>@drawable/ic_close</item>
+        <item>@drawable/ic_add_note</item>
+        <item>@drawable/ic_camera</item>
+        <item>@drawable/ic_file</item>
     </array>
 
     <array name="bottom_bar_colors">
-        <item>#FFFFFF</item>
-        <item>#FFFFFF</item>
-        <item>#FFFFFF</item>
+        <item>#FFF9B8</item>
+        <item>#FFDEDC</item>
+        <item>#DEF8EE</item>
     </array>
 
 </resources>
