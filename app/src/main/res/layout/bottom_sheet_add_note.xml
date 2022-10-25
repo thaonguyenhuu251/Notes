@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/custon_circle_textview"
@@ -19,20 +20,25 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="@dimen/_5sdp">
+        android:paddingHorizontal="@dimen/_5sdp">
 
         <ImageView
             android:id="@+id/ivBold"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:src="@drawable/ic_bold" />
+            android:padding="@dimen/_5sdp"
+            android:onClick="buttonBold"
+            android:src="@drawable/ic_bold"
+            tools:ignore="UsingOnClickInXml" />
 
         <ImageView
             android:id="@+id/ivItalic"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:padding="@dimen/_5sdp"
+            android:onClick="buttonItalics"
             android:src="@drawable/ic_italic" />
 
         <ImageView
@@ -40,13 +46,16 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:src="@drawable/ic_underline" />
+            android:padding="@dimen/_5sdp"
+            android:src="@drawable/ic_underline"
+            android:onClick="buttonUnderline"/>
 
         <ImageView
             android:id="@+id/ivImage"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:padding="@dimen/_5sdp"
             android:src="@drawable/ic_image" />
 
         <ImageView
@@ -54,6 +63,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:padding="@dimen/_5sdp"
             android:src="@drawable/ic_smile" />
 
         <ImageView
@@ -61,6 +71,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:padding="@dimen/_5sdp"
             android:src="@drawable/ic_mic" />
     </LinearLayout>
 
@@ -78,6 +89,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="Font"
+            android:padding="@dimen/_5sdp"
             android:textColor="@color/black"
             android:textSize="@dimen/_14ssp" />
 
@@ -90,6 +102,7 @@
             android:background="@drawable/preview_spinner"
             android:gravity="center"
             android:text="Poppins"
+            android:padding="@dimen/_3sdp"
             android:textColor="@color/black"
             android:textSize="@dimen/_14ssp" />
     </LinearLayout>
@@ -120,6 +133,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:padding="@dimen/_5sdp"
+            android:onClick="buttonAlignmentLeft"
             android:src="@drawable/ic_align_left" />
 
         <ImageView
@@ -127,6 +142,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:padding="@dimen/_5sdp"
+            android:onClick="buttonAlignmentCenter"
             android:src="@drawable/ic_align_center" />
 
         <ImageView
@@ -134,6 +151,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:padding="@dimen/_5sdp"
+            android:onClick="buttonAlignmentRight"
             android:src="@drawable/ic_align_right" />
 
         <ImageView
@@ -141,6 +160,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:padding="@dimen/_5sdp"
+            android:onClick="buttonAlignmentGravity"
             android:src="@drawable/ic_align_justify" />
 
         <TextView
@@ -149,6 +170,7 @@
             android:layout_height="match_parent"
             android:layout_marginEnd="@dimen/_5sdp"
             android:layout_weight="0.5"
+            android:padding="@dimen/_5sdp"
             android:background="@color/white_smoke" />
 
         <TextView
@@ -157,6 +179,7 @@
             android:layout_height="match_parent"
             android:layout_marginEnd="@dimen/_10sdp"
             android:layout_weight="0.5"
+            android:padding="@dimen/_5sdp"
             android:background="@color/black" />
     </LinearLayout>
 </LinearLayout>
