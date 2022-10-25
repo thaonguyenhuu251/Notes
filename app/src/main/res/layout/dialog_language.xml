@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -11,7 +11,7 @@
         android:id="@+id/txtChooseLanguage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/background_general"
+        android:background="@drawable/bg_detail"
         android:gravity="center"
         android:padding="@dimen/_5sdp"
         android:text="@string/choose_your_language"
@@ -32,12 +32,80 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/_2sdp"
         android:background="@color/white_smoke"/>
-    <LinearLayout
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <HorizontalScrollView
+        android:id="@+id/horizontalScrollView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtChooseLanguage">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            tools:ignore="ScrollViewSize">
+
+            <TextView
+                android:id="@+id/txtVietNam"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_10sdp"
+                android:text="@string/vietnam"
+                android:textSize="@dimen/_14ssp"
+                android:textStyle="bold"
+                app:drawableTopCompat="@drawable/ic_language_vietnam" />
+
+            <TextView
+                android:id="@+id/txtEnglishUK"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_10sdp"
+                android:text="@string/englishuk"
+                android:textSize="@dimen/_14ssp"
+                android:textStyle="bold"
+                app:drawableTopCompat="@drawable/ic_language_english_uk" />
+
+            <TextView
+                android:id="@+id/txtSouthKorea"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_10sdp"
+                android:text="@string/south_korea"
+                android:textSize="@dimen/_14ssp"
+                android:textStyle="bold"
+                app:drawableTopCompat="@drawable/ic_language_south_korea" />
+
+            <TextView
+                android:id="@+id/txtRussian"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_10sdp"
+                android:text="@string/russian"
+                android:textSize="@dimen/_14ssp"
+                android:textStyle="bold"
+                app:drawableTopCompat="@drawable/ic_language_russian" />
+        </LinearLayout>
+
+    </HorizontalScrollView>
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_detail_infor"
         android:orientation="horizontal"
-        android:gravity="center"
-        android:weightSum="2">
+        android:weightSum="2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView">
 
         <TextView
             android:id="@+id/txtOKLanguage"
@@ -69,4 +137,4 @@
             tools:ignore="RtlHardcoded" />
     </LinearLayout>
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

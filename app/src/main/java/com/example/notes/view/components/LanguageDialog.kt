@@ -1,6 +1,5 @@
 package com.example.notes.view.components
 
-import android.annotation.SuppressLint
 import android.app.Dialog
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -16,6 +15,7 @@ import com.example.notes.databinding.DialogLanguageBinding
 
 class LanguageDialog : DialogFragment() {
     private lateinit var binding: DialogLanguageBinding
+
     var layoutManager: LinearLayoutManager? = null
     private var listTextLanguage = mutableListOf<Int>()
     private var listDrawableLanguage = mutableListOf<Int>()
@@ -25,7 +25,7 @@ class LanguageDialog : DialogFragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = DialogLanguageBinding.inflate(layoutInflater)
         return binding.root
     }
@@ -34,12 +34,11 @@ class LanguageDialog : DialogFragment() {
         super.onCreate(savedInstanceState)
         val dialog = Dialog(requireContext())
         val window = dialog.window
-        window?.setBackgroundDrawableResource(R.drawable.bg_dialog_round)
         window!!.setLayout(
             WindowManager.LayoutParams.MATCH_PARENT,
             WindowManager.LayoutParams.WRAP_CONTENT
         )
-        setStyle(STYLE_NORMAL, R.style.MyLanguageDialog)
+        setStyle(STYLE_NORMAL, R.style.MyDialog)
         /*val windowAttributes: WindowManager.LayoutParams = window.attributes!!
         windowAttributes.gravity = Gravity.CENTER_VERTICAL
         window.attributes = windowAttributes*/

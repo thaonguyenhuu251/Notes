@@ -9,11 +9,12 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import com.example.notes.databinding.ActivityAddWorkBinding
+import com.example.notes.util.FileUtils
 import com.example.notes.view.components.DateDialog
 import com.example.notes.view.components.TimeDialog
 import java.lang.Exception
 
-class AddWorkActivity : AppCompatActivity() {
+class AddWorkActivity : AppCompatActivity(), DateDialog.OnDone {
     private lateinit var binding: ActivityAddWorkBinding
     var timepicker: TimePicker? = null
     private val datePicker: DatePicker? = null
@@ -33,7 +34,7 @@ class AddWorkActivity : AppCompatActivity() {
             dialogTime.show(supportFragmentManager, dialogTime.tag)
         }
         binding.edtStartDay.setOnClickListener {
-            val dialogDate = DateDialog()
+            val dialogDate = DateDialog(this)
             dialogDate.show(supportFragmentManager, dialogDate.tag)
         }
         binding.btnAddWork.setOnClickListener {
@@ -72,5 +73,12 @@ class AddWorkActivity : AppCompatActivity() {
 
     override fun onBackPressed() {
         super.onBackPressed()
+    }
+
+    override fun onClick(isClick: Boolean, date: Long) {
+        super.onClick(isClick, date)
+        if (isClick) {
+            binding.edtStartDay.setText(FileUtils.formatCalendars(date))
+        }
     }
 }

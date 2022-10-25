@@ -23,6 +23,9 @@ class DisplaySettingsActivity : AppCompatActivity(){
         binding.viewPager.adapter = DisplayPagerFragmentAdapter(titles, this)
         binding.viewPager.isUserInputEnabled = true
         setTabLayout()
+        binding.txtBack.setOnClickListener {
+            onBackPressed()
+        }
     }
 
     private fun setTabLayout() {

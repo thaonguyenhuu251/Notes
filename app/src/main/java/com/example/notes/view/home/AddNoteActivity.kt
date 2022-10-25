@@ -7,7 +7,7 @@ import com.example.notes.databinding.ActivityAddNoteBinding
 import com.example.notes.view.components.DateDialog
 import com.example.notes.view.components.TimeDialog
 
-class AddNoteActivity : AppCompatActivity() {
+class AddNoteActivity : AppCompatActivity(), DateDialog.OnDone {
 
     private lateinit var binding: ActivityAddNoteBinding
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,7 +21,7 @@ class AddNoteActivity : AppCompatActivity() {
         }
 
         binding.tvToday.setOnClickListener {
-            val dialogDate = DateDialog()
+            val dialogDate = DateDialog(this)
             dialogDate.show(supportFragmentManager, dialogDate.tag)
         }
 
@@ -29,5 +29,9 @@ class AddNoteActivity : AppCompatActivity() {
 
     override fun onBackPressed() {
         super.onBackPressed()
+    }
+
+    override fun onClick(isClick: Boolean, date: Long) {
+        super.onClick(isClick, date)
     }
 }
