@@ -2,13 +2,16 @@ package com.example.notes.view.home
 
 import android.Manifest
 import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.preference.PreferenceManager
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.MenuItem
@@ -23,9 +26,11 @@ import androidx.drawerlayout.widget.DrawerLayout.DrawerListener
 import com.example.notes.*
 import com.example.notes.databinding.ActivityMainBinding
 import com.example.notes.util.Constants
+import com.example.notes.util.Constants.SHARED_PREFERENCES_KEY_COLOR
 import com.example.notes.util.FileUtils
 import com.example.notes.view.login.LoginPassword
 import com.google.android.material.navigation.NavigationBarView
+
 
 class MainActivity : AppCompatActivity() {
     var homeFragment = HomeFragment()
@@ -33,12 +38,30 @@ class MainActivity : AppCompatActivity() {
     var settingFragment = SettingFragment()
     var notificationFragment = NotificationFragment()
 
+    private lateinit var appPreferences : SharedPreferences
+    var appTheme = 0
+    var themeColor = 0
+    var appColor = 0
+
     private lateinit var mDrawerLayout: DrawerLayout
     private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view: View = binding.root
+        appPreferences = getSharedPreferences(SHARED_PREFERENCES_KEY_COLOR, Context.MODE_PRIVATE)
+        appColor = appPreferences.getInt("color", 0)
+        appTheme = appPreferences.getInt("theme", 0)
+        themeColor = appColor
+        Constants.color = appColor
+
+        if (themeColor == 0){
+            setTheme(Constants.theme);
+        }else if (appTheme == 0){
+            setTheme(Constants.theme);
+        }else{
+            setTheme(appTheme);
+        }
         setContentView(view)
 
         binding.root.setOnClickListener {

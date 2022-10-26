@@ -25,7 +25,7 @@ class HomeFragment : Fragment() {
             bottomSheetSort.show(childFragmentManager, BottomSheetSort.TAG)
         }
         binding.viewPager.adapter = HomePagerFragmentAdapter(titles, requireActivity())
-        binding.viewPager.isUserInputEnabled = true
+        binding.viewPager.isUserInputEnabled = false
         setTabLayout()
     }
 
