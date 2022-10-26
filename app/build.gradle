@@ -64,4 +64,7 @@ dependencies {
 
     def biometricLibraryVersion = "1.0.1"
     implementation "androidx.biometric:biometric:$biometricLibraryVersion"
+
+    //library password: passcodeView
+    implementation'com.kevalpatel2106:passcodeview:2.0.0'
 }
