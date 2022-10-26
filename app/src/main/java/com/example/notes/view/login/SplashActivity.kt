@@ -5,8 +5,11 @@ import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import com.example.notes.R
 import com.example.notes.util.Constants
+import com.example.notes.view.home.AddNoteActivity
 import com.example.notes.view.home.MainActivity
 
 class SplashActivity : AppCompatActivity() {
@@ -20,9 +23,17 @@ class SplashActivity : AppCompatActivity() {
         )
 
         if (appPreferences.getBoolean(Constants.FINGER_ON, false)) {
-            startActivity(Intent(this@SplashActivity, LoginPasswordPin::class.java))
+            Handler(Looper.getMainLooper()).postDelayed({
+                startActivity(Intent(this@SplashActivity, LoginPasswordPin::class.java))
+                finish()
+            }, 4000)
+
         } else {
-            startActivity(Intent(this@SplashActivity, MainActivity::class.java))
+            Handler(Looper.getMainLooper()).postDelayed({
+                startActivity(Intent(this@SplashActivity, MainActivity::class.java))
+                finish()
+            }, 4000)
+
         }
     }
 }

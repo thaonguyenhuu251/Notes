@@ -67,4 +67,5 @@ dependencies {
 
     //library password: passcodeView
     implementation'com.kevalpatel2106:passcodeview:2.0.0'
+    implementation'com.airbnb.android:lottie:5.0.2'
 }
