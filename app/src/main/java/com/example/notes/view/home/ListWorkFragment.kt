@@ -57,9 +57,9 @@ class ListWorkFragment : Fragment() {
                 underlayButtons?.add(UnderlayButton(
                     "Delete",
                     AppCompatResources.getDrawable(
-                        requireContext(), R.drawable.ic_delete),
-                    Color.parseColor("#000000"),
-                    Color.parseColor("#ffffff")
+                        requireContext(), R.drawable.ic_delete_mode),
+                    Color.parseColor("#DC143C"),
+                    Color.parseColor("#FFFFFF")
                 ) { pos: Int ->
                     //workDoAdapter.modelList.removeAt(pos)
                     workDoAdapter.notifyItemRemoved(pos)
@@ -68,9 +68,9 @@ class ListWorkFragment : Fragment() {
 
                 underlayButtons?.add(UnderlayButton(
                     "Edit",
-                    AppCompatResources.getDrawable(requireContext(), R.drawable.ic_delete),
-                    Color.parseColor("#000000"),
-                    Color.parseColor("#ffffff")
+                    AppCompatResources.getDrawable(requireContext(), R.drawable.ic_mode_edit),
+                    Color.parseColor("#D3D3D3"),
+                    Color.parseColor("#FFFFFF")
                 ) { pos: Int ->
                     //workDoAdapter.modelList.removeAt(pos)
                     workDoAdapter.notifyItemRemoved(pos)
@@ -78,10 +78,10 @@ class ListWorkFragment : Fragment() {
                 })
 
                 underlayButtons?.add(UnderlayButton(
-                    "Bookmark",
-                    AppCompatResources.getDrawable(requireContext(), R.drawable.ic_magic_star),
-                    Color.parseColor("#000000"),
-                    Color.parseColor("#ffffff")
+                    "Mark",
+                    AppCompatResources.getDrawable(requireContext(), R.drawable.ic_star),
+                    Color.parseColor("#D3D3D3"),
+                    Color.parseColor("#FFFFFF")
                 ) { pos: Int ->
                     //workDoAdapter.modelList.removeAt(pos)
                     workDoAdapter.notifyItemRemoved(pos)

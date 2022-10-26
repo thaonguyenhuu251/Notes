@@ -25,5 +25,5 @@ object Constants {
 
     var isToggle = true
     var color = -0x980df
-    var theme: Int = R.style.AppTheme
+    var theme: Int = R.style.AppTheme_red
 }

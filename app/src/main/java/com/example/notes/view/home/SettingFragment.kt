@@ -11,10 +11,9 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
-import com.example.notes.view.login.LoginPassword
 import com.example.notes.databinding.FragmentSettingBinding
 import com.example.notes.view.components.LanguageDialog
-import kotlin.String as String
+import com.example.notes.view.login.LoginPassword
 
 class SettingFragment : Fragment() {
     private lateinit var binding: FragmentSettingBinding
@@ -51,6 +50,8 @@ class SettingFragment : Fragment() {
             val languageDialog = LanguageDialog()
             languageDialog.show(childFragmentManager, languageDialog.tag)
         }
+
+
     }
 
     private fun checkBiometricSupport(): Boolean {

@@ -201,6 +201,19 @@
                 app:drawableStartCompat="@drawable/ic_password_login_setting"
                 app:drawableTint="@color/background_general" />
 
+
+            <TextView
+                android:id="@+id/txtLanguage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableEnd="@drawable/ic_arrow_forward"
+                android:drawablePadding="@dimen/_10sdp"
+                android:padding="@dimen/_15sdp"
+                android:text="@string/language"
+                android:textSize="@dimen/_12ssp"
+                app:drawableStartCompat="@drawable/ic_language"
+                app:drawableTint="@color/background_general" />
+
             <TextView
                 android:id="@+id/txtTrash"
                 android:layout_width="match_parent"
@@ -226,18 +239,6 @@
                 app:drawableTint="@color/background_general" />
 
             <TextView
-                android:id="@+id/txtShareApp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:drawablePadding="@dimen/_10sdp"
-                android:padding="@dimen/_15sdp"
-                android:text="@string/shareApp"
-                android:textSize="@dimen/_12ssp"
-                app:drawableEndCompat="@drawable/ic_arrow_forward"
-                app:drawableStartCompat="@drawable/ic_share"
-                app:drawableTint="@color/background_general" />
-
-            <TextView
                 android:id="@+id/txtViewMode"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -250,15 +251,15 @@
                 app:drawableTint="@color/background_general" />
 
             <TextView
-                android:id="@+id/txtLanguage"
+                android:id="@+id/txtShareApp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:drawableEnd="@drawable/ic_arrow_forward"
                 android:drawablePadding="@dimen/_10sdp"
                 android:padding="@dimen/_15sdp"
-                android:text="@string/language"
+                android:text="@string/shareApp"
                 android:textSize="@dimen/_12ssp"
-                app:drawableStartCompat="@drawable/ic_language"
+                app:drawableEndCompat="@drawable/ic_arrow_forward"
+                app:drawableStartCompat="@drawable/ic_share"
                 app:drawableTint="@color/background_general" />
 
             <TextView
