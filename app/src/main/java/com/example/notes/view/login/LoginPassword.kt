@@ -48,7 +48,7 @@ class LoginPassword : AppCompatActivity() {
         }
         checkBiometricSupport()
 
-        binding.ivPasswordFingerprint.setOnClickListener{
+        binding.imgPasswordFingerprint.setOnClickListener{
             val biometricPrompt : BiometricPrompt = BiometricPrompt.Builder(this)
                 .setTitle("Title")
                 .setSubtitle("Authentication is required")

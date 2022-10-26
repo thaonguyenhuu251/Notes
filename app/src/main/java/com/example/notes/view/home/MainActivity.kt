@@ -2,6 +2,7 @@ package com.example.notes.view.home
 
 import android.Manifest
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
@@ -26,9 +27,13 @@ import androidx.drawerlayout.widget.DrawerLayout.DrawerListener
 import com.example.notes.*
 import com.example.notes.databinding.ActivityMainBinding
 import com.example.notes.util.Constants
+import com.example.notes.util.Constants.FACEBOOK_PAGE_ID
+import com.example.notes.util.Constants.FACEBOOK_URL
+import com.example.notes.util.Constants.SHARED_PREFERENCES_APP
 import com.example.notes.util.Constants.SHARED_PREFERENCES_KEY_COLOR
 import com.example.notes.util.FileUtils
 import com.example.notes.view.login.LoginPassword
+import com.example.notes.view.login.LoginPasswordPin
 import com.google.android.material.navigation.NavigationBarView
 
 
@@ -49,7 +54,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view: View = binding.root
-        appPreferences = getSharedPreferences(SHARED_PREFERENCES_KEY_COLOR, Context.MODE_PRIVATE)
+        appPreferences = getSharedPreferences(SHARED_PREFERENCES_APP, Context.MODE_PRIVATE)
         appColor = appPreferences.getInt("color", 0)
         appTheme = appPreferences.getInt("theme", 0)
         themeColor = appColor
@@ -163,8 +168,16 @@ class MainActivity : AppCompatActivity() {
                     }
 
                     drawerView.findViewById<TextView>(R.id.txtClockApp).setOnClickListener {
-                        val i = Intent(this@MainActivity, LoginPassword::class.java)
+                        val i = Intent(this@MainActivity, LoginPasswordPin::class.java)
                         startActivity(i)
+                    }
+                    drawerView.findViewById<TextView>(R.id.txtAboutMe).setOnClickListener {
+                        //startActivity(getOpenFacebookIntent())
+                        openFacebookProfile(this@MainActivity)
+                    }
+
+                    drawerView.findViewById<TextView>(R.id.txtChatWithMe).setOnClickListener {
+                        startActivity(newFacebookIntent(this@MainActivity.packageManager,"https://www.facebook.com/PhanAnhHaUI"))
                     }
                 }
 
@@ -278,5 +291,49 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+
+    private fun getFacebookPageURL(context: Context): String? {
+        val packageManager: PackageManager = context.packageManager
+        return try {
+            val versionCode = packageManager.getPackageInfo("com.facebook.katana", 0).versionCode
+            if (versionCode >= 3002850) { //newer versions of fb app
+                "fb://facewebmodal/f?href=$FACEBOOK_URL"
+            } else { //older versions of fb app
+                "fb://page/$FACEBOOK_PAGE_ID"
+            }
+        } catch (e: PackageManager.NameNotFoundException) {
+            FACEBOOK_URL //normal web url
+        }
+    }
+
+    fun getOpenFacebookIntent(): Intent? {
+        return try {
+            this.packageManager.getPackageInfo("com.facebook.katana", 0)
+            Intent(Intent.ACTION_VIEW, Uri.parse("fb://page/751931421605113"))
+        } catch (e: Exception) {
+            Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/PhanAnhcs2501"))
+        }
+    }
+
+    private fun newFacebookIntent(pm: PackageManager, url: String): Intent {
+        var uri = Uri.parse(url)
+        try {
+            val applicationInfo = pm.getApplicationInfo("com.facebook.katana", 0)
+            if (applicationInfo.enabled) {
+                // http://stackoverflow.com/a/24547437/1048340
+                uri = Uri.parse("fb://facewebmodal/f?href=$url")
+            }
+        } catch (ignored: PackageManager.NameNotFoundException) {
+        }
+        return Intent(Intent.ACTION_VIEW, uri)
+    }
+
+    private fun openFacebookProfile(activity: Activity) {
+        val facebookIntent = Intent(Intent.ACTION_VIEW)
+        val facebookUrl: String = getFacebookPageURL(activity).toString()
+        facebookIntent.data = Uri.parse(facebookUrl)
+        activity.startActivity(facebookIntent)
+    }
+
 
 }

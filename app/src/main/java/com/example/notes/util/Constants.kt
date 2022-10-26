@@ -16,14 +16,21 @@ object Constants {
     const val NAME_IN = "namein"
     const val NAME_OUT = "nameout"
 
+    const val FACEBOOK_URL = "https://www.facebook.com/PhanAnhcs2501"
+    const val FACEBOOK_PAGE_ID = "751931421605113"
+
     const val SHARED_PREFERENCES_KEY_COLOR = "AppNotes"
+    const val SHARED_PREFERENCES_APP = "AppLock"
 
     const val MY_PERMISSION_REQUEST_CODE_CALL_PHONE = 555
+
+    const val FINGER_ON = "fingerOn"
+    const val PASSWORD = "passWord"
 
     var nav_clicked = 0
     var isNavClicked = false
 
     var isToggle = true
     var color = -0x980df
-    var theme: Int = R.style.AppTheme_red
+    var theme: Int = R.style.AppTheme
 }

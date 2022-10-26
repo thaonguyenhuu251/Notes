@@ -47,6 +47,7 @@
          />
 
     <TextView
+        android:id="@+id/txtChatWithMe"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:drawablePadding="@dimen/_10sdp"
@@ -59,6 +60,7 @@
         app:drawableStartCompat="@drawable/callme" />
 
     <TextView
+        android:id="@+id/txtAboutMe"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:drawablePadding="@dimen/_10sdp"

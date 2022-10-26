@@ -180,33 +180,33 @@
                     android:id="@+id/swLoginFingerprint"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="2"
+                    android:layout_weight="3"
                     android:gravity="center"
                     android:paddingEnd="@dimen/_10sdp"
                     app:drawableTint="@color/background_general"
                     app:thumbTint = "@drawable/thumb"
                     app:trackTint = "@drawable/track"
-                    tools:ignore="UnusedAttribute,UseSwitchCompatOrMaterialXml" />
+                    tools:ignore="RtlSymmetry,UnusedAttribute,UseSwitchCompatOrMaterialXml" />
             </LinearLayout>
 
             <TextView
                 android:id="@+id/txtLoginPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:drawableEnd="@drawable/ic_arrow_forward"
                 android:drawablePadding="@dimen/_10sdp"
                 android:padding="@dimen/_15sdp"
                 android:text="@string/loginPass"
                 android:textSize="@dimen/_12ssp"
                 app:drawableStartCompat="@drawable/ic_password_login_setting"
-                app:drawableTint="@color/background_general" />
+                app:drawableTint="@color/background_general"
+                app:drawableEndCompat="@drawable/ic_back_right" />
 
 
             <TextView
                 android:id="@+id/txtLanguage"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:drawableEnd="@drawable/ic_arrow_forward"
+                app:drawableEndCompat="@drawable/ic_back_right"
                 android:drawablePadding="@dimen/_10sdp"
                 android:padding="@dimen/_15sdp"
                 android:text="@string/language"
@@ -222,7 +222,7 @@
                 android:padding="@dimen/_15sdp"
                 android:text="@string/trash"
                 android:textSize="@dimen/_12ssp"
-                app:drawableEndCompat="@drawable/ic_arrow_forward"
+                app:drawableEndCompat="@drawable/ic_back_right"
                 app:drawableStartCompat="@drawable/ic_trash"
                 app:drawableTint="@color/background_general" />
 
@@ -230,7 +230,7 @@
                 android:id="@+id/txtDisplay"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:drawableEnd="@drawable/ic_arrow_forward"
+                app:drawableEndCompat="@drawable/ic_back_right"
                 android:drawablePadding="@dimen/_10sdp"
                 android:padding="@dimen/_15sdp"
                 android:text="@string/display"
@@ -246,7 +246,7 @@
                 android:padding="@dimen/_15sdp"
                 android:text="@string/view_mode"
                 android:textSize="@dimen/_12ssp"
-                app:drawableEndCompat="@drawable/ic_arrow_forward"
+                app:drawableEndCompat="@drawable/ic_back_right"
                 app:drawableStartCompat="@drawable/ic_view_mode"
                 app:drawableTint="@color/background_general" />
 
@@ -258,7 +258,7 @@
                 android:padding="@dimen/_15sdp"
                 android:text="@string/shareApp"
                 android:textSize="@dimen/_12ssp"
-                app:drawableEndCompat="@drawable/ic_arrow_forward"
+                app:drawableEndCompat="@drawable/ic_back_right"
                 app:drawableStartCompat="@drawable/ic_share"
                 app:drawableTint="@color/background_general" />
 
@@ -266,7 +266,7 @@
                 android:id="@+id/txtPrivacyPolicy"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:drawableEnd="@drawable/ic_arrow_forward"
+                app:drawableEndCompat="@drawable/ic_back_right"
                 android:drawablePadding="@dimen/_10sdp"
                 android:padding="@dimen/_15sdp"
                 android:text="@string/privacy_policy"
