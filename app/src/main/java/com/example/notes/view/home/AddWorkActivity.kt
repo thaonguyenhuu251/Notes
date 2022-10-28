@@ -14,7 +14,7 @@ import com.example.notes.view.components.DateDialog
 import com.example.notes.view.components.TimeDialog
 import java.lang.Exception
 
-class AddWorkActivity : AppCompatActivity(), DateDialog.OnDone {
+class AddWorkActivity : AppCompatActivity(), DateDialog.OnDone, TimeDialog.OnDone {
     private lateinit var binding: ActivityAddWorkBinding
     var timepicker: TimePicker? = null
     private val datePicker: DatePicker? = null
@@ -30,7 +30,7 @@ class AddWorkActivity : AppCompatActivity(), DateDialog.OnDone {
         binding.root.setOnClickListener { hideKeyboard(this) }
         binding.txtBack.setOnClickListener { onBackPressed() }
         binding.edtTimeComplete.setOnClickListener {
-            val dialogTime = TimeDialog()
+            val dialogTime = TimeDialog(this)
             dialogTime.show(supportFragmentManager, dialogTime.tag)
         }
         binding.edtStartDay.setOnClickListener {
@@ -79,6 +79,13 @@ class AddWorkActivity : AppCompatActivity(), DateDialog.OnDone {
         super.onClick(isClick, date)
         if (isClick) {
             binding.edtStartDay.setText(FileUtils.formatCalendars(date))
+        }
+    }
+
+    override fun onClickTime(isClick: Boolean, hour: Int, minutes: Int) {
+        super.onClickTime(isClick, hour, minutes)
+        if (isClick) {
+            binding.edtTimeComplete.setText(FileUtils.formatTimeNew(hour, minutes))
         }
     }
 }

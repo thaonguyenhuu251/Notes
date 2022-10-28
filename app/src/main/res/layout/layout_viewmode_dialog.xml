@@ -1,22 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/lnViewModeDialog"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:layout_height="wrap_content">
 
     <TextView
         android:id="@+id/txtViewModeDialogTiltle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/background_general"
+        android:background="@drawable/bg_detail"
         android:gravity="center"
         android:padding="@dimen/_10sdp"
         android:text="@string/view_mode"
         android:textColor="@color/white"
-        android:textSize="@dimen/_16ssp" />
+        android:textSize="@dimen/_16ssp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/txtGridView"
@@ -27,7 +29,9 @@
         android:text="@string/grid_view"
         android:textColor="@color/black"
         android:textSize="@dimen/_14ssp"
-        app:drawableStartCompat="@drawable/ic_grid_view" />
+        android:background="@color/white"
+        app:drawableStartCompat="@drawable/ic_grid_view"
+        app:layout_constraintTop_toBottomOf="@+id/txtViewModeDialogTiltle" />
 
     <TextView
         android:id="@+id/txtListView"
@@ -38,20 +42,26 @@
         android:text="@string/list_view"
         android:textColor="@color/black"
         android:textSize="@dimen/_14ssp"
-        app:drawableStartCompat="@drawable/ic_list_view" />
+        android:background="@color/white"
+        app:drawableStartCompat="@drawable/ic_list_view"
+        app:layout_constraintTop_toBottomOf="@+id/txtGridView" />
 
     <View
+        android:id="@+id/view4"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_2sdp"
-        android:background="@color/white_smoke" />
+        android:background="@color/white_smoke"
+        app:layout_constraintBottom_toBottomOf="@+id/txtListView" />
 
     <LinearLayout
+        android:id="@+id/linearLayout6"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/bg_detail_infor"
         android:gravity="center"
         android:orientation="horizontal"
-        android:weightSum="2">
+        android:weightSum="2"
+        app:layout_constraintTop_toBottomOf="@id/txtListView">
 
         <TextView
             android:id="@+id/txtOKViewmode"
@@ -82,4 +92,4 @@
             android:textSize="@dimen/_14ssp"
             tools:ignore="RtlHardcoded" />
     </LinearLayout>
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

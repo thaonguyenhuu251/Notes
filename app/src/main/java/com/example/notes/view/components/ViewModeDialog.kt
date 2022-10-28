@@ -17,7 +17,7 @@ class ViewModeDialog : DialogFragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         val dialog = Dialog(requireContext())
         val window = dialog.window
         window!!.setLayout(
@@ -30,7 +30,7 @@ class ViewModeDialog : DialogFragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setStyle(STYLE_NORMAL, R.style.MyLanguageDialog)
+        setStyle(STYLE_NORMAL, R.style.MyDialog)
     }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {

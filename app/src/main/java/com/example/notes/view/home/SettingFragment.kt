@@ -99,6 +99,7 @@ class SettingFragment : Fragment() {
 
         if (!checkBiometricSupport()) {
             binding.swLoginFingerprint.isEnabled = false
+            binding.lnLoginFingerprint.visibility = View.GONE
         }
 
     }
@@ -106,11 +107,11 @@ class SettingFragment : Fragment() {
     private fun checkBiometricSupport(): Boolean {
         val keyguardManager : KeyguardManager = requireActivity().getSystemService(Context.KEYGUARD_SERVICE) as KeyguardManager
         if(!keyguardManager.isKeyguardSecure) {
-            notifyUser("Fingerprint has not been enabled in settings.")
+            //notifyUser("Fingerprint has not been enabled in settings.")
             return false
         }
         if (ActivityCompat.checkSelfPermission(requireContext(), android.Manifest.permission.USE_BIOMETRIC) != PackageManager.PERMISSION_GRANTED) {
-            notifyUser("Fingerprint has not been enabled in settings.")
+            //notifyUser("Fingerprint has not been enabled in settings.")
             return false
         }
         return if (requireActivity().packageManager.hasSystemFeature(PackageManager.FEATURE_FINGERPRINT)) {

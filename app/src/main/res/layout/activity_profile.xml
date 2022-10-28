@@ -7,60 +7,71 @@
     android:layout_height="match_parent">
 
     <ImageView
+        android:id="@+id/imageView2"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_200sdp"
         android:src="@drawable/pokemon_none"
-        tools:ignore="MissingConstraints" />
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_200sdp"
-        android:src="@color/blue"
-        android:alpha=".7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
 
     <ImageView
-        android:layout_width="@dimen/_40sdp"
-        android:layout_height="@dimen/_25sdp"
-        android:src="@drawable/ic_back_from_profile"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="20dp"
-        tools:layout_editor_absoluteY="50dp" />
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_200sdp"
+        android:alpha=".7"
+        android:src="@color/blue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+
     <TextView
+        android:id="@+id/txtBack"
         android:layout_width="@dimen/_90sdp"
         android:layout_height="@dimen/_25sdp"
         android:text="Profile"
         android:textColor="#FFFFFF"
         android:textSize="@dimen/_20ssp"
-        tools:layout_editor_absoluteX="80dp"
-        tools:layout_editor_absoluteY="50dp"
-        tools:ignore="MissingConstraints" />
-
-
+        android:layout_margin="@dimen/_15sdp"
+        android:drawablePadding="@dimen/_10sdp"
+        android:drawableStart="@drawable/ic_arrow_back"
+        android:drawableTint="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
-        android:layout_width="@dimen/_200sdp"
-        android:layout_height="@dimen/_370sdp"
+        android:id="@+id/linearLayout3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="@dimen/_30sdp"
+        android:layout_marginBottom="@dimen/_20sdp"
+        android:layout_marginTop="-60dp"
         android:background="#E4F0FF"
         android:orientation="vertical"
-        tools:layout_editor_absoluteX="75dp"
-        tools:layout_editor_absoluteY="215dp"
-        tools:ignore="MissingConstraints">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2">
 
         <TextView
             android:id="@+id/edtProfilDetails"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Profile Details"
-            android:textSize="@dimen/_14ssp"
             android:layout_marginTop="@dimen/_80sdp"
-            android:paddingLeft="@dimen/_20sdp"/>
+            android:paddingLeft="@dimen/_20sdp"
+            android:text="Profile Details"
+            android:textSize="@dimen/_14ssp" />
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Account"
-            android:textSize="@dimen/_14ssp"
             android:layout_marginTop="@dimen/_10sdp"
-            android:paddingLeft="@dimen/_20sdp"/>
+            android:paddingLeft="@dimen/_20sdp"
+            android:text="Account"
+            android:textSize="@dimen/_14ssp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -71,21 +82,22 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="My Library"
-                android:textSize="@dimen/_14ssp"
                 android:layout_marginTop="@dimen/_10sdp"
                 android:layout_weight="1.7"
-                android:paddingLeft="@dimen/_20sdp"/>
+                android:paddingLeft="@dimen/_20sdp"
+                android:text="My Library"
+                android:textSize="@dimen/_14ssp" />
+
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="21"
-                android:textSize="@dimen/_14ssp"
                 android:layout_marginTop="@dimen/_10sdp"
                 android:layout_weight="0.3"
-                />
+                android:text="21"
+                android:textSize="@dimen/_14ssp" />
 
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -95,50 +107,53 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Cart"
-                android:textSize="@dimen/_14ssp"
                 android:layout_marginTop="@dimen/_10sdp"
                 android:layout_weight="1.7"
-                android:paddingLeft="@dimen/_20sdp"/>
+                android:paddingLeft="@dimen/_20sdp"
+                android:text="Cart"
+                android:textSize="@dimen/_14ssp" />
+
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="4"
-                android:textSize="@dimen/_14ssp"
                 android:layout_marginTop="@dimen/_10sdp"
-                android:layout_weight="0.3"/>
+                android:layout_weight="0.3"
+                android:text="4"
+                android:textSize="@dimen/_14ssp" />
 
         </LinearLayout>
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:paddingLeft="@dimen/_20sdp"
             android:text="Search History"
-            android:textSize="@dimen/_14ssp"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:paddingLeft="@dimen/_20sdp"/>
+            android:textSize="@dimen/_14ssp" />
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:paddingLeft="@dimen/_20sdp"
             android:text="Setting"
-            android:textSize="@dimen/_14ssp"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:paddingLeft="@dimen/_20sdp"/>
+            android:textSize="@dimen/_14ssp" />
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Privacy Policy"
-            android:textSize="@dimen/_14ssp"
             android:layout_marginTop="@dimen/_10sdp"
-            android:paddingLeft="@dimen/_20sdp"/>
+            android:paddingLeft="@dimen/_20sdp"
+            android:text="Privacy Policy"
+            android:textSize="@dimen/_14ssp" />
 
         <Button
             android:layout_width="@dimen/_100sdp"
             android:layout_height="@dimen/_40sdp"
+            android:layout_marginStart="@dimen/_20sdp"
             android:layout_marginTop="@dimen/_20sdp"
             android:backgroundTint="#1A1E24"
-            android:text="Logout"
-            android:layout_marginStart="@dimen/_20sdp"/>
-
+            android:text="Logout" />
 
 
     </LinearLayout>
@@ -146,16 +161,17 @@
     <androidx.cardview.widget.CardView
         android:layout_width="@dimen/_120sdp"
         android:layout_height="@dimen/_120sdp"
-        tools:layout_editor_absoluteX="125dp"
-        tools:layout_editor_absoluteY="115dp"
         app:cardCornerRadius="@dimen/_20sdp"
+        android:elevation="@dimen/_20sdp"
+        app:layout_constraintTop_toTopOf="@id/linearLayout3"
+        app:layout_constraintBottom_toTopOf="@id/linearLayout3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
-        tools:ignore="MissingConstraints">
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/pokemon"
-            />
+            android:src="@drawable/pokemon" />
 
     </androidx.cardview.widget.CardView>
 

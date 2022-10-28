@@ -7,7 +7,7 @@ import com.example.notes.R
 import com.example.notes.databinding.DialogTimeBinding
 import java.util.*
 
-class TimeDialog : DialogFragment() {
+class TimeDialog (private var onDone: OnDone) : DialogFragment() {
     private lateinit var binding: DialogTimeBinding
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -30,7 +30,8 @@ class TimeDialog : DialogFragment() {
         binding = DialogTimeBinding.inflate(layoutInflater)
         binding.txtDone.setOnClickListener{
             val hour = binding.timePicker.currentHour
-            val minutes = binding.timePicker.currentMinute.toFloat()
+            val minutes = binding.timePicker.currentMinute
+            onDone.onClickTime(true, hour, minutes)
             dismiss()
         }
 
@@ -51,10 +52,16 @@ class TimeDialog : DialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
+7
     }
 
     companion object {
         const val TAG = "TimeDialog"
+    }
+
+    interface OnDone {
+        fun onClickTime(isClick: Boolean, hour: Int, minutes: Int) {
+
+        }
     }
 }

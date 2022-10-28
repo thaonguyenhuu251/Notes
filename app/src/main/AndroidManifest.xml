@@ -55,12 +55,20 @@
         <activity
             android:name=".view.home.MainActivity"
             android:exported="false"
-            android:windowSoftInputMode="adjustPan"></activity>
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".view.home.DisplaySettingsActivity"
             android:exported="false" />
         <activity
             android:name=".view.login.LoginPassword"
+            android:exported="false" />
+
+        <activity
+            android:name=".view.home.ProfileActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".view.home.ProfileDetailsActivity"
             android:exported="false" />
     </application>
 

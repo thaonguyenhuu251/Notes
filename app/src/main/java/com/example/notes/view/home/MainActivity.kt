@@ -148,6 +148,8 @@ class MainActivity : AppCompatActivity() {
 
     private fun openDrawer() {
         val navigationView = binding.navMain
+
+
         navigationView.setNavigationItemSelectedListener { true }
         binding.imgMenu.setOnClickListener {
             binding.bottomMenu.circleMenu.hideCircleMenu()
@@ -155,10 +157,17 @@ class MainActivity : AppCompatActivity() {
             FileUtils.hideKeyboard(this)
         }
 
+        if (appPreferences.getBoolean(Constants.PASSWORD, false)) {
+            mDrawerLayout.findViewById<TextView>(R.id.txtClockApp).visibility = View.VISIBLE
+        } else {
+            mDrawerLayout.findViewById<TextView>(R.id.txtClockApp).visibility = View.GONE
+        }
+
         mDrawerLayout.addDrawerListener(
             object : DrawerListener {
                 override fun onDrawerSlide(drawerView: View, slideOffset: Float) {
                     // Respond when the drawer's position changes
+
                 }
 
                 override fun onDrawerOpened(drawerView: View) {
@@ -179,6 +188,11 @@ class MainActivity : AppCompatActivity() {
                     drawerView.findViewById<TextView>(R.id.txtChatWithMe).setOnClickListener {
                         startActivity(newFacebookIntent(this@MainActivity.packageManager,"https://www.facebook.com/PhanAnhHaUI"))
                     }
+
+                    drawerView.findViewById<TextView>(R.id.txtMyProfile).setOnClickListener {
+                        startActivity(Intent(this@MainActivity, ProfileActivity::class.java))
+                    }
+
                 }
 
                 override fun onDrawerClosed(drawerView: View) {

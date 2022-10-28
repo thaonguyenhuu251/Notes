@@ -7,125 +7,131 @@
     android:layout_height="match_parent">
 
     <ImageView
+        android:id="@+id/imageView3"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_200sdp"
         android:src="@drawable/pokemon_none"
-        tools:ignore="MissingConstraints" />
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_200sdp"
-        android:src="@color/blue"
-        android:alpha=".7"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/backProfile"
-        android:layout_width="@dimen/_40sdp"
-        android:layout_height="@dimen/_25sdp"
-        android:src="@drawable/ic_back_from_profile"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="20dp"
-        tools:layout_editor_absoluteY="50dp" />
+        android:id="@+id/imageView4"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_200sdp"
+        android:alpha=".7"
+        android:src="@color/blue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
+        android:id="@+id/txtBack"
         android:layout_width="@dimen/_90sdp"
         android:layout_height="@dimen/_25sdp"
+        android:drawableStart="@drawable/ic_arrow_back"
+        android:drawableTint="@color/white"
         android:text="Profile"
         android:textColor="#FFFFFF"
         android:textSize="@dimen/_20ssp"
-        tools:layout_editor_absoluteX="80dp"
-        tools:layout_editor_absoluteY="50dp"
-        tools:ignore="MissingConstraints" />
+        android:layout_margin="@dimen/_15sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:layout_width="@dimen/_90sdp"
         android:layout_height="@dimen/_25sdp"
         android:text="Done"
         android:textColor="#FFFFFF"
         android:textSize="@dimen/_20ssp"
-        tools:layout_editor_absoluteX="300dp"
-        tools:layout_editor_absoluteY="50dp"
-        tools:ignore="MissingConstraints" />
-
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_margin="@dimen/_15sdp"/>
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        tools:layout_editor_absoluteY="262dp"
-        tools:ignore="MissingConstraints">
+        android:padding="@dimen/_30sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3">
 
         <TextView
             android:id="@+id/edtProfilDetails"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Full Name"
-            android:textSize="@dimen/_14ssp"
-            android:layout_marginTop="@dimen/_80sdp"
-            android:paddingLeft="@dimen/_20sdp"/>
+            android:textSize="@dimen/_14ssp" />
+
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="#000000"
             android:paddingStart="@dimen/_20sdp"
-            android:textSize="@dimen/_14ssp"/>
+            android:textColor="#000000"
+            android:textSize="@dimen/_14ssp" />
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
             android:text="Username"
-            android:textSize="@dimen/_14ssp"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:paddingLeft="@dimen/_20sdp"/>
+            android:textSize="@dimen/_14ssp" />
+
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="#000000"
             android:paddingStart="@dimen/_20sdp"
-            android:textSize="@dimen/_14ssp"/>
+            android:textColor="#000000"
+            android:textSize="@dimen/_14ssp" />
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
             android:text="Email"
-            android:textSize="@dimen/_14ssp"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:paddingLeft="@dimen/_20sdp"/>
+            android:textSize="@dimen/_14ssp" />
+
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="#000000"
             android:paddingStart="@dimen/_20sdp"
-            android:textSize="@dimen/_14ssp"/>
+            android:textColor="#000000"
+            android:textSize="@dimen/_14ssp" />
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Pasword"
-            android:textSize="@dimen/_14ssp"
             android:layout_marginTop="@dimen/_10sdp"
-            android:paddingLeft="@dimen/_20sdp"/>
+            android:text="Pasword"
+            android:textSize="@dimen/_14ssp" />
 
         <EditText
             android:id="@+id/editTextTextPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:inputType="textPassword"
             android:paddingStart="@dimen/_20sdp"
-            android:textColor="#000000"
-            android:inputType="textPassword" />
+            android:textColor="#000000" />
 
     </LinearLayout>
 
     <androidx.cardview.widget.CardView
         android:layout_width="@dimen/_120sdp"
         android:layout_height="@dimen/_120sdp"
-        tools:layout_editor_absoluteX="30dp"
-        tools:layout_editor_absoluteY="150dp"
         app:cardCornerRadius="@dimen/_20sdp"
+        android:layout_marginStart="@dimen/_30sdp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3">
 
-        tools:ignore="MissingConstraints">
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/pokemon"
-            />
+            android:src="@drawable/pokemon" />
 
     </androidx.cardview.widget.CardView>
 
