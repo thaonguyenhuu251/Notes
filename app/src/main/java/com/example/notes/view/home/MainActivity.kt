@@ -2,13 +2,17 @@ package com.example.notes.view.home
 
 import android.Manifest
 import android.annotation.SuppressLint
+import android.app.Activity
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.preference.PreferenceManager
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.MenuItem
@@ -23,14 +27,26 @@ import androidx.drawerlayout.widget.DrawerLayout.DrawerListener
 import com.example.notes.*
 import com.example.notes.databinding.ActivityMainBinding
 import com.example.notes.util.Constants
+import com.example.notes.util.Constants.FACEBOOK_PAGE_ID
+import com.example.notes.util.Constants.FACEBOOK_URL
+import com.example.notes.util.Constants.SHARED_PREFERENCES_APP
+import com.example.notes.util.Constants.SHARED_PREFERENCES_KEY_COLOR
 import com.example.notes.util.FileUtils
+import com.example.notes.view.login.LoginPassword
+import com.example.notes.view.login.LoginPasswordPin
 import com.google.android.material.navigation.NavigationBarView
+
 
 class MainActivity : AppCompatActivity() {
     var homeFragment = HomeFragment()
-    var chartFragment = ChartFragment()
+    var bookMarkFragment = BookMarkFragment()
     var settingFragment = SettingFragment()
     var notificationFragment = NotificationFragment()
+
+    private lateinit var appPreferences : SharedPreferences
+    var appTheme = 0
+    var themeColor = 0
+    var appColor = 0
 
     private lateinit var mDrawerLayout: DrawerLayout
     private lateinit var binding: ActivityMainBinding
@@ -38,6 +54,19 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view: View = binding.root
+        appPreferences = getSharedPreferences(SHARED_PREFERENCES_APP, Context.MODE_PRIVATE)
+        appColor = appPreferences.getInt("color", 0)
+        appTheme = appPreferences.getInt("theme", 0)
+        themeColor = appColor
+        Constants.color = appColor
+
+        if (themeColor == 0){
+            setTheme(Constants.theme);
+        }else if (appTheme == 0){
+            setTheme(Constants.theme);
+        }else{
+            setTheme(appTheme);
+        }
         setContentView(view)
 
         binding.root.setOnClickListener {
@@ -91,7 +120,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.chart -> {
                     binding.rltSearch.visibility = View.GONE
                     supportFragmentManager.beginTransaction()
-                        .replace(R.id.content, chartFragment).commit()
+                        .replace(R.id.content, bookMarkFragment).commit()
                     return@OnItemSelectedListener true
                 }
 
@@ -120,7 +149,8 @@ class MainActivity : AppCompatActivity() {
     private fun openDrawer() {
         val navigationView = binding.navMain
         navigationView.setNavigationItemSelectedListener { true }
-        binding.imgMenu.setOnClickListener { view ->
+        binding.imgMenu.setOnClickListener {
+            binding.bottomMenu.circleMenu.hideCircleMenu()
             mDrawerLayout.openDrawer(GravityCompat.START)
             FileUtils.hideKeyboard(this)
         }
@@ -136,10 +166,24 @@ class MainActivity : AppCompatActivity() {
                     drawerView.findViewById<TextView>(R.id.text_ContactUs).setOnClickListener {
                         askPermissionAndCall()
                     }
+
+                    drawerView.findViewById<TextView>(R.id.txtClockApp).setOnClickListener {
+                        val i = Intent(this@MainActivity, LoginPasswordPin::class.java)
+                        startActivity(i)
+                    }
+                    drawerView.findViewById<TextView>(R.id.txtAboutMe).setOnClickListener {
+                        //startActivity(getOpenFacebookIntent())
+                        openFacebookProfile(this@MainActivity)
+                    }
+
+                    drawerView.findViewById<TextView>(R.id.txtChatWithMe).setOnClickListener {
+                        startActivity(newFacebookIntent(this@MainActivity.packageManager,"https://www.facebook.com/PhanAnhHaUI"))
+                    }
                 }
 
                 override fun onDrawerClosed(drawerView: View) {
                     // Respond when the drawer is closed
+                    binding.bottomMenu.circleMenu.showCircleMenu()
                 }
 
                 override fun onDrawerStateChanged(newState: Int) {
@@ -247,5 +291,49 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+
+    private fun getFacebookPageURL(context: Context): String? {
+        val packageManager: PackageManager = context.packageManager
+        return try {
+            val versionCode = packageManager.getPackageInfo("com.facebook.katana", 0).versionCode
+            if (versionCode >= 3002850) { //newer versions of fb app
+                "fb://facewebmodal/f?href=$FACEBOOK_URL"
+            } else { //older versions of fb app
+                "fb://page/$FACEBOOK_PAGE_ID"
+            }
+        } catch (e: PackageManager.NameNotFoundException) {
+            FACEBOOK_URL //normal web url
+        }
+    }
+
+    fun getOpenFacebookIntent(): Intent? {
+        return try {
+            this.packageManager.getPackageInfo("com.facebook.katana", 0)
+            Intent(Intent.ACTION_VIEW, Uri.parse("fb://page/751931421605113"))
+        } catch (e: Exception) {
+            Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/PhanAnhcs2501"))
+        }
+    }
+
+    private fun newFacebookIntent(pm: PackageManager, url: String): Intent {
+        var uri = Uri.parse(url)
+        try {
+            val applicationInfo = pm.getApplicationInfo("com.facebook.katana", 0)
+            if (applicationInfo.enabled) {
+                // http://stackoverflow.com/a/24547437/1048340
+                uri = Uri.parse("fb://facewebmodal/f?href=$url")
+            }
+        } catch (ignored: PackageManager.NameNotFoundException) {
+        }
+        return Intent(Intent.ACTION_VIEW, uri)
+    }
+
+    private fun openFacebookProfile(activity: Activity) {
+        val facebookIntent = Intent(Intent.ACTION_VIEW)
+        val facebookUrl: String = getFacebookPageURL(activity).toString()
+        facebookIntent.data = Uri.parse(facebookUrl)
+        activity.startActivity(facebookIntent)
+    }
+
 
 }

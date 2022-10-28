@@ -1,59 +1,136 @@
 package com.example.notes.view.home
 
+import android.annotation.SuppressLint
+import android.graphics.Color
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.appcompat.content.res.AppCompatResources
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.notes.R
+import com.example.notes.adapter.WorkDoAdapter
+import com.example.notes.databinding.FragmentListWorkBinding
+import com.example.notes.helper.SwipeHelper
+import com.example.notes.model.Work
+import com.example.notes.util.FileUtils
+import com.example.notes.view.components.DateDialog
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [Fragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class ListWorkFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    lateinit var workDoAdapter: WorkDoAdapter
+    private var layoutManager: LinearLayoutManager? = null
+    lateinit var binding: FragmentListWorkBinding
+    var recyclerView: RecyclerView? = null
+    private var listWork = mutableListOf<Work>()
+    var timeFilter: String? = null
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        binding = FragmentListWorkBinding.inflate(inflater, container, false)
+        return binding.root
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.recyclerview.setHasFixedSize(true)
+        layoutManager = LinearLayoutManager(context)
+        binding.recyclerview.layoutManager = layoutManager
+
+        object : SwipeHelper(requireContext(), binding.recyclerview, false) {
+
+            override fun instantiateUnderlayButton(
+                viewHolder: RecyclerView.ViewHolder?,
+                underlayButtons: MutableList<UnderlayButton>?
+            ) {
+
+                underlayButtons?.add(UnderlayButton(
+                    "Delete",
+                    AppCompatResources.getDrawable(
+                        requireContext(), R.drawable.ic_delete_mode),
+                    Color.parseColor("#DC143C"),
+                    Color.parseColor("#FFFFFF")
+                ) { pos: Int ->
+                    //workDoAdapter.modelList.removeAt(pos)
+                    workDoAdapter.notifyItemRemoved(pos)
+
+                })
+
+                underlayButtons?.add(UnderlayButton(
+                    "Edit",
+                    AppCompatResources.getDrawable(requireContext(), R.drawable.ic_mode_edit),
+                    Color.parseColor("#D3D3D3"),
+                    Color.parseColor("#FFFFFF")
+                ) { pos: Int ->
+                    //workDoAdapter.modelList.removeAt(pos)
+                    workDoAdapter.notifyItemRemoved(pos)
+
+                })
+
+                underlayButtons?.add(UnderlayButton(
+                    "Mark",
+                    AppCompatResources.getDrawable(requireContext(), R.drawable.ic_star),
+                    Color.parseColor("#D3D3D3"),
+                    Color.parseColor("#FFFFFF")
+                ) { pos: Int ->
+                    //workDoAdapter.modelList.removeAt(pos)
+                    workDoAdapter.notifyItemRemoved(pos)
+
+                })
+            }
+        }
+
+        binding.root.setOnClickListener {
+            FileUtils.hideKeyboard(requireActivity())
+        }
+        binding.content.setOnClickListener {
+            FileUtils.hideKeyboard(requireActivity())
         }
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_list_work, container, false)
+    override fun onResume() {
+        super.onResume()
+        generateItemWork()
+    }
+
+
+    @SuppressLint("NotifyDataSetChanged")
+    private fun generateItemWork() {
+        //listWork = MainActivity.roomDatabaseClass.workDao().getWork()
+
+        for (i in 0 until 20) {
+            listWork.add(0,Work(1,"2","3","4",8f))
+        }
+
+        if (listWork.size == 0 ) {
+            binding.recyclerview.visibility = View.GONE
+            binding.imgFile.visibility = View.VISIBLE
+        } else {
+            binding.recyclerview.visibility = View.VISIBLE
+            binding.imgFile.visibility = View.GONE
+        }
+
+        workDoAdapter = WorkDoAdapter(requireContext(), listWork)
+        binding.recyclerview.adapter = workDoAdapter
+        workDoAdapter.notifyDataSetChanged()
     }
 
     companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment Fragment.
-         */
-        // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
             Fragment().apply {
                 arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+
                 }
             }
     }

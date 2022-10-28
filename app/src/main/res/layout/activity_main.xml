@@ -69,7 +69,6 @@
                         android:paddingHorizontal="@dimen/_10sdp"
                         android:singleLine="true"
                         android:textColor="@color/black"
-                        android:textCursorDrawable="@color/background_general"
                         android:textSize="@dimen/_12ssp" />
 
                     <ImageView

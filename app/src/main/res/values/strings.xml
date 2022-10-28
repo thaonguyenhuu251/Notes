@@ -33,5 +33,33 @@
 
     <string name="LoginFingerprint">Fingerprint Login</string>
     <string name="loginPass">Login Password</string>
+    <string name="blue">Blue</string>
+    <string name="orange">Orange</string>
+    <string name="turquoise">Turquoise</string>
+    <string name="yellow">Yellow</string>
+    <string name="powered_by_squad_2">Powered by Squad 2</string>
+    <string name="clock_app">Clock App</string>
+    <string name="contact_us">Contact Us</string>
+    <string name="term_privacy">Term Privacy</string>
+    <string name="about_us">About Us</string>
+    <string name="chat_with_me">Chat With Me</string>
+    <string name="my_profile">My Profile</string>
+    <string name="login">Login</string>
+    <string name="vietnam">Vietnam</string>
+    <string name="englishuk">English (UK)</string>
+    <string name="russian">Russian</string>
+    <string name="choose_your_language">Choose your language</string>
+    <string name="south_korea">South Korea</string>
+
+    <string name="key_1">1</string>
+    <string name="key_2">2</string>
+    <string name="key_3">3</string>
+    <string name="key_4">4</string>
+    <string name="key_5">5</string>
+    <string name="key_6">6</string>
+    <string name="key_7">7</string>
+    <string name="key_8">8</string>
+    <string name="key_9">9</string>
+    <string name="key_0">0</string>
 
 </resources>

@@ -2,8 +2,21 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.notes">
+
     <uses-permission android:name="android.permission.USE_BIOMETRIC" />
-    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+
+    <permission android:name="android.permission.QUERY_ALL_PACKAGES" />
+
+    <queries>
+        <package android:name="com.google.android.gm" />
+        <package android:name="com.facebook.katana" />
+
+        <intent>
+            <action android:name="android.intent.action.MAIN" />
+        </intent>
+    </queries>
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -12,16 +25,20 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Notes"
+        android:theme="@style/AppTheme"
         tools:targetApi="31">
         <activity
-            android:name=".view.login.LoginPassword"
+            android:name=".view.login.SplashActivity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.login.LoginPasswordPin"
+            android:exported="false">
         </activity>
         <activity
             android:name=".view.home.TrashActivity"
@@ -37,10 +54,14 @@
             android:exported="false" />
         <activity
             android:name=".view.home.MainActivity"
-            android:windowSoftInputMode="adjustPan"
-            android:exported="false">
-
-        </activity>
+            android:exported="false"
+            android:windowSoftInputMode="adjustPan"></activity>
+        <activity
+            android:name=".view.home.DisplaySettingsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.login.LoginPassword"
+            android:exported="false" />
     </application>
 
 </manifest>

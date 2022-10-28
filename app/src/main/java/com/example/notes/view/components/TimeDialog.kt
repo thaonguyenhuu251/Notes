@@ -5,6 +5,7 @@ import android.view.*
 import androidx.fragment.app.DialogFragment
 import com.example.notes.R
 import com.example.notes.databinding.DialogTimeBinding
+import java.util.*
 
 class TimeDialog : DialogFragment() {
     private lateinit var binding: DialogTimeBinding
@@ -12,7 +13,20 @@ class TimeDialog : DialogFragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
+        val dialog = Dialog(requireContext())
+        val window = dialog.window
+        window!!.setLayout(
+            WindowManager.LayoutParams.MATCH_PARENT,
+            WindowManager.LayoutParams.WRAP_CONTENT
+        )
+
+        /*val windowAttributes: WindowManager.LayoutParams = window.attributes!!
+        windowAttributes.gravity = Gravity.CENTER_VERTICAL
+        window.attributes = windowAttributes*/
+
+        val calendar = Calendar.getInstance()
+        calendar.timeInMillis = System.currentTimeMillis()
         binding = DialogTimeBinding.inflate(layoutInflater)
         binding.txtDone.setOnClickListener{
             val hour = binding.timePicker.currentHour
@@ -26,17 +40,12 @@ class TimeDialog : DialogFragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val dialog = Dialog(requireContext())
-        val window = dialog.window
-        window!!.setLayout(
-            WindowManager.LayoutParams.MATCH_PARENT,
-            WindowManager.LayoutParams.WRAP_CONTENT
-        )
-        setStyle(STYLE_NO_TITLE, R.style.MyDialog)
-        val windowAttributes: WindowManager.LayoutParams = window.attributes!!
-        windowAttributes.gravity = Gravity.CENTER_VERTICAL
-        window.attributes = windowAttributes
+        setStyle(STYLE_NORMAL, R.style.MyDialog)
 
+    }
+
+    override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
+        return super.onCreateDialog(savedInstanceState)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
