@@ -10,11 +10,12 @@
         android:id="@+id/txtLanguage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center_vertical"
         android:text="@string/vietnam"
         android:textSize="@dimen/_12ssp"
         android:textStyle="bold"
         android:drawablePadding="@dimen/_15sdp"
         app:drawableStartCompat="@drawable/ic_language_vietnam"
-        android:gravity="center_vertical"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        app:drawableEndCompat="@color/white" />
 </androidx.constraintlayout.widget.ConstraintLayout>

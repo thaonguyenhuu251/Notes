@@ -7,7 +7,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
-import android.view.animation.AnimationUtils
 import androidx.fragment.app.DialogFragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.notes.R
@@ -20,7 +19,7 @@ class LanguageDialog : DialogFragment() {
     var layoutManager: LinearLayoutManager? = null
     private var listTextLanguage = mutableListOf<Int>()
     private var listDrawableLanguage = mutableListOf<Int>()
-    private var languageAdapter:LanguageDialogAdapter? = null
+    private var languageAdapter: LanguageDialogAdapter? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -62,7 +61,6 @@ class LanguageDialog : DialogFragment() {
         layoutManager = LinearLayoutManager(context)
         binding.recyclerview.layoutManager = layoutManager
 
-
         generateItemWork()
     }
 
@@ -75,7 +73,8 @@ class LanguageDialog : DialogFragment() {
         addListTextLanguage()
         addListDrawableLanguage()
 
-        languageAdapter = LanguageDialogAdapter(requireContext(), listTextLanguage,  listDrawableLanguage)
+        languageAdapter =
+            LanguageDialogAdapter(requireContext(), listTextLanguage, listDrawableLanguage)
         binding.recyclerview.adapter = languageAdapter
         languageAdapter?.notifyDataSetChanged()
     }

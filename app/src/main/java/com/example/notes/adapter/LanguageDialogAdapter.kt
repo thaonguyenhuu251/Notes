@@ -1,5 +1,6 @@
 package com.example.notes.adapter
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -14,6 +15,7 @@ class LanguageDialogAdapter:RecyclerView.Adapter<LanguageDialogViewModel> {
     var txtLanguage:TextView? = null
     var listTextLanguage = mutableListOf<Int>()
     var listDrawableLanguage = mutableListOf<Int>()
+    var i:Int = 1
 
     constructor(
         context: Context,
@@ -45,9 +47,21 @@ class LanguageDialogAdapter:RecyclerView.Adapter<LanguageDialogViewModel> {
         return LanguageDialogViewModel(itemView)
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     override fun onBindViewHolder(holder: LanguageDialogViewModel, position: Int) {
         holder.txtLanguage.setText(listTextLanguage[position])
         holder.txtLanguage.setCompoundDrawablesWithIntrinsicBounds(listDrawableLanguage[position], 0, 0, 0)
+        holder.txtLanguage.setOnClickListener {
+            holder.txtLanguage.setCompoundDrawablesRelativeWithIntrinsicBounds(listDrawableLanguage[position], 0, R.drawable.ic_choose_tick, 0)
+            i = position
+            notifyDataSetChanged()
+        }
+        if(i == position){
+            holder.txtLanguage.setCompoundDrawablesRelativeWithIntrinsicBounds(listDrawableLanguage[position], 0, R.drawable.ic_choose_tick, 0)
+        }
+        else{
+            holder.txtLanguage.setCompoundDrawablesWithIntrinsicBounds(listDrawableLanguage[position], 0, 0, 0)
+        }
     }
 
     override fun getItemCount(): Int {
