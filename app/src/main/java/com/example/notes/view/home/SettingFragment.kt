@@ -17,6 +17,7 @@ import androidx.fragment.app.Fragment
 import com.example.notes.databinding.FragmentSettingBinding
 import com.example.notes.util.Constants
 import com.example.notes.view.components.LanguageDialog
+import com.example.notes.view.components.ViewModeDialog
 import com.example.notes.view.login.LoginPassword
 
 
@@ -67,6 +68,11 @@ class SettingFragment : Fragment() {
         binding.txtLanguage.setOnClickListener {
             val languageDialog = LanguageDialog()
             languageDialog.show(childFragmentManager, languageDialog.tag)
+        }
+
+        binding.txtViewMode.setOnClickListener {
+            val viewmodeDialog = ViewModeDialog()
+            viewmodeDialog.show(childFragmentManager, viewmodeDialog.tag)
         }
 
         if (isPassword) {
