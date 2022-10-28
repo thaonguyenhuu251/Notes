@@ -184,9 +184,9 @@
                     android:gravity="center"
                     android:paddingEnd="@dimen/_10sdp"
                     app:drawableTint="@color/background_general"
-                    app:thumbTint = "@drawable/thumb"
-                    app:trackTint = "@drawable/track"
-                    tools:ignore="UnusedAttribute,UseSwitchCompatOrMaterialXml" />
+                    android:thumb="@drawable/thumb"
+                    app:track="@drawable/track"
+                    />
             </LinearLayout>
 
             <TextView
