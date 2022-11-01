@@ -1,18 +1,24 @@
 package com.example.notes.view.home
 
-import com.example.notes.util.FileUtils.hideKeyboard
-import androidx.appcompat.app.AppCompatActivity
-import android.widget.TimePicker
-import android.widget.DatePicker
-import android.widget.TextView
 import android.os.Bundle
 import android.view.View
+import android.widget.DatePicker
+import android.widget.TextView
+import android.widget.TimePicker
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import com.example.notes.database.WorkRoomDatabaseClass
 import com.example.notes.databinding.ActivityAddWorkBinding
+import com.example.notes.model.Work
+import com.example.notes.repo.WorkRepo
 import com.example.notes.util.FileUtils
+import com.example.notes.util.FileUtils.hideKeyboard
 import com.example.notes.view.components.DateDialog
 import com.example.notes.view.components.TimeDialog
-import java.lang.Exception
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class AddWorkActivity : AppCompatActivity(), DateDialog.OnDone, TimeDialog.OnDone {
     private lateinit var binding: ActivityAddWorkBinding
@@ -20,13 +26,19 @@ class AddWorkActivity : AppCompatActivity(), DateDialog.OnDone, TimeDialog.OnDon
     private val datePicker: DatePicker? = null
     var hour = 0
     var minutes = 0f
+
+    private var workRepo: WorkRepo? = null
+
     var txtDone: TextView? = null
     var txtExit: TextView? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityAddWorkBinding.inflate(layoutInflater)
         val view: View = binding.root
         setContentView(view)
+        workRepo = WorkRepo(WorkRoomDatabaseClass.getDataBase(this).workDao())
+
         binding.root.setOnClickListener { hideKeyboard(this) }
         binding.txtBack.setOnClickListener { onBackPressed() }
         binding.edtTimeComplete.setOnClickListener {
@@ -51,13 +63,16 @@ class AddWorkActivity : AppCompatActivity(), DateDialog.OnDone, TimeDialog.OnDon
                     Toast.makeText(this, "time >0 or time < 8", Toast.LENGTH_SHORT).show()
                     binding.edtTimeComplete.setText("")
                 } else {
-                    /*Work work = new Work();
-                    work.setIdWork(System.currentTimeMillis());
-                    work.setNameWork(nameWork);
-                    work.setStartDay(startDay);
-                    work.setContentWork(contentWork);
-                    work.setTimeComplete(timeComplete);
-                    MainActivity.roomDatabaseClass.workDao().addWork(work);*/
+                    val work = Work()
+                    work.idWork = System.currentTimeMillis()
+                    work.nameWork = nameWork
+                    work.startDay = startDay
+                    work.contentWork = contentWork
+                    work.timeComplete = timeComplete
+
+                    CoroutineScope(Dispatchers.IO).launch {
+                        workRepo?.insert(work)
+                    }
                     Toast.makeText(this, "Data Successfully saved", Toast.LENGTH_SHORT).show()
                     binding.edtStartDay.setText("")
                     binding.edtNameWork.setText("")

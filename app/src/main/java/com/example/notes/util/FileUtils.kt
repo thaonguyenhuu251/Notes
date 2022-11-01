@@ -26,7 +26,7 @@ object FileUtils {
     }
 
     fun formatTimeNew(hour: Int, min: Int): String {
-        val minString: String = if (min < 10) {
+        /*val minString: String = if (min < 10) {
             "0$min"
         } else {
             min.toString()
@@ -35,8 +35,8 @@ object FileUtils {
             "0$hour"
         } else {
             hour.toString()
-        }
-        return "$hourString:$minString"
+        }*/
+        return "$hour:$min"
     }
 
     fun formatTimeFloat(hour: Int, minutes: Int, time: Float) {

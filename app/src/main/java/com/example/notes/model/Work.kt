@@ -17,6 +17,4 @@ data class Work (
     var startDay: String? = null,
 
     var timeComplete: Float = 0f
-): Serializable {
-
-}
+)
