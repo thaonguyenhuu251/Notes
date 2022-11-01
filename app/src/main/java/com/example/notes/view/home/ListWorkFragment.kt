@@ -6,25 +6,32 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.notes.R
 import com.example.notes.adapter.WorkDoAdapter
+import com.example.notes.database.WorkRoomDatabaseClass
 import com.example.notes.databinding.FragmentListWorkBinding
 import com.example.notes.helper.SwipeHelper
 import com.example.notes.model.Work
+import com.example.notes.repo.WorkRepo
 import com.example.notes.util.FileUtils
-import com.example.notes.view.components.DateDialog
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class ListWorkFragment : Fragment() {
     lateinit var workDoAdapter: WorkDoAdapter
     private var layoutManager: LinearLayoutManager? = null
     lateinit var binding: FragmentListWorkBinding
+
+    private var workRepo: WorkRepo? = null
+
     var recyclerView: RecyclerView? = null
-    private var listWork = mutableListOf<Work>()
+    private var listWork: MutableList<Work>? = null
     var timeFilter: String? = null
 
     override fun onCreateView(
@@ -38,7 +45,7 @@ class ListWorkFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        workRepo = WorkRepo(WorkRoomDatabaseClass.getDataBase(requireContext()).workDao())
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -48,7 +55,7 @@ class ListWorkFragment : Fragment() {
         binding.recyclerview.layoutManager = layoutManager
 
         object : SwipeHelper(requireContext(), binding.recyclerview, false) {
-
+            var work = Work()
             override fun instantiateUnderlayButton(
                 viewHolder: RecyclerView.ViewHolder?,
                 underlayButtons: MutableList<UnderlayButton>?
@@ -61,7 +68,10 @@ class ListWorkFragment : Fragment() {
                     Color.parseColor("#DC143C"),
                     Color.parseColor("#FFFFFF")
                 ) { pos: Int ->
-                    //workDoAdapter.modelList.removeAt(pos)
+                    //work.idWork = id
+                    // workDoAdapter.modelList.removeAt(pos)
+
+                    removeAt(pos)
                     workDoAdapter.notifyItemRemoved(pos)
 
                 })
@@ -96,6 +106,7 @@ class ListWorkFragment : Fragment() {
         binding.content.setOnClickListener {
             FileUtils.hideKeyboard(requireActivity())
         }
+
     }
 
     override fun onResume() {
@@ -103,16 +114,11 @@ class ListWorkFragment : Fragment() {
         generateItemWork()
     }
 
-
     @SuppressLint("NotifyDataSetChanged")
     private fun generateItemWork() {
-        //listWork = MainActivity.roomDatabaseClass.workDao().getWork()
+        listWork = workRepo?.allWork
 
-        for (i in 0 until 20) {
-            listWork.add(0,Work(1,"2","3","4",8f))
-        }
-
-        if (listWork.size == 0 ) {
+        if (listWork!!.isEmpty()) {
             binding.recyclerview.visibility = View.GONE
             binding.imgFile.visibility = View.VISIBLE
         } else {
@@ -120,7 +126,7 @@ class ListWorkFragment : Fragment() {
             binding.imgFile.visibility = View.GONE
         }
 
-        workDoAdapter = WorkDoAdapter(requireContext(), listWork)
+        workDoAdapter = WorkDoAdapter(requireContext(), listWork!!)
         binding.recyclerview.adapter = workDoAdapter
         workDoAdapter.notifyDataSetChanged()
     }
@@ -133,5 +139,12 @@ class ListWorkFragment : Fragment() {
 
                 }
             }
+    }
+
+
+    fun removeAt(position: Int) {
+        listWork?.removeAt(position)
+        workDoAdapter.notifyItemRemoved(position)
+        workDoAdapter.notifyItemRangeChanged(position, listWork!!.size)
     }
 }

@@ -149,7 +149,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="0dp"
             android:layout_margin="@dimen/_10sdp"
             android:orientation="vertical">
             <!--Vip version weight:1-->
@@ -190,7 +190,39 @@
 
             </LinearLayout>
 
-            <!--<TextView
+            <LinearLayout
+                android:id="@+id/lnDarkMode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/txtDarkMode"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="8"
+                    android:drawablePadding="@dimen/_10sdp"
+                    android:padding="@dimen/_15sdp"
+                    android:text="@string/dark_mode"
+                    android:textSize="@dimen/_12ssp"
+                    app:drawableStartCompat="@drawable/ic_fingerprint_setting"
+                    app:drawableTint="@color/background_general" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/swDarkMode"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:gravity="center"
+                    android:paddingEnd="@dimen/_10sdp"
+                    app:drawableTint="@color/background_general"
+                    android:thumb="@drawable/thumb"
+                    app:track="@drawable/track"
+                    tools:ignore="RtlSymmetry" />
+
+            </LinearLayout>
+
+            <TextView
                 android:id="@+id/txtLoginPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

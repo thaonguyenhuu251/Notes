@@ -64,5 +64,5 @@
     <string name="set_password">Set Password</string>
     <string name="change_password">Change Password</string>
     <string name="delete_password">Delete Password</string>
-
+    <string name="dark_mode">Dark Mode</string>
 </resources>

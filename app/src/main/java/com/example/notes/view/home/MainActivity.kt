@@ -12,7 +12,6 @@ import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.preference.PreferenceManager
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.MenuItem
@@ -24,15 +23,15 @@ import androidx.core.app.ActivityCompat
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.drawerlayout.widget.DrawerLayout.DrawerListener
+import androidx.room.Room
 import com.example.notes.*
+import com.example.notes.database.WorkRoomDatabaseClass
 import com.example.notes.databinding.ActivityMainBinding
 import com.example.notes.util.Constants
 import com.example.notes.util.Constants.FACEBOOK_PAGE_ID
 import com.example.notes.util.Constants.FACEBOOK_URL
 import com.example.notes.util.Constants.SHARED_PREFERENCES_APP
-import com.example.notes.util.Constants.SHARED_PREFERENCES_KEY_COLOR
 import com.example.notes.util.FileUtils
-import com.example.notes.view.login.LoginPassword
 import com.example.notes.view.login.LoginPasswordPin
 import com.google.android.material.navigation.NavigationBarView
 
@@ -42,6 +41,7 @@ class MainActivity : AppCompatActivity() {
     var bookMarkFragment = BookMarkFragment()
     var settingFragment = SettingFragment()
     var notificationFragment = NotificationFragment()
+    var workRoomDatabaseClass: WorkRoomDatabaseClass? = null
 
     private lateinit var appPreferences : SharedPreferences
     var appTheme = 0
@@ -59,6 +59,11 @@ class MainActivity : AppCompatActivity() {
         appTheme = appPreferences.getInt("theme", 0)
         themeColor = appColor
         Constants.color = appColor
+
+        workRoomDatabaseClass = Room.databaseBuilder(
+            applicationContext,
+            WorkRoomDatabaseClass::class.java, "work_database"
+        ).allowMainThreadQueries().build()
 
         if (themeColor == 0){
             setTheme(Constants.theme);
