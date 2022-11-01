@@ -70,6 +70,10 @@
         <activity
             android:name=".view.home.ProfileDetailsActivity"
             android:exported="false" />
+
+        <activity
+            android:name=".view.login.ActivityNewPasswordSetting"
+            android:exported="false" />
     </application>
 
 </manifest>
