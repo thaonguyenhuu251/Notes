@@ -3,16 +3,91 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="../../../../layout/custom_preview.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/avd_cross_to_plus.xml" value="0.14" />
+        <entry key="app/src/main/res/drawable/bg_bottom_sheet_blue.xml" value="0.1595" />
+        <entry key="app/src/main/res/drawable/bg_bottomsheet.xml" value="0.1595" />
+        <entry key="app/src/main/res/drawable/bg_button.xml" value="0.1595" />
+        <entry key="app/src/main/res/drawable/bg_detail.xml" value="0.1595" />
+        <entry key="app/src/main/res/drawable/bg_detail_infor.xml" value="0.1595" />
+        <entry key="app/src/main/res/drawable/bg_dialog_round.xml" value="0.1595" />
+        <entry key="app/src/main/res/drawable/bg_drawer.xml" value="0.1595" />
+        <entry key="app/src/main/res/drawable/bg_edittext.xml" value="0.1595" />
+        <entry key="app/src/main/res/drawable/bg_more_work.xml" value="0.1595" />
+        <entry key="app/src/main/res/drawable/bg_search.xml" value="0.1595" />
+        <entry key="app/src/main/res/drawable/bg_work.xml" value="0.1595" />
+        <entry key="app/src/main/res/drawable/cursor_edittext.xml" value="0.1595" />
+        <entry key="app/src/main/res/drawable/custom_circle.xml" value="0.146" />
         <entry key="app/src/main/res/drawable/ic_add.xml" value="0.1215" />
+        <entry key="app/src/main/res/drawable/ic_arrow_left.xml" value="0.1595" />
         <entry key="app/src/main/res/drawable/ic_bar_chart.xml" value="0.1215" />
+        <entry key="app/src/main/res/drawable/ic_baseline_horizontal.xml" value="0.1595" />
+        <entry key="app/src/main/res/drawable/ic_book_color.xml" value="0.1595" />
+        <entry key="app/src/main/res/drawable/ic_celendar_color.xml" value="0.1595" />
+        <entry key="app/src/main/res/drawable/ic_close.xml" value="0.1595" />
+        <entry key="app/src/main/res/drawable/ic_content_work.xml" value="0.1595" />
+        <entry key="app/src/main/res/drawable/ic_detail.xml" value="0.1595" />
+        <entry key="app/src/main/res/drawable/ic_file.xml" value="0.1595" />
         <entry key="app/src/main/res/drawable/ic_home.xml" value="0.1215" />
+        <entry key="app/src/main/res/drawable/ic_icons8_home.xml" value="0.1595" />
+        <entry key="app/src/main/res/drawable/ic_language_english_uk.xml" value="0.1595" />
+        <entry key="app/src/main/res/drawable/ic_magic_star.xml" value="0.1595" />
         <entry key="app/src/main/res/drawable/ic_notifications.xml" value="0.1215" />
+        <entry key="app/src/main/res/drawable/ic_plus.xml" value="0.1595" />
+        <entry key="app/src/main/res/drawable/ic_save_alt.xml" value="0.1595" />
+        <entry key="app/src/main/res/drawable/ic_search.xml" value="0.1595" />
         <entry key="app/src/main/res/drawable/ic_settings.xml" value="0.1215" />
+        <entry key="app/src/main/res/drawable/ic_star.xml" value="0.1595" />
+        <entry key="app/src/main/res/drawable/ic_start_day.xml" value="0.1595" />
+        <entry key="app/src/main/res/drawable/ic_time_color.xml" value="0.1595" />
+        <entry key="app/src/main/res/drawable/ic_time_complete.xml" value="0.1595" />
+        <entry key="app/src/main/res/drawable/ic_work_do.xml" value="0.1595" />
         <entry key="app/src/main/res/drawable/selector_menu.xml" value="0.1215" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.2842844645182292" />
-        <entry key="app/src/main/res/layout/bottom_menu.xml" value="0.29375" />
+        <entry key="app/src/main/res/drawable/tab_selector.xml" value="0.14" />
+        <entry key="app/src/main/res/drawable/thumb.xml" value="0.1595" />
+        <entry key="app/src/main/res/drawable/track.xml" value="0.1595" />
+        <entry key="app/src/main/res/layout/acticity_display_settings.xml" value="0.22447916666666667" />
+        <entry key="app/src/main/res/layout/activity_add_note.xml" value="0.22916666666666666" />
+        <entry key="app/src/main/res/layout/activity_add_work.xml" value="0.271051025390625" />
+        <entry key="app/src/main/res/layout/activity_login_password.xml" value="0.2397501874075062" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/activity_new_password.xml" value="0.14137980143229167" />
+        <entry key="app/src/main/res/layout/activity_new_password_setting.xml" value="0.22291666666666668" />
+        <entry key="app/src/main/res/layout/activity_profile.xml" value="0.22291666666666668" />
+        <entry key="app/src/main/res/layout/activity_profile_details.xml" value="0.22291666666666668" />
+        <entry key="app/src/main/res/layout/activity_splash.xml" value="0.16875" />
+        <entry key="app/src/main/res/layout/activity_trash.xml" value="0.22291666666666668" />
+        <entry key="app/src/main/res/layout/bottom_menu.xml" value="0.4032520325203252" />
+        <entry key="app/src/main/res/layout/bottom_sheet_add_note.xml" value="0.287070574079241" />
+        <entry key="app/src/main/res/layout/custom_item_add_note.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/custom_new_password.xml" value="0.2947916666666667" />
+        <entry key="app/src/main/res/layout/dialog_confirm_password.xml" value="0.26031036376953126" />
+        <entry key="app/src/main/res/layout/dialog_day.xml" value="0.2947916666666667" />
+        <entry key="app/src/main/res/layout/dialog_language.xml" value="0.19691314697265624" />
+        <entry key="app/src/main/res/layout/dialog_time.xml" value="0.2947916666666667" />
+        <entry key="app/src/main/res/layout/expandable_list_item_child.xml" value="0.22552083333333334" />
+        <entry key="app/src/main/res/layout/expandable_list_item_group.xml" value="0.22552083333333334" />
         <entry key="app/src/main/res/layout/fragment_chart.xml" value="0.22760416666666666" />
-        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_confirm_new_password.xml" value="0.17395833333333333" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.23400878906250003" />
+        <entry key="app/src/main/res/layout/fragment_list_note.xml" value="0.178125" />
+        <entry key="app/src/main/res/layout/fragment_list_work.xml" value="0.2947916666666667" />
+        <entry key="app/src/main/res/layout/fragment_lock_screen_pf.xml" value="0.22291666666666668" />
+        <entry key="app/src/main/res/layout/fragment_new_password_setting.xml" value="0.22291666666666668" />
+        <entry key="app/src/main/res/layout/fragment_note_mark.xml" value="0.23229166666666667" />
+        <entry key="app/src/main/res/layout/fragment_note_trash.xml" value="0.22291666666666668" />
+        <entry key="app/src/main/res/layout/fragment_notifycation.xml" value="0.22291666666666668" />
+        <entry key="app/src/main/res/layout/fragment_setting.xml" value="0.23385416666666667" />
+        <entry key="app/src/main/res/layout/item_background.xml" value="0.2791666666666667" />
+        <entry key="app/src/main/res/layout/item_color.xml" value="0.2791666666666667" />
+        <entry key="app/src/main/res/layout/item_work.xml" value="0.2947916666666667" />
+        <entry key="app/src/main/res/layout/layout_bottomsheet_sort.xml" value="0.1769024102451702" />
+        <entry key="app/src/main/res/layout/layout_display_settings_background.xml" value="0.21354166666666666" />
+        <entry key="app/src/main/res/layout/layout_display_settings_color.xml" value="0.21354166666666666" />
+        <entry key="app/src/main/res/layout/layout_menu.xml" value="0.18229166666666666" />
+        <entry key="app/src/main/res/layout/layout_viewmode_dialog.xml" value="0.18229166666666666" />
+        <entry key="app/src/main/res/layout/menu.xml" value="0.15260416666666668" />
+        <entry key="app/src/main/res/layout/view_code_pf_lockscreen.xml" value="0.22291666666666668" />
         <entry key="app/src/main/res/menu/bottom_menu.xml" value="0.29375" />
       </map>
     </option>

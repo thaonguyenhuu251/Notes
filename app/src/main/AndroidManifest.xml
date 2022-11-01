@@ -72,8 +72,17 @@
             android:exported="false" />
 
         <activity
-            android:name=".view.home.NewPasswordSettingActivity"
+            android:name=".view.login.NewPasswordSettingActivity"
             android:exported="false" />
+
+        <activity
+            android:name=".view.login.ConfirmChangePasswordActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".view.login.ConfirmDeletePasswordActivity"
+            android:exported="false" />
+
     </application>
 
 </manifest>

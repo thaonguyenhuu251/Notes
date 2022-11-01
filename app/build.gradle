@@ -69,5 +69,6 @@ dependencies {
     implementation'com.kevalpatel2106:passcodeview:2.0.0'
     implementation'com.airbnb.android:lottie:5.0.2'
     implementation'com.hanks:passcodeview:0.1.2'
+    implementation'com.github.thealeksandr:PFLockScreen-Android:1.0.0-beta7'
 
 }

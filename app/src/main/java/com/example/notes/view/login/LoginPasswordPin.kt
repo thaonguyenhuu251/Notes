@@ -15,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import com.example.notes.R
 import com.example.notes.databinding.ActivityLoginPasswordBinding
+import com.example.notes.util.PreferencesSettings
 import com.example.notes.view.home.MainActivity
 import com.kevalpatel.passcodeview.PinView
 import com.kevalpatel.passcodeview.authenticator.PasscodeViewPinAuthenticator
@@ -50,7 +51,7 @@ class LoginPasswordPin : AppCompatActivity() {
         setContentView(view)
 
         mPinView = binding.patternView
-        val correctPattern = intArrayOf(1, 2, 3, 4)
+        val correctPattern = PreferencesSettings.getCode(this@LoginPasswordPin)?.map { it.digitToInt() }?.toIntArray()
         mPinView.pinAuthenticator = PasscodeViewPinAuthenticator(correctPattern)
 
         //set number
@@ -73,7 +74,7 @@ class LoginPasswordPin : AppCompatActivity() {
         )
 
 
-        mPinView.pinLength = 4
+        mPinView.pinLength = 6
 
 
         mPinView.setKeyNames(

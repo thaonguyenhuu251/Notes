@@ -1,72 +1,62 @@
 package com.example.notes.view.login
-import android.content.Context
+
 import android.content.Intent
-import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
 import com.beautycoder.pflockscreen.PFFLockScreenConfiguration
 import com.beautycoder.pflockscreen.fragments.PFLockScreenFragment
-import com.beautycoder.pflockscreen.fragments.PFLockScreenFragment.OnPFLockScreenLoginListener
+import com.beautycoder.pflockscreen.viewmodels.PFPinCodeViewModel
 import com.example.notes.R
 import com.example.notes.databinding.ActivityNewPasswordBinding
-import com.example.notes.util.Constants
 import com.example.notes.util.PreferencesSettings
 import com.example.notes.view.home.MainActivity
 
-class LoginPassword : AppCompatActivity() {
-    private lateinit var appPreferences : SharedPreferences
+class NewPasswordSettingActivity : AppCompatActivity() {
     private lateinit var binding: ActivityNewPasswordBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityNewPasswordBinding.inflate(layoutInflater)
         val view: View = binding.root
         setContentView(view)
-        appPreferences = getSharedPreferences(
-            Constants.SHARED_PREFERENCES_APP,
-            Context.MODE_PRIVATE
-        )
-        showLockScreenFragment(true)
+        showLockScreenFragment(false)
     }
 
-    private val mLoginListener: OnPFLockScreenLoginListener = object : OnPFLockScreenLoginListener {
-        override fun onCodeInputSuccessful() {
-            val intent = Intent(this@LoginPassword, MainActivity::class.java)
-            startActivity(intent)
-        }
+    private val mCodeCreateListener: PFLockScreenFragment.OnPFLockScreenCodeCreateListener =
+        object : PFLockScreenFragment.OnPFLockScreenCodeCreateListener {
+            override fun onCodeCreated(encodedCode: String) {
+                PreferencesSettings.saveToPref(this@NewPasswordSettingActivity, encodedCode)
+                val intent = Intent(this@NewPasswordSettingActivity, MainActivity::class.java)
+                startActivity(intent)
+            }
 
-        override fun onFingerprintSuccessful() {
-            val intent = Intent(this@LoginPassword, MainActivity::class.java)
-            startActivity(intent)
+            override fun onNewCodeValidationFailed() {
+                Toast.makeText(this@NewPasswordSettingActivity, "Code validation error", Toast.LENGTH_SHORT)
+                    .show()
+            }
         }
-
-        override fun onPinLoginFailed() {
-            Toast.makeText(this@LoginPassword, "Pin failed", Toast.LENGTH_SHORT).show()
-        }
-
-        override fun onFingerprintLoginFailed() {
-            Toast.makeText(this@LoginPassword, "Pin failed", Toast.LENGTH_SHORT).show()
-        }
-    }
 
     private fun showLockScreenFragment(isPinExist: Boolean) {
         val builder = PFFLockScreenConfiguration.Builder(this)
             .setTitle(if (isPinExist) "Unlock with your pin code or fingerprint" else "Create Code")
             .setCodeLength(6)
-            .setLeftButton("Can't remember")
-            .setUseFingerprint(appPreferences.getBoolean(Constants.FINGER_ON, false))
+            .setLeftButton("Can't remeber")
+            .setNewCodeValidation(true)
+            .setNewCodeValidationTitle("Please input code again")
+            .setUseFingerprint(false)
         val fragment = PFLockScreenFragment()
         fragment.setOnLeftButtonClickListener {
 
         }
-
         builder.setMode(if (isPinExist) PFFLockScreenConfiguration.MODE_AUTH else PFFLockScreenConfiguration.MODE_CREATE)
         if (isPinExist) {
-            fragment.setEncodedPinCode(PreferencesSettings.getCode(this))
-            fragment.setLoginListener(mLoginListener)
+            val intent = Intent(this@NewPasswordSettingActivity, MainActivity::class.java)
+            startActivity(intent)
         }
         fragment.setConfiguration(builder.build())
+        fragment.setCodeCreateListener(mCodeCreateListener)
         supportFragmentManager.beginTransaction()
             .replace(R.id.containerViewSetting, fragment).commit()
     }

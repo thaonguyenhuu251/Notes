@@ -1,4 +1,6 @@
 package com.example.notes.view.login
+
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
@@ -8,14 +10,13 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.beautycoder.pflockscreen.PFFLockScreenConfiguration
 import com.beautycoder.pflockscreen.fragments.PFLockScreenFragment
-import com.beautycoder.pflockscreen.fragments.PFLockScreenFragment.OnPFLockScreenLoginListener
 import com.example.notes.R
 import com.example.notes.databinding.ActivityNewPasswordBinding
 import com.example.notes.util.Constants
 import com.example.notes.util.PreferencesSettings
 import com.example.notes.view.home.MainActivity
 
-class LoginPassword : AppCompatActivity() {
+class ConfirmDeletePasswordActivity : AppCompatActivity() {
     private lateinit var appPreferences : SharedPreferences
     private lateinit var binding: ActivityNewPasswordBinding
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,32 +31,37 @@ class LoginPassword : AppCompatActivity() {
         showLockScreenFragment(true)
     }
 
-    private val mLoginListener: OnPFLockScreenLoginListener = object : OnPFLockScreenLoginListener {
+    private val mLoginListener: PFLockScreenFragment.OnPFLockScreenLoginListener = object :
+        PFLockScreenFragment.OnPFLockScreenLoginListener {
+        @SuppressLint("ApplySharedPref")
         override fun onCodeInputSuccessful() {
-            val intent = Intent(this@LoginPassword, MainActivity::class.java)
+            val editor = appPreferences.edit()
+            editor.putBoolean(Constants.FINGER_ON, false)
+            editor.apply()
+            editor.commit()
+            PreferencesSettings.saveToPref(this@ConfirmDeletePasswordActivity, null)
+            val intent = Intent(this@ConfirmDeletePasswordActivity, MainActivity::class.java)
             startActivity(intent)
         }
 
         override fun onFingerprintSuccessful() {
-            val intent = Intent(this@LoginPassword, MainActivity::class.java)
-            startActivity(intent)
+
         }
 
         override fun onPinLoginFailed() {
-            Toast.makeText(this@LoginPassword, "Pin failed", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this@ConfirmDeletePasswordActivity, "Pin failed", Toast.LENGTH_SHORT).show()
         }
 
         override fun onFingerprintLoginFailed() {
-            Toast.makeText(this@LoginPassword, "Pin failed", Toast.LENGTH_SHORT).show()
+
         }
     }
 
     private fun showLockScreenFragment(isPinExist: Boolean) {
         val builder = PFFLockScreenConfiguration.Builder(this)
-            .setTitle(if (isPinExist) "Unlock with your pin code or fingerprint" else "Create Code")
+            .setTitle(if (isPinExist) "Confirm Password" else "Create Code")
             .setCodeLength(6)
-            .setLeftButton("Can't remember")
-            .setUseFingerprint(appPreferences.getBoolean(Constants.FINGER_ON, false))
+            .setUseFingerprint(false)
         val fragment = PFLockScreenFragment()
         fragment.setOnLeftButtonClickListener {
 

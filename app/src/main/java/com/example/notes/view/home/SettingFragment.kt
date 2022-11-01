@@ -18,15 +18,18 @@ import androidx.fragment.app.Fragment
 import com.example.notes.adapter.LoginPasswordExpandableAdapter
 import com.example.notes.databinding.FragmentSettingBinding
 import com.example.notes.util.Constants
+import com.example.notes.util.PreferencesSettings
 import com.example.notes.view.components.LanguageDialog
 import com.example.notes.view.components.ViewModeDialog
+import com.example.notes.view.login.ConfirmChangePasswordActivity
+import com.example.notes.view.login.ConfirmDeletePasswordActivity
+import com.example.notes.view.login.NewPasswordSettingActivity
 
 
 class SettingFragment : Fragment() {
     private lateinit var binding: FragmentSettingBinding
     private lateinit var appPreferences: SharedPreferences
 
-    //expandable list view
     private lateinit var loginPassAdapter: LoginPasswordExpandableAdapter
     private var groupList: MutableList<String> = ArrayList()
     private var childList : MutableList<MutableList<String>> = ArrayList()
@@ -55,8 +58,6 @@ class SettingFragment : Fragment() {
 
     @SuppressLint("ApplySharedPref")
     private fun initView() {
-
-        //expandable list view
         showChildList()
         loginPassAdapter = LoginPasswordExpandableAdapter(requireContext(), groupList, childList)
         binding.expandableListView.setAdapter(loginPassAdapter)
@@ -65,11 +66,28 @@ class SettingFragment : Fragment() {
             setListViewHeight(expandableListView, i)
             false
         }
-        val isPassword = appPreferences.getBoolean(Constants.PASSWORD, false)
+
+        binding.expandableListView.setOnChildClickListener { parent, v, groupPosition, childPosition, id ->
+            when (childPosition) {
+                0 -> {
+                    val i = Intent(requireContext(), NewPasswordSettingActivity::class.java)
+                    startActivity(i)
+                }
+
+                1 -> {
+                    val i = Intent(requireContext(), ConfirmChangePasswordActivity::class.java)
+                    startActivity(i)
+                }
+                2 -> {
+                    val i = Intent(requireContext(), ConfirmDeletePasswordActivity::class.java)
+                    startActivity(i)
+                }
+            }
+            false
+        }
 
         binding.txtPrivacyPolicy.setOnClickListener {
-            val i = Intent(requireContext(), NewPasswordSettingActivity::class.java)
-            startActivity(i)
+
         }
         binding.txtDisplay.setOnClickListener {
             val i = Intent(requireContext(), DisplaySettingsActivity::class.java)
@@ -77,7 +95,7 @@ class SettingFragment : Fragment() {
         }
 
         binding.txtTrash.setOnClickListener {
-            val i = Intent(requireContext(), NewPasswordSettingActivity::class.java)
+            val i = Intent(requireContext(), TrashActivity::class.java)
             startActivity(i)
         }
 
@@ -86,34 +104,37 @@ class SettingFragment : Fragment() {
             languageDialog.show(childFragmentManager, languageDialog.tag)
         }
 
-        /*binding.txtLoginPassword.setOnClickListener {
-            val i = Intent(context, LoginPasswordSettingActivity::class.java)
-            startActivity(i)
-        }*/
-
         binding.txtViewMode.setOnClickListener {
             val viewmodeDialog = ViewModeDialog()
             viewmodeDialog.show(childFragmentManager, viewmodeDialog.tag)
         }
 
-        if (isPassword) {
-            binding.swLoginFingerprint.isChecked = true
-        }
+        binding.swLoginFingerprint.isChecked = appPreferences.getBoolean(Constants.FINGER_ON, false)
 
         binding.swLoginFingerprint.setOnCheckedChangeListener { buttonView, isChecked ->
             when {
                 isChecked -> {
-                    if (isPassword) {
+                    if (PreferencesSettings.getCode(requireContext())?.isEmpty() == false) {
                         val editor = appPreferences.edit()
                         editor.putBoolean(Constants.FINGER_ON, true)
                         editor.apply()
                         editor.commit()
+                        Toast.makeText(requireContext(), "Login fingerprint success", Toast.LENGTH_SHORT).show()
                     } else {
                         val editor = appPreferences.edit()
                         editor.putBoolean(Constants.FINGER_ON, false)
                         editor.apply()
                         editor.commit()
+                        Toast.makeText(requireContext(), "register password", Toast.LENGTH_SHORT).show()
+                        binding.swLoginFingerprint.isChecked = false
                     }
+                }
+
+                !isChecked -> {
+                    val editor = appPreferences.edit()
+                    editor.putBoolean(Constants.FINGER_ON, false)
+                    editor.apply()
+                    editor.commit()
                 }
             }
         }

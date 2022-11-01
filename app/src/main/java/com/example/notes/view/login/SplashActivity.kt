@@ -9,6 +9,7 @@ import android.os.Handler
 import android.os.Looper
 import com.example.notes.R
 import com.example.notes.util.Constants
+import com.example.notes.util.PreferencesSettings
 import com.example.notes.view.home.AddNoteActivity
 import com.example.notes.view.home.MainActivity
 
@@ -22,17 +23,17 @@ class SplashActivity : AppCompatActivity() {
             Context.MODE_PRIVATE
         )
 
-        if (appPreferences.getBoolean(Constants.FINGER_ON, false)) {
+        if (PreferencesSettings.getCode(this@SplashActivity)?.isEmpty() == true) {
             Handler(Looper.getMainLooper()).postDelayed({
-                startActivity(Intent(this@SplashActivity, LoginPasswordPin::class.java))
+                startActivity(Intent(this@SplashActivity, MainActivity::class.java))
                 finish()
-            }, 4000)
+            }, 500)
 
         } else {
             Handler(Looper.getMainLooper()).postDelayed({
-                startActivity(Intent(this@SplashActivity, LoginPasswordPin::class.java))
+                startActivity(Intent(this@SplashActivity, LoginPassword::class.java))
                 finish()
-            }, 4000)
+            }, 1000)
 
         }
     }

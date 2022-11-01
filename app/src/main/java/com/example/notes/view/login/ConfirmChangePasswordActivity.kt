@@ -1,4 +1,5 @@
 package com.example.notes.view.login
+
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
@@ -13,9 +14,8 @@ import com.example.notes.R
 import com.example.notes.databinding.ActivityNewPasswordBinding
 import com.example.notes.util.Constants
 import com.example.notes.util.PreferencesSettings
-import com.example.notes.view.home.MainActivity
 
-class LoginPassword : AppCompatActivity() {
+class ConfirmChangePasswordActivity : AppCompatActivity() {
     private lateinit var appPreferences : SharedPreferences
     private lateinit var binding: ActivityNewPasswordBinding
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,30 +32,28 @@ class LoginPassword : AppCompatActivity() {
 
     private val mLoginListener: OnPFLockScreenLoginListener = object : OnPFLockScreenLoginListener {
         override fun onCodeInputSuccessful() {
-            val intent = Intent(this@LoginPassword, MainActivity::class.java)
+            val intent = Intent(this@ConfirmChangePasswordActivity, NewPasswordSettingActivity::class.java)
             startActivity(intent)
         }
 
         override fun onFingerprintSuccessful() {
-            val intent = Intent(this@LoginPassword, MainActivity::class.java)
-            startActivity(intent)
+
         }
 
         override fun onPinLoginFailed() {
-            Toast.makeText(this@LoginPassword, "Pin failed", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this@ConfirmChangePasswordActivity, "Pin failed", Toast.LENGTH_SHORT).show()
         }
 
         override fun onFingerprintLoginFailed() {
-            Toast.makeText(this@LoginPassword, "Pin failed", Toast.LENGTH_SHORT).show()
+
         }
     }
 
     private fun showLockScreenFragment(isPinExist: Boolean) {
         val builder = PFFLockScreenConfiguration.Builder(this)
-            .setTitle(if (isPinExist) "Unlock with your pin code or fingerprint" else "Create Code")
+            .setTitle(if (isPinExist) "Confirm Password" else "Create Code")
             .setCodeLength(6)
-            .setLeftButton("Can't remember")
-            .setUseFingerprint(appPreferences.getBoolean(Constants.FINGER_ON, false))
+            .setUseFingerprint(false)
         val fragment = PFLockScreenFragment()
         fragment.setOnLeftButtonClickListener {
 

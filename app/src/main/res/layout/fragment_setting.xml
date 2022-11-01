@@ -205,7 +205,7 @@
                     android:padding="@dimen/_15sdp"
                     android:text="@string/dark_mode"
                     android:textSize="@dimen/_12ssp"
-                    app:drawableStartCompat="@drawable/ic_fingerprint_setting"
+                    app:drawableStartCompat="@drawable/ic_dark_mode"
                     app:drawableTint="@color/background_general" />
 
                 <androidx.appcompat.widget.SwitchCompat
@@ -222,23 +222,12 @@
 
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/txtLoginPassword"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:drawablePadding="@dimen/_10sdp"
-                android:padding="@dimen/_15sdp"
-                android:text="@string/loginPass"
-                android:textSize="@dimen/_12ssp"
-                app:drawableStartCompat="@drawable/ic_password_login_setting"
-                app:drawableTint="@color/background_general"
-                app:drawableEndCompat="@drawable/ic_back_right" />-->
-
             <ExpandableListView
                 android:id="@+id/expandableListView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:groupIndicator="@null"
+                android:scrollbars="none"
                 android:childDivider="@color/textColorAppNight"
                 />
 
