@@ -30,7 +30,7 @@ class SplashActivity : AppCompatActivity() {
 
         } else {
             Handler(Looper.getMainLooper()).postDelayed({
-                startActivity(Intent(this@SplashActivity, MainActivity::class.java))
+                startActivity(Intent(this@SplashActivity, LoginPasswordPin::class.java))
                 finish()
             }, 4000)
 

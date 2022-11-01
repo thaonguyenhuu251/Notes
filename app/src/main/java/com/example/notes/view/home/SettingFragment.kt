@@ -20,8 +20,6 @@ import com.example.notes.databinding.FragmentSettingBinding
 import com.example.notes.util.Constants
 import com.example.notes.view.components.LanguageDialog
 import com.example.notes.view.components.ViewModeDialog
-import com.example.notes.view.login.LoginPassword
-import com.example.notes.view.login.LoginPasswordPin
 
 
 class SettingFragment : Fragment() {
@@ -68,8 +66,9 @@ class SettingFragment : Fragment() {
             false
         }
         val isPassword = appPreferences.getBoolean(Constants.PASSWORD, false)
+
         binding.txtPrivacyPolicy.setOnClickListener {
-            val i = Intent(requireContext(), LoginPasswordPin::class.java)
+            val i = Intent(requireContext(), NewPasswordSettingActivity::class.java)
             startActivity(i)
         }
         binding.txtDisplay.setOnClickListener {
@@ -78,7 +77,7 @@ class SettingFragment : Fragment() {
         }
 
         binding.txtTrash.setOnClickListener {
-            val i = Intent(requireContext(), TrashActivity::class.java)
+            val i = Intent(requireContext(), NewPasswordSettingActivity::class.java)
             startActivity(i)
         }
 

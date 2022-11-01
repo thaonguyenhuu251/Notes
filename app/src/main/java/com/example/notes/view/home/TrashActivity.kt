@@ -14,7 +14,7 @@ class TrashActivity : AppCompatActivity() {
     lateinit var binding: ActivityTrashBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-       binding = ActivityTrashBinding.inflate(layoutInflater)
+        binding = ActivityTrashBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         initView()

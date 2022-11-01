@@ -50,7 +50,7 @@ class LoginPasswordPin : AppCompatActivity() {
         setContentView(view)
 
         mPinView = binding.patternView
-        val correctPattern = intArrayOf(1, 2, 3, 4, 5)
+        val correctPattern = intArrayOf(1, 2, 3, 4)
         mPinView.pinAuthenticator = PasscodeViewPinAuthenticator(correctPattern)
 
         //set number
@@ -73,7 +73,7 @@ class LoginPasswordPin : AppCompatActivity() {
         )
 
 
-        mPinView.pinLength = PinView.DYNAMIC_PIN_LENGTH
+        mPinView.pinLength = 4
 
 
         mPinView.setKeyNames(
