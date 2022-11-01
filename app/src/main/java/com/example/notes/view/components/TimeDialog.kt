@@ -28,11 +28,16 @@ class TimeDialog (private var onDone: OnDone) : DialogFragment() {
         val calendar = Calendar.getInstance()
         calendar.timeInMillis = System.currentTimeMillis()
         binding = DialogTimeBinding.inflate(layoutInflater)
+        var hour = 0
+        var minutes = 0
+        binding.timePicker.setOnTimeChangedListener { view, hourOfDay, minute ->
+            hour = hourOfDay
+            minutes = minute
+        }
         binding.txtDone.setOnClickListener{
-            val hour = binding.timePicker.currentHour
-            val minutes = binding.timePicker.currentMinute
-            onDone.onClickTime(true, hour, minutes)
-            dismiss()
+                onDone.onClickTime(true, hour, minutes)
+                dismiss()
+
         }
 
         binding.txtExit.setOnClickListener{ dismiss() }
