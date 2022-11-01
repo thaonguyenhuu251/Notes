@@ -61,5 +61,8 @@
     <string name="key_8">8</string>
     <string name="key_9">9</string>
     <string name="key_0">0</string>
+    <string name="set_password">Set Password</string>
+    <string name="change_password">Change Password</string>
+    <string name="delete_password">Delete Password</string>
 
 </resources>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/txtGroupTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawablePadding="@dimen/_10sdp"
+        android:padding="@dimen/_15sdp"
+        android:text="@string/loginPass"
+        android:textSize="@dimen/_12ssp"
+        app:drawableEndCompat="@drawable/ic_back_right"
+        app:drawableStartCompat="@drawable/ic_password_login_setting"
+        app:drawableTint="@color/background_general" />
+</LinearLayout>
