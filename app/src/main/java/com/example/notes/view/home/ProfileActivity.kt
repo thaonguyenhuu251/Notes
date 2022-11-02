@@ -27,6 +27,9 @@ class ProfileActivity : AppCompatActivity() {
         binding.txtBack.setOnClickListener {
             onBackPressed()
         }
+        binding.edtExit.setOnClickListener{
+            onBackPressed()
+        }
     }
 
     override fun onBackPressed() {
