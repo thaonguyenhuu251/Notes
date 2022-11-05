@@ -51,7 +51,7 @@
         app:tabBackground="@drawable/tab_color_selector"
         app:tabTextColor="@color/black"
         android:textAlignment="center"
-        app:tabSelectedTextColor="@color/background_general"
+        app:tabSelectedTextColor="?colorAccent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/appBarLayout" />

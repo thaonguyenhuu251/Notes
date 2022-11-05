@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.notes.adapter.TrashPagerFragmentAdapter
 import com.example.notes.databinding.ActivityTrashBinding
+import com.example.notes.util.PreferencesSettings
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 
@@ -14,6 +15,7 @@ class TrashActivity : AppCompatActivity() {
     lateinit var binding: ActivityTrashBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        super.setTheme(PreferencesSettings.getBackground(this))
         binding = ActivityTrashBinding.inflate(layoutInflater)
         setContentView(binding.root)
 

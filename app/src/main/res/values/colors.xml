@@ -237,6 +237,7 @@
     <color name="grey_colorPrimaryDark">#606060</color>
     <color name="grey_colorAccent">#f90</color>
 
+    <color name="brown_light">#CAB1AC</color>
     <color name="brown_colorPrimary">#795548</color>
     <color name="brown_colorPrimaryDark">#63453B</color>
     <color name="brown_colorAccent">#e81d62</color>

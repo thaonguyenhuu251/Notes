@@ -9,12 +9,14 @@ import android.view.View
 import android.content.Intent
 import com.example.notes.databinding.ActivityProfileBinding
 import com.example.notes.databinding.LayoutDisplaySettingsColorBinding
+import com.example.notes.util.PreferencesSettings
 import com.example.notes.view.home.ProfileDetailsActivity
 
 class ProfileActivity : AppCompatActivity() {
     private lateinit var binding: ActivityProfileBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        super.setTheme(PreferencesSettings.getBackground(this))
         binding = ActivityProfileBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)

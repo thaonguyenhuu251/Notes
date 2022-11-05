@@ -7,6 +7,7 @@
         <item name="colorPrimaryDark">@color/background_status</item>
 
         <item name="colorAccent">@color/background_general</item>
+        <item name="colorSecondary">@color/background_blue_light</item>
         <item name="colorOnPrimary">@color/white</item>
         <item name="colorOnSecondary">@color/black</item>
 
@@ -20,6 +21,7 @@
         <item name="colorPrimaryDark">@color/red_colorPrimaryDark</item>
 
         <item name="colorAccent">@color/red_colorPrimary</item>
+        <item name="colorSecondary">@color/background_blue_light</item>
         <item name="colorOnPrimary">@color/white</item>
         <item name="colorOnSecondary">@color/black</item>
 
@@ -27,8 +29,6 @@
         <item name="android:toolbarStyle">@color/red_colorPrimary</item>
         <item name="buttonColors">@color/red_colorPrimary</item>
         <item name="textBackground">@color/red_colorPrimary</item>
-
-        <item name="tabStyle">@color/red_colorPrimary</item>
 
         <item name="pf_key_button">@style/MyLockScreenButtonStyle</item>
         <item name="pf_lock_screen">@style/MyLockScreenStyle</item>
@@ -86,8 +86,21 @@
     <style name="AppTheme_brown" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/brown_colorPrimary</item>
-        <item name="colorPrimaryDark">@color/brown_colorPrimaryDark</item>
-        <item name="colorAccent">@color/brown_colorAccent</item>
+        <item name="colorPrimaryVariant">@color/background_status</item>
+        <item name="colorPrimaryDark">@color/brown_colorPrimary</item>
+
+        <item name="colorAccent">@color/brown_colorPrimary</item>
+        <item name="colorSecondary">@color/brown_light</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorOnSecondary">@color/black</item>
+
+        <item name="android:color">@color/brown_colorPrimary</item>
+        <item name="android:toolbarStyle">@color/brown_colorPrimary</item>
+        <item name="buttonColors">@color/brown_colorPrimary</item>
+        <item name="textBackground">@color/brown_colorPrimary</item>
+
+        <item name="pf_key_button">@style/MyLockScreenButtonStyle</item>
+        <item name="pf_lock_screen">@style/MyLockScreenStyle</item>
     </style>
 
     <style name="MyLockScreenStyle">

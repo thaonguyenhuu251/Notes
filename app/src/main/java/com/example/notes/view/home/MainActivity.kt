@@ -40,7 +40,6 @@ class MainActivity : AppCompatActivity() {
     var bookMarkFragment = BookMarkFragment()
     var settingFragment = SettingFragment()
     var notificationFragment = NotificationFragment()
-    var workRoomDatabaseClass: WorkRoomDatabaseClass? = null
 
     private lateinit var mDrawerLayout: DrawerLayout
     private lateinit var binding: ActivityMainBinding
@@ -49,11 +48,6 @@ class MainActivity : AppCompatActivity() {
         super.setTheme(PreferencesSettings.getBackground(this))
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view: View = binding.root
-
-        workRoomDatabaseClass = Room.databaseBuilder(
-            applicationContext,
-            WorkRoomDatabaseClass::class.java, "work_database"
-        ).allowMainThreadQueries().build()
 
         setContentView(view)
 

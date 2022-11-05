@@ -1,60 +1,90 @@
 package com.example.notes.view.home
 
+import android.graphics.Color
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.content.res.AppCompatResources
+import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.notes.R
+import com.example.notes.adapter.WorkDoAdapter
+import com.example.notes.database.WorkRoomMarkDatabase
+import com.example.notes.databinding.FragmentWorkMarkBinding
+import com.example.notes.helper.SwipeHelper
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [WorkMarkFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class WorkMarkFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    lateinit var workDoAdapter: WorkDoAdapter
+    private lateinit var binding: FragmentWorkMarkBinding
+
+    private val workMarkDatabase by lazy { WorkRoomMarkDatabase.getDataBase(requireContext()).workMarkDao() }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
+
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_work_mark, container, false)
+    ): View {
+        binding = FragmentWorkMarkBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment WorkMarkFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            WorkMarkFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setRecyclerView()
+        observeWorks()
+    }
+
+    private fun setRecyclerView() {
+        binding.recyclerview.layoutManager = LinearLayoutManager(requireContext())
+        binding.recyclerview.setHasFixedSize(true)
+        workDoAdapter = WorkDoAdapter()
+
+        object : SwipeHelper(requireContext(), binding.recyclerview, false) {
+            override fun instantiateUnderlayButton(
+                viewHolder: RecyclerView.ViewHolder?,
+                underlayButtons: MutableList<UnderlayButton>?
+            ) {
+                underlayButtons?.add(UnderlayButton(
+                    "Mark",
+                    AppCompatResources.getDrawable(requireContext(), R.drawable.ic_star),
+                    Color.parseColor("#D3D3D3"),
+                    Color.parseColor("#FFFFFF")
+                ) { pos: Int ->
+                    val workList = workDoAdapter.currentList.toMutableList()
+                    val removeNote = workList[pos]
+                    CoroutineScope(Dispatchers.IO).launch {
+                        workMarkDatabase.deleteWork(removeNote)
+                    }
+                })
+            }
+
+        }
+
+        binding.recyclerview.adapter = workDoAdapter
+    }
+
+    private fun observeWorks() {
+        lifecycleScope.launch {
+            workMarkDatabase.getWork().collect { worksList ->
+                if (worksList.isNotEmpty()) {
+                    binding.recyclerview.visibility = View.VISIBLE
+                    binding.imgFile.visibility = View.GONE
+                    workDoAdapter.submitList(worksList)
+                } else {
+                    binding.recyclerview.visibility = View.GONE
+                    binding.imgFile.visibility = View.VISIBLE
                 }
             }
+        }
     }
 }

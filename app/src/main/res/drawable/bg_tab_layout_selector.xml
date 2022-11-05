@@ -9,7 +9,7 @@
     <shape>
         <corners android:radius="@dimen/_30sdp"/>
         <gradient android:gradientRadius="@dimen/_5sdp"/>
-        <solid android:color="@color/background_blue_light"/>
+        <solid android:color="?colorSecondary"/>
     </shape>
 
 </item>

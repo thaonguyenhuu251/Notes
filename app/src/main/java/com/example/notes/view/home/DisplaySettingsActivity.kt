@@ -5,6 +5,7 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.example.notes.adapter.DisplayPagerFragmentAdapter
 import com.example.notes.databinding.ActicityDisplaySettingsBinding
+import com.example.notes.util.PreferencesSettings
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 
@@ -13,6 +14,7 @@ class DisplaySettingsActivity : AppCompatActivity(){
     private lateinit var binding: ActicityDisplaySettingsBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        super.setTheme(PreferencesSettings.getBackground(this))
         binding = ActicityDisplaySettingsBinding.inflate(layoutInflater)
         val view: View = binding.root
         setContentView(view)

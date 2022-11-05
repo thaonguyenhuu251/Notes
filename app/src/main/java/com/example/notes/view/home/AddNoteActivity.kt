@@ -9,6 +9,7 @@ import android.text.style.UnderlineSpan
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.example.notes.databinding.ActivityAddNoteBinding
+import com.example.notes.util.PreferencesSettings
 import com.example.notes.view.components.DateDialog
 
 
@@ -17,6 +18,7 @@ class AddNoteActivity : AppCompatActivity(), DateDialog.OnDone {
     private lateinit var binding: ActivityAddNoteBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        super.setTheme(PreferencesSettings.getBackground(this))
         binding = ActivityAddNoteBinding.inflate(layoutInflater)
         val view: View = binding.root
         setContentView(view)

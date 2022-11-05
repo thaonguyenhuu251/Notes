@@ -133,11 +133,6 @@ class ListNoteFragment : Fragment() {
 
     @SuppressLint("NotifyDataSetChanged")
     private fun generateItemWork() {
-        //listWork = MainActivity.roomDatabaseClass.workDao().getWork()
-
-        for (i in 0 until 20) {
-            listNote.add(0,Note(1,"Dọn Nhà","Phải xong trước ăn cơm...",8f))
-        }
 
         if (listNote.size == 0 ) {
             binding.recyclerview.visibility = View.GONE

@@ -17,15 +17,13 @@ class BookMarkFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
 
-        }
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentBookMarkBinding.inflate(layoutInflater)
         return binding.root
     }
@@ -36,7 +34,8 @@ class BookMarkFragment : Fragment() {
 
     private fun initView() {
         binding.viewPager.adapter = BookMarkPagerFragmentAdapter(titles, requireActivity())
-        binding.viewPager.isUserInputEnabled = true
+        binding.viewPager.isUserInputEnabled = false
+
         setTabLayout()
     }
 

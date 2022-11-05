@@ -1,20 +1,16 @@
 package com.example.notes.adapter
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.notes.R
 import com.example.notes.model.Note
-import com.example.notes.model.Work
 import com.example.notes.util.FileUtils
 import com.example.notes.viewmodels.NoteDoViewModel
-import com.example.notes.viewmodels.WorkDoViewModel
 
 class NoteDoAdapter : RecyclerView.Adapter<NoteDoViewModel> {
     lateinit var context: Context

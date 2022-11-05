@@ -3,4 +3,15 @@
     <string name="app_name">Notes</string>
     <string name="hello_blank_fragment" translatable="false">Trang trắng</string>
     <string name="settings">Cài đặt</string>
+    <string name="sorted" translatable="false">Sắp xếp thông minh</string>
+    <string name="set_password">Thay đổi mật khẩu</string>
+    <string name="change_password">Đổi mật khẩu</string>
+    <string name="dark_mode">Chế độ tối</string>
+    <string name="delete_password">Xóa mật khẩu</string>
+    <string name="notes" translatable="false">Notes</string>
+    <string name="search">Tìm kiếm</string>
+    <string name="home">Trang chủ</string>
+    <string name="bookmark">Yêu thích</string>
+    <string name="notify">Thông báo</string>
+    <string name="setting">Cài đặt</string>
 </resources>

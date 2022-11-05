@@ -7,37 +7,34 @@ import android.widget.TextView
 import android.widget.TimePicker
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import com.example.notes.database.WorkRoomDatabaseClass
 import com.example.notes.databinding.ActivityAddWorkBinding
 import com.example.notes.model.Work
-import com.example.notes.repo.WorkRepo
 import com.example.notes.util.FileUtils
 import com.example.notes.util.FileUtils.hideKeyboard
+import com.example.notes.util.PreferencesSettings
 import com.example.notes.view.components.DateDialog
 import com.example.notes.view.components.TimeDialog
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
 class AddWorkActivity : AppCompatActivity(), DateDialog.OnDone, TimeDialog.OnDone {
     private lateinit var binding: ActivityAddWorkBinding
+    private val workDatabase by lazy { WorkRoomDatabaseClass.getDataBase(this).workDao() }
     var timepicker: TimePicker? = null
     private val datePicker: DatePicker? = null
     var hour = 0
     var minutes = 0f
-
-    private var workRepo: WorkRepo? = null
 
     var txtDone: TextView? = null
     var txtExit: TextView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        super.setTheme(PreferencesSettings.getBackground(this))
         binding = ActivityAddWorkBinding.inflate(layoutInflater)
         val view: View = binding.root
         setContentView(view)
-        workRepo = WorkRepo(WorkRoomDatabaseClass.getDataBase(this).workDao())
 
         binding.root.setOnClickListener { hideKeyboard(this) }
         binding.txtBack.setOnClickListener { onBackPressed() }
@@ -70,9 +67,10 @@ class AddWorkActivity : AppCompatActivity(), DateDialog.OnDone, TimeDialog.OnDon
                     work.contentWork = contentWork
                     work.timeComplete = timeComplete
 
-                    CoroutineScope(Dispatchers.IO).launch {
-                        workRepo?.insert(work)
+                    lifecycleScope.launch {
+                        workDatabase.addWork(work)
                     }
+
                     Toast.makeText(this, "Data Successfully saved", Toast.LENGTH_SHORT).show()
                     binding.edtStartDay.setText("")
                     binding.edtNameWork.setText("")

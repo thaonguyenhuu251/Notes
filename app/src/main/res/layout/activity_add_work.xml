@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -20,9 +19,7 @@
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                tools:layout_editor_absoluteX="0dp"
-                tools:layout_editor_absoluteY="0dp">
+                android:layout_height="wrap_content">
 
                 <TextView
                     android:id="@+id/txtBack"
@@ -93,7 +90,7 @@
                     android:background="@drawable/bg_edittext"
                     android:drawableStart="@drawable/ic_file"
                     android:drawablePadding="@dimen/_10sdp"
-                    app:drawableTint="@color/background_general"
+                    app:drawableTint="?colorAccent"
                     android:ellipsize="end"
                     android:hint="Input Name Work"
                     android:imeOptions="actionNext"
@@ -114,7 +111,7 @@
                     android:cursorVisible="false"
                     android:drawableStart="@drawable/ic_start_day"
                     android:drawablePadding="@dimen/_10sdp"
-                    android:drawableTint="@color/background_general"
+                    app:drawableTint="?colorAccent"
                     android:focusable="false"
                     android:focusableInTouchMode="false"
                     android:hint="Start Day"
@@ -134,7 +131,7 @@
                     android:cursorVisible="false"
                     android:drawableStart="@drawable/ic_time_complete"
                     android:drawablePadding="@dimen/_10sdp"
-                    android:drawableTint="@color/background_general"
+                    app:drawableTint="?colorAccent"
                     android:focusable="false"
                     android:focusableInTouchMode="false"
                     android:hint="Time Complete"
@@ -152,7 +149,7 @@
                     android:background="@drawable/bg_edittext"
                     android:drawableStart="@drawable/ic_content_work"
                     android:drawablePadding="@dimen/_10sdp"
-                    android:drawableTint="@color/background_general"
+                    app:drawableTint="?colorAccent"
                     android:hint="Description Work"
                     android:padding="@dimen/_10sdp"
                     android:textCursorDrawable="@drawable/cursor_edittext"
@@ -164,7 +161,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/_10sdp"
                     android:background="@drawable/bg_edittext"
-                    android:backgroundTint="@color/background_general"
+                    android:backgroundTint="?colorAccent"
                     android:gravity="center"
                     android:padding="@dimen/_10sdp"
                     android:text="ADD WORK"

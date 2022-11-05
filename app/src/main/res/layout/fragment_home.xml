@@ -19,7 +19,7 @@
         app:tabBackground="@drawable/tab_color_selector"
         app:tabTextColor="@color/black"
         android:textAlignment="center"
-        app:tabSelectedTextColor="@color/background_general"/>
+        app:tabSelectedTextColor="?colorAccent"/>
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/viewPager"
