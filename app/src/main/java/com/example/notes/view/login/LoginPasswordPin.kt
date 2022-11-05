@@ -46,6 +46,7 @@ class LoginPasswordPin : AppCompatActivity() {
     @RequiresApi(Build.VERSION_CODES.P)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        super.setTheme(PreferencesSettings.getBackground(this))
         binding = ActivityLoginPasswordBinding.inflate(layoutInflater)
         val view: View = binding.root
         setContentView(view)

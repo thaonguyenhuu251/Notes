@@ -12,6 +12,7 @@ import com.example.notes.view.home.MainActivity
 class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        super.setTheme(PreferencesSettings.getBackground(this))
         setContentView(R.layout.activity_splash)
 
         if (PreferencesSettings.getCode(this@SplashActivity)?.isEmpty() == true) {

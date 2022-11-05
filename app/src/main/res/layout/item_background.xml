@@ -8,8 +8,8 @@
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/ivshapeable"
-        android:layout_width="@dimen/_100sdp"
-        android:layout_height="@dimen/_130sdp"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_170sdp"
         android:scaleType="centerCrop"
         android:src="@drawable/bg_purple_sky"
         app:shapeAppearanceOverlay="@style/roundedCornersImageView" />

@@ -1,92 +1,162 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
 
     <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <item name="colorPrimary">@color/background_general</item>
-        <item name="colorPrimaryVariant">@color/background_status</item>
-        <item name="colorPrimaryDark">@color/background_status</item>
+        <item name="colorPrimary">@color/blue_primary</item>
+        <item name="colorPrimaryVariant">@color/blue_status</item>
+        <item name="colorPrimaryDark">@color/blue_primary</item>
 
-        <item name="colorAccent">@color/background_general</item>
-        <item name="colorSecondary">@color/background_blue_light</item>
+        <item name="colorAccent">@color/blue_primary</item>
+        <item name="colorSecondary">@color/blue_light</item>
         <item name="colorOnPrimary">@color/white</item>
         <item name="colorOnSecondary">@color/black</item>
 
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+
         <item name="pf_key_button">@style/MyLockScreenButtonStyle</item>
         <item name="pf_lock_screen">@style/MyLockScreenStyle</item>
+        <item name="pf_next">@style/MyLockNextButtonStyle</item>
     </style>
 
     <style name="AppTheme_red" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <item name="colorPrimary">@color/red_colorPrimary</item>
-        <item name="colorPrimaryVariant">@color/background_status</item>
-        <item name="colorPrimaryDark">@color/red_colorPrimaryDark</item>
+        <item name="colorPrimary">@color/red_primary</item>
+        <item name="colorPrimaryVariant">@color/red_primary</item>
+        <item name="colorPrimaryDark">@color/red_primary</item>
 
-        <item name="colorAccent">@color/red_colorPrimary</item>
-        <item name="colorSecondary">@color/background_blue_light</item>
+        <item name="colorAccent">@color/red_primary</item>
+        <item name="colorSecondary">@color/red_light</item>
         <item name="colorOnPrimary">@color/white</item>
         <item name="colorOnSecondary">@color/black</item>
 
-        <item name="android:color">@color/red_colorPrimary</item>
-        <item name="android:toolbarStyle">@color/red_colorPrimary</item>
-        <item name="buttonColors">@color/red_colorPrimary</item>
-        <item name="textBackground">@color/red_colorPrimary</item>
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
 
         <item name="pf_key_button">@style/MyLockScreenButtonStyle</item>
         <item name="pf_lock_screen">@style/MyLockScreenStyle</item>
+        <item name="pf_next">@style/MyLockNextButtonStyle</item>
     </style>
 
     <style name="AppTheme_pink" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/pink_colorPrimary</item>
-        <item name="colorPrimaryDark">@color/pink_colorPrimaryDark</item>
-        <item name="colorAccent">@color/pink_colorAccent</item>
+        <item name="colorPrimary">@color/pink_primary</item>
+        <item name="colorPrimaryVariant">@color/pink_status</item>
+        <item name="colorPrimaryDark">@color/pink_primary</item>
+
+        <item name="colorAccent">@color/pink_primary</item>
+        <item name="colorSecondary">@color/pink_light</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorOnSecondary">@color/black</item>
+
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+
+        <item name="pf_key_button">@style/MyLockScreenButtonStyle</item>
+        <item name="pf_lock_screen">@style/MyLockScreenStyle</item>
+        <item name="pf_next">@style/MyLockNextButtonStyle</item>
     </style>
 
     <style name="AppTheme_darkpink" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/darkpink_colorPrimary</item>
+        <item name="colorPrimaryVariant">@color/darkpink_colorPrimary</item>
         <item name="colorPrimaryDark">@color/darkpink_colorPrimary</item>
-        <item name="colorAccent">@color/darkpink_colorAccent</item>
+
+        <item name="colorAccent">@color/darkpink_colorPrimary</item>
+        <item name="colorSecondary">@color/darkpink_colorPrimary</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorOnSecondary">@color/black</item>
+
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+
+        <item name="pf_key_button">@style/MyLockScreenButtonStyle</item>
+        <item name="pf_lock_screen">@style/MyLockScreenStyle</item>
+        <item name="pf_next">@style/MyLockNextButtonStyle</item>
     </style>
 
     <style name="AppTheme_violet" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/violet_colorPrimary</item>
-        <item name="colorPrimaryDark">@color/violet_colorPrimaryDark</item>
-        <item name="colorAccent">@color/violet_colorAccent</item>
+        <item name="colorPrimaryVariant">@color/violet_colorPrimary</item>
+        <item name="colorPrimaryDark">@color/violet_colorPrimary</item>
+
+        <item name="colorAccent">@color/violet_colorPrimary</item>
+        <item name="colorSecondary">@color/violet_colorPrimary</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorOnSecondary">@color/black</item>
+
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+
+        <item name="pf_key_button">@style/MyLockScreenButtonStyle</item>
+        <item name="pf_lock_screen">@style/MyLockScreenStyle</item>
+        <item name="pf_next">@style/MyLockNextButtonStyle</item>
     </style>
 
     <style name="AppTheme_blue" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/blue_colorPrimary</item>
-        <item name="colorPrimaryDark">@color/blue_colorPrimaryDark</item>
-        <item name="colorAccent">@color/blue_colorAccent</item>
+        <item name="colorPrimaryVariant">@color/blue_colorPrimary</item>
+        <item name="colorPrimaryDark">@color/blue_colorPrimary</item>
+
+        <item name="colorAccent">@color/blue_colorPrimary</item>
+        <item name="colorSecondary">@color/blue_colorPrimary</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorOnSecondary">@color/black</item>
+
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+
+        <item name="pf_key_button">@style/MyLockScreenButtonStyle</item>
+        <item name="pf_lock_screen">@style/MyLockScreenStyle</item>
+        <item name="pf_next">@style/MyLockNextButtonStyle</item>
     </style>
 
     <style name="AppTheme_skyblue" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/skyblue_colorPrimary</item>
-        <item name="colorPrimaryDark">@color/skyblue_colorPrimaryDark</item>
-        <item name="colorAccent">@color/skyblue_colorAccent</item>
+        <item name="colorPrimaryVariant">@color/skyblue_colorPrimary</item>
+        <item name="colorPrimaryDark">@color/skyblue_colorPrimary</item>
+
+        <item name="colorAccent">@color/skyblue_colorPrimary</item>
+        <item name="colorSecondary">@color/skyblue_colorPrimary</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorOnSecondary">@color/black</item>
+
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+
+        <item name="pf_key_button">@style/MyLockScreenButtonStyle</item>
+        <item name="pf_lock_screen">@style/MyLockScreenStyle</item>
+        <item name="pf_next">@style/MyLockNextButtonStyle</item>
     </style>
 
     <style name="AppTheme_green" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/green_colorPrimary</item>
-        <item name="colorPrimaryDark">@color/green_colorPrimaryDark</item>
-        <item name="colorAccent">@color/green_colorAccent</item>
+        <item name="colorPrimaryVariant">@color/green_colorPrimary</item>
+        <item name="colorPrimaryDark">@color/green_colorPrimary</item>
+
+        <item name="colorAccent">@color/green_colorPrimary</item>
+        <item name="colorSecondary">@color/green_colorPrimary</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorOnSecondary">@color/black</item>
+
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+
+        <item name="pf_key_button">@style/MyLockScreenButtonStyle</item>
+        <item name="pf_lock_screen">@style/MyLockScreenStyle</item>
+        <item name="pf_next">@style/MyLockNextButtonStyle</item>
     </style>
 
     <style name="AppTheme_grey" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/grey_colorPrimary</item>
-        <item name="colorPrimaryDark">@color/grey_colorPrimaryDark</item>
-        <item name="colorAccent">@color/grey_colorAccent</item>
+        <item name="colorPrimaryVariant">@color/grey_colorPrimary</item>
+        <item name="colorPrimaryDark">@color/grey_colorPrimary</item>
+
+        <item name="colorAccent">@color/grey_colorPrimary</item>
+        <item name="colorSecondary">@color/grey_colorPrimary</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorOnSecondary">@color/black</item>
+
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+
+        <item name="pf_key_button">@style/MyLockScreenButtonStyle</item>
+        <item name="pf_lock_screen">@style/MyLockScreenStyle</item>
+        <item name="pf_next">@style/MyLockNextButtonStyle</item>
     </style>
 
     <style name="AppTheme_brown" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/brown_colorPrimary</item>
-        <item name="colorPrimaryVariant">@color/background_status</item>
+        <item name="colorPrimaryVariant">@color/brown_colorPrimary</item>
         <item name="colorPrimaryDark">@color/brown_colorPrimary</item>
 
         <item name="colorAccent">@color/brown_colorPrimary</item>
@@ -101,10 +171,13 @@
 
         <item name="pf_key_button">@style/MyLockScreenButtonStyle</item>
         <item name="pf_lock_screen">@style/MyLockScreenStyle</item>
+        <item name="pf_next">@style/MyLockNextButtonStyle</item>
     </style>
 
+
+    <!--Style of Screen Lock-->
     <style name="MyLockScreenStyle">
-        <item name="android:background">@color/background_general</item>
+        <item name="android:background">?attr/colorPrimaryVariant</item>
     </style>
 
     <style name="MyLockScreenButtonStyle">
@@ -127,13 +200,6 @@
         <item name="android:textColor">#FFF</item>
     </style>
 
-    <style name="AppTheme.NoActionBar">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-    </style>
-
-    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
-    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
     <style name="SpinnerTheme" parent="android:Widget.Spinner">
         <item name="android:background">@drawable/preview_spinner</item>
     </style>
@@ -142,22 +208,18 @@
         <item name="android:windowIsFloating">false</item>
         <item name="bottomSheetStyle">@style/AppModalStyle</item>
         <item name="android:windowSoftInputMode">adjustResize</item>
-        <item name="color">?colorAccent</item>
+        <item name="colorAccent">?attr/colorPrimaryVariant</item>
     </style>
 
     <style name="AppModalStyle" parent="Widget.Design.BottomSheet.Modal">
         <item name="android:background">@drawable/bg_bottomsheet</item>
         <item name="behavior_skipCollapsed">true</item>
         <item name="behavior_fitToContents">true</item>
-        <item name="behavior_peekHeight">1000dp</item> // yep, that helped to skip collapsed state at initial
+        <item name="behavior_peekHeight">1000dp</item>
+        // yep, that helped to skip collapsed state at initial
         <item name="behavior_hideable">true</item>
         <item name="android:windowIsFloating">false</item>
-
-    </style>
-
-    <style name="myTimePickerStyle" parent="@android:style/Widget.Material.Light.TimePicker">
-        <item name="android:numbersSelectorColor">@color/background_general</item>
-        <item name="android:headerBackground">@color/background_general</item>
+        <item name="colorAccent">?attr/colorPrimaryVariant</item>
     </style>
 
     <style name="MyDialog" parent="Theme.AppCompat.Light.Dialog">
@@ -169,32 +231,7 @@
         <item name="android:windowCloseOnTouchOutside">true</item>
         <item name="android:windowFullscreen">true</item>
         <item name="marginHorizontal">@dimen/_10sdp</item>
-    </style>
-
-    <style name="MyLanguageDialog" parent="Theme.AppCompat.Light.Dialog">
-        <item name="android:windowMinWidthMajor">80%</item>
-        <item name="android:windowMinWidthMinor">80%</item>
-        <item name="android:windowContentOverlay">@null</item>
-        <item name="android:windowBackground">@drawable/bg_dialog_round</item>
-        <item name="android:windowIsFloating">true</item>
-        <item name="android:windowCloseOnTouchOutside">true</item>
-        <item name="android:windowFullscreen">true</item>
-        <item name="marginHorizontal">@dimen/_10sdp</item>
-    </style>
-
-    <style name="AppDialogTheme" parent="Theme.AppCompat.Light.Dialog">
-        <!-- Define color properties as desired -->
-        <item name="colorPrimary">@color/dark_blue</item>
-        <item name="colorPrimaryDark">#000</item>
-        <item name="android:textColorHighlight">@color/light_blue</item>
-        <item name="colorAccent">@color/dark_blue</item>
-        <item name="colorControlNormal">@color/dark_blue</item>
-        <!-- Define window properties as desired -->
-        <item name="android:windowNoTitle">false</item>
-        <item name="android:windowFullscreen">false</item>
-        <item name="android:windowBackground">@android:color/transparent</item>
-        <item name="android:windowIsFloating">true</item>
-        <item name="android:windowCloseOnTouchOutside">true</item>
+        <item name="colorAccent">?attr/colorPrimaryVariant</item>
     </style>
 
     <style name="roundedCornersImageView" parent="">
@@ -202,17 +239,6 @@
         <item name="cornerSize">@dimen/_10sdp</item>
         <item name="strokeWidth">@dimen/_2sdp</item>
         <item name="strokeColor">@color/blue</item>
-    </style>
-
-    <style name="MyAppThemeDate" parent="Theme.AppCompat.Light.Dialog">
-        <item name="colorPrimary">@color/background_general</item>
-        <item name="colorPrimaryDark">@color/background_general</item>
-        <item name="colorAccent">@color/background_general</item>
-    </style>
-
-    <style name="drawer" parent="Theme.AppCompat.Light">
-        <item name="background">@drawable/bg_drawer</item>
-        <item name="android:src">@drawable/bg_moon_night</item>
     </style>
 
 </resources>

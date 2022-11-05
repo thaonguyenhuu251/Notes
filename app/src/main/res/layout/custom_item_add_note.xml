@@ -5,8 +5,7 @@
     android:layout_height="@dimen/_60sdp"
     android:layout_marginStart="15dp"
     android:layout_marginTop="10dp"
-    android:background="@drawable/custom_circle_item_note"
-    android:backgroundTint="@color/background_blue_light">
+    android:background="@drawable/custom_circle_item_note">
 
     <ImageView
         android:id="@+id/ivNote"
@@ -64,7 +63,7 @@
         android:id="@+id/view_swipe_left"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:background="@color/background_general"
+        android:background="?colorAccent"
         app:layout_constraintEnd_toEndOf="parent"
         android:src="@drawable/ic_arrow_left"
         app:tint="@color/white"/>

@@ -24,47 +24,47 @@
         android:layout_height="wrap_content"
         android:paddingVertical="@dimen/_10sdp"
         android:paddingHorizontal="@dimen/_15sdp"
-        android:drawableEnd="@drawable/ic_back_right"
         android:drawablePadding="@dimen/_10sdp"
-        android:text="Sort By Name ascending"
+        android:text="@string/sort_by_name_ascending"
         android:textSize="@dimen/_12ssp"
         app:drawableStartCompat="@drawable/ic_subtitle"
-        app:drawableTint="?colorAccent" />
+        app:drawableTint="?colorAccent"
+        app:drawableEndCompat="@drawable/ic_back_right" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingVertical="@dimen/_10sdp"
         android:paddingHorizontal="@dimen/_15sdp"
-        android:drawableEnd="@drawable/ic_back_right"
         android:drawablePadding="@dimen/_10sdp"
-        android:text="Sort By Name decrease"
+        android:text="@string/sort_by_name_decrease"
         android:textSize="@dimen/_12ssp"
         app:drawableStartCompat="@drawable/ic_subtitles_dis"
-        app:drawableTint="?colorAccent" />
+        app:drawableTint="?colorAccent"
+        app:drawableEndCompat="@drawable/ic_back_right" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingVertical="@dimen/_10sdp"
         android:paddingHorizontal="@dimen/_15sdp"
-        android:drawableEnd="@drawable/ic_back_right"
         android:drawablePadding="@dimen/_10sdp"
-        android:text="Sort By Time ascending"
+        android:text="@string/sort_by_time_ascending"
         android:textSize="@dimen/_12ssp"
         app:drawableStartCompat="@drawable/ic_video_time"
-        app:drawableTint="?colorAccent" />
+        app:drawableTint="?colorAccent"
+        app:drawableEndCompat="@drawable/ic_back_right" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingVertical="@dimen/_10sdp"
         android:paddingHorizontal="@dimen/_15sdp"
-        android:drawableEnd="@drawable/ic_back_right"
         android:drawablePadding="@dimen/_10sdp"
-        android:text="Sort By Time decrease"
+        android:text="@string/sort_by_time_decrease"
         android:textSize="@dimen/_12ssp"
         app:drawableStartCompat="@drawable/ic_calendar"
-        app:drawableTint="?colorAccent" />
+        app:drawableTint="?colorAccent"
+        app:drawableEndCompat="@drawable/ic_back_right" />
 
 </LinearLayout>

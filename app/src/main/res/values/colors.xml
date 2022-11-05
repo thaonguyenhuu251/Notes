@@ -8,20 +8,33 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="background_general">#2598F5</color>
+    <color name="blue_primary">#2598F5</color>
+    <color name="blue_status">#80B1DC</color>
+    <color name="blue_dark">#90E4FF</color>
+    <color name="blue_light">#D4EAFF</color>
+
+    <color name="red_primary">#ff0000</color>
+    <color name="red_dark">#DF0000</color>
+    <color name="red_light">#E4B3B3</color>
+    <color name="red_status">#FF5E5E</color>
+
+    <color name="pink_primary">#e91e63</color>
+    <color name="pink_dark">#CB1755</color>
+    <color name="pink_status">#FF69B4</color>
+    <color name="pink_light">#FFDEE4</color>
+
     <color name="background_grey">#E9E9E9</color>
-    <color name="background_status">#0F3C63</color>
     <color name="background_red">#E84C39</color>
 
     <color name="background_orange_light">#FFDEDC</color>
     <color name="background_yellow_light">#FFF9B8</color>
-    <color name="background_blue_light">#D4EAFF</color>
+
     <color name="background_turquoise_light">#DEF8EE</color>
 
 
     <color name="background_orange_dark">#F9AB49</color>
     <color name="background_yellow_dark">#FFF8B7</color>
-    <color name="background_blue_dark">#90E4FF</color>
+
     <color name="background_turquoise_dark">#C5FFE9</color>
 
     <color name="circle_menu_center_button_color">#2598F5</color>
@@ -38,7 +51,7 @@
     <color name="colorText">#C5C9DF</color>
     <color name="light_gray">#A5A5A5</color>
 
-    <color name="opaque_red">#f00</color>
+
     <color name="translucent_red">#80ff0000</color>
     <color name="ivory">#FFFFF0</color>
     <color name="light_yellow">#FFFFE0</color>
@@ -58,19 +71,19 @@
     <color name="peach_puff">#FFDAB9</color>
     <color name="cold">#FFD700</color>
     <color name="pink">#FFC0CB</color>
-    <color name="pink_little">#FFDEE4</color>
+
     <color name="light_pink">#FFB6C1</color>
     <color name="orange">#FFA500</color>
     <color name="light_salmon">#FFA07A</color>
     <color name="dark_orange">#FF8C00</color>
     <color name="coral">#FF7F50</color>
-    <color name="hot_pink">#FF69B4</color>
+
     <color name="tomato">#FF6347</color>
     <color name="orange_red">#FF4500</color>
     <color name="deep_pink">#FF1493</color>
     <color name="fuchsia">#FF00FF</color>
     <color name="magenta">#FF00FF</color>
-    <color name="red">#FF0000</color>
+
     <color name="old_lace">#FDF5E6</color>
     <color name="light_goldenrod_yellow">#FAFAD2</color>
     <color name="linen">#FAF0E6</color>
@@ -205,12 +218,10 @@
     <color name="colorBottomBarUnselectedNight">#FEAD22</color>
     <color name="black_trans">#26000000</color>
 
-    <color name="red_colorPrimary">#ff0000</color>
-    <color name="red_colorPrimaryDark">#DF0000</color>
+
     <color name="red_colorAccent">#F7F72D</color>
 
-    <color name="pink_colorPrimary">#e91e63</color>
-    <color name="pink_colorPrimaryDark">#CB1755</color>
+
     <color name="pink_colorAccent">#2095f2</color>
 
     <color name="darkpink_colorPrimary">#9b26af</color>

@@ -18,6 +18,7 @@ class ConfirmDeletePasswordActivity : AppCompatActivity() {
     private lateinit var binding: ActivityNewPasswordBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        super.setTheme(PreferencesSettings.getBackground(this))
         binding = ActivityNewPasswordBinding.inflate(layoutInflater)
         val view: View = binding.root
         setContentView(view)

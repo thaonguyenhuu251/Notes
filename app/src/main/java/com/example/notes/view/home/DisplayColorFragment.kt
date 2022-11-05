@@ -62,14 +62,14 @@ class DisplayColorFragment:Fragment() {
     }
 
     private fun addListLightColor() {
-        listLightColor.add(R.color.background_blue_light)
+        listLightColor.add(R.color.blue_light)
         listLightColor.add(R.color.background_orange_light)
         listLightColor.add(R.color.background_yellow_light)
         listLightColor.add(R.color.background_turquoise_light)
     }
 
     private fun addListDarkColor() {
-        listDarkColor.add(R.color.background_blue_dark)
+        listDarkColor.add(R.color.blue_dark)
         listDarkColor.add(R.color.background_orange_dark)
         listDarkColor.add(R.color.background_yellow_dark)
         listDarkColor.add(R.color.background_turquoise_dark)

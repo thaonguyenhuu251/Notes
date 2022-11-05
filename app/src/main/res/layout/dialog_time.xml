@@ -34,7 +34,6 @@
 
         <TimePicker
             android:id="@+id/timePicker"
-            android:theme="@style/MyAppThemeDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingBottom="@dimen/_20sdp"

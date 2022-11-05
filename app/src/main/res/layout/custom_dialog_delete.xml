@@ -58,10 +58,10 @@
             android:layout_weight="1"
             android:backgroundTint="@color/white_smoke"
             android:text="Cancle"
-            android:textColor="@color/red"
+            android:textColor="@color/red_primary"
             android:textSize="@dimen/_14ssp"
             app:iconGravity="textStart"
-            app:iconTint="@color/red" />
+            app:iconTint="@color/red_primary" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnDelete"

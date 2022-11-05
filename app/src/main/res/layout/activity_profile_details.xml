@@ -29,24 +29,10 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-<!--        <ImageView-->
-<!--            android:id="@+id/imageView"-->
-<!--            android:layout_width="@dimen/_120sdp"-->
-<!--            android:layout_height="@dimen/_120sdp"-->
-<!--            android:background="@drawable/custom_circle_img_profile"-->
-<!--            android:clipToOutline="true"-->
-<!--            android:scaleType="centerCrop"-->
-<!--            android:src="@drawable/img_selfile_user"-->
-<!--            app:layout_constraintBottom_toBottomOf="parent"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toBottomOf="@+id/txtBack" />-->
-
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/imageView"
                     android:layout_width="@dimen/_120sdp"
                     android:layout_height="@dimen/_120sdp"
-                    app:shapeAppearanceOverlay="@style/circleImageView"
                     android:scaleType="centerCrop"
                     app:srcCompat="@drawable/img_selfile_user"
                     app:layout_constraintBottom_toBottomOf="parent"

@@ -73,4 +73,8 @@
     <string name="setting">Setting</string>
     <string name="sorted" translatable="false">Sorted</string>
     <string name="hello_blank_fragment">hello_blank_fragment</string>
+    <string name="sort_by_name_ascending">Sort By Name ascending</string>
+    <string name="sort_by_name_decrease">Sort By Name decrease</string>
+    <string name="sort_by_time_ascending">Sort By Time ascending</string>
+    <string name="sort_by_time_decrease">Sort By Time decrease</string>
 </resources>

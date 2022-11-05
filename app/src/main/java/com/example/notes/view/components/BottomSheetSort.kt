@@ -14,7 +14,7 @@ class BottomSheetSort : BottomSheetDialogFragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = LayoutBottomsheetSortBinding.inflate(layoutInflater)
         return binding.root
     }
