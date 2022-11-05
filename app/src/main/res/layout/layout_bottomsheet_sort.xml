@@ -10,7 +10,7 @@
         android:id="@+id/txtViewModeDialogTiltle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Sorted"
+        android:text="@string/sorted"
         android:textColor="@color/white"
         android:textSize="@dimen/_16ssp"
         android:gravity="center"
@@ -29,7 +29,7 @@
         android:text="Sort By Name ascending"
         android:textSize="@dimen/_12ssp"
         app:drawableStartCompat="@drawable/ic_subtitle"
-        app:drawableTint="@color/background_general" />
+        app:drawableTint="?colorAccent" />
 
     <TextView
         android:layout_width="match_parent"
@@ -41,7 +41,7 @@
         android:text="Sort By Name decrease"
         android:textSize="@dimen/_12ssp"
         app:drawableStartCompat="@drawable/ic_subtitles_dis"
-        app:drawableTint="@color/background_general" />
+        app:drawableTint="?colorAccent" />
 
     <TextView
         android:layout_width="match_parent"
@@ -53,7 +53,7 @@
         android:text="Sort By Time ascending"
         android:textSize="@dimen/_12ssp"
         app:drawableStartCompat="@drawable/ic_video_time"
-        app:drawableTint="@color/background_general" />
+        app:drawableTint="?colorAccent" />
 
     <TextView
         android:layout_width="match_parent"
@@ -65,6 +65,6 @@
         android:text="Sort By Time decrease"
         android:textSize="@dimen/_12ssp"
         app:drawableStartCompat="@drawable/ic_calendar"
-        app:drawableTint="@color/background_general" />
+        app:drawableTint="?colorAccent" />
 
 </LinearLayout>

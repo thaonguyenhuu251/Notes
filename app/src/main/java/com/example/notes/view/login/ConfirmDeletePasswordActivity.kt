@@ -1,9 +1,7 @@
 package com.example.notes.view.login
 
 import android.annotation.SuppressLint
-import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
@@ -12,22 +10,17 @@ import com.beautycoder.pflockscreen.PFFLockScreenConfiguration
 import com.beautycoder.pflockscreen.fragments.PFLockScreenFragment
 import com.example.notes.R
 import com.example.notes.databinding.ActivityNewPasswordBinding
-import com.example.notes.util.Constants
 import com.example.notes.util.PreferencesSettings
 import com.example.notes.view.home.MainActivity
 
 class ConfirmDeletePasswordActivity : AppCompatActivity() {
-    private lateinit var appPreferences : SharedPreferences
+
     private lateinit var binding: ActivityNewPasswordBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityNewPasswordBinding.inflate(layoutInflater)
         val view: View = binding.root
         setContentView(view)
-        appPreferences = getSharedPreferences(
-            Constants.SHARED_PREFERENCES_APP,
-            Context.MODE_PRIVATE
-        )
         showLockScreenFragment(true)
     }
 
@@ -35,10 +28,7 @@ class ConfirmDeletePasswordActivity : AppCompatActivity() {
         PFLockScreenFragment.OnPFLockScreenLoginListener {
         @SuppressLint("ApplySharedPref")
         override fun onCodeInputSuccessful() {
-            val editor = appPreferences.edit()
-            editor.putBoolean(Constants.FINGER_ON, false)
-            editor.apply()
-            editor.commit()
+            PreferencesSettings.saveToFinger(this@ConfirmDeletePasswordActivity, false)
             PreferencesSettings.saveToPref(this@ConfirmDeletePasswordActivity, null)
             val intent = Intent(this@ConfirmDeletePasswordActivity, MainActivity::class.java)
             startActivity(intent)

@@ -1,7 +1,5 @@
 package com.example.notes.view.login
-import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
@@ -11,22 +9,16 @@ import com.beautycoder.pflockscreen.fragments.PFLockScreenFragment
 import com.beautycoder.pflockscreen.fragments.PFLockScreenFragment.OnPFLockScreenLoginListener
 import com.example.notes.R
 import com.example.notes.databinding.ActivityNewPasswordBinding
-import com.example.notes.util.Constants
 import com.example.notes.util.PreferencesSettings
 import com.example.notes.view.home.MainActivity
 
 class LoginPassword : AppCompatActivity() {
-    private lateinit var appPreferences : SharedPreferences
     private lateinit var binding: ActivityNewPasswordBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityNewPasswordBinding.inflate(layoutInflater)
         val view: View = binding.root
         setContentView(view)
-        appPreferences = getSharedPreferences(
-            Constants.SHARED_PREFERENCES_APP,
-            Context.MODE_PRIVATE
-        )
         showLockScreenFragment(true)
     }
 
@@ -55,7 +47,7 @@ class LoginPassword : AppCompatActivity() {
             .setTitle(if (isPinExist) "Unlock with your pin code or fingerprint" else "Create Code")
             .setCodeLength(6)
             .setLeftButton("Can't remember")
-            .setUseFingerprint(appPreferences.getBoolean(Constants.FINGER_ON, false))
+            .setUseFingerprint(PreferencesSettings.getFinger(this))
         val fragment = PFLockScreenFragment()
         fragment.setOnLeftButtonClickListener {
 

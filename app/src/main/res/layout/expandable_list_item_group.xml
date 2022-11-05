@@ -15,5 +15,5 @@
         android:textSize="@dimen/_12ssp"
         app:drawableEndCompat="@drawable/ic_back_right"
         app:drawableStartCompat="@drawable/ic_password_login_setting"
-        app:drawableTint="@color/background_general" />
+        app:drawableTint="?colorAccent" />
 </LinearLayout>

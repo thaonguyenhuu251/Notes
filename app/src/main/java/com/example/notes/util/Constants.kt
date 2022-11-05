@@ -19,18 +19,28 @@ object Constants {
     const val FACEBOOK_URL = "https://www.facebook.com/PhanAnhcs2501"
     const val FACEBOOK_PAGE_ID = "751931421605113"
 
-    const val SHARED_PREFERENCES_KEY_COLOR = "AppNotes"
-    const val SHARED_PREFERENCES_APP = "AppLock"
-
     const val MY_PERMISSION_REQUEST_CODE_CALL_PHONE = 555
 
-    const val FINGER_ON = "fingerOn"
-    const val PASSWORD = "passWord"
+    const val FINGERON = "fingeron"
+    const val PASSWORD = "password"
+    const val PASSCODE = "passcode"
+    const val LANGUAGE = "language"
+    const val BACKGROUND = "background"
+    const val COLOR = "color"
 
-    var nav_clicked = 0
-    var isNavClicked = false
+    const val LG_VIETNAM = "vietnamese"
+    const val LG_ENGLISH = "english"
 
-    var isToggle = true
-    var color = -0x980df
-    var theme: Int = R.style.AppTheme
+    const val COLOR_BLUE = "color_blue"
+    const val COLOR_RED = "color_red"
+    const val COLOR_PINK = "color_pink"
+    const val COLOR_DARKPINK = "color_darkpink"
+    const val COLOR_VIOLET = "color_violet"
+    const val COLOR_SKYBLUE = "color_skyblue"
+    const val COLOR_GREEN = "color_green"
+    const val COLOR_GREY = "color_grey"
+    const val COLOR_BROWN = "color_brown"
+
+    var color = COLOR_BLUE
+    var theme: Int = R.style.AppTheme_red
 }

@@ -28,7 +28,6 @@ import com.example.notes.view.login.NewPasswordSettingActivity
 
 class SettingFragment : Fragment() {
     private lateinit var binding: FragmentSettingBinding
-    private lateinit var appPreferences: SharedPreferences
 
     private lateinit var loginPassAdapter: LoginPasswordExpandableAdapter
     private var groupList: MutableList<String> = ArrayList()
@@ -36,10 +35,6 @@ class SettingFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        appPreferences = requireContext().getSharedPreferences(
-            Constants.SHARED_PREFERENCES_APP,
-            Context.MODE_PRIVATE
-        )
     }
 
     override fun onCreateView(
@@ -109,32 +104,23 @@ class SettingFragment : Fragment() {
             viewmodeDialog.show(childFragmentManager, viewmodeDialog.tag)
         }
 
-        binding.swLoginFingerprint.isChecked = appPreferences.getBoolean(Constants.FINGER_ON, false)
+        binding.swLoginFingerprint.isChecked = PreferencesSettings.getFinger(requireContext())
 
         binding.swLoginFingerprint.setOnCheckedChangeListener { buttonView, isChecked ->
             when {
                 isChecked -> {
                     if (PreferencesSettings.getCode(requireContext())?.isEmpty() == false) {
-                        val editor = appPreferences.edit()
-                        editor.putBoolean(Constants.FINGER_ON, true)
-                        editor.apply()
-                        editor.commit()
+                        PreferencesSettings.saveToFinger(requireContext(), true)
                         Toast.makeText(requireContext(), "Login fingerprint success", Toast.LENGTH_SHORT).show()
                     } else {
-                        val editor = appPreferences.edit()
-                        editor.putBoolean(Constants.FINGER_ON, false)
-                        editor.apply()
-                        editor.commit()
+                        PreferencesSettings.saveToFinger(requireContext(), false)
                         Toast.makeText(requireContext(), "register password", Toast.LENGTH_SHORT).show()
                         binding.swLoginFingerprint.isChecked = false
                     }
                 }
 
                 !isChecked -> {
-                    val editor = appPreferences.edit()
-                    editor.putBoolean(Constants.FINGER_ON, false)
-                    editor.apply()
-                    editor.commit()
+                    PreferencesSettings.saveToFinger(requireContext(), false)
                 }
             }
         }
@@ -145,6 +131,7 @@ class SettingFragment : Fragment() {
         }
 
     }
+
     private fun showChildList() {
         groupList.add("Login Password")
 
@@ -152,7 +139,6 @@ class SettingFragment : Fragment() {
         child.add("Set Password")
         child.add("Change Password")
         child.add("Delete Password")
-
         childList.add(child)
 
     }
@@ -217,13 +203,4 @@ class SettingFragment : Fragment() {
         listView.requestLayout()
     }
 
-    companion object {
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            SettingFragment().apply {
-                arguments = Bundle().apply {
-
-                }
-            }
-    }
 }

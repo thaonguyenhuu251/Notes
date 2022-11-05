@@ -8,6 +8,7 @@
         <entry key="app/src/main/res/drawable/bg_bottom_sheet_blue.xml" value="0.1595" />
         <entry key="app/src/main/res/drawable/bg_bottomsheet.xml" value="0.1595" />
         <entry key="app/src/main/res/drawable/bg_button.xml" value="0.1595" />
+        <entry key="app/src/main/res/drawable/bg_color_circle.xml" value="0.14" />
         <entry key="app/src/main/res/drawable/bg_detail.xml" value="0.1595" />
         <entry key="app/src/main/res/drawable/bg_detail_infor.xml" value="0.1595" />
         <entry key="app/src/main/res/drawable/bg_dialog_round.xml" value="0.1595" />
@@ -15,9 +16,14 @@
         <entry key="app/src/main/res/drawable/bg_edittext.xml" value="0.1595" />
         <entry key="app/src/main/res/drawable/bg_more_work.xml" value="0.1595" />
         <entry key="app/src/main/res/drawable/bg_search.xml" value="0.1595" />
+        <entry key="app/src/main/res/drawable/bg_stroke_choose_color_setting.xml" value="0.14" />
+        <entry key="app/src/main/res/drawable/bg_tab_layout.xml" value="0.14" />
+        <entry key="app/src/main/res/drawable/bg_tab_layout_selector.xml" value="0.14" />
         <entry key="app/src/main/res/drawable/bg_work.xml" value="0.1595" />
+        <entry key="app/src/main/res/drawable/callme.xml" value="0.14" />
         <entry key="app/src/main/res/drawable/cursor_edittext.xml" value="0.1595" />
         <entry key="app/src/main/res/drawable/custom_circle.xml" value="0.146" />
+        <entry key="app/src/main/res/drawable/custom_circle_item_note.xml" value="0.14" />
         <entry key="app/src/main/res/drawable/ic_add.xml" value="0.1215" />
         <entry key="app/src/main/res/drawable/ic_arrow_left.xml" value="0.1595" />
         <entry key="app/src/main/res/drawable/ic_bar_chart.xml" value="0.1215" />
@@ -42,10 +48,18 @@
         <entry key="app/src/main/res/drawable/ic_time_color.xml" value="0.1595" />
         <entry key="app/src/main/res/drawable/ic_time_complete.xml" value="0.1595" />
         <entry key="app/src/main/res/drawable/ic_work_do.xml" value="0.1595" />
+        <entry key="app/src/main/res/drawable/preview_spinner.xml" value="0.14" />
+        <entry key="app/src/main/res/drawable/selected_dot.xml" value="0.14" />
         <entry key="app/src/main/res/drawable/selector_menu.xml" value="0.1215" />
+        <entry key="app/src/main/res/drawable/tab_color_selector.xml" value="0.14" />
+        <entry key="app/src/main/res/drawable/tab_layout_text.xml" value="0.14" />
         <entry key="app/src/main/res/drawable/tab_selector.xml" value="0.14" />
+        <entry key="app/src/main/res/drawable/term.xml" value="0.153" />
         <entry key="app/src/main/res/drawable/thumb.xml" value="0.1595" />
         <entry key="app/src/main/res/drawable/track.xml" value="0.1595" />
+        <entry key="app/src/main/res/drawable/user.xml" value="0.153" />
+        <entry key="app/src/main/res/drawable/vector.xml" value="0.153" />
+        <entry key="app/src/main/res/layout-v23/activity_main.xml" value="0.22552083333333334" />
         <entry key="app/src/main/res/layout/acticity_display_settings.xml" value="0.22447916666666667" />
         <entry key="app/src/main/res/layout/activity_add_note.xml" value="0.22916666666666666" />
         <entry key="app/src/main/res/layout/activity_add_work.xml" value="0.271051025390625" />
@@ -57,6 +71,7 @@
         <entry key="app/src/main/res/layout/activity_profile_details.xml" value="0.22291666666666668" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.16875" />
         <entry key="app/src/main/res/layout/activity_trash.xml" value="0.22291666666666668" />
+        <entry key="app/src/main/res/layout/activity_update_note.xml" value="0.22291666666666668" />
         <entry key="app/src/main/res/layout/bottom_menu.xml" value="0.4032520325203252" />
         <entry key="app/src/main/res/layout/bottom_sheet_add_note.xml" value="0.287070574079241" />
         <entry key="app/src/main/res/layout/custom_item_add_note.xml" value="0.25" />
@@ -80,6 +95,7 @@
         <entry key="app/src/main/res/layout/fragment_setting.xml" value="0.23385416666666667" />
         <entry key="app/src/main/res/layout/item_background.xml" value="0.2791666666666667" />
         <entry key="app/src/main/res/layout/item_color.xml" value="0.2791666666666667" />
+        <entry key="app/src/main/res/layout/item_language.xml" value="0.22291666666666668" />
         <entry key="app/src/main/res/layout/item_work.xml" value="0.2947916666666667" />
         <entry key="app/src/main/res/layout/layout_bottomsheet_sort.xml" value="0.1769024102451702" />
         <entry key="app/src/main/res/layout/layout_display_settings_background.xml" value="0.21354166666666666" />

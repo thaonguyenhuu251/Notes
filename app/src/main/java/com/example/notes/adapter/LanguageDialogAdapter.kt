@@ -8,6 +8,8 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.notes.R
+import com.example.notes.util.Constants
+import com.example.notes.util.PreferencesSettings
 import com.example.notes.viewmodels.LanguageDialogViewModel
 
 class LanguageDialogAdapter:RecyclerView.Adapter<LanguageDialogViewModel> {
@@ -29,9 +31,6 @@ class LanguageDialogAdapter:RecyclerView.Adapter<LanguageDialogViewModel> {
         this.listDrawableLanguage = listDrawableLanguage
     }
 
-
-
-    constructor() : super()
     constructor(
         context: Context,
         listTextLanguage: MutableList<Int>,
@@ -57,6 +56,7 @@ class LanguageDialogAdapter:RecyclerView.Adapter<LanguageDialogViewModel> {
             notifyDataSetChanged()
         }
         if(i == position){
+            PreferencesSettings.setLanguage(context, Constants.LG_VIETNAM)
             holder.txtLanguage.setCompoundDrawablesRelativeWithIntrinsicBounds(listDrawableLanguage[position], 0, R.drawable.ic_choose_tick, 0)
         }
         else{
@@ -67,6 +67,5 @@ class LanguageDialogAdapter:RecyclerView.Adapter<LanguageDialogViewModel> {
     override fun getItemCount(): Int {
         return listTextLanguage.size
     }
-
 
 }

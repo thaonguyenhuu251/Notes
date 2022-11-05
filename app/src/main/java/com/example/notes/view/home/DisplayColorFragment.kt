@@ -13,6 +13,7 @@ import com.example.notes.adapter.DisplayBackgroundAdapter
 import com.example.notes.adapter.DisplayColorAdapter
 import com.example.notes.databinding.LayoutDisplaySettingsBackgroundBinding
 import com.example.notes.databinding.LayoutDisplaySettingsColorBinding
+import com.example.notes.util.Constants
 
 class DisplayColorFragment:Fragment() {
     lateinit var colorAdapter: DisplayColorAdapter
@@ -20,7 +21,7 @@ class DisplayColorFragment:Fragment() {
     lateinit var layoutManager: LinearLayoutManager
     private var listDarkColor = mutableListOf<Int>()
     private var listLightColor = mutableListOf<Int>()
-    private var listTextColor = mutableListOf<Int>()
+    private var listTextColor = mutableListOf<String>()
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -54,10 +55,10 @@ class DisplayColorFragment:Fragment() {
     }
 
     private fun addListTextColor() {
-        listTextColor.add(R.string.blue)
-        listTextColor.add(R.string.orange)
-        listTextColor.add(R.string.yellow)
-        listTextColor.add(R.string.turquoise)
+        listTextColor.add(Constants.COLOR_RED)
+        listTextColor.add(Constants.COLOR_BROWN)
+        listTextColor.add(Constants.COLOR_GREEN)
+        listTextColor.add(Constants.COLOR_GREY)
     }
 
     private fun addListLightColor() {

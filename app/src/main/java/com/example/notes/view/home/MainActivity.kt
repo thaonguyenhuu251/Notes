@@ -5,7 +5,6 @@ import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Build
@@ -30,11 +29,11 @@ import com.example.notes.databinding.ActivityMainBinding
 import com.example.notes.util.Constants
 import com.example.notes.util.Constants.FACEBOOK_PAGE_ID
 import com.example.notes.util.Constants.FACEBOOK_URL
-import com.example.notes.util.Constants.SHARED_PREFERENCES_APP
 import com.example.notes.util.FileUtils
+import com.example.notes.util.PreferencesSettings
+import com.example.notes.view.login.LoginPassword
 import com.example.notes.view.login.LoginPasswordPin
 import com.google.android.material.navigation.NavigationBarView
-
 
 class MainActivity : AppCompatActivity() {
     var homeFragment = HomeFragment()
@@ -43,35 +42,19 @@ class MainActivity : AppCompatActivity() {
     var notificationFragment = NotificationFragment()
     var workRoomDatabaseClass: WorkRoomDatabaseClass? = null
 
-    private lateinit var appPreferences : SharedPreferences
-    var appTheme = 0
-    var themeColor = 0
-    var appColor = 0
-
     private lateinit var mDrawerLayout: DrawerLayout
     private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        super.setTheme(PreferencesSettings.getBackground(this))
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view: View = binding.root
-        appPreferences = getSharedPreferences(SHARED_PREFERENCES_APP, Context.MODE_PRIVATE)
-        appColor = appPreferences.getInt("color", 0)
-        appTheme = appPreferences.getInt("theme", 0)
-        themeColor = appColor
-        Constants.color = appColor
 
         workRoomDatabaseClass = Room.databaseBuilder(
             applicationContext,
             WorkRoomDatabaseClass::class.java, "work_database"
         ).allowMainThreadQueries().build()
 
-        if (themeColor == 0){
-            setTheme(Constants.theme);
-        }else if (appTheme == 0){
-            setTheme(Constants.theme);
-        }else{
-            setTheme(appTheme);
-        }
         setContentView(view)
 
         binding.root.setOnClickListener {
@@ -87,6 +70,7 @@ class MainActivity : AppCompatActivity() {
                     Handler(Looper.getMainLooper()).postDelayed({
                         val i = Intent(this, AddNoteActivity::class.java)
                         startActivity(i)
+                        overridePendingTransition(R.animator.slide_out_left, R.animator.slide_in_right)
                     }, 500)
                 }
                 1-> {
@@ -162,7 +146,7 @@ class MainActivity : AppCompatActivity() {
             FileUtils.hideKeyboard(this)
         }
 
-        if (appPreferences.getBoolean(Constants.PASSWORD, false)) {
+        if (PreferencesSettings.getCode(this)?.isEmpty() == false) {
             mDrawerLayout.findViewById<TextView>(R.id.txtClockApp).visibility = View.VISIBLE
         } else {
             mDrawerLayout.findViewById<TextView>(R.id.txtClockApp).visibility = View.GONE
@@ -182,7 +166,7 @@ class MainActivity : AppCompatActivity() {
                     }
 
                     drawerView.findViewById<TextView>(R.id.txtClockApp).setOnClickListener {
-                        val i = Intent(this@MainActivity, LoginPasswordPin::class.java)
+                        val i = Intent(this@MainActivity, LoginPassword::class.java)
                         startActivity(i)
                     }
                     drawerView.findViewById<TextView>(R.id.txtAboutMe).setOnClickListener {
@@ -221,6 +205,10 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                val bundle = Bundle()
+                bundle.putString("search", binding.edtSearch.text.toString())
+                val homeFragment = HomeFragment()
+                homeFragment.arguments = bundle
             }
         })
 
@@ -273,7 +261,7 @@ class MainActivity : AppCompatActivity() {
         permissions: Array<out String>,
         grantResults: IntArray
     ) {
-        super.onRequestPermissionsResult(requestCode, permissions!!, grantResults)
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         when (requestCode) {
             Constants.MY_PERMISSION_REQUEST_CODE_CALL_PHONE -> {
 
@@ -353,6 +341,5 @@ class MainActivity : AppCompatActivity() {
         facebookIntent.data = Uri.parse(facebookUrl)
         activity.startActivity(facebookIntent)
     }
-
 
 }

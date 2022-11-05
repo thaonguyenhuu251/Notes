@@ -5,10 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -24,9 +21,6 @@
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/background_general"
-                android:minHeight="?attr/actionBarSize"
-                android:theme="?attr/actionBarTheme"
                 tools:layout_editor_absoluteX="0dp"
                 tools:layout_editor_absoluteY="0dp">
 
@@ -99,7 +93,7 @@
                     android:background="@drawable/bg_edittext"
                     android:drawableStart="@drawable/ic_file"
                     android:drawablePadding="@dimen/_10sdp"
-                    android:drawableTint="@color/background_general"
+                    app:drawableTint="@color/background_general"
                     android:ellipsize="end"
                     android:hint="Input Name Work"
                     android:imeOptions="actionNext"
@@ -171,13 +165,13 @@
                     android:layout_margin="@dimen/_10sdp"
                     android:background="@drawable/bg_edittext"
                     android:backgroundTint="@color/background_general"
-                    android:drawableStart="@drawable/ic_save_alt"
-                    android:drawableTint="@color/white"
                     android:gravity="center"
                     android:padding="@dimen/_10sdp"
                     android:text="ADD WORK"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/_12sdp" />
+                    android:textSize="@dimen/_12sdp"
+                    app:drawableStartCompat="@drawable/ic_save_alt"
+                    app:drawableTint="@color/white" />
 
             </LinearLayout>
 

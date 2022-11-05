@@ -31,20 +31,20 @@ class ListNoteFragment : Fragment() {
     lateinit var binding: FragmentListNoteBinding
     var recyclerView: RecyclerView? = null
     private var listNote = mutableListOf<Note>()
-
+    var searchText: String? = null
     var posSelect :Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-
+        if (arguments != null) {
+            searchText = arguments?.getString("searchItem");
         }
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         binding = FragmentListNoteBinding.inflate(inflater, container, false)
         return binding.root
@@ -125,6 +125,9 @@ class ListNoteFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         generateItemWork()
+        if (!searchText.isNullOrEmpty()) {
+            listNote.filter { it.content.equals(searchText) }
+        }
     }
 
 
@@ -147,15 +150,5 @@ class ListNoteFragment : Fragment() {
         noteDoAdapter = NoteDoAdapter(requireContext(), listNote)
         binding.recyclerview.adapter = noteDoAdapter
         noteDoAdapter.notifyDataSetChanged()
-    }
-
-
-
-    companion object {
-        fun newInstance(param1: String, param2: String) =
-            ListNoteFragment().apply {
-                arguments = Bundle().apply {
-                }
-            }
     }
 }

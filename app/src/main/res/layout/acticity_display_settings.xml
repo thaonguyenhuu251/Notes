@@ -17,7 +17,6 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/background_general"
             android:minHeight="?attr/actionBarSize"
             android:theme="?attr/actionBarTheme"
             tools:layout_editor_absoluteX="0dp"
@@ -29,13 +28,13 @@
                 android:layout_height="wrap_content"
                 android:text="CHANGE BACKGROUND"
                 android:paddingVertical="@dimen/_5sdp"
-                android:drawableStart="@drawable/ic_arrow_back"
-                android:drawableTint="@color/white"
+                app:drawableTint="@color/white"
                 android:drawablePadding="@dimen/_10sdp"
                 android:layout_gravity="center_vertical"
                 android:textColor="@color/white"
                 android:textStyle="bold"
-                android:textSize="@dimen/_14ssp"/>
+                android:textSize="@dimen/_14ssp"
+                app:drawableStartCompat="@drawable/ic_arrow_back" />
 
         </androidx.appcompat.widget.Toolbar>
 

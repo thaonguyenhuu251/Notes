@@ -3,5 +3,5 @@
     <corners android:bottomLeftRadius="@dimen/_10sdp"
         android:topLeftRadius="@dimen/_10sdp"/>
     <gradient android:gradientRadius="@dimen/_5sdp"/>
-    <solid android:color="@color/background_general"/>
+    <solid android:color="?colorAccent"/>
 </shape>

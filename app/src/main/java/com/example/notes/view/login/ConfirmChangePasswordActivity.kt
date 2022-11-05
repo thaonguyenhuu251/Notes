@@ -1,8 +1,6 @@
 package com.example.notes.view.login
 
-import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
@@ -12,21 +10,15 @@ import com.beautycoder.pflockscreen.fragments.PFLockScreenFragment
 import com.beautycoder.pflockscreen.fragments.PFLockScreenFragment.OnPFLockScreenLoginListener
 import com.example.notes.R
 import com.example.notes.databinding.ActivityNewPasswordBinding
-import com.example.notes.util.Constants
 import com.example.notes.util.PreferencesSettings
 
 class ConfirmChangePasswordActivity : AppCompatActivity() {
-    private lateinit var appPreferences : SharedPreferences
     private lateinit var binding: ActivityNewPasswordBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityNewPasswordBinding.inflate(layoutInflater)
         val view: View = binding.root
         setContentView(view)
-        appPreferences = getSharedPreferences(
-            Constants.SHARED_PREFERENCES_APP,
-            Context.MODE_PRIVATE
-        )
         showLockScreenFragment(true)
     }
 
