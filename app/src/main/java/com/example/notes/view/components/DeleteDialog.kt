@@ -8,24 +8,17 @@ import android.view.ViewGroup
 import android.view.WindowManager
 import androidx.fragment.app.DialogFragment
 import com.example.notes.R
-import com.example.notes.adapter.NoteDoAdapter
-import com.example.notes.databinding.CustomDialogDeleteBinding
-import com.example.notes.model.Note
-import com.example.notes.view.home.ListNoteFragment
+import com.example.notes.databinding.DialogDeleteBinding
 
 class DeleteDialog : DialogFragment() {
-    private lateinit var binding: CustomDialogDeleteBinding
-
-    lateinit var noteDoAdapter: NoteDoAdapter
-    lateinit var listNoteFragment: ListNoteFragment
-    private var listNote = mutableListOf<Note>()
+    private lateinit var binding: DialogDeleteBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        binding = CustomDialogDeleteBinding.inflate(layoutInflater)
+    ): View {
+        binding = DialogDeleteBinding.inflate(layoutInflater)
         return binding.root
     }
 

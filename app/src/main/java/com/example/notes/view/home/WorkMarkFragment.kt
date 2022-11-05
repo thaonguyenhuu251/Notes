@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.notes.R
 import com.example.notes.adapter.WorkDoAdapter
-import com.example.notes.database.WorkRoomMarkDatabase
+import com.example.notes.database.WorkRoomDatabaseClass
 import com.example.notes.databinding.FragmentWorkMarkBinding
 import com.example.notes.helper.SwipeHelper
 import kotlinx.coroutines.CoroutineScope
@@ -23,7 +23,7 @@ class WorkMarkFragment : Fragment() {
     lateinit var workDoAdapter: WorkDoAdapter
     private lateinit var binding: FragmentWorkMarkBinding
 
-    private val workMarkDatabase by lazy { WorkRoomMarkDatabase.getDataBase(requireContext()).workMarkDao() }
+    private val workDatabase by lazy { WorkRoomDatabaseClass.getDataBase(requireContext()).workDao() }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -63,7 +63,7 @@ class WorkMarkFragment : Fragment() {
                     val workList = workDoAdapter.currentList.toMutableList()
                     val removeNote = workList[pos]
                     CoroutineScope(Dispatchers.IO).launch {
-                        workMarkDatabase.deleteWork(removeNote)
+                        workDatabase.deleteWork(removeNote)
                     }
                 })
             }
@@ -75,7 +75,7 @@ class WorkMarkFragment : Fragment() {
 
     private fun observeWorks() {
         lifecycleScope.launch {
-            workMarkDatabase.getWork().collect { worksList ->
+            workDatabase.getWork().collect { worksList ->
                 if (worksList.isNotEmpty()) {
                     binding.recyclerview.visibility = View.VISIBLE
                     binding.imgFile.visibility = View.GONE

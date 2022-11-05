@@ -11,14 +11,14 @@ import com.example.notes.R
 class LoginPasswordExpandableAdapter internal constructor(
     private val context: Context,
     private val eGroupList: MutableList<String>,
-    private val listChild: MutableList<MutableList<String>>
+    private val listChild: MutableList<String>
 ) : BaseExpandableListAdapter() {
     override fun getGroupCount(): Int {
         return eGroupList.size
     }
 
     override fun getChildrenCount(p0: Int): Int {
-        return listChild[p0].size
+        return listChild.size
     }
 
     override fun getGroup(p0: Int): Any {
@@ -26,7 +26,7 @@ class LoginPasswordExpandableAdapter internal constructor(
     }
 
     override fun getChild(p0: Int, p1: Int): Any {
-        return listChild[p0][p1]
+        return listChild[p1]
     }
 
     override fun getGroupId(p0: Int): Long {
@@ -34,7 +34,7 @@ class LoginPasswordExpandableAdapter internal constructor(
     }
 
     override fun getChildId(p0: Int, p1: Int): Long {
-        return p1.toLong()
+        return p0.toLong()
     }
 
     override fun hasStableIds(): Boolean {

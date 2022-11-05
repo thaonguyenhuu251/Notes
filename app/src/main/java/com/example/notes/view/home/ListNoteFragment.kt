@@ -3,7 +3,6 @@ package com.example.notes.view.home
 import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.app.Dialog
-import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -12,9 +11,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
 import android.widget.Button
-import android.widget.Toast
 import androidx.appcompat.content.res.AppCompatResources
-import androidx.fragment.app.DialogFragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.notes.R
@@ -23,7 +20,6 @@ import com.example.notes.databinding.FragmentListNoteBinding
 import com.example.notes.helper.SwipeHelper
 import com.example.notes.model.Note
 import com.example.notes.util.FileUtils
-import com.example.notes.view.components.DeleteDialog
 
 class ListNoteFragment : Fragment() {
     lateinit var noteDoAdapter: NoteDoAdapter
@@ -72,7 +68,7 @@ class ListNoteFragment : Fragment() {
                 ) { pos: Int ->
 
                     val builder = Dialog(requireContext())
-                    builder.setContentView(R.layout.custom_dialog_delete)
+                    builder.setContentView(R.layout.dialog_delete)
                     builder.window?.setLayout(WindowManager.LayoutParams.WRAP_CONTENT,
                         WindowManager.LayoutParams.WRAP_CONTENT)
                     AlertDialog.Builder(context, R.style.MyDialog)

@@ -31,7 +31,7 @@ class SettingFragment : Fragment() {
 
     private lateinit var loginPassAdapter: LoginPasswordExpandableAdapter
     private var groupList: MutableList<String> = ArrayList()
-    private var childList : MutableList<MutableList<String>> = ArrayList()
+    private var childList : MutableList<String> = ArrayList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -134,12 +134,9 @@ class SettingFragment : Fragment() {
 
     private fun showChildList() {
         groupList.add("Login Password")
-
-        val child = mutableListOf<String>()
-        child.add("Set Password")
-        child.add("Change Password")
-        child.add("Delete Password")
-        childList.add(child)
+        childList.add("Set Password")
+        childList.add("Change Password")
+        childList.add("Delete Password")
 
     }
 

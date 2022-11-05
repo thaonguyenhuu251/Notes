@@ -16,7 +16,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.notes.R
 import com.example.notes.adapter.WorkDoAdapter
 import com.example.notes.database.WorkRoomDatabaseClass
-import com.example.notes.database.WorkRoomMarkDatabase
+import com.example.notes.database.WorkRoomTrashDatabase
 import com.example.notes.databinding.FragmentListWorkBinding
 import com.example.notes.helper.SwipeHelper
 import com.example.notes.model.Work
@@ -30,7 +30,7 @@ class ListWorkFragment : Fragment() {
     private lateinit var binding: FragmentListWorkBinding
 
     private val workDatabase by lazy { WorkRoomDatabaseClass.getDataBase(requireContext()).workDao() }
-    private val workMarkDatabase by lazy { WorkRoomMarkDatabase.getDataBase(requireContext()).workMarkDao() }
+    private val workTrashDatabase by lazy { WorkRoomTrashDatabase.getDataBase(requireContext()).workMarkDao() }
 
     val editWorkResultLauncher =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
@@ -103,6 +103,9 @@ class ListWorkFragment : Fragment() {
                     CoroutineScope(Dispatchers.IO).launch {
                         workDatabase.deleteWork(removeNote)
                     }
+                    lifecycleScope.launch {
+                        workTrashDatabase.addWork(removeNote)
+                    }
                 })
 
                 underlayButtons?.add(UnderlayButton(
@@ -129,9 +132,6 @@ class ListWorkFragment : Fragment() {
                 ) { pos: Int ->
                     val workList = workDoAdapter.currentList.toMutableList()
                     val addWork = workList[pos]
-                    lifecycleScope.launch {
-                        workMarkDatabase.addWork(addWork)
-                    }
                 })
             }
 
