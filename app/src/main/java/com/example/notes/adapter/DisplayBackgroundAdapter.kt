@@ -36,13 +36,8 @@ class DisplayBackgroundAdapter :RecyclerView.Adapter<DisplayBackgroundViewModel>
 
     override fun onBindViewHolder(holder: DisplayBackgroundViewModel, position: Int) {
         Glide.with(context)
-            .load("") // image url
-            .error(
-                AppCompatResources.getDrawable(
-                    context,
-                    listBackground[position]
-                )
-            ) // any image in case of error
+            .load("")
+            .error(AppCompatResources.getDrawable(context, listBackground[position]))
             .into(holder.ivshapeable)
     }
 }

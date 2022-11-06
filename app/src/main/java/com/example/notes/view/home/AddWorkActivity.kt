@@ -21,13 +21,9 @@ import kotlinx.coroutines.launch
 class AddWorkActivity : AppCompatActivity(), DateDialog.OnDone, TimeDialog.OnDone {
     private lateinit var binding: ActivityAddWorkBinding
     private val workDatabase by lazy { WorkRoomDatabaseClass.getDataBase(this).workDao() }
-    var timepicker: TimePicker? = null
-    private val datePicker: DatePicker? = null
-    var hour = 0
-    var minutes = 0f
 
-    var txtDone: TextView? = null
-    var txtExit: TextView? = null
+    private var hour: Int = 0
+    private var minutes: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,32 +48,29 @@ class AddWorkActivity : AppCompatActivity(), DateDialog.OnDone, TimeDialog.OnDon
             val startDay: String
             val contentWork: String
             try {
-                timeComplete = hour + (minutes / 60)
+                timeComplete = hour.toFloat() + (minutes.toFloat() / 60)
                 nameWork = binding.edtNameWork.text.toString().trim { it <= ' ' }
                 startDay = binding.edtStartDay.text.toString().trim { it <= ' ' }
                 contentWork = binding.edtContentWork.text.toString().trim { it <= ' ' }
-                if (timeComplete < 0 || timeComplete > 8) {
-                    Toast.makeText(this, "time >0 or time < 8", Toast.LENGTH_SHORT).show()
-                    binding.edtTimeComplete.setText("")
-                } else {
-                    val work = Work()
-                    work.idWork = System.currentTimeMillis()
-                    work.nameWork = nameWork
-                    work.startDay = startDay
-                    work.contentWork = contentWork
-                    work.timeComplete = timeComplete
 
-                    lifecycleScope.launch {
-                        workDatabase.addWork(work)
-                    }
+                val work = Work()
+                work.idWork = System.currentTimeMillis()
+                work.nameWork = nameWork
+                work.startDay = startDay
+                work.contentWork = contentWork
+                work.timeComplete = timeComplete
 
-                    Toast.makeText(this, "Data Successfully saved", Toast.LENGTH_SHORT).show()
-                    binding.edtStartDay.setText("")
-                    binding.edtNameWork.setText("")
-                    binding.edtTimeComplete.setText("")
-                    binding.edtContentWork.setText("")
-                    onBackPressed()
+                lifecycleScope.launch {
+                    workDatabase.addWork(work)
                 }
+
+                Toast.makeText(this, "Data Successfully saved", Toast.LENGTH_SHORT).show()
+                binding.edtStartDay.setText("")
+                binding.edtNameWork.setText("")
+                binding.edtTimeComplete.setText("")
+                binding.edtContentWork.setText("")
+                onBackPressed()
+
             } catch (e: Exception) {
                 Toast.makeText(this, "do not leave blank", Toast.LENGTH_SHORT).show()
             }
@@ -98,6 +91,8 @@ class AddWorkActivity : AppCompatActivity(), DateDialog.OnDone, TimeDialog.OnDon
     override fun onClickTime(isClick: Boolean, hour: Int, minutes: Int) {
         super.onClickTime(isClick, hour, minutes)
         if (isClick) {
+            this.hour = hour
+            this.minutes = minutes
             binding.edtTimeComplete.setText(FileUtils.formatTimeNew(hour, minutes))
         }
     }

@@ -59,6 +59,19 @@ object PreferencesSettings {
         return sharedPref.getInt(Constants.BACKGROUND, defaultValue)
     }
 
+    fun saveToColor(context: Context, str: Int) {
+        val sharedPref = context.getSharedPreferences(PREF_FILE, Context.MODE_PRIVATE)
+        val editor = sharedPref.edit()
+        editor.putInt(Constants.COLOR, str)
+        editor.apply()
+    }
+
+    fun getColor(context: Context): Int {
+        val sharedPref = context.getSharedPreferences(PREF_FILE, Context.MODE_PRIVATE)
+        val defaultValue = Constants.colorApp
+        return sharedPref.getInt(Constants.COLOR, defaultValue)
+    }
+
     fun setLanguage(context: Context, str: String) {
         val sharedPref = context.getSharedPreferences(PREF_FILE, Context.MODE_PRIVATE)
         val editor = sharedPref.edit()

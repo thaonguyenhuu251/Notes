@@ -9,7 +9,7 @@
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/ivshapeable"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_170sdp"
+        android:layout_height="@dimen/_200sdp"
         android:scaleType="centerCrop"
         android:src="@drawable/bg_purple_sky"
         app:shapeAppearanceOverlay="@style/roundedCornersImageView" />

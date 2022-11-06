@@ -4,39 +4,37 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="@dimen/_10sdp"
-    android:padding="@dimen/_5sdp"
+    android:layout_marginHorizontal="@dimen/_10sdp"
+    android:layout_marginVertical="@dimen/_5sdp"
     android:background="@drawable/bg_stroke_choose_color_setting"
-    android:weightSum="10"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    android:weightSum="10">
 
     <ImageView
         android:id="@+id/ivDarkColor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_10sdp"
         android:src="@drawable/bg_color_circle"
         tools:ignore="ContentDescription" />
-    <View
-        android:layout_width="@dimen/_10sdp"
-        android:layout_height="match_parent"/>
+
     <ImageView
         android:id="@+id/ivLightColor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_10sdp"
         android:src="@drawable/bg_color_circle"
-        android:tintMode="add"
         tools:ignore="ContentDescription" />
-    <View
-        android:layout_width="@dimen/_30sdp"
-        android:layout_height="match_parent"/>
+
     <TextView
         android:id="@+id/txtColor"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/blue"
-        android:textSize="@dimen/_14ssp"
-        android:textColor="@color/black"
+        android:layout_marginStart="@dimen/_100sdp"
         android:gravity="center|left"
+        android:text="@string/blue"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_14ssp"
         app:drawableEndCompat="@drawable/ic_arrow_forward"
         tools:ignore="RtlHardcoded" />
 </LinearLayout>

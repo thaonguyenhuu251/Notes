@@ -12,6 +12,7 @@ import android.widget.FrameLayout
 import androidx.core.content.ContextCompat
 import com.example.notes.R
 import com.example.notes.util.Constants
+import com.example.notes.util.PreferencesSettings
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class CircleMenu @JvmOverloads constructor(
@@ -42,13 +43,19 @@ class CircleMenu @JvmOverloads constructor(
             ).toInt()
             val openOnStart = getBoolean(R.styleable.CircleMenu_openOnStart, false)
 
-            val centerButtonColorDef = ContextCompat.getColor(context, Constants.colorApp)
+            val centerButtonColorDef = ContextCompat.getColor(
+                context,
+                PreferencesSettings.getColor(context)
+            )
             val centerButtonColor = getColor(R.styleable.CircleMenu_centerButtonColor, centerButtonColorDef)
             val centerButtonIconColorDef = ContextCompat.getColor(context, R.color.circle_menu_center_button_icon_color)
             val centerButtonIconColor = getColor(R.styleable.CircleMenu_centerButtonIconColor, centerButtonIconColorDef)
             val menuIconType = MenuIconType.values()[getInt(R.styleable.CircleMenu_menuIcon, 0)]
 
-            val iconsColorDef = ContextCompat.getColor(context, Constants.colorApp)
+            val iconsColorDef = ContextCompat.getColor(
+                context,
+                PreferencesSettings.getColor(context)
+            )
             val buttonIconsColor = getColor(R.styleable.CircleMenu_iconsColor, iconsColorDef)
             val iconArrayId: Int = getResourceId(R.styleable.CircleMenu_buttonIcons, 0)
             val colorArrayId: Int = getResourceId(R.styleable.CircleMenu_buttonColors, 0)

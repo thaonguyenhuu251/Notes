@@ -47,8 +47,8 @@ class NoteDoAdapter : RecyclerView.Adapter<NoteDoViewModel> {
 
 
     override fun onBindViewHolder(holder: NoteDoViewModel, position: Int) {
-        holder.txtTitle.text =listNote[position].title
-        holder.txtContent.text =listNote[position].content
+        holder.txtTitle.text = listNote[position].title
+        holder.txtContent.text = listNote[position].content
         holder.txtTime.text = FileUtils.formatTime(listNote[position].date)
         holder.itemView.setOnClickListener {
             titleNote = listNote[position].title
@@ -89,6 +89,4 @@ class NoteDoAdapter : RecyclerView.Adapter<NoteDoViewModel> {
         }
 
     }
-
-
 }

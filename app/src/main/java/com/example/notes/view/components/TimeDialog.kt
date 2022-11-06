@@ -1,14 +1,21 @@
 package com.example.notes.view.components
+
 import android.app.Dialog
+import android.os.Build
 import android.os.Bundle
-import android.view.*
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.view.WindowManager
+import androidx.annotation.RequiresApi
 import androidx.fragment.app.DialogFragment
 import com.example.notes.R
 import com.example.notes.databinding.DialogTimeBinding
 import java.util.*
 
-class TimeDialog (private var onDone: OnDone) : DialogFragment() {
+class TimeDialog(private var onDone: OnDone) : DialogFragment() {
     private lateinit var binding: DialogTimeBinding
+    @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -28,19 +35,19 @@ class TimeDialog (private var onDone: OnDone) : DialogFragment() {
         val calendar = Calendar.getInstance()
         calendar.timeInMillis = System.currentTimeMillis()
         binding = DialogTimeBinding.inflate(layoutInflater)
-        var hour = 0
-        var minutes = 0
+        var hour = binding.timePicker.hour
+        var minutes = binding.timePicker.minute
         binding.timePicker.setOnTimeChangedListener { view, hourOfDay, minute ->
             hour = hourOfDay
             minutes = minute
         }
-        binding.txtDone.setOnClickListener{
-                onDone.onClickTime(true, hour, minutes)
-                dismiss()
+        binding.txtDone.setOnClickListener {
+            onDone.onClickTime(true, hour, minutes)
+            dismiss()
 
         }
 
-        binding.txtExit.setOnClickListener{ dismiss() }
+        binding.txtExit.setOnClickListener { dismiss() }
         return binding.root
     }
 
@@ -57,7 +64,7 @@ class TimeDialog (private var onDone: OnDone) : DialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-7
+        7
     }
 
     companion object {
