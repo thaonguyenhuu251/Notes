@@ -4,14 +4,17 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.content.res.AppCompatResources
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.notes.R
+import com.example.notes.util.FileUtils
 import com.example.notes.viewmodels.DisplayBackgroundViewModel
 import com.google.android.material.imageview.ShapeableImageView
 
 class DisplayBackgroundAdapter :RecyclerView.Adapter<DisplayBackgroundViewModel> {
     lateinit var context:Context
-    lateinit var listBackground:List<Int>
+    var listBackground:List<Int>
 
     constructor(context: Context,listBackground: List<Int>){
         this.context = context
@@ -32,6 +35,14 @@ class DisplayBackgroundAdapter :RecyclerView.Adapter<DisplayBackgroundViewModel>
     }
 
     override fun onBindViewHolder(holder: DisplayBackgroundViewModel, position: Int) {
-        holder.ivshapeable.setImageResource(listBackground[position])
+        Glide.with(context)
+            .load("") // image url
+            .error(
+                AppCompatResources.getDrawable(
+                    context,
+                    listBackground[position]
+                )
+            ) // any image in case of error
+            .into(holder.ivshapeable)
     }
 }
