@@ -12,13 +12,12 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.notes.R
 import com.example.notes.adapter.LanguageDialogAdapter
 import com.example.notes.databinding.DialogLanguageBinding
+import com.example.notes.model.Language
 
 class LanguageDialog : DialogFragment() {
     private lateinit var binding: DialogLanguageBinding
-
+    var listLanguage = mutableListOf<Language>()
     var layoutManager: LinearLayoutManager? = null
-    private var listTextLanguage = mutableListOf<Int>()
-    private var listDrawableLanguage = mutableListOf<Int>()
     private var languageAdapter: LanguageDialogAdapter? = null
 
     override fun onCreateView(
@@ -64,35 +63,22 @@ class LanguageDialog : DialogFragment() {
         generateItemWork()
     }
 
-    override fun onResume() {
-        super.onResume()
-    }
-
     @SuppressLint("NotifyDataSetChanged")
     private fun generateItemWork() {
-        addListTextLanguage()
-        addListDrawableLanguage()
+        addListLanguage()
 
         languageAdapter =
-            LanguageDialogAdapter(requireContext(), listTextLanguage, listDrawableLanguage)
+            LanguageDialogAdapter(requireContext(), listLanguage)
         binding.recyclerview.adapter = languageAdapter
         languageAdapter?.notifyDataSetChanged()
     }
 
-    private fun addListDrawableLanguage() {
-        listDrawableLanguage.add(R.drawable.ic_language_vietnam)
-        listDrawableLanguage.add(R.drawable.ic_language_english_uk)
-        listDrawableLanguage.add(R.drawable.ic_language_russian)
-        listDrawableLanguage.add(R.drawable.ic_language_south_korea)
+    private fun addListLanguage() {
+        listLanguage.add(Language(R.string.vietnam, R.drawable.ic_language_vietnam))
+        listLanguage.add(Language(R.string.englishuk, R.drawable.ic_language_english_uk))
+        listLanguage.add(Language(R.string.russian, R.drawable.ic_language_russian))
+        listLanguage.add(Language(R.string.south_korea, R.drawable.ic_language_south_korea))
     }
-
-    private fun addListTextLanguage() {
-        listTextLanguage.add(R.string.vietnam)
-        listTextLanguage.add(R.string.englishuk)
-        listTextLanguage.add(R.string.russian)
-        listTextLanguage.add(R.string.south_korea)
-    }
-
 
     companion object {
         const val TAG = "LanguageDialog"
