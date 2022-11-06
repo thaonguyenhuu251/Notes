@@ -9,36 +9,22 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.notes.R
+import com.example.notes.model.DisplayColor
 import com.example.notes.util.Constants
 import com.example.notes.util.Methods
 import com.example.notes.util.PreferencesSettings
 
 class DisplayColorAdapter : RecyclerView.Adapter<DisplayColorAdapter.DisplayColorViewModel> {
     lateinit var context: Context
-    lateinit var listDarkColor:List<Int>
-    lateinit var listLightColor:List<Int>
-    lateinit var listTextColor:List<String>
+    var listColor: List<DisplayColor>
 
-    constructor(
-        context: Context,
-        listDarkColor: List<Int>,
-        listLightColor: List<Int>,
-        listTextColor: List<String>
-    ) : super() {
+    constructor(context: Context, listColor: List<DisplayColor>) : super() {
         this.context = context
-        this.listDarkColor = listDarkColor
-        this.listLightColor = listLightColor
-        this.listTextColor = listTextColor
+        this.listColor = listColor
     }
 
-    constructor(
-        listDarkColor: List<Int>,
-        listLightColor: List<Int>,
-        listTextColor: List<String>
-    ) : super() {
-        this.listDarkColor = listDarkColor
-        this.listLightColor = listLightColor
-        this.listTextColor = listTextColor
+    constructor(listColor: List<DisplayColor>) : super() {
+        this.listColor = listColor
     }
 
 
@@ -48,13 +34,13 @@ class DisplayColorAdapter : RecyclerView.Adapter<DisplayColorAdapter.DisplayColo
     }
 
     override fun getItemCount(): Int {
-        return listDarkColor.size
+        return listColor.size
     }
 
     override fun onBindViewHolder(holder: DisplayColorViewModel, position: Int) {
-        holder.ivDarkColor.setColorFilter(ContextCompat.getColor(context, listDarkColor[position]))
-        holder.ivLightColor.setColorFilter(ContextCompat.getColor(context, listLightColor[position]))
-        holder.txtColor.setText(listTextColor[position])
+        holder.ivDarkColor.setColorFilter(ContextCompat.getColor(context, listColor[position].darkColor))
+        holder.ivLightColor.setColorFilter(ContextCompat.getColor(context, listColor[position].lightColor))
+        holder.txtColor.setText(listColor[position].textColor)
     }
 
     inner class DisplayColorViewModel(context: Context, itemView: View): RecyclerView.ViewHolder(itemView)  {
