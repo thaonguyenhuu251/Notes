@@ -10,8 +10,8 @@ import com.example.notes.R
 
 class LoginPasswordExpandableAdapter internal constructor(
     private val context: Context,
-    private val eGroupList: MutableList<String>,
-    private val listChild: MutableList<String>
+    private val eGroupList: Array<String>,
+    private val listChild: Array<String>
 ) : BaseExpandableListAdapter() {
     override fun getGroupCount(): Int {
         return eGroupList.size

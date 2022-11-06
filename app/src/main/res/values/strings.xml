@@ -77,4 +77,14 @@
     <string name="sort_by_name_decrease">Sort By Name decrease</string>
     <string name="sort_by_time_ascending">Sort By Time ascending</string>
     <string name="sort_by_time_decrease">Sort By Time decrease</string>
+
+    <array name="string_sub">
+        <item>Login Password</item>
+    </array>
+
+    <array name="string_list">
+        <item>Set Password</item>
+        <item>Change Password</item>
+        <item>Delete Password</item>
+    </array>
 </resources>

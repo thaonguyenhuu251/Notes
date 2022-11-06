@@ -15,6 +15,7 @@ import android.widget.ExpandableListView
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
+import com.example.notes.R
 import com.example.notes.adapter.LoginPasswordExpandableAdapter
 import com.example.notes.databinding.FragmentSettingBinding
 import com.example.notes.util.Constants
@@ -30,11 +31,12 @@ class SettingFragment : Fragment() {
     private lateinit var binding: FragmentSettingBinding
 
     private lateinit var loginPassAdapter: LoginPasswordExpandableAdapter
-    private var groupList: MutableList<String> = ArrayList()
-    private var childList : MutableList<String> = ArrayList()
+    private lateinit var groupList: Array<String>
+    private lateinit var childList : Array<String>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
     }
 
     override fun onCreateView(
@@ -48,6 +50,8 @@ class SettingFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        groupList = resources.getStringArray(R.array.string_sub)
+        childList = resources.getStringArray(R.array.string_list)
         initView()
     }
 
@@ -133,10 +137,6 @@ class SettingFragment : Fragment() {
     }
 
     private fun showChildList() {
-        groupList.add("Login Password")
-        childList.add("Set Password")
-        childList.add("Change Password")
-        childList.add("Delete Password")
 
     }
 

@@ -42,6 +42,6 @@ object Constants {
     const val COLOR_BROWN = "color_brown"
 
     var color = COLOR_BLUE
-    var theme: Int = R.style.AppTheme
-    var colorApp: Int = R.color.blue_primary
+    var theme: Int = R.style.AppTheme_violet
+    var colorApp: Int = R.color.violet_colorPrimary
 }
