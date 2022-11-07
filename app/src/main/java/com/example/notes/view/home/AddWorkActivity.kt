@@ -2,22 +2,21 @@ package com.example.notes.view.home
 
 import android.os.Bundle
 import android.view.View
-import android.widget.DatePicker
-import android.widget.TextView
-import android.widget.TimePicker
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.example.notes.base.BaseActivity
 import com.example.notes.database.WorkRoomDatabaseClass
 import com.example.notes.databinding.ActivityAddWorkBinding
 import com.example.notes.model.Work
+import com.example.notes.util.Calendar
 import com.example.notes.util.FileUtils
 import com.example.notes.util.FileUtils.hideKeyboard
 import com.example.notes.util.PreferencesSettings
+import com.example.notes.util.SimpleDateFormat
 import com.example.notes.view.components.DateDialog
 import com.example.notes.view.components.TimeDialog
 import kotlinx.coroutines.launch
+import java.util.*
 
 class AddWorkActivity : BaseActivity(), DateDialog.OnDone, TimeDialog.OnDone {
     private lateinit var binding: ActivityAddWorkBinding
@@ -25,6 +24,9 @@ class AddWorkActivity : BaseActivity(), DateDialog.OnDone, TimeDialog.OnDone {
 
     private var hour: Int = 0
     private var minutes: Int = 0
+    private var year: Int = 0
+    private var month: Int = 0
+    private var day: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,22 +46,15 @@ class AddWorkActivity : BaseActivity(), DateDialog.OnDone, TimeDialog.OnDone {
             dialogDate.show(supportFragmentManager, dialogDate.tag)
         }
         binding.btnAddWork.setOnClickListener {
-            val timeComplete: Float
-            val nameWork: String
-            val startDay: String
-            val contentWork: String
             try {
-                timeComplete = hour.toFloat() + (minutes.toFloat() / 60)
-                nameWork = binding.edtNameWork.text.toString().trim { it <= ' ' }
-                startDay = binding.edtStartDay.text.toString().trim { it <= ' ' }
-                contentWork = binding.edtContentWork.text.toString().trim { it <= ' ' }
-
                 val work = Work()
                 work.idWork = System.currentTimeMillis()
-                work.nameWork = nameWork
-                work.startDay = startDay
-                work.contentWork = contentWork
-                work.timeComplete = timeComplete
+                work.nameWork = binding.edtNameWork.text.toString().trim { it <= ' ' }
+                work.contentWork = binding.edtContentWork.text.toString().trim { it <= ' ' }
+                val calendar = Calendar()
+                calendar.set(year , month , day, hour, minutes)
+                work.timeNotify = calendar.timeInMillis
+                work.isTimeNotify = true
 
                 lifecycleScope.launch {
                     workDatabase.addWork(work)
@@ -86,6 +81,9 @@ class AddWorkActivity : BaseActivity(), DateDialog.OnDone, TimeDialog.OnDone {
         super.onClick(isClick, date)
         if (isClick) {
             binding.edtStartDay.setText(FileUtils.formatCalendars(date))
+            this.year = SimpleDateFormat("yyyy").format(date).toString().toInt()
+            this.month = SimpleDateFormat("MM").format(date).toString().toInt()
+            this.day = SimpleDateFormat("dd").format(date).toString().toInt()
         }
     }
 

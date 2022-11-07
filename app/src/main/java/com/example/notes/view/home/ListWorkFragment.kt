@@ -32,7 +32,7 @@ class ListWorkFragment : Fragment() {
     private val workDatabase by lazy { WorkRoomDatabaseClass.getDataBase(requireContext()).workDao() }
     private val workTrashDatabase by lazy { WorkRoomTrashDatabase.getDataBase(requireContext()).workMarkDao() }
 
-    val editWorkResultLauncher =
+    /*val editWorkResultLauncher =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             if (result.resultCode == Activity.RESULT_OK) {
                 val id = result.data?.getLongExtra("idWork", 0L)
@@ -46,7 +46,7 @@ class ListWorkFragment : Fragment() {
                     workDatabase.updateWork(editWork)
                 }
             }
-        }
+        }*/
 
 
     override fun onCreateView(
@@ -114,14 +114,14 @@ class ListWorkFragment : Fragment() {
                     Color.parseColor("#D3D3D3"),
                     Color.parseColor("#FFFFFF")
                 ) { pos: Int ->
-                    val intent = Intent(requireContext(), AddWorkActivity::class.java)
+                    /*val intent = Intent(requireContext(), AddWorkActivity::class.java)
                     val notesList = workDoAdapter.currentList.toMutableList()
                     intent.putExtra("idWork", notesList[pos].idWork)
                     intent.putExtra("nameWork", notesList[pos].nameWork)
-                    intent.putExtra("timeComplete", notesList[pos].timeComplete)
-                    intent.putExtra("startDay", notesList[pos].startDay)
+                    intent.putExtra("timeComplete", notesList[pos].timeWork)
+                    intent.putExtra("startDay", notesList[pos].dayWork)
                     intent.putExtra("contentWork", notesList[pos].contentWork)
-                    editWorkResultLauncher.launch(intent)
+                    editWorkResultLauncher.launch(intent)*/
                 })
 
                 underlayButtons?.add(UnderlayButton(

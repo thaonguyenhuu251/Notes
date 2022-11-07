@@ -14,6 +14,7 @@ import com.bumptech.glide.Glide
 import com.example.notes.R
 import com.example.notes.model.Work
 import com.example.notes.util.FileUtils
+import com.example.notes.util.SimpleDateFormat
 
 class WorkDoAdapter : ListAdapter<Work, WorkDoAdapter.WorkHolder>(DiffCallback()) {
     lateinit var context: Context
@@ -23,8 +24,7 @@ class WorkDoAdapter : ListAdapter<Work, WorkDoAdapter.WorkHolder>(DiffCallback()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WorkHolder {
         val v = LayoutInflater.from(parent.context).inflate(R.layout.item_work, parent, false)
         context = parent.context
-        val workHolder = WorkHolder(v)
-        return workHolder
+        return WorkHolder(v)
     }
 
     override fun onBindViewHolder(holder: WorkHolder, position: Int) {
@@ -34,9 +34,9 @@ class WorkDoAdapter : ListAdapter<Work, WorkDoAdapter.WorkHolder>(DiffCallback()
         val txtTimeComplete = holder.itemView.findViewById<TextView>(R.id.txtTimeComplete)
         val imgWork = holder.itemView.findViewById<ImageView>(R.id.imgWork)
 
-        txtName.text = "Name work: " + currentItem.nameWork
-        txtStartDay.text = "Start day: " + currentItem.startDay
-        txtTimeComplete.text = "Time complete: " + FileUtils.formatTime(currentItem.timeComplete)
+        txtName.text = context.getString(R.string.work_name, currentItem.nameWork)
+        txtStartDay.text = SimpleDateFormat(context.getString(R.string.work_day)).format(currentItem.timeNotify)
+        txtTimeComplete.text = SimpleDateFormat(context.getString(R.string.work_time)).format(currentItem.timeNotify)
 
         holder.itemView.setOnClickListener {
 

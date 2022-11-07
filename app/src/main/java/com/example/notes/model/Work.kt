@@ -13,8 +13,8 @@ data class Work (
     var nameWork: String? = null,
     @ColumnInfo(name = "contentWork")
     var contentWork: String? = null,
-    @ColumnInfo(name = "startDay")
-    var startDay: String? = null,
-    @ColumnInfo(name = "timeComplete")
-    var timeComplete: Float = 0f
+    @ColumnInfo(name = "timeNotify")
+    var timeNotify: Long? = 0L,
+    @ColumnInfo(name = "isTimeNotify")
+    var isTimeNotify: Boolean? = false,
 )

@@ -77,6 +77,9 @@
     <string name="sort_by_name_decrease">Sort By Name decrease</string>
     <string name="sort_by_time_ascending">Sort By Time ascending</string>
     <string name="sort_by_time_decrease">Sort By Time decrease</string>
+    <string name="work_name">Name work: %s</string>
+    <string name="work_time">HH:mm</string>
+    <string name="work_day">dd/MM/yyyy</string>
 
     <array name="string_sub">
         <item>Login Password</item>
