@@ -10,22 +10,20 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.notes.R
-import com.example.notes.model.DisplayColor
-import com.example.notes.util.Constants
 import com.example.notes.util.Methods
 import com.example.notes.util.PreferencesSettings
 import com.example.notes.view.home.MainActivity
 
 class DisplayColorAdapter : RecyclerView.Adapter<DisplayColorAdapter.DisplayColorViewModel> {
     lateinit var context: Context
-    var listColor: List<DisplayColor>
+    var listColor: List<String>
 
-    constructor(context: Context, listColor: List<DisplayColor>) : super() {
+    constructor(context: Context, listColor: List<String>) : super() {
         this.context = context
         this.listColor = listColor
     }
 
-    constructor(listColor: List<DisplayColor>) : super() {
+    constructor(listColor: List<String>) : super() {
         this.listColor = listColor
     }
 
@@ -47,20 +45,20 @@ class DisplayColorAdapter : RecyclerView.Adapter<DisplayColorAdapter.DisplayColo
         var ivDarkColor: ImageView = itemView.findViewById(R.id.ivDarkColor)
         var ivLightColor: ImageView = itemView.findViewById(R.id.ivLightColor)
         var txtColor: TextView = itemView.findViewById(R.id.txtColor)
-        fun bindItem(listColor: DisplayColor) {
+        fun bindItem(listColor: String) {
 
-            ivDarkColor.setColorFilter(ContextCompat.getColor(context, listColor.darkColor))
-            ivLightColor.setColorFilter(ContextCompat.getColor(context, listColor.lightColor))
-            txtColor.text = listColor.textColor
+            ivDarkColor.setColorFilter(ContextCompat.getColor(context, Methods.getColorDark(listColor)))
+            ivLightColor.setColorFilter(ContextCompat.getColor(context, Methods.getColorLight(listColor)))
+            txtColor.text = Methods.getColorString(listColor)
 
             itemView.setOnClickListener {
                 PreferencesSettings.saveToBackground(
                     context,
-                    Methods.getColorTheme(Methods.getStringColor(listColor.textColor)))
+                    Methods.getColorTheme(listColor))
 
                 PreferencesSettings.saveToColor(
                     context,
-                    Methods.getColorDark(Methods.getStringColor(listColor.textColor)))
+                    Methods.getColorDark(listColor))
 
                 val intent = Intent(context, MainActivity::class.java)
                 context.startActivity(intent)

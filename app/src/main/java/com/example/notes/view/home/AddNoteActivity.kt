@@ -8,12 +8,13 @@ import android.text.style.StyleSpan
 import android.text.style.UnderlineSpan
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import com.example.notes.base.BaseActivity
 import com.example.notes.databinding.ActivityAddNoteBinding
 import com.example.notes.util.PreferencesSettings
 import com.example.notes.view.components.DateDialog
 
 
-class AddNoteActivity : AppCompatActivity(), DateDialog.OnDone {
+class AddNoteActivity : BaseActivity(), DateDialog.OnDone {
 
     private lateinit var binding: ActivityAddNoteBinding
     override fun onCreate(savedInstanceState: Bundle?) {

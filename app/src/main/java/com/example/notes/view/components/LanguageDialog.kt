@@ -12,11 +12,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.notes.R
 import com.example.notes.adapter.LanguageDialogAdapter
 import com.example.notes.databinding.DialogLanguageBinding
-import com.example.notes.model.Language
+import com.example.notes.util.Constants
 
 class LanguageDialog : DialogFragment() {
     private lateinit var binding: DialogLanguageBinding
-    var listLanguage = mutableListOf<Language>()
+    var listLanguage = mutableListOf<String>()
     var layoutManager: LinearLayoutManager? = null
     private var languageAdapter: LanguageDialogAdapter? = null
 
@@ -38,9 +38,6 @@ class LanguageDialog : DialogFragment() {
             WindowManager.LayoutParams.WRAP_CONTENT
         )
         setStyle(STYLE_NORMAL, R.style.MyDialog)
-        /*val windowAttributes: WindowManager.LayoutParams = window.attributes!!
-        windowAttributes.gravity = Gravity.CENTER_VERTICAL
-        window.attributes = windowAttributes*/
 
     }
 
@@ -67,17 +64,19 @@ class LanguageDialog : DialogFragment() {
     private fun generateItemWork() {
         addListLanguage()
 
-        languageAdapter =
-            LanguageDialogAdapter(requireContext(), listLanguage)
+        languageAdapter = LanguageDialogAdapter(requireContext(), listLanguage)
         binding.recyclerview.adapter = languageAdapter
         languageAdapter?.notifyDataSetChanged()
     }
 
     private fun addListLanguage() {
-        listLanguage.add(Language(R.string.vietnam, R.drawable.ic_language_vietnam))
-        listLanguage.add(Language(R.string.englishuk, R.drawable.ic_language_english_uk))
-        listLanguage.add(Language(R.string.russian, R.drawable.ic_language_russian))
-        listLanguage.add(Language(R.string.south_korea, R.drawable.ic_language_south_korea))
+        listLanguage.add(Constants.LG_VIETNAM)
+        listLanguage.add(Constants.LG_KOREAN)
+        listLanguage.add(Constants.LG_ENGLISH)
+        listLanguage.add(Constants.LG_LAO)
+        listLanguage.add(Constants.LG_MYANMAR)
+        listLanguage.add(Constants.LG_RUSSIA)
+        listLanguage.add(Constants.LG_THAILAND)
     }
 
     companion object {

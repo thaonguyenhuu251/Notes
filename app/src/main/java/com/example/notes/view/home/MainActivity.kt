@@ -24,6 +24,7 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.drawerlayout.widget.DrawerLayout.DrawerListener
 import androidx.room.Room
 import com.example.notes.*
+import com.example.notes.base.BaseActivity
 import com.example.notes.database.WorkRoomDatabaseClass
 import com.example.notes.databinding.ActivityMainBinding
 import com.example.notes.util.Constants
@@ -35,7 +36,7 @@ import com.example.notes.view.login.LoginPassword
 import com.example.notes.view.login.LoginPasswordPin
 import com.google.android.material.navigation.NavigationBarView
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
     var homeFragment = HomeFragment()
     var bookMarkFragment = BookMarkFragment()
     var settingFragment = SettingFragment()
@@ -131,7 +132,6 @@ class MainActivity : AppCompatActivity() {
 
     private fun openDrawer() {
         val navigationView = binding.navMain
-
 
         navigationView.setNavigationItemSelectedListener { true }
         binding.imgMenu.setOnClickListener {

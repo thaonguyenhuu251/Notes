@@ -7,12 +7,13 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import com.example.notes.R
+import com.example.notes.base.BaseActivity
 import com.example.notes.util.PreferencesSettings
 import com.example.notes.view.home.MainActivity
 
 
 @SuppressLint("CustomSplashScreen")
-class SplashActivity : AppCompatActivity() {
+class SplashActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         super.setTheme(PreferencesSettings.getBackground(this))

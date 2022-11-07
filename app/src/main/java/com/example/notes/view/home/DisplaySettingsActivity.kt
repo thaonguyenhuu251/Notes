@@ -4,12 +4,13 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.example.notes.adapter.DisplayPagerFragmentAdapter
+import com.example.notes.base.BaseActivity
 import com.example.notes.databinding.ActicityDisplaySettingsBinding
 import com.example.notes.util.PreferencesSettings
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 
-class DisplaySettingsActivity : AppCompatActivity(){
+class DisplaySettingsActivity : BaseActivity(){
     private val titles = arrayOf("Background", "Color")
     private lateinit var binding: ActicityDisplaySettingsBinding
     override fun onCreate(savedInstanceState: Bundle?) {

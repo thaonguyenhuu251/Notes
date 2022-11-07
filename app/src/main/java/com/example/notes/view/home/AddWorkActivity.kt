@@ -8,6 +8,7 @@ import android.widget.TimePicker
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
+import com.example.notes.base.BaseActivity
 import com.example.notes.database.WorkRoomDatabaseClass
 import com.example.notes.databinding.ActivityAddWorkBinding
 import com.example.notes.model.Work
@@ -18,7 +19,7 @@ import com.example.notes.view.components.DateDialog
 import com.example.notes.view.components.TimeDialog
 import kotlinx.coroutines.launch
 
-class AddWorkActivity : AppCompatActivity(), DateDialog.OnDone, TimeDialog.OnDone {
+class AddWorkActivity : BaseActivity(), DateDialog.OnDone, TimeDialog.OnDone {
     private lateinit var binding: ActivityAddWorkBinding
     private val workDatabase by lazy { WorkRoomDatabaseClass.getDataBase(this).workDao() }
 

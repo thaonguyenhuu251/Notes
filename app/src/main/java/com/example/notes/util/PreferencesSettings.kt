@@ -81,7 +81,7 @@ object PreferencesSettings {
 
     fun getLanguage(context: Context): String? {
         val sharedPref = context.getSharedPreferences(PREF_FILE, Context.MODE_PRIVATE)
-        val defaultValue = ""
+        val defaultValue = Constants.LG_VIETNAM
         return sharedPref.getString(Constants.LANGUAGE, defaultValue)
     }
 }

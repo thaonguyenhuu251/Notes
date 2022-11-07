@@ -16,8 +16,23 @@ class App : Application() {
             Constants.LG_VIETNAM -> {
                 "vi"
             }
-            Constants.LG_ENGLISH-> {
+            Constants.LG_ENGLISH -> {
                 "en"
+            }
+            Constants.LG_RUSSIA -> {
+                "ru"
+            }
+            Constants.LG_LAO -> {
+                "la"
+            }
+            Constants.LG_THAILAND -> {
+                "th"
+            }
+            Constants.LG_MYANMAR -> {
+                "my"
+            }
+            Constants.LG_KOREAN -> {
+                "ko"
             }
             else -> {
                 "en"

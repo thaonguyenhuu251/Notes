@@ -77,4 +77,30 @@ object Methods {
             else -> Constants.COLOR_BLUE
         }
     }
+
+    fun getStringLanguage(language: String): String {
+        return when (language) {
+            Constants.LG_VIETNAM -> "Viet Nam"
+            Constants.LG_ENGLISH -> "Viet Nam"
+            Constants.LG_RUSSIA -> "Viet Nam"
+            Constants.LG_KOREAN -> "Viet Nam"
+            Constants.LG_LAO -> "Viet Nam"
+            Constants.LG_THAILAND -> "Viet Nam"
+            Constants.LG_MYANMAR -> "Viet Nam"
+            else -> "Viet Nam"
+        }
+    }
+
+    fun getLanguages(language: String): Int {
+        return when (language) {
+            Constants.LG_VIETNAM -> R.drawable.ic_language_vietnam
+            Constants.LG_ENGLISH -> R.drawable.ic_language_english_uk
+            Constants.LG_RUSSIA -> R.drawable.ic_language_russian
+            Constants.LG_KOREAN -> R.drawable.ic_language_south_korea
+            Constants.LG_LAO -> R.drawable.ic_language_south_korea
+            Constants.LG_THAILAND -> R.drawable.ic_language_south_korea
+            Constants.LG_MYANMAR -> R.drawable.ic_language_south_korea
+            else -> R.drawable.ic_language_vietnam
+        }
+    }
 }

@@ -1,16 +1,14 @@
 package com.example.notes.view.home
 
-import android.R
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import com.example.notes.adapter.TrashPagerFragmentAdapter
+import com.example.notes.base.BaseActivity
 import com.example.notes.databinding.ActivityTrashBinding
 import com.example.notes.util.PreferencesSettings
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 
-
-class TrashActivity : AppCompatActivity() {
+class TrashActivity : BaseActivity() {
     private val titles = arrayOf("Note", "Work")
     lateinit var binding: ActivityTrashBinding
     override fun onCreate(savedInstanceState: Bundle?) {

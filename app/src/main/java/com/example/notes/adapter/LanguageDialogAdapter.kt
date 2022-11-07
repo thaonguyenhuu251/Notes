@@ -2,28 +2,29 @@ package com.example.notes.adapter
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.notes.R
-import com.example.notes.model.Language
 import com.example.notes.util.Constants
+import com.example.notes.util.Methods
 import com.example.notes.util.PreferencesSettings
-import com.example.notes.viewmodels.LanguageDialogViewModel
+import com.example.notes.view.components.LanguageDialog
+import com.example.notes.view.home.MainActivity
 
-class LanguageDialogAdapter : RecyclerView.Adapter<LanguageDialogViewModel> {
+class LanguageDialogAdapter : RecyclerView.Adapter<LanguageDialogAdapter.LanguageDialogViewModel> {
     lateinit var context: Context
-    var i: Int = 1
+    var listLanguage = mutableListOf<String>()
 
-    var listLanguage = mutableListOf<Language>()
-
-    constructor(context: Context, listLanguage: MutableList<Language>) : super() {
+    constructor(context: Context, listLanguage: MutableList<String>) : super() {
         this.context = context
         this.listLanguage = listLanguage
     }
 
-    constructor(listLanguage: MutableList<Language>) : super() {
+    constructor(listLanguage: MutableList<String>) : super() {
         this.listLanguage = listLanguage
     }
 
@@ -31,44 +32,55 @@ class LanguageDialogAdapter : RecyclerView.Adapter<LanguageDialogViewModel> {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LanguageDialogViewModel {
         val itemView: View =
             LayoutInflater.from(context).inflate(R.layout.item_language, parent, false)
-        return LanguageDialogViewModel(itemView)
+        return LanguageDialogViewModel(context, itemView)
     }
 
     @SuppressLint("NotifyDataSetChanged")
     override fun onBindViewHolder(holder: LanguageDialogViewModel, position: Int) {
-        holder.txtLanguage.setText(listLanguage[position].textLanguage)
-        holder.txtLanguage.setCompoundDrawablesWithIntrinsicBounds(
-            listLanguage[position].drawableLanguage,
-            0,
-            0,
-            0
-        )
-        holder.txtLanguage.setOnClickListener {
-            holder.txtLanguage.setCompoundDrawablesRelativeWithIntrinsicBounds(
-                listLanguage[position].drawableLanguage,
+        holder.bindItem(listLanguage[position])
+    }
+
+    inner class LanguageDialogViewModel(context: Context, itemView: View) :
+        RecyclerView.ViewHolder(itemView) {
+        private var txtLanguage: TextView = itemView.findViewById(R.id.txtLanguage)
+        @SuppressLint("NotifyDataSetChanged")
+        fun bindItem(listLanguage: String) {
+            txtLanguage.setCompoundDrawablesWithIntrinsicBounds(
+                Methods.getLanguages(listLanguage),
                 0,
-                R.drawable.ic_choose_tick,
+                0,
                 0
             )
-            i = position
-            notifyDataSetChanged()
+
+            itemView.setOnClickListener {
+                txtLanguage.setCompoundDrawablesRelativeWithIntrinsicBounds(
+                    Methods.getLanguages(listLanguage),
+                    0,
+                    R.drawable.ic_choose_tick,
+                    0
+                )
+
+                PreferencesSettings.setLanguage(context, listLanguage)
+                notifyDataSetChanged()
+            }
+
+            if (listLanguage == PreferencesSettings.getLanguage(context)) {
+                txtLanguage.setCompoundDrawablesRelativeWithIntrinsicBounds(
+                    Methods.getLanguages(listLanguage),
+                    0,
+                    R.drawable.ic_choose_tick,
+                    0
+                )
+            } else {
+                txtLanguage.setCompoundDrawablesWithIntrinsicBounds(
+                    Methods.getLanguages(listLanguage),
+                    0,
+                    0,
+                    0
+                )
+            }
         }
-        if (i == position) {
-            PreferencesSettings.setLanguage(context, Constants.LG_VIETNAM)
-            holder.txtLanguage.setCompoundDrawablesRelativeWithIntrinsicBounds(
-                listLanguage[position].drawableLanguage,
-                0,
-                R.drawable.ic_choose_tick,
-                0
-            )
-        } else {
-            holder.txtLanguage.setCompoundDrawablesWithIntrinsicBounds(
-                listLanguage[position].drawableLanguage,
-                0,
-                0,
-                0
-            )
-        }
+
     }
 
     override fun getItemCount(): Int {
@@ -76,3 +88,4 @@ class LanguageDialogAdapter : RecyclerView.Adapter<LanguageDialogViewModel> {
     }
 
 }
+

@@ -30,6 +30,11 @@ object Constants {
 
     const val LG_VIETNAM = "vietnamese"
     const val LG_ENGLISH = "english"
+    const val LG_RUSSIA = "russia"
+    const val LG_LAO = "lao"
+    const val LG_THAILAND = "thailand"
+    const val LG_MYANMAR = "myanmar"
+    const val LG_KOREAN = "korean"
 
     const val COLOR_BLUE = "color_blue"
     const val COLOR_RED = "color_red"
