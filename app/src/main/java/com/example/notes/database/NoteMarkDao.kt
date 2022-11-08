@@ -2,21 +2,18 @@ package com.example.notes.database
 
 import androidx.room.*
 import com.example.notes.model.Note
+import com.example.notes.model.Work
 import kotlinx.coroutines.flow.Flow
 
 @Dao
-interface NoteDao {
-
+interface NoteMarkDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun addNote(note: Note)
+    suspend fun addNote(note:Note)
 
     @Query("select * from note")
-    fun getNotes(): Flow<List<Note>>
-
-    @Update
-    suspend fun updateNote(note: Note)
+    fun getNote(): Flow<List<Note>>
 
     @Delete
-    suspend fun deleteNote(note: Note)
+    fun deleteNote(note: Note)
 
 }
