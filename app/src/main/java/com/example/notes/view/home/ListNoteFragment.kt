@@ -1,8 +1,10 @@
 package com.example.notes.view.home
 
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.app.AlertDialog
 import android.app.Dialog
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -11,104 +13,106 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
 import android.widget.Button
+import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.content.res.AppCompatResources
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.notes.App
 import com.example.notes.R
 import com.example.notes.adapter.NoteDoAdapter
+import com.example.notes.adapter.WorkDoAdapter
+import com.example.notes.database.NoteRoomDatabaseClass
+import com.example.notes.database.NoteRoomTrashDatabase
+import com.example.notes.database.WorkRoomDatabaseClass
+import com.example.notes.database.WorkRoomTrashDatabase
 import com.example.notes.databinding.FragmentListNoteBinding
+import com.example.notes.databinding.FragmentListWorkBinding
 import com.example.notes.helper.SwipeHelper
 import com.example.notes.model.Note
+import com.example.notes.model.Work
+import com.example.notes.util.Constants
+import com.example.notes.util.Event
 import com.example.notes.util.FileUtils
+import io.reactivex.rxjava3.disposables.Disposable
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class ListNoteFragment : Fragment() {
     lateinit var noteDoAdapter: NoteDoAdapter
-    private var layoutManager: LinearLayoutManager? = null
-    lateinit var binding: FragmentListNoteBinding
-    var recyclerView: RecyclerView? = null
+    private lateinit var binding: FragmentListNoteBinding
     private var listNote = mutableListOf<Note>()
-    var searchText: String? = null
-    var posSelect :Int = 0
+    private val noteDatabase by lazy { NoteRoomDatabaseClass.getDataBase(requireContext()).noteDao() }
+    private val noteTrashDatabase by lazy { NoteRoomTrashDatabase.getDataBase(requireContext()).noteMarkDao() }
+    val second: String by lazy { arguments?.getString("search") ?: ""}
+    private var disposable: Disposable? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        if (arguments != null) {
-            searchText = arguments?.getString("search");
+    private val editNoteResultLauncher =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+            if (result.resultCode == Activity.RESULT_OK) {
+                val id = result.data?.getLongExtra(Constants.NOTE_ID, System.currentTimeMillis())
+                val titleWork = result.data?.getStringExtra(Constants.NOTE_TITLE)
+                val timeNotify = result.data?.getLongExtra(Constants.NOTE_TIME, System.currentTimeMillis())
+                val contentNote = result.data?.getStringExtra(Constants.NOTE_CONTENT)
+                val editNote = Note(id, titleWork, contentNote, timeNotify,false)
+                lifecycleScope.launch {
+                    noteDatabase.updateNote(editNote)
+                }
+            }
         }
-    }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        // Inflate the layout for this fragment
         binding = FragmentListNoteBinding.inflate(inflater, container, false)
         return binding.root
     }
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+//        disposable = App.eventBus.subscribe{
+//            it[Event.EVENT_SEARCH_DOCUMENT]?.let { data ->
+//                (data as String?)?.let { search ->
+//                    noteDoAdapter.submitList(listNote.filter { it.titleNote!!.contains(search)
+//                            || it.contentNote!!.contains(search) })
+//                }
+//            }
+//
+//            it[Event.EVENT_SORT_NAME_AC]?.let {
+//                noteDoAdapter.submitList(listNote.sortedBy { it.contentNote })
+//            }
+//
+//            it[Event.EVENT_SORT_TIME_CREATE]?.let {
+//                noteDoAdapter.submitList(listNote.sortedBy { it.idNote})
+//            }
+//
+//            it[Event.EVENT_SORT_TIME_OPEN]?.let {
+//                //workDoAdapter.submitList(listWork.sortedBy { })
+//            }
+//
+//            it[Event.EVENT_SORT_TIME_AC]?.let {
+//                noteDoAdapter.submitList(listNote.sortedBy { it.timeNotify })
+//            }
+//
+//            it[Event.EVENT_SORT_TIME_DC]?.let {
+//                workDoAdapter.submitList(listWork.sortedByDescending { it.timeNotify })
+//            }
+//        }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        disposable?.dispose()
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.recyclerview.setHasFixedSize(true)
-        layoutManager = LinearLayoutManager(context)
-        binding.recyclerview.layoutManager = layoutManager
-
-        object : SwipeHelper(requireContext(), binding.recyclerview, false) {
-
-            override fun instantiateUnderlayButton(
-                viewHolder: RecyclerView.ViewHolder?,
-                underlayButtons: MutableList<UnderlayButton>?
-            ) {
-
-                underlayButtons?.add(UnderlayButton(
-                    "  Delete  ",
-                    AppCompatResources.getDrawable(
-                        requireContext(), R.drawable.ic_delete_mode),
-                    Color.parseColor("#DC143C"),
-                    Color.parseColor("#FFFFFF")
-                ) { pos: Int ->
-
-                    val builder = Dialog(requireContext())
-                    builder.setContentView(R.layout.dialog_delete)
-                    builder.window?.setLayout(WindowManager.LayoutParams.WRAP_CONTENT,
-                        WindowManager.LayoutParams.WRAP_CONTENT)
-                    AlertDialog.Builder(context, R.style.MyDialog)
-
-                    builder.window?.setBackgroundDrawableResource(R.drawable.bg_dialog_round)
-
-                    val btnDelete = builder.findViewById<Button>(R.id.btnDelete)
-                    val btnCancle = builder.findViewById<Button>(R.id.btnCancle)
-
-                    btnDelete.setOnClickListener{
-                        noteDoAdapter.notifyItemRemoved(pos)
-                        builder.dismiss()
-                    }
-                    btnCancle.setOnClickListener{
-                        builder.dismiss()
-                    }
-                    builder.show()
-                })
-
-                underlayButtons?.add(UnderlayButton(
-                    "   Edit   ",
-                    AppCompatResources.getDrawable(requireContext(), R.drawable.ic_mode_edit),
-                    Color.parseColor("#008000"),
-                    Color.parseColor("#FFFFFF")
-                ) { pos: Int ->
-                    //noteDoAdapter.modelList.removeAt(pos)
-                    noteDoAdapter.notifyItemRemoved(pos)
-                })
-
-                underlayButtons?.add(UnderlayButton(
-                    "   Mark   ",
-                    AppCompatResources.getDrawable(requireContext(), R.drawable.ic_star),
-                    Color.parseColor("#FF7F50"),
-                    Color.parseColor("#FFFFFF")
-                ) { pos: Int ->
-                    //noteDoAdapter.modelList.removeAt(pos)
-                    noteDoAdapter.notifyItemRemoved(pos)
-                })
-            }
-        }
+        setRecyclerView()
+        observeNotes()
 
         binding.root.setOnClickListener {
             FileUtils.hideKeyboard(requireActivity())
@@ -116,30 +120,103 @@ class ListNoteFragment : Fragment() {
         binding.content1.setOnClickListener {
             FileUtils.hideKeyboard(requireActivity())
         }
+
+        binding.recyclerview.setOnClickListener {
+            FileUtils.hideKeyboard(requireActivity())
+        }
     }
 
     override fun onResume() {
         super.onResume()
-        generateItemWork()
-        if (!searchText.isNullOrEmpty()) {
-            listNote.filter { it.content.equals(searchText) }
+
+    }
+
+    private fun setRecyclerView() {
+        binding.recyclerview.layoutManager = LinearLayoutManager(requireContext())
+        binding.recyclerview.setHasFixedSize(true)
+        noteDoAdapter = NoteDoAdapter()
+
+        object : SwipeHelper(requireContext(), binding.recyclerview, false) {
+            override fun instantiateUnderlayButton(
+                viewHolder: RecyclerView.ViewHolder?,
+                underlayButtons: MutableList<UnderlayButton>?
+            ) {
+
+                underlayButtons?.add(UnderlayButton(
+                    "Delete",
+                    AppCompatResources.getDrawable(
+                        requireContext(), R.drawable.ic_delete_mode),
+                    Color.parseColor("#DC143C"),
+                    Color.parseColor("#FFFFFF")
+                ) { pos: Int ->
+                    val noteList = noteDoAdapter.currentList.toMutableList()
+                    val removeNote = noteList[pos]
+                    CoroutineScope(Dispatchers.IO).launch {
+                        noteDatabase.deleteNote(removeNote)
+                    }
+                    lifecycleScope.launch {
+                        noteTrashDatabase.addNote(removeNote)
+                    }
+                })
+
+                underlayButtons?.add(UnderlayButton(
+                    "Edit",
+                    AppCompatResources.getDrawable(requireContext(), R.drawable.ic_mode_edit),
+                    Color.parseColor("#D3D3D3"),
+                    Color.parseColor("#FFFFFF")
+                ) { pos: Int ->
+                    val intent = Intent(requireContext(), AddWorkActivity::class.java)
+                    val workList = noteDoAdapter.currentList.toMutableList()
+                    intent.putExtra(Constants.NOTE_TITLE, workList[pos].titleNote)
+                    intent.putExtra(Constants.NOTE_CONTENT, workList[pos].contentNote)
+                    intent.putExtra(Constants.NOTE_TIME, workList[pos].timeNotify)
+                    editNoteResultLauncher.launch(intent)
+                })
+
+                underlayButtons?.add(UnderlayButton(
+                    "Mark",
+                    AppCompatResources.getDrawable(requireContext(), R.drawable.ic_star),
+                    Color.parseColor("#D3D3D3"),
+                    Color.parseColor("#FFFFFF")
+                ) { pos: Int ->
+                    val noteList = noteDoAdapter.currentList.toMutableList()
+                    val updateNote = noteList[pos]
+                    updateNote.isMark = true
+                    CoroutineScope(Dispatchers.IO).launch {
+                        noteDatabase.updateNote(updateNote)
+                    }
+                    Toast.makeText(requireContext(), "Data Update Success", Toast.LENGTH_LONG).show()
+                })
+            }
+
+        }
+
+        binding.recyclerview.adapter = noteDoAdapter
+    }
+
+    private fun observeNotes() {
+        lifecycleScope.launch {
+            noteDatabase.getNotes().collect { notesList ->
+                if (notesList.isNotEmpty()) {
+                    binding.recyclerview.visibility = View.VISIBLE
+                    binding.imgFile.visibility = View.GONE
+                    listNote = notesList.toMutableList()
+                    noteDoAdapter.submitList(notesList)
+                } else {
+                    binding.recyclerview.visibility = View.GONE
+                    binding.imgFile.visibility = View.VISIBLE
+                }
+            }
         }
     }
 
-
-    @SuppressLint("NotifyDataSetChanged")
-    private fun generateItemWork() {
-
-        if (listNote.size == 0 ) {
-            binding.recyclerview.visibility = View.GONE
-            binding.imgFile.visibility = View.VISIBLE
-        } else {
-            binding.recyclerview.visibility = View.VISIBLE
-            binding.imgFile.visibility = View.GONE
-        }
-
-        noteDoAdapter = NoteDoAdapter(requireContext(), listNote)
-        binding.recyclerview.adapter = noteDoAdapter
-        noteDoAdapter.notifyDataSetChanged()
+    companion object {
+        @JvmStatic
+        fun newInstance(param1: String) =
+            ListNoteFragment().apply {
+                arguments = Bundle().apply {
+                    putString("search", param1)
+                }
+            }
     }
 }

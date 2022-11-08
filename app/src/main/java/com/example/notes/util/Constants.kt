@@ -29,6 +29,11 @@ object Constants {
     const val WORK_TIME = "WORK_TIME"
     const val WORK_NOTIFY = "WORK_NOTIFY"
 
+    const val NOTE_ID = "NOTE_ID"
+    const val NOTE_TITLE = "NOTE_TITLE"
+    const val NOTE_CONTENT = "NOTE_CONTENT"
+    const val NOTE_TIME = "NOTE_TIME"
+
     const val SORT_AC = "SORT_AC"
     const val SORT_DC = "SORT_DC"
 
