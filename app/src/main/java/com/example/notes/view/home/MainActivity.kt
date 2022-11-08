@@ -29,8 +29,10 @@ import androidx.lifecycle.lifecycleScope
 import androidx.room.Room
 import com.example.notes.*
 import com.example.notes.base.BaseActivity
+import com.example.notes.database.NoteRoomDatabaseClass
 import com.example.notes.database.WorkRoomDatabaseClass
 import com.example.notes.databinding.ActivityMainBinding
+import com.example.notes.model.Note
 import com.example.notes.model.Work
 import com.example.notes.util.*
 import com.example.notes.util.Constants.FACEBOOK_PAGE_ID
@@ -53,6 +55,8 @@ class MainActivity : BaseActivity() {
     private lateinit var binding: ActivityMainBinding
 
     private val workDatabase by lazy { WorkRoomDatabaseClass.getDataBase(this).workDao() }
+    private val noteDatabase by lazy { NoteRoomDatabaseClass.getDataBase(this).noteDao() }
+
 
     private val newWorkResultLauncher =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
@@ -66,6 +70,20 @@ class MainActivity : BaseActivity() {
                 val newNote = Work(id, nameWork, contentWork, timeNotify, isNoty, false)
                 lifecycleScope.launch {
                     workDatabase.addWork(newNote)
+                }
+            }
+        }
+
+    private val newNoteResultLauncher =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+            if (result.resultCode == Activity.RESULT_OK) {
+                val id = result.data?.getLongExtra(Constants.NOTE_ID, System.currentTimeMillis())
+                val titleWork = result.data?.getStringExtra(Constants.NOTE_TITLE)
+                val timeNotify = result.data?.getLongExtra(Constants.NOTE_TIME, System.currentTimeMillis())
+                val contentNote = result.data?.getStringExtra(Constants.NOTE_CONTENT)
+                val editNote = Note(id, titleWork, contentNote, timeNotify,false)
+                lifecycleScope.launch {
+                    noteDatabase.updateNote(editNote)
                 }
             }
         }
@@ -89,14 +107,12 @@ class MainActivity : BaseActivity() {
                 0-> {
                     Handler(Looper.getMainLooper()).postDelayed({
                         val i = Intent(this, AddNoteActivity::class.java)
-                        startActivity(i)
+                        newNoteResultLauncher.launch(i)
                         //overridePendingTransition(R.animator.slide_out_left, R.animator.slide_in_right)
                     }, 500)
                 }
                 1-> {
                     Handler(Looper.getMainLooper()).postDelayed({
-                        val i = Intent(this, AddNoteActivity::class.java)
-                        startActivity(i)
                     }, 500)
                 }
                 2-> {
