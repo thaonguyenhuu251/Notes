@@ -3,19 +3,6 @@ package com.example.notes.util
 import com.example.notes.R
 
 object Constants {
-    const val ID_WORK = "idwork"
-    const val NAME_WORK = "namework"
-    const val CONTENT_WORK = "contentwork"
-    const val START_DAY = "startday"
-    const val TIME_COMPLETE = "timecomplete"
-    const val ALL = "all"
-    const val DATE_IN = "datein"
-    const val DATE_OUT = "dateout"
-    const val TIME_IN = "timein"
-    const val TIME_OUT = "timeout"
-    const val NAME_IN = "namein"
-    const val NAME_OUT = "nameout"
-
     const val FACEBOOK_URL = "https://www.facebook.com/PhanAnhcs2501"
     const val FACEBOOK_PAGE_ID = "751931421605113"
 
@@ -35,6 +22,15 @@ object Constants {
     const val LG_THAILAND = "thailand"
     const val LG_MYANMAR = "myanmar"
     const val LG_KOREAN = "korean"
+
+    const val WORK_ID = "WORK_ID"
+    const val WORK_NAME = "WORK_NAME"
+    const val WORK_CONTENT = "WORK_CONTENT"
+    const val WORK_TIME = "WORK_TIME"
+    const val WORK_NOTIFY = "WORK_NOTIFY"
+
+    const val SORT_AC = "SORT_AC"
+    const val SORT_DC = "SORT_DC"
 
     const val COLOR_BLUE = "color_blue"
     const val COLOR_RED = "color_red"

@@ -33,7 +33,7 @@ class ListNoteFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         if (arguments != null) {
-            searchText = arguments?.getString("searchItem");
+            searchText = arguments?.getString("search");
         }
     }
 

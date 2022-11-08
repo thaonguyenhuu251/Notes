@@ -19,7 +19,7 @@
         app:drawableTint="@color/white" />
 
     <TextView
-        android:id="@+id/txtDisplay"
+        android:id="@+id/txtNameAc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingVertical="@dimen/_10sdp"
@@ -32,6 +32,7 @@
         app:drawableEndCompat="@drawable/ic_back_right" />
 
     <TextView
+        android:id="@+id/txtTimeCreate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingVertical="@dimen/_10sdp"
@@ -44,6 +45,20 @@
         app:drawableEndCompat="@drawable/ic_back_right" />
 
     <TextView
+        android:id="@+id/txtTimeOpen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingVertical="@dimen/_10sdp"
+        android:paddingHorizontal="@dimen/_15sdp"
+        android:drawablePadding="@dimen/_10sdp"
+        android:text="@string/sort_by_time_open"
+        android:textSize="@dimen/_12ssp"
+        app:drawableStartCompat="@drawable/ic_subtitles_dis"
+        app:drawableTint="?colorAccent"
+        app:drawableEndCompat="@drawable/ic_back_right" />
+
+    <TextView
+        android:id="@+id/txtTimeAc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingVertical="@dimen/_10sdp"
@@ -56,6 +71,7 @@
         app:drawableEndCompat="@drawable/ic_back_right" />
 
     <TextView
+        android:id="@+id/txtTimeDc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingVertical="@dimen/_10sdp"

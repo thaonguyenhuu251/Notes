@@ -10,6 +10,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.notes.R
 import com.example.notes.util.Constants
+import com.example.notes.util.Event
 import com.example.notes.util.Methods
 import com.example.notes.util.PreferencesSettings
 import com.example.notes.view.components.LanguageDialog
@@ -45,6 +46,7 @@ class LanguageDialogAdapter : RecyclerView.Adapter<LanguageDialogAdapter.Languag
         private var txtLanguage: TextView = itemView.findViewById(R.id.txtLanguage)
         @SuppressLint("NotifyDataSetChanged")
         fun bindItem(listLanguage: String) {
+            txtLanguage.text = Methods.getStringLanguage(listLanguage)
             txtLanguage.setCompoundDrawablesWithIntrinsicBounds(
                 Methods.getLanguages(listLanguage),
                 0,
@@ -59,6 +61,8 @@ class LanguageDialogAdapter : RecyclerView.Adapter<LanguageDialogAdapter.Languag
                     R.drawable.ic_choose_tick,
                     0
                 )
+
+                Event.eventChangeLanguage()
 
                 PreferencesSettings.setLanguage(context, listLanguage)
                 notifyDataSetChanged()

@@ -10,6 +10,7 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.notes.R
+import com.example.notes.util.Event
 import com.example.notes.util.Methods
 import com.example.notes.util.PreferencesSettings
 import com.example.notes.view.home.MainActivity
@@ -59,9 +60,7 @@ class DisplayColorAdapter : RecyclerView.Adapter<DisplayColorAdapter.DisplayColo
                 PreferencesSettings.saveToColor(
                     context,
                     Methods.getColorDark(listColor))
-
-                val intent = Intent(context, MainActivity::class.java)
-                context.startActivity(intent)
+                Event.eventChangeBackground(Methods.getColorTheme(listColor))
             }
         }
 

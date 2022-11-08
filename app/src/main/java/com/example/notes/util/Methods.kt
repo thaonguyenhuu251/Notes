@@ -80,13 +80,13 @@ object Methods {
 
     fun getStringLanguage(language: String): String {
         return when (language) {
-            Constants.LG_VIETNAM -> "Viet Nam"
-            Constants.LG_ENGLISH -> "Viet Nam"
-            Constants.LG_RUSSIA -> "Viet Nam"
-            Constants.LG_KOREAN -> "Viet Nam"
-            Constants.LG_LAO -> "Viet Nam"
-            Constants.LG_THAILAND -> "Viet Nam"
-            Constants.LG_MYANMAR -> "Viet Nam"
+            Constants.LG_VIETNAM -> "VietNam"
+            Constants.LG_ENGLISH -> "English"
+            Constants.LG_RUSSIA -> "Russia"
+            Constants.LG_KOREAN -> "Korean"
+            Constants.LG_LAO -> "Lao"
+            Constants.LG_THAILAND -> "Thai lan"
+            Constants.LG_MYANMAR -> "Myanmar"
             else -> "Viet Nam"
         }
     }

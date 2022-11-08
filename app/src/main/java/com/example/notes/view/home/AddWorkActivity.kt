@@ -1,18 +1,18 @@
 package com.example.notes.view.home
 
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
+import com.example.notes.R
 import com.example.notes.base.BaseActivity
 import com.example.notes.database.WorkRoomDatabaseClass
 import com.example.notes.databinding.ActivityAddWorkBinding
 import com.example.notes.model.Work
-import com.example.notes.util.Calendar
-import com.example.notes.util.FileUtils
+import com.example.notes.util.*
 import com.example.notes.util.FileUtils.hideKeyboard
-import com.example.notes.util.PreferencesSettings
-import com.example.notes.util.SimpleDateFormat
 import com.example.notes.view.components.DateDialog
 import com.example.notes.view.components.TimeDialog
 import kotlinx.coroutines.launch
@@ -45,20 +45,31 @@ class AddWorkActivity : BaseActivity(), DateDialog.OnDone, TimeDialog.OnDone {
             val dialogDate = DateDialog(this)
             dialogDate.show(supportFragmentManager, dialogDate.tag)
         }
+
+        binding.edtNameWork.setText(intent.getStringExtra(Constants.WORK_NAME) ?: "")
+        binding.edtContentWork.setText(intent.getStringExtra(Constants.WORK_CONTENT) ?: "")
+        binding.edtStartDay.setText(SimpleDateFormat(getString(R.string.work_day))
+            .format(intent.getLongExtra(Constants.WORK_TIME, System.currentTimeMillis())) ?: "")
+        binding.edtTimeComplete.setText(SimpleDateFormat(getString(R.string.work_time))
+            .format(intent.getLongExtra(Constants.WORK_TIME, System.currentTimeMillis())) ?: "")
+
         binding.btnAddWork.setOnClickListener {
             try {
-                val work = Work()
-                work.idWork = System.currentTimeMillis()
-                work.nameWork = binding.edtNameWork.text.toString().trim { it <= ' ' }
-                work.contentWork = binding.edtContentWork.text.toString().trim { it <= ' ' }
+                val id = System.currentTimeMillis()
+                val nameWork = binding.edtNameWork.text.toString().trim { it <= ' ' }
+                val contentWork = binding.edtContentWork.text.toString().trim { it <= ' ' }
                 val calendar = Calendar()
                 calendar.set(year , month , day, hour, minutes)
-                work.timeNotify = calendar.timeInMillis
-                work.isTimeNotify = true
+                val timeNotify = calendar.timeInMillis
+                val isNoty = false
 
-                lifecycleScope.launch {
-                    workDatabase.addWork(work)
-                }
+                val data = Intent()
+                data.putExtra(Constants.WORK_ID, id)
+                data.putExtra(Constants.WORK_NAME, nameWork)
+                data.putExtra(Constants.WORK_CONTENT, contentWork)
+                data.putExtra(Constants.WORK_TIME, timeNotify)
+                data.putExtra(Constants.WORK_NOTIFY, isNoty)
+                setResult(Activity.RESULT_OK, data)
 
                 Toast.makeText(this, "Data Successfully saved", Toast.LENGTH_SHORT).show()
                 binding.edtStartDay.setText("")

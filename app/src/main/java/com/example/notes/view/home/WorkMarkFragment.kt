@@ -61,10 +61,12 @@ class WorkMarkFragment : Fragment() {
                     Color.parseColor("#FFFFFF")
                 ) { pos: Int ->
                     val workList = workDoAdapter.currentList.toMutableList()
-                    val removeNote = workList[pos]
+                    val updateWork = workList[pos]
+                    updateWork.isMark = false
                     CoroutineScope(Dispatchers.IO).launch {
-                        workDatabase.deleteWork(removeNote)
+                        workDatabase.updateWork(updateWork)
                     }
+                    workDoAdapter.notifyItemChanged(pos)
                 })
             }
 
@@ -79,7 +81,7 @@ class WorkMarkFragment : Fragment() {
                 if (worksList.isNotEmpty()) {
                     binding.recyclerview.visibility = View.VISIBLE
                     binding.imgFile.visibility = View.GONE
-                    workDoAdapter.submitList(worksList)
+                    workDoAdapter.submitList(worksList.filter { it.isMark == true })
                 } else {
                     binding.recyclerview.visibility = View.GONE
                     binding.imgFile.visibility = View.VISIBLE

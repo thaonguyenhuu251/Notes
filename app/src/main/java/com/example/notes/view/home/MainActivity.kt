@@ -17,24 +17,29 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.view.GravityCompat
+import androidx.core.widget.doAfterTextChanged
+import androidx.core.widget.doOnTextChanged
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.drawerlayout.widget.DrawerLayout.DrawerListener
+import androidx.lifecycle.lifecycleScope
 import androidx.room.Room
 import com.example.notes.*
 import com.example.notes.base.BaseActivity
 import com.example.notes.database.WorkRoomDatabaseClass
 import com.example.notes.databinding.ActivityMainBinding
-import com.example.notes.util.Constants
+import com.example.notes.model.Work
+import com.example.notes.util.*
 import com.example.notes.util.Constants.FACEBOOK_PAGE_ID
 import com.example.notes.util.Constants.FACEBOOK_URL
-import com.example.notes.util.FileUtils
-import com.example.notes.util.PreferencesSettings
 import com.example.notes.view.login.LoginPassword
 import com.example.notes.view.login.LoginPasswordPin
 import com.google.android.material.navigation.NavigationBarView
+import io.reactivex.rxjava3.disposables.Disposable
+import kotlinx.coroutines.launch
 
 class MainActivity : BaseActivity() {
     var homeFragment = HomeFragment()
@@ -42,14 +47,34 @@ class MainActivity : BaseActivity() {
     var settingFragment = SettingFragment()
     var notificationFragment = NotificationFragment()
 
+    private var disposable: Disposable? = null
+
     private lateinit var mDrawerLayout: DrawerLayout
     private lateinit var binding: ActivityMainBinding
+
+    private val workDatabase by lazy { WorkRoomDatabaseClass.getDataBase(this).workDao() }
+
+    private val newWorkResultLauncher =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+            if (result.resultCode == Activity.RESULT_OK) {
+                val id = result.data?.getLongExtra(Constants.WORK_ID, System.currentTimeMillis())
+                val nameWork = result.data?.getStringExtra(Constants.WORK_NAME)
+                val timeNotify = result.data?.getLongExtra(Constants.WORK_TIME, System.currentTimeMillis())
+                val contentWork = result.data?.getStringExtra(Constants.WORK_CONTENT)
+                val isNoty = result.data?.getBooleanExtra(Constants.WORK_NOTIFY, false)
+
+                val newNote = Work(id, nameWork, contentWork, timeNotify, isNoty, false)
+                lifecycleScope.launch {
+                    workDatabase.addWork(newNote)
+                }
+            }
+        }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         super.setTheme(PreferencesSettings.getBackground(this))
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view: View = binding.root
-
         setContentView(view)
 
         binding.root.setOnClickListener {
@@ -65,7 +90,7 @@ class MainActivity : BaseActivity() {
                     Handler(Looper.getMainLooper()).postDelayed({
                         val i = Intent(this, AddNoteActivity::class.java)
                         startActivity(i)
-                        overridePendingTransition(R.animator.slide_out_left, R.animator.slide_in_right)
+                        //overridePendingTransition(R.animator.slide_out_left, R.animator.slide_in_right)
                     }, 500)
                 }
                 1-> {
@@ -77,7 +102,7 @@ class MainActivity : BaseActivity() {
                 2-> {
                     Handler(Looper.getMainLooper()).postDelayed({
                         val i = Intent(this, AddWorkActivity::class.java)
-                        startActivity(i)
+                        newWorkResultLauncher.launch(i)
                     }, 500)
                 }
             }
@@ -86,7 +111,21 @@ class MainActivity : BaseActivity() {
         setBottomMenu()
         setDrawer()
         eventSearch()
+    }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        //disposable?.dispose()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        super.setTheme(PreferencesSettings.getBackground(this))
+    }
+
+    override fun onPause() {
+        super.onPause()
+        super.setTheme(PreferencesSettings.getBackground(this))
     }
 
     private fun setBottomMenu() {
@@ -191,20 +230,13 @@ class MainActivity : BaseActivity() {
     }
 
     private fun eventSearch() {
-        binding.edtSearch.addTextChangedListener(object : TextWatcher {
-            override fun afterTextChanged(s: Editable?) {
+        binding.edtSearch.doOnTextChanged { text, start, before, count ->
+            if (homeFragment.getFragment() == 0) {
+                Event.searchDocument(binding.edtSearch.text.toString())
+            } else {
+                Event.searchDocument(binding.edtSearch.text.toString())
             }
-
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-            }
-
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                val bundle = Bundle()
-                bundle.putString("search", binding.edtSearch.text.toString())
-                val homeFragment = HomeFragment()
-                homeFragment.arguments = bundle
-            }
-        })
+        }
 
         binding.imgClose.setOnClickListener {
             binding.edtSearch.setText("")
@@ -258,7 +290,6 @@ class MainActivity : BaseActivity() {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         when (requestCode) {
             Constants.MY_PERMISSION_REQUEST_CODE_CALL_PHONE -> {
-
 
                 // Note: If request is cancelled, the result arrays are empty.
                 // Permissions granted (CALL_PHONE).

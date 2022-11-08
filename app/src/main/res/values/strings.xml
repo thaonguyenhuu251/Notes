@@ -73,13 +73,15 @@
     <string name="setting">Setting</string>
     <string name="sorted" translatable="false">Sorted</string>
     <string name="hello_blank_fragment">hello_blank_fragment</string>
-    <string name="sort_by_name_ascending">Sort By Name ascending</string>
-    <string name="sort_by_name_decrease">Sort By Name decrease</string>
-    <string name="sort_by_time_ascending">Sort By Time ascending</string>
-    <string name="sort_by_time_decrease">Sort By Time decrease</string>
+    <string name="sort_by_name_ascending">Sort By Name</string>
+    <string name="sort_by_name_decrease">Sort By Time Create</string>
+    <string name="sort_by_time_open">Sort By Time Open</string>
+    <string name="sort_by_time_ascending">Sort By Time Do ascending</string>
+    <string name="sort_by_time_decrease">Sort By Time Do decrease</string>
     <string name="work_name">Name work: %s</string>
     <string name="work_time">HH:mm</string>
     <string name="work_day">dd/MM/yyyy</string>
+    <string name="todo">TODO</string>
 
     <array name="string_sub">
         <item>Login Password</item>
