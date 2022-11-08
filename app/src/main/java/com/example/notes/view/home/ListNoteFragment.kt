@@ -25,15 +25,11 @@ import com.example.notes.adapter.NoteDoAdapter
 import com.example.notes.adapter.WorkDoAdapter
 import com.example.notes.database.NoteRoomDatabaseClass
 import com.example.notes.database.NoteRoomTrashDatabase
-import com.example.notes.database.WorkRoomDatabaseClass
-import com.example.notes.database.WorkRoomTrashDatabase
 import com.example.notes.databinding.FragmentListNoteBinding
 import com.example.notes.databinding.FragmentListWorkBinding
 import com.example.notes.helper.SwipeHelper
 import com.example.notes.model.Note
-import com.example.notes.model.Work
 import com.example.notes.util.Constants
-import com.example.notes.util.Event
 import com.example.notes.util.FileUtils
 import io.reactivex.rxjava3.disposables.Disposable
 import kotlinx.coroutines.CoroutineScope

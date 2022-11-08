@@ -83,7 +83,7 @@ class MainActivity : BaseActivity() {
                 val contentNote = result.data?.getStringExtra(Constants.NOTE_CONTENT)
                 val editNote = Note(id, titleWork, contentNote, timeNotify,false)
                 lifecycleScope.launch {
-                    noteDatabase.updateNote(editNote)
+                    noteDatabase.addNote(editNote)
                 }
             }
         }
