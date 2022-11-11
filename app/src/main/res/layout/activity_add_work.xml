@@ -68,19 +68,36 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/textView"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/_10sdp"
-                    android:text="Add Your Work"
                     android:gravity="center"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/_14ssp"
-                    android:textStyle="bold"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/appBarLayout" />
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textView"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_10sdp"
+                        android:layout_weight="8"
+                        android:gravity="center"
+                        android:paddingStart="@dimen/_20sdp"
+                        android:text="Add Your Work"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_14ssp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/appBarLayout" />
+
+                    <ImageView
+                        android:id="@+id/ivNotifState"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:src="@drawable/ic_notifications_active"
+                        app:tint="?colorAccent" />
+                </LinearLayout>
 
                 <EditText
                     android:id="@+id/edtStartDay"
@@ -92,7 +109,6 @@
                     android:cursorVisible="false"
                     android:drawableStart="@drawable/ic_start_day"
                     android:drawablePadding="@dimen/_10sdp"
-                    app:drawableTint="?colorAccent"
                     android:focusable="false"
                     android:focusableInTouchMode="false"
                     android:hint="Start Day"
@@ -100,7 +116,8 @@
                     android:maxLines="1"
                     android:padding="@dimen/_10sdp"
                     android:textCursorDrawable="@drawable/cursor_edittext"
-                    android:textSize="@dimen/_12sdp" />
+                    android:textSize="@dimen/_12sdp"
+                    app:drawableTint="?colorAccent" />
 
                 <EditText
                     android:id="@+id/edtTimeComplete"
@@ -112,7 +129,6 @@
                     android:cursorVisible="false"
                     android:drawableStart="@drawable/ic_time_complete"
                     android:drawablePadding="@dimen/_10sdp"
-                    app:drawableTint="?colorAccent"
                     android:focusable="false"
                     android:focusableInTouchMode="false"
                     android:hint="Time Complete"
@@ -120,7 +136,8 @@
                     android:maxLines="1"
                     android:padding="@dimen/_10sdp"
                     android:textCursorDrawable="@drawable/cursor_edittext"
-                    android:textSize="@dimen/_12sdp" />
+                    android:textSize="@dimen/_12sdp"
+                    app:drawableTint="?colorAccent" />
 
                 <EditText
                     android:id="@+id/edtNameWork"
@@ -130,7 +147,6 @@
                     android:background="@drawable/bg_edittext"
                     android:drawableStart="@drawable/ic_file"
                     android:drawablePadding="@dimen/_10sdp"
-                    app:drawableTint="?colorAccent"
                     android:ellipsize="end"
                     android:hint="Input Name Work"
                     android:imeOptions="actionNext"
@@ -139,7 +155,8 @@
                     android:padding="@dimen/_10sdp"
                     android:singleLine="true"
                     android:textCursorDrawable="@drawable/cursor_edittext"
-                    android:textSize="@dimen/_12sdp" />
+                    android:textSize="@dimen/_12sdp"
+                    app:drawableTint="?colorAccent" />
 
 
                 <EditText
@@ -150,11 +167,11 @@
                     android:background="@drawable/bg_edittext"
                     android:drawableStart="@drawable/ic_content_work"
                     android:drawablePadding="@dimen/_10sdp"
-                    app:drawableTint="?colorAccent"
                     android:hint="Description Work"
                     android:padding="@dimen/_10sdp"
                     android:textCursorDrawable="@drawable/cursor_edittext"
-                    android:textSize="@dimen/_12sdp" />
+                    android:textSize="@dimen/_12sdp"
+                    app:drawableTint="?colorAccent" />
 
                 <TextView
                     android:id="@+id/btnAddWork"
