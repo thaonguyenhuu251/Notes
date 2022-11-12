@@ -27,7 +27,7 @@ abstract class WorkRoomDatabaseClass : RoomDatabase() {
                 context.applicationContext,
                 WorkRoomDatabaseClass::class.java,
                 "work_database"
-            ).build()
+            ).allowMainThreadQueries().build()
         }
     }
 }

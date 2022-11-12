@@ -30,13 +30,14 @@ class WorkDoAdapter : ListAdapter<Work, WorkDoAdapter.WorkHolder>(DiffCallback()
     override fun onBindViewHolder(holder: WorkHolder, position: Int) {
         val currentItem = getItem(position)
         val txtName = holder.itemView.findViewById<TextView>(R.id.txtName)
-        val txtStartDay = holder.itemView.findViewById<TextView>(R.id.txtDayStart)
+        val txtContentWork = holder.itemView.findViewById<TextView>(R.id.txtContentWork)
         val txtTimeComplete = holder.itemView.findViewById<TextView>(R.id.txtTimeComplete)
         val imgWork = holder.itemView.findViewById<ImageView>(R.id.imgWork)
 
         txtName.text = context.getString(R.string.work_name, currentItem.nameWork)
-        txtStartDay.text = SimpleDateFormat(context.getString(R.string.work_day)).format(currentItem.timeNotify)
-        txtTimeComplete.text = SimpleDateFormat(context.getString(R.string.work_time)).format(currentItem.timeNotify)
+        txtContentWork.text = context.getString(R.string.work_content, currentItem.contentWork)
+        txtTimeComplete.text = SimpleDateFormat(context.getString(R.string.work_day)).format(currentItem.timeNotify) + " " +
+                SimpleDateFormat(context.getString(R.string.work_time)).format(currentItem.timeNotify)
 
         holder.itemView.setOnClickListener {
 

@@ -79,9 +79,18 @@
     <string name="sort_by_time_ascending">Sort By Time Do ascending</string>
     <string name="sort_by_time_decrease">Sort By Time Do decrease</string>
     <string name="work_name">Name work: %s</string>
+    <string name="work_content">Content work: %s</string>
     <string name="work_time">HH:mm</string>
     <string name="work_day">dd/MM/yyyy</string>
     <string name="todo">TODO</string>
+    <string name="today">Today</string>
+    <string name="add_work">ADD WORK</string>
+    <string name="start_day">Start Day</string>
+    <string name="day_do_work">Day do work</string>
+    <string name="time_do_work">Time do work</string>
+    <string name="input_name_work">Input Name Work</string>
+    <string name="description_work">Description Work</string>
+    <string name="add_your_work">Add Your Work</string>
 
     <array name="string_sub">
         <item>Login Password</item>

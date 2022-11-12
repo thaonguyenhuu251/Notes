@@ -4,7 +4,6 @@ import android.app.Activity
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -26,12 +25,10 @@ import com.example.notes.model.Work
 import com.example.notes.util.Constants
 import com.example.notes.util.Event
 import com.example.notes.util.FileUtils
-import com.example.notes.util.search
 import io.reactivex.rxjava3.disposables.Disposable
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import java.util.*
 
 class ListWorkFragment : Fragment() {
     lateinit var workDoAdapter: WorkDoAdapter
@@ -40,7 +37,6 @@ class ListWorkFragment : Fragment() {
     private var listWork = mutableListOf<Work>()
     private val workDatabase by lazy { WorkRoomDatabaseClass.getDataBase(requireContext()).workDao() }
     private val workTrashDatabase by lazy { WorkRoomTrashDatabase.getDataBase(requireContext()).workMarkDao() }
-    val second: String by lazy { arguments?.getString("search") ?: ""}
     private var disposable: Disposable? = null
 
     private val editWorkResultLauncher =
@@ -51,7 +47,8 @@ class ListWorkFragment : Fragment() {
                 val timeNotify = result.data?.getLongExtra(Constants.WORK_TIME, System.currentTimeMillis())
                 val contentWork = result.data?.getStringExtra(Constants.WORK_CONTENT)
                 val isNoty = result.data?.getBooleanExtra(Constants.WORK_NOTIFY, false)
-                val editWork = Work(id, nameWork, contentWork, timeNotify, isNoty, false)
+                val isMark = result.data?.getBooleanExtra(Constants.WORK_MARK, false)
+                val editWork = Work(id, nameWork, contentWork, timeNotify, isNoty, isMark)
                 lifecycleScope.launch {
                     workDatabase.updateWork(editWork)
                 }
@@ -72,8 +69,8 @@ class ListWorkFragment : Fragment() {
         disposable = App.eventBus.subscribe{
             it[Event.EVENT_SEARCH_DOCUMENT]?.let { data ->
                 (data as String?)?.let { search ->
-                    workDoAdapter.submitList(listWork.filter { it.nameWork!!.contains(search)
-                            || it.contentWork!!.contains(search) })
+                    workDoAdapter.submitList(listWork.filter { it.nameWork?.lowercase()!!.contains(search.lowercase())
+                            || it.contentWork?.lowercase()!!.contains(search.lowercase()) })
                 }
             }
 
@@ -157,22 +154,24 @@ class ListWorkFragment : Fragment() {
                 underlayButtons?.add(UnderlayButton(
                     "Edit",
                     AppCompatResources.getDrawable(requireContext(), R.drawable.ic_mode_edit),
-                    Color.parseColor("#D3D3D3"),
+                    Color.parseColor("#F4A460"),
                     Color.parseColor("#FFFFFF")
                 ) { pos: Int ->
                     val intent = Intent(requireContext(), AddWorkActivity::class.java)
                     val workList = workDoAdapter.currentList.toMutableList()
+                    intent.putExtra(Constants.WORK_ID, workList[pos].idWork)
                     intent.putExtra(Constants.WORK_NAME, workList[pos].nameWork)
                     intent.putExtra(Constants.WORK_CONTENT, workList[pos].contentWork)
                     intent.putExtra(Constants.WORK_TIME, workList[pos].timeNotify)
                     intent.putExtra(Constants.WORK_NOTIFY, workList[pos].isTimeNotify)
+                    intent.putExtra(Constants.WORK_MARK, workList[pos].isMark)
                     editWorkResultLauncher.launch(intent)
                 })
 
                 underlayButtons?.add(UnderlayButton(
                     "Mark",
                     AppCompatResources.getDrawable(requireContext(), R.drawable.ic_star),
-                    Color.parseColor("#D3D3D3"),
+                    Color.parseColor("#F0E68C"),
                     Color.parseColor("#FFFFFF")
                 ) { pos: Int ->
                     val workList = workDoAdapter.currentList.toMutableList()

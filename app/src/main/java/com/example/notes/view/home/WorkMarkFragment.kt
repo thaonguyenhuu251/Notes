@@ -57,8 +57,8 @@ class WorkMarkFragment : Fragment() {
                 underlayButtons?.add(UnderlayButton(
                     "Mark",
                     AppCompatResources.getDrawable(requireContext(), R.drawable.ic_star),
-                    Color.parseColor("#D3D3D3"),
-                    Color.parseColor("#FFFFFF")
+                    Color.parseColor("#FFAE21"),
+                    Color.parseColor("#F7F72D")
                 ) { pos: Int ->
                     val workList = workDoAdapter.currentList.toMutableList()
                     val updateWork = workList[pos]

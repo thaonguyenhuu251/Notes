@@ -7,13 +7,9 @@ import android.os.Build
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
-import androidx.appcompat.content.res.AppCompatResources
-import com.bumptech.glide.Glide
 import com.example.notes.NotificationReceiver
 import com.example.notes.R
 import com.example.notes.base.BaseActivity
-import com.example.notes.channelID
-import com.example.notes.database.WorkRoomDatabaseClass
 import com.example.notes.databinding.ActivityAddWorkBinding
 import com.example.notes.util.*
 import com.example.notes.util.FileUtils.hideKeyboard
@@ -22,19 +18,13 @@ import com.example.notes.view.components.TimeDialog
 
 class AddWorkActivity : BaseActivity(), DateDialog.OnDone, TimeDialog.OnDone {
     private lateinit var binding: ActivityAddWorkBinding
-    private val workDatabase by lazy { WorkRoomDatabaseClass.getDataBase(this).workDao() }
 
-    private var hour: Int = 0
-    private var minutes: Int = 0
-    private var year: Int = 0
-    private var month: Int = 0
-    private var day: Int = 0
+    private var hour: Int = Calendar().hour
+    private var minutes: Int = Calendar().minute
+    private var year: Int = Calendar().year
+    private var month: Int = Calendar().month
+    private var day: Int = Calendar().day
     private lateinit var alarmManager: AlarmManager
-
-    public val NOTIF_ACTIVE = "NOTIF_ACTIVE"
-    public val NOTIF_OFF = "NOTIF_OFF"
-    private var notifState = NOTIF_ACTIVE
-
 
     @SuppressLint("NewApi")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -55,33 +45,6 @@ class AddWorkActivity : BaseActivity(), DateDialog.OnDone, TimeDialog.OnDone {
             dialogDate.show(supportFragmentManager, dialogDate.tag)
         }
 
-        //notification active_off
-        binding.ivNotifState.setOnClickListener {
-            if (notifState.equals(NOTIF_ACTIVE)) {
-                notifState = NOTIF_OFF
-                Glide.with(applicationContext)
-                    .load("")
-                    .error(
-                        AppCompatResources.getDrawable(
-                            applicationContext,
-                            R.drawable.ic_notifications_off
-                        )
-                    )
-                    .into(binding.ivNotifState)
-            } else {
-                notifState = NOTIF_ACTIVE
-                Glide.with(applicationContext)
-                    .load("")
-                    .error(
-                        AppCompatResources.getDrawable(
-                            applicationContext,
-                            R.drawable.ic_notifications_active
-                        )
-                    )
-                    .into(binding.ivNotifState)
-            }
-        }
-
         binding.edtNameWork.setText(intent.getStringExtra(Constants.WORK_NAME) ?: "")
         binding.edtContentWork.setText(intent.getStringExtra(Constants.WORK_CONTENT) ?: "")
         binding.edtStartDay.setText(
@@ -96,28 +59,28 @@ class AddWorkActivity : BaseActivity(), DateDialog.OnDone, TimeDialog.OnDone {
         createNotificationChannel()
         binding.btnAddWork.setOnClickListener {
             try {
-                val id = System.currentTimeMillis()
+                val id = intent.getLongExtra(Constants.WORK_ID, System.currentTimeMillis())
                 val nameWork = binding.edtNameWork.text.toString().trim { it <= ' ' }
                 val contentWork = binding.edtContentWork.text.toString().trim { it <= ' ' }
                 val calendar = Calendar()
                 calendar.set(year, month, day, hour, minutes)
                 val timeNotify = calendar.timeInMillis
-                val isNoty = false
-
+                val isNoty = binding.ckbNotification.isChecked
+                val isMark = intent.getBooleanExtra(Constants.WORK_MARK, false)
                 val data = Intent()
                 data.putExtra(Constants.WORK_ID, id)
                 data.putExtra(Constants.WORK_NAME, nameWork)
                 data.putExtra(Constants.WORK_CONTENT, contentWork)
                 data.putExtra(Constants.WORK_TIME, timeNotify)
                 data.putExtra(Constants.WORK_NOTIFY, isNoty)
+                data.putExtra(Constants.WORK_MARK, isMark)
                 setResult(Activity.RESULT_OK, data)
-////////////////////////////////////////////////////////////////////////////////////////////////////
-                if (notifState.equals(NOTIF_ACTIVE)) {
+                if (isNoty) {
                     alarmManager = getSystemService(ALARM_SERVICE) as AlarmManager
                     val aIntent = Intent(this, NotificationReceiver::class.java)
                     val pendingIntent = PendingIntent.getBroadcast(
                         this,
-                        0,
+                        Constants.notificationID,
                         aIntent,
                         PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
                     )
@@ -141,15 +104,11 @@ class AddWorkActivity : BaseActivity(), DateDialog.OnDone, TimeDialog.OnDone {
             val name = "Play"
             val descriptionText = "Play notification music"
             val importance = NotificationManager.IMPORTANCE_DEFAULT
-            val mChannel = NotificationChannel(channelID, name, importance)
+            val mChannel = NotificationChannel(Constants.channelID, name, importance)
             mChannel.description = descriptionText
             val notificationManager = getSystemService(NOTIFICATION_SERVICE) as NotificationManager
             notificationManager.createNotificationChannel(mChannel)
         }
-    }
-
-    override fun onBackPressed() {
-        super.onBackPressed()
     }
 
     override fun onClick(isClick: Boolean, date: Long) {

@@ -21,5 +21,4 @@ class NotificationService : Service() {
     override fun stopService(name: Intent?): Boolean {
         return super.stopService(name)
     }
-//
 }

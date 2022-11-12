@@ -39,13 +39,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <service
             android:name=".NotificationService"
-            android:enabled="true" />
+            android:enabled="true"/>
 
         <receiver
             android:name=".NotificationReceiver"
-            android:enabled="true"/>
+            android:enabled="true"
+            android:exported="true"/>
         <activity
             android:name=".view.login.LoginPasswordPin"
             android:exported="false" />

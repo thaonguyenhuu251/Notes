@@ -161,7 +161,7 @@ class ListNoteFragment : Fragment() {
                     Color.parseColor("#D3D3D3"),
                     Color.parseColor("#FFFFFF")
                 ) { pos: Int ->
-                    val intent = Intent(requireContext(), AddWorkActivity::class.java)
+                    val intent = Intent(requireContext(), AddNoteActivity::class.java)
                     val workList = noteDoAdapter.currentList.toMutableList()
                     intent.putExtra(Constants.NOTE_TITLE, workList[pos].titleNote)
                     intent.putExtra(Constants.NOTE_CONTENT, workList[pos].contentNote)

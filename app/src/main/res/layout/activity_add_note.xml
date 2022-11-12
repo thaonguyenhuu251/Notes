@@ -86,13 +86,14 @@
 
                         <TextView
                             android:id="@+id/tvToday"
-                            android:layout_width="0dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
                             android:gravity="end"
                             android:text="Today"
                             android:textColor="@color/black"
-                            android:textSize="@dimen/_14ssp" />
+                            android:textSize="@dimen/_14ssp"
+                            app:drawableStartCompat="@drawable/ic_calendar"
+                            app:drawableTint="?colorAccent" />
                     </LinearLayout>
 
                     <EditText

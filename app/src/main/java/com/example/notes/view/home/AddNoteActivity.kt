@@ -11,11 +11,10 @@ import android.text.style.UnderlineSpan
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.notes.R
 import com.example.notes.base.BaseActivity
 import com.example.notes.databinding.ActivityAddNoteBinding
-import com.example.notes.util.Calendar
-import com.example.notes.util.Constants
-import com.example.notes.util.PreferencesSettings
+import com.example.notes.util.*
 import com.example.notes.view.components.DateDialog
 
 
@@ -23,9 +22,9 @@ class AddNoteActivity : BaseActivity(), DateDialog.OnDone {
 
     private lateinit var binding: ActivityAddNoteBinding
 
-    private var year: Int = 0
-    private var month: Int = 0
-    private var day: Int = 0
+    private var year: Int = Calendar().year
+    private var month: Int = Calendar().month
+    private var day: Int = Calendar().day
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -76,6 +75,17 @@ class AddNoteActivity : BaseActivity(), DateDialog.OnDone {
 
     override fun onClick(isClick: Boolean, date: Long) {
         super.onClick(isClick, date)
+        if (isClick) {
+            if (date == Calendar().timeInMillis) {
+                binding.tvToday.text = getString(R.string.today)
+            } else {
+                binding.tvToday.text = FileUtils.formatCalendars(date)
+            }
+            binding.tvToday.text = FileUtils.formatCalendars(date)
+            this.year = SimpleDateFormat("yyyy").format(date).toString().toInt()
+            this.month = SimpleDateFormat("MM").format(date).toString().toInt()
+            this.day = SimpleDateFormat("dd").format(date).toString().toInt()
+        }
     }
 
     fun buttonBold(view: View?) {

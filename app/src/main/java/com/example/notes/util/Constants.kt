@@ -28,6 +28,7 @@ object Constants {
     const val WORK_CONTENT = "WORK_CONTENT"
     const val WORK_TIME = "WORK_TIME"
     const val WORK_NOTIFY = "WORK_NOTIFY"
+    const val WORK_MARK = "WORK_MARK"
 
     const val NOTE_ID = "NOTE_ID"
     const val NOTE_TITLE = "NOTE_TITLE"
@@ -46,6 +47,9 @@ object Constants {
     const val COLOR_GREEN = "color_green"
     const val COLOR_GREY = "color_grey"
     const val COLOR_BROWN = "color_brown"
+
+    const val channelID = "CH1"
+    const val notificationID = 1
 
     var theme: Int = R.style.AppTheme
     var colorApp: Int = R.color.blue_primary
