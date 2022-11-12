@@ -11,6 +11,7 @@ import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProviders
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -21,14 +22,17 @@ import com.example.notes.database.WorkRoomDatabaseClass
 import com.example.notes.database.WorkRoomTrashDatabase
 import com.example.notes.databinding.FragmentListWorkBinding
 import com.example.notes.helper.SwipeHelper
+import com.example.notes.model.Alarm
 import com.example.notes.model.Work
 import com.example.notes.util.Constants
 import com.example.notes.util.Event
 import com.example.notes.util.FileUtils
+import com.example.notes.viewmodels.CreateAlarmViewModel
 import io.reactivex.rxjava3.disposables.Disposable
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import java.util.*
 
 class ListWorkFragment : Fragment() {
     lateinit var workDoAdapter: WorkDoAdapter
@@ -37,6 +41,7 @@ class ListWorkFragment : Fragment() {
     private var listWork = mutableListOf<Work>()
     private val workDatabase by lazy { WorkRoomDatabaseClass.getDataBase(requireContext()).workDao() }
     private val workTrashDatabase by lazy { WorkRoomTrashDatabase.getDataBase(requireContext()).workMarkDao() }
+    private var createAlarmViewModel: CreateAlarmViewModel? = null
     private var disposable: Disposable? = null
 
     private val editWorkResultLauncher =
@@ -49,8 +54,25 @@ class ListWorkFragment : Fragment() {
                 val isNoty = result.data?.getBooleanExtra(Constants.WORK_NOTIFY, false)
                 val isMark = result.data?.getBooleanExtra(Constants.WORK_MARK, false)
                 val editWork = Work(id, nameWork, contentWork, timeNotify, isNoty, isMark)
+                val alarm = Alarm(
+                    Random().nextInt(Int.MAX_VALUE),
+                    time = timeNotify,
+                    nameWork,
+                    contentWork,
+                    System.currentTimeMillis(),
+                    started = true,
+                    recurring = false,
+                    isVibration = false
+                )
                 lifecycleScope.launch {
                     workDatabase.updateWork(editWork)
+                }
+
+                if (isNoty == true && timeNotify!= null) {
+                    createAlarmViewModel?.update(alarm)
+                    alarm.schedule(requireContext())
+                } else {
+                    alarm.cancelAlarm(requireContext())
                 }
             }
         }
@@ -66,6 +88,7 @@ class ListWorkFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        createAlarmViewModel = ViewModelProviders.of(this)[CreateAlarmViewModel::class.java]
         disposable = App.eventBus.subscribe{
             it[Event.EVENT_SEARCH_DOCUMENT]?.let { data ->
                 (data as String?)?.let { search ->

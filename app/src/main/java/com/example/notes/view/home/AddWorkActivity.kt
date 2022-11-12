@@ -15,6 +15,7 @@ import com.example.notes.util.*
 import com.example.notes.util.FileUtils.hideKeyboard
 import com.example.notes.view.components.DateDialog
 import com.example.notes.view.components.TimeDialog
+import java.util.*
 
 class AddWorkActivity : BaseActivity(), DateDialog.OnDone, TimeDialog.OnDone {
     private lateinit var binding: ActivityAddWorkBinding
@@ -56,7 +57,7 @@ class AddWorkActivity : BaseActivity(), DateDialog.OnDone, TimeDialog.OnDone {
                 .format(intent.getLongExtra(Constants.WORK_TIME, System.currentTimeMillis())) ?: ""
         )
 
-        createNotificationChannel()
+
         binding.btnAddWork.setOnClickListener {
             try {
                 val id = intent.getLongExtra(Constants.WORK_ID, System.currentTimeMillis())
@@ -75,16 +76,17 @@ class AddWorkActivity : BaseActivity(), DateDialog.OnDone, TimeDialog.OnDone {
                 data.putExtra(Constants.WORK_NOTIFY, isNoty)
                 data.putExtra(Constants.WORK_MARK, isMark)
                 setResult(Activity.RESULT_OK, data)
+                createNotificationChannel()
                 if (isNoty) {
                     alarmManager = getSystemService(ALARM_SERVICE) as AlarmManager
                     val aIntent = Intent(this, NotificationReceiver::class.java)
                     val pendingIntent = PendingIntent.getBroadcast(
                         this,
-                        Constants.notificationID,
+                        Random().nextInt(Int.MAX_VALUE),
                         aIntent,
                         PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
                     )
-                    alarmManager.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, timeNotify, pendingIntent)
+                    alarmManager.setExact(AlarmManager.RTC_WAKEUP, timeNotify, pendingIntent)
                 }
                 Toast.makeText(this, "Data Successfully saved", Toast.LENGTH_SHORT).show()
                 binding.edtStartDay.setText("")

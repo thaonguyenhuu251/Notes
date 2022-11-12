@@ -25,14 +25,6 @@ class DisplaySettingsActivity : BaseActivity(){
         setContentView(view)
         initView()
 
-        disposable = App.eventBus.subscribe{
-            it[Event.EVENT_CHANGE_BACKGROUND]?.let { data->
-                (data as Int?)?.let { background ->
-                    super.setTheme(background)
-                }
-
-            }
-        }
     }
 
     override fun onDestroy() {
@@ -46,6 +38,19 @@ class DisplaySettingsActivity : BaseActivity(){
         setTabLayout()
         binding.txtBack.setOnClickListener {
             onBackPressed()
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        disposable = App.eventBus.subscribe{
+            it[Event.EVENT_CHANGE_BACKGROUND]?.let {
+                super.setTheme(PreferencesSettings.getBackground(this))
+            }
+
+            it[Event.EVENT_CHANGE_LANGUAGE]?.let {
+
+            }
         }
     }
 

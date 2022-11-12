@@ -3,6 +3,8 @@ package com.example.notes.view.home
 import android.Manifest
 import android.annotation.SuppressLint
 import android.app.Activity
+import android.app.AlarmManager
+import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -25,6 +27,7 @@ import androidx.core.widget.doAfterTextChanged
 import androidx.core.widget.doOnTextChanged
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.drawerlayout.widget.DrawerLayout.DrawerListener
+import androidx.lifecycle.ViewModelProviders
 import androidx.lifecycle.lifecycleScope
 import androidx.room.Room
 import com.example.notes.*
@@ -32,6 +35,7 @@ import com.example.notes.base.BaseActivity
 import com.example.notes.database.NoteRoomDatabaseClass
 import com.example.notes.database.WorkRoomDatabaseClass
 import com.example.notes.databinding.ActivityMainBinding
+import com.example.notes.model.Alarm
 import com.example.notes.model.Note
 import com.example.notes.model.Work
 import com.example.notes.util.*
@@ -39,9 +43,11 @@ import com.example.notes.util.Constants.FACEBOOK_PAGE_ID
 import com.example.notes.util.Constants.FACEBOOK_URL
 import com.example.notes.view.login.LoginPassword
 import com.example.notes.view.login.LoginPasswordPin
+import com.example.notes.viewmodels.CreateAlarmViewModel
 import com.google.android.material.navigation.NavigationBarView
 import io.reactivex.rxjava3.disposables.Disposable
 import kotlinx.coroutines.launch
+import java.util.*
 
 class MainActivity : BaseActivity() {
     var homeFragment = HomeFragment()
@@ -56,7 +62,7 @@ class MainActivity : BaseActivity() {
 
     private val workDatabase by lazy { WorkRoomDatabaseClass.getDataBase(this).workDao() }
     private val noteDatabase by lazy { NoteRoomDatabaseClass.getDataBase(this).noteDao() }
-
+    private var createAlarmViewModel: CreateAlarmViewModel? = null
 
     private val newWorkResultLauncher =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
@@ -66,11 +72,29 @@ class MainActivity : BaseActivity() {
                 val timeNotify = result.data?.getLongExtra(Constants.WORK_TIME, System.currentTimeMillis())
                 val contentWork = result.data?.getStringExtra(Constants.WORK_CONTENT)
                 val isNoty = result.data?.getBooleanExtra(Constants.WORK_NOTIFY, false)
+                val alarm = Alarm(
+                    Random().nextInt(Int.MAX_VALUE),
+                    timeNotify,
+                    nameWork,
+                    contentWork,
+                    System.currentTimeMillis(),
+                    started = true,
+                    recurring = false,
+                    isVibration = false
+                )
+
+                if (isNoty == true && timeNotify != null) {
+                    createAlarmViewModel?.insert(alarm)
+                    alarm.schedule(this)
+                } else {
+                    alarm.cancelAlarm(this)
+                }
 
                 val newNote = Work(id, nameWork, contentWork, timeNotify, isNoty, false)
                 lifecycleScope.launch {
                     workDatabase.addWork(newNote)
                 }
+
             }
         }
 
@@ -94,6 +118,8 @@ class MainActivity : BaseActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view: View = binding.root
         setContentView(view)
+
+        createAlarmViewModel = ViewModelProviders.of(this)[CreateAlarmViewModel::class.java]
 
         binding.root.setOnClickListener {
             FileUtils.hideKeyboard(this)
@@ -131,18 +157,26 @@ class MainActivity : BaseActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
-        //disposable?.dispose()
+    }
+
+    override fun attachBaseContext(newBase: Context) {
+        super.attachBaseContext(newBase)
     }
 
     override fun onResume() {
         super.onResume()
-        super.setTheme(PreferencesSettings.getBackground(this))
+        disposable = App.eventBus.subscribe{
+            it[Event.EVENT_CHANGE_BACKGROUND]?.let {
+                setTheme(PreferencesSettings.getBackground(this))
+            }
+
+            it[Event.EVENT_CHANGE_LANGUAGE]?.let {
+
+            }
+        }
     }
 
-    override fun onPause() {
-        super.onPause()
-        super.setTheme(PreferencesSettings.getBackground(this))
-    }
+
 
     private fun setBottomMenu() {
         supportFragmentManager.beginTransaction().replace(R.id.content, homeFragment).commit()

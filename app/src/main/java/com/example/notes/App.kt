@@ -1,6 +1,9 @@
 package com.example.notes
 
 import android.app.Application
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.os.Build
 import com.example.notes.base.BaseActivity
 import com.example.notes.util.Constants
 import com.example.notes.util.Event
@@ -12,47 +15,32 @@ import java.util.*
 class App : Application() {
     companion object {
         val eventBus: PublishSubject<HashMap<String, Any>> by lazy { PublishSubject.create() }
+        const val CHANNEL_ID = "ALARM_SERVICE_CHANNEL"
     }
     private var disposable: Disposable? = null
+
     override fun onCreate() {
         super.onCreate()
-        var change = ""
-        val language = PreferencesSettings.getLanguage(this)
-        change = when (language) {
-            Constants.LG_VIETNAM -> {
-                "vi"
-            }
-            Constants.LG_ENGLISH -> {
-                "en"
-            }
-            Constants.LG_RUSSIA -> {
-                "ru"
-            }
-            Constants.LG_LAO -> {
-                "la"
-            }
-            Constants.LG_THAILAND -> {
-                "th"
-            }
-            Constants.LG_MYANMAR -> {
-                "my"
-            }
-            Constants.LG_KOREAN -> {
-                "ko"
-            }
-            else -> {
-                "en"
+        disposable = eventBus.subscribe{
+            it[Event.EVENT_CHANGE_BACKGROUND]?.let { data->
+
             }
         }
+        createNotificationChannel()
+    }
 
-        BaseActivity.dLocale = Locale(change)
-
-        disposable = App.eventBus.subscribe{
-            it[Event.EVENT_CHANGE_BACKGROUND]?.let { data->
-                (data as Int?)?.let { background ->
-                    setTheme(background)
-                }
-            }
+    private fun createNotificationChannel() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val serviceChannel = NotificationChannel(
+                CHANNEL_ID,
+                "Alarm Service Channel",
+                NotificationManager.IMPORTANCE_DEFAULT
+            )
+            val manager = getSystemService(
+                NotificationManager::class.java
+            )
+            manager.createNotificationChannel(serviceChannel)
         }
     }
+
 }

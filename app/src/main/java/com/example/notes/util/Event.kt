@@ -12,7 +12,7 @@ object Event {
     const val EVENT_SORT_TIME_DC = "EVENT_SORT_TIME_DC"
 
     const val EVENT_CHANGE_BACKGROUND = "EVENT_CHANGE_BACKGROUND"
-    const val EVENT_CHANGE_LANGUAGE = "EVENT_CHANGE_BACKGROUND"
+    const val EVENT_CHANGE_LANGUAGE = "EVENT_CHANGE_LANGUAGE"
 
     fun eventSortNameAscending() {
         App.eventBus.onNext(hashMapOf(EVENT_SORT_NAME_AC to Constants.SORT_AC))

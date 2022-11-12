@@ -63,7 +63,6 @@ class LanguageDialogAdapter : RecyclerView.Adapter<LanguageDialogAdapter.Languag
                 )
 
                 Event.eventChangeLanguage()
-
                 PreferencesSettings.setLanguage(context, listLanguage)
                 notifyDataSetChanged()
             }

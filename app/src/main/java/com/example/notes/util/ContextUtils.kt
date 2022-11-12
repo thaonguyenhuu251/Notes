@@ -21,7 +21,7 @@ class ContextUtils(base: Context) : ContextWrapper(base) {
                 LocaleList.setDefault(localeList)
                 configuration.setLocales(localeList)
             } else {
-                configuration.locale = localeToSwitchTo
+                configuration.setLocale(localeToSwitchTo)
             }
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N_MR1) {
                 context = context.createConfigurationContext(configuration)
