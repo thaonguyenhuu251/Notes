@@ -18,8 +18,8 @@ class DisplaySettingsActivity : BaseActivity(){
 
     private var disposable: Disposable? = null
     override fun onCreate(savedInstanceState: Bundle?) {
+        super.getTheme().applyStyle(PreferencesSettings.getBackground(this), true)
         super.onCreate(savedInstanceState)
-        super.setTheme(PreferencesSettings.getBackground(this))
         binding = ActicityDisplaySettingsBinding.inflate(layoutInflater)
         val view: View = binding.root
         setContentView(view)
@@ -42,16 +42,16 @@ class DisplaySettingsActivity : BaseActivity(){
     }
 
     override fun onResume() {
-        super.onResume()
         disposable = App.eventBus.subscribe{
             it[Event.EVENT_CHANGE_BACKGROUND]?.let {
-                super.setTheme(PreferencesSettings.getBackground(this))
+                recreate()
             }
 
             it[Event.EVENT_CHANGE_LANGUAGE]?.let {
-
+                recreate()
             }
         }
+        super.onResume()
     }
 
     private fun setTabLayout() {

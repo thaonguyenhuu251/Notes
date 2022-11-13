@@ -13,6 +13,7 @@ import com.example.notes.R
 import com.example.notes.adapter.LanguageDialogAdapter
 import com.example.notes.databinding.DialogLanguageBinding
 import com.example.notes.util.Constants
+import com.example.notes.util.Event
 
 class LanguageDialog : DialogFragment() {
     private lateinit var binding: DialogLanguageBinding
@@ -48,6 +49,7 @@ class LanguageDialog : DialogFragment() {
 
     private fun initView() {
         binding.txtOKLanguage.setOnClickListener {
+            Event.eventChangeLanguage()
             dismiss()
         }
         binding.txtCancelLanguage.setOnClickListener {

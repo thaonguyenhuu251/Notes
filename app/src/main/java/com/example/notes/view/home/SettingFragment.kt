@@ -13,6 +13,8 @@ import android.view.ViewGroup
 import android.widget.ExpandableListAdapter
 import android.widget.ExpandableListView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatDelegate
+import androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import com.example.notes.R
@@ -55,9 +57,30 @@ class SettingFragment : Fragment() {
         initView()
     }
 
+    override fun onResume() {
+        showInitialSettings()
+        handleSettingsChanged()
+        super.onResume()
+    }
+
+    private fun showInitialSettings() {
+        binding.swDarkMode.isChecked = PreferencesSettings.getThemes(requireContext())
+    }
+
+    private fun handleSettingsChanged() {
+        binding.swDarkMode.setOnCheckedChangeListener { buttonView, isChecked ->
+            PreferencesSettings.setThemes(requireContext(), isChecked)
+            if (isChecked) {
+                PreferencesSettings.setTheme(requireContext(), MODE_NIGHT_FOLLOW_SYSTEM)
+            } else {
+                PreferencesSettings.setTheme(requireContext(), AppCompatDelegate.MODE_NIGHT_NO)
+            }
+            PreferencesSettings.applyTheme(PreferencesSettings.getTheme(requireContext()))
+        }
+    }
+
     @SuppressLint("ApplySharedPref")
     private fun initView() {
-        showChildList()
         loginPassAdapter = LoginPasswordExpandableAdapter(requireContext(), groupList, childList)
         binding.expandableListView.setAdapter(loginPassAdapter)
 
@@ -133,10 +156,6 @@ class SettingFragment : Fragment() {
             binding.swLoginFingerprint.isEnabled = false
             binding.lnLoginFingerprint.visibility = View.GONE
         }
-
-    }
-
-    private fun showChildList() {
 
     }
 

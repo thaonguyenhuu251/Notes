@@ -18,7 +18,7 @@ class SplashActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         super.setTheme(PreferencesSettings.getBackground(this))
         setContentView(R.layout.activity_splash)
-
+        PreferencesSettings.setLayout(this, 0)
         if (PreferencesSettings.getCode(this@SplashActivity)?.isEmpty() == true) {
             Handler(Looper.getMainLooper()).postDelayed({
                 startActivity(Intent(this@SplashActivity, MainActivity::class.java))

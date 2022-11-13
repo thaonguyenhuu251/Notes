@@ -2,6 +2,8 @@ package com.example.notes.util
 
 import android.content.Context
 import android.content.SharedPreferences
+import android.os.Build
+import androidx.appcompat.app.AppCompatDelegate
 import com.example.notes.util.PreferencesSettings
 
 object PreferencesSettings {
@@ -33,17 +35,17 @@ object PreferencesSettings {
         return sharedPref.getString(Constants.PASSCODE, defaultValue)
     }
 
-    fun setPassword(context: Context, str: Boolean) {
+    fun setThemes(context: Context, str: Boolean) {
         val sharedPref = context.getSharedPreferences(PREF_FILE, Context.MODE_PRIVATE)
         val editor = sharedPref.edit()
-        editor.putBoolean(Constants.PASSWORD, str)
+        editor.putBoolean(Constants.THEMES, str)
         editor.apply()
     }
 
-    fun getPassword(context: Context): Boolean {
+    fun getThemes(context: Context): Boolean {
         val sharedPref = context.getSharedPreferences(PREF_FILE, Context.MODE_PRIVATE)
         val defaultValue = false
-        return sharedPref.getBoolean(Constants.PASSWORD, defaultValue)
+        return sharedPref.getBoolean(Constants.THEMES, defaultValue)
     }
 
     fun saveToBackground(context: Context, str: Int) {
@@ -83,5 +85,46 @@ object PreferencesSettings {
         val sharedPref = context.getSharedPreferences(PREF_FILE, Context.MODE_PRIVATE)
         val defaultValue = Constants.LG_VIETNAM
         return sharedPref.getString(Constants.LANGUAGE, defaultValue)
+    }
+
+    fun setTheme(context: Context, str: Int) {
+        val sharedPref = context.getSharedPreferences(PREF_FILE, Context.MODE_PRIVATE)
+        val editor = sharedPref.edit()
+        editor.putInt(Constants.THEME, str)
+        editor.apply()
+    }
+
+    fun getTheme(context: Context): Int {
+        val sharedPref = context.getSharedPreferences(PREF_FILE, Context.MODE_PRIVATE)
+        val defaultValue = Constants.themes
+        return sharedPref.getInt(Constants.THEME, defaultValue)
+    }
+
+    fun setLayout(context: Context, str: Int) {
+        val sharedPref = context.getSharedPreferences(PREF_FILE, Context.MODE_PRIVATE)
+        val editor = sharedPref.edit()
+        editor.putInt(Constants.THEME, str)
+        editor.apply()
+    }
+
+    fun getLayout(context: Context): Int {
+        val sharedPref = context.getSharedPreferences(PREF_FILE, Context.MODE_PRIVATE)
+        val defaultValue = Constants.themes
+        return sharedPref.getInt(Constants.THEME, defaultValue)
+    }
+
+    fun applyTheme(theme: Int) {
+        when (theme) {
+            AppCompatDelegate.MODE_NIGHT_NO, AppCompatDelegate.MODE_NIGHT_YES -> {
+                AppCompatDelegate.setDefaultNightMode(theme)
+            }
+            else -> {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
+                } else {
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_AUTO_BATTERY)
+                }
+            }
+        }
     }
 }

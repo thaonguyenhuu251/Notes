@@ -61,8 +61,6 @@ class LanguageDialogAdapter : RecyclerView.Adapter<LanguageDialogAdapter.Languag
                     R.drawable.ic_choose_tick,
                     0
                 )
-
-                Event.eventChangeLanguage()
                 PreferencesSettings.setLanguage(context, listLanguage)
                 notifyDataSetChanged()
             }

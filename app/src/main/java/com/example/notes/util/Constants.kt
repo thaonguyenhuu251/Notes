@@ -1,5 +1,6 @@
 package com.example.notes.util
 
+import androidx.appcompat.app.AppCompatDelegate
 import com.example.notes.R
 
 object Constants {
@@ -14,6 +15,9 @@ object Constants {
     const val LANGUAGE = "language"
     const val BACKGROUND = "background"
     const val COLOR = "color"
+    const val THEME = "theme"
+    const val THEMES = "themes"
+    const val LAYOUT = "layout"
 
     const val LG_VIETNAM = "vietnamese"
     const val LG_ENGLISH = "english"
@@ -53,4 +57,6 @@ object Constants {
 
     var theme: Int = R.style.AppTheme
     var colorApp: Int = R.color.blue_primary
+    var themes: Int = AppCompatDelegate.MODE_NIGHT_NO
+    var layout: Int = 0
 }

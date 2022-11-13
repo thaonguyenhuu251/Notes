@@ -3,8 +3,6 @@ package com.example.notes.view.home
 import android.Manifest
 import android.annotation.SuppressLint
 import android.app.Activity
-import android.app.AlarmManager
-import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -13,24 +11,20 @@ import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.text.Editable
-import android.text.TextWatcher
 import android.view.MenuItem
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.view.GravityCompat
-import androidx.core.widget.doAfterTextChanged
 import androidx.core.widget.doOnTextChanged
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.drawerlayout.widget.DrawerLayout.DrawerListener
 import androidx.lifecycle.ViewModelProviders
 import androidx.lifecycle.lifecycleScope
-import androidx.room.Room
-import com.example.notes.*
+import com.example.notes.App
+import com.example.notes.R
 import com.example.notes.base.BaseActivity
 import com.example.notes.database.NoteRoomDatabaseClass
 import com.example.notes.database.WorkRoomDatabaseClass
@@ -38,11 +32,13 @@ import com.example.notes.databinding.ActivityMainBinding
 import com.example.notes.model.Alarm
 import com.example.notes.model.Note
 import com.example.notes.model.Work
-import com.example.notes.util.*
+import com.example.notes.util.Constants
 import com.example.notes.util.Constants.FACEBOOK_PAGE_ID
 import com.example.notes.util.Constants.FACEBOOK_URL
+import com.example.notes.util.Event
+import com.example.notes.util.FileUtils
+import com.example.notes.util.PreferencesSettings
 import com.example.notes.view.login.LoginPassword
-import com.example.notes.view.login.LoginPasswordPin
 import com.example.notes.viewmodels.CreateAlarmViewModel
 import com.google.android.material.navigation.NavigationBarView
 import io.reactivex.rxjava3.disposables.Disposable
@@ -69,7 +65,8 @@ class MainActivity : BaseActivity() {
             if (result.resultCode == Activity.RESULT_OK) {
                 val id = result.data?.getLongExtra(Constants.WORK_ID, System.currentTimeMillis())
                 val nameWork = result.data?.getStringExtra(Constants.WORK_NAME)
-                val timeNotify = result.data?.getLongExtra(Constants.WORK_TIME, System.currentTimeMillis())
+                val timeNotify =
+                    result.data?.getLongExtra(Constants.WORK_TIME, System.currentTimeMillis())
                 val contentWork = result.data?.getStringExtra(Constants.WORK_CONTENT)
                 val isNoty = result.data?.getBooleanExtra(Constants.WORK_NOTIFY, false)
                 val alarm = Alarm(
@@ -103,9 +100,10 @@ class MainActivity : BaseActivity() {
             if (result.resultCode == Activity.RESULT_OK) {
                 val id = result.data?.getLongExtra(Constants.NOTE_ID, System.currentTimeMillis())
                 val titleWork = result.data?.getStringExtra(Constants.NOTE_TITLE)
-                val timeNotify = result.data?.getLongExtra(Constants.NOTE_TIME, System.currentTimeMillis())
+                val timeNotify =
+                    result.data?.getLongExtra(Constants.NOTE_TIME, System.currentTimeMillis())
                 val contentNote = result.data?.getStringExtra(Constants.NOTE_CONTENT)
-                val editNote = Note(id, titleWork, contentNote, timeNotify,false)
+                val editNote = Note(id, titleWork, contentNote, timeNotify, false)
                 lifecycleScope.launch {
                     noteDatabase.addNote(editNote)
                 }
@@ -130,18 +128,18 @@ class MainActivity : BaseActivity() {
 
         binding.bottomMenu.circleMenu.setOnItemClickListener {
             when (it) {
-                0-> {
+                0 -> {
                     Handler(Looper.getMainLooper()).postDelayed({
                         val i = Intent(this, AddNoteActivity::class.java)
                         newNoteResultLauncher.launch(i)
                         //overridePendingTransition(R.animator.slide_out_left, R.animator.slide_in_right)
                     }, 500)
                 }
-                1-> {
+                1 -> {
                     Handler(Looper.getMainLooper()).postDelayed({
                     }, 500)
                 }
-                2-> {
+                2 -> {
                     Handler(Looper.getMainLooper()).postDelayed({
                         val i = Intent(this, AddWorkActivity::class.java)
                         newWorkResultLauncher.launch(i)
@@ -165,33 +163,56 @@ class MainActivity : BaseActivity() {
 
     override fun onResume() {
         super.onResume()
-        disposable = App.eventBus.subscribe{
+        disposable = App.eventBus.subscribe {
             it[Event.EVENT_CHANGE_BACKGROUND]?.let {
-                setTheme(PreferencesSettings.getBackground(this))
+                recreate()
             }
 
             it[Event.EVENT_CHANGE_LANGUAGE]?.let {
+                recreate()
 
             }
         }
     }
 
 
-
     private fun setBottomMenu() {
-        supportFragmentManager.beginTransaction().replace(R.id.content, homeFragment).commit()
+        when (PreferencesSettings.getLayout(this)) {
+            0 -> {
+                supportFragmentManager.beginTransaction().replace(R.id.content, homeFragment)
+                    .commit()
+                binding.rltSearch.visibility = View.VISIBLE
+            }
+            1 -> {
+                binding.rltSearch.visibility = View.GONE
+                supportFragmentManager.beginTransaction().replace(R.id.content, bookMarkFragment)
+                    .commit()
+            }
+            2 -> {
+                binding.rltSearch.visibility = View.GONE
+                supportFragmentManager.beginTransaction()
+                    .replace(R.id.content, notificationFragment).commit()
+            }
+            else -> {
+                binding.rltSearch.visibility = View.GONE
+                supportFragmentManager.beginTransaction().replace(R.id.content, settingFragment)
+                    .commit()
+            }
+        }
         binding.bottomMenu.bottomNavigationView.background = null
         binding.bottomMenu.bottomNavigationView.menu.getItem(0).isEnabled = true
         binding.bottomMenu.bottomNavigationView.setOnItemSelectedListener(label@ NavigationBarView.OnItemSelectedListener { item: MenuItem ->
             when (item.itemId) {
                 R.id.home -> {
                     binding.rltSearch.visibility = View.VISIBLE
+                    PreferencesSettings.setLayout(this, 0)
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.content, homeFragment).commit()
                     return@OnItemSelectedListener true
                 }
                 R.id.chart -> {
                     binding.rltSearch.visibility = View.GONE
+                    PreferencesSettings.setLayout(this, 1)
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.content, bookMarkFragment).commit()
                     return@OnItemSelectedListener true
@@ -199,11 +220,13 @@ class MainActivity : BaseActivity() {
 
                 R.id.setting -> {
                     binding.rltSearch.visibility = View.GONE
+                    PreferencesSettings.setLayout(this, 3)
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.content, settingFragment).commit()
                     return@OnItemSelectedListener true
                 }
                 R.id.notify -> {
+                    PreferencesSettings.setLayout(this, 2)
                     binding.rltSearch.visibility = View.GONE
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.content, notificationFragment).commit()
@@ -258,7 +281,12 @@ class MainActivity : BaseActivity() {
                     }
 
                     drawerView.findViewById<TextView>(R.id.txtChatWithMe).setOnClickListener {
-                        startActivity(newFacebookIntent(this@MainActivity.packageManager,"https://www.facebook.com/PhanAnhHaUI"))
+                        startActivity(
+                            newFacebookIntent(
+                                this@MainActivity.packageManager,
+                                "https://www.facebook.com/PhanAnhHaUI"
+                            )
+                        )
                     }
 
                     drawerView.findViewById<TextView>(R.id.txtMyProfile).setOnClickListener {
