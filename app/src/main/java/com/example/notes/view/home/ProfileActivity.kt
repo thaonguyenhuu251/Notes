@@ -1,10 +1,8 @@
 package com.example.notes.view.home
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.widget.Toast
 import androidx.core.view.isVisible
-import com.example.notes.R
 import com.example.notes.base.BaseActivity
 import com.example.notes.database.UserDatabase
 import com.example.notes.databinding.ActivityProfileBinding
@@ -22,8 +20,6 @@ class ProfileActivity : BaseActivity() {
         val view = binding.root
         setContentView(view)
 
-        //View profile
-        //ONLY 1 USER//
         viewProfile()
 
         binding.txtEditProfile.setOnClickListener {
@@ -53,20 +49,39 @@ class ProfileActivity : BaseActivity() {
 
     private fun viewProfile() {
         val listU = userDatabase.getUser()
-        binding.txtTitleName.setText(listU[0].userName)
-        binding.edtName.setText(listU[0].userName)
-        binding.edtName.isEnabled = false
 
-        binding.edtEmail.setText(listU[0].mail)
-        binding.edtEmail.isEnabled = false
+        if (listU.size == 0 ) {
+            binding.txtTitleName.setText("")
+            binding.edtName.setText("")
+            binding.edtName.isEnabled = false
 
-        binding.edtAddress.setText(listU[0].address)
-        binding.edtAddress.isEnabled = false
+            binding.edtEmail.setText("")
+            binding.edtEmail.isEnabled = false
 
-        binding.edtPhoneNumber.setText(listU[0].phoneNumber)
-        binding.edtPhoneNumber.isEnabled = false
+            binding.edtAddress.setText("")
+            binding.edtAddress.isEnabled = false
 
-        binding.btnSave.isVisible = false
+            binding.edtPhoneNumber.setText("")
+            binding.edtPhoneNumber.isEnabled = false
+
+            binding.btnSave.isVisible = false
+        } else {
+            binding.txtTitleName.setText(listU[0].userName)
+            binding.edtName.setText(listU[0].userName)
+            binding.edtName.isEnabled = false
+
+            binding.edtEmail.setText(listU[0].mail)
+            binding.edtEmail.isEnabled = false
+
+            binding.edtAddress.setText(listU[0].address)
+            binding.edtAddress.isEnabled = false
+
+            binding.edtPhoneNumber.setText(listU[0].phoneNumber)
+            binding.edtPhoneNumber.isEnabled = false
+
+            binding.btnSave.isVisible = false
+        }
+
     }
 
     override fun onBackPressed() {
