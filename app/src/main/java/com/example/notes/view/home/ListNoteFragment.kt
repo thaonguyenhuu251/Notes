@@ -158,7 +158,7 @@ class ListNoteFragment : Fragment() {
                 underlayButtons?.add(UnderlayButton(
                     "Edit",
                     AppCompatResources.getDrawable(requireContext(), R.drawable.ic_mode_edit),
-                    Color.parseColor("#D3D3D3"),
+                    Color.parseColor("#F4A460"),
                     Color.parseColor("#FFFFFF")
                 ) { pos: Int ->
                     val intent = Intent(requireContext(), AddNoteActivity::class.java)
@@ -172,7 +172,7 @@ class ListNoteFragment : Fragment() {
                 underlayButtons?.add(UnderlayButton(
                     "Mark",
                     AppCompatResources.getDrawable(requireContext(), R.drawable.ic_star),
-                    Color.parseColor("#D3D3D3"),
+                    Color.parseColor("#F0E68C"),
                     Color.parseColor("#FFFFFF")
                 ) { pos: Int ->
                     val noteList = noteDoAdapter.currentList.toMutableList()
