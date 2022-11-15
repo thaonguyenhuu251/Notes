@@ -28,7 +28,6 @@ import com.example.notes.util.Constants
 import com.example.notes.util.Event
 import com.example.notes.util.FileUtils
 import com.example.notes.viewmodels.CreateAlarmViewModel
-import io.reactivex.rxjava3.disposables.Disposable
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -42,7 +41,7 @@ class ListWorkFragment : Fragment() {
     private val workDatabase by lazy { WorkRoomDatabaseClass.getDataBase(requireContext()).workDao() }
     private val workTrashDatabase by lazy { WorkRoomTrashDatabase.getDataBase(requireContext()).workMarkDao() }
     private var createAlarmViewModel: CreateAlarmViewModel? = null
-    private var disposable: Disposable? = null
+    private var disposable: io.reactivex.rxjava3.disposables.Disposable? = null
 
     private val editWorkResultLauncher =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
