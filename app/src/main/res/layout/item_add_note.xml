@@ -17,47 +17,48 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <LinearLayout
-        android:id="@+id/llNote"
-        android:layout_width="wrap_content"
+    <TextView
+        android:id="@+id/txtTitleNote"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="15dp"
-        android:orientation="vertical"
+        android:text="Title"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_14sdp"
+        android:textStyle="bold"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="@dimen/_10sdp"
+        app:layout_constraintEnd_toStartOf="@+id/view_swipe_left"
         app:layout_constraintStart_toEndOf="@+id/ivNote"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/txtTitleNote"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Title"
-            android:textColor="@color/black"
-            android:textSize="@dimen/_14sdp"
-            android:textStyle="bold" />
+    <TextView
+        android:id="@+id/txtContentNote"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Content"
+        android:textColor="@color/black_grey"
+        android:textSize="@dimen/_12sdp"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:maxLength="1000"
+        android:maxLines="1"
+        app:layout_constraintEnd_toStartOf="@+id/view_swipe_left"
+        app:layout_constraintStart_toEndOf="@+id/ivNote"
+        app:layout_constraintTop_toBottomOf="@+id/txtTitleNote" />
 
-        <TextView
-            android:id="@+id/txtContentNote"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Content"
-            android:textColor="@color/black_grey"
-            android:textSize="@dimen/_12sdp" />
-
-    </LinearLayout>
 
     <TextView
         android:id="@+id/txtDateNote"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="30dp"
-        android:layout_marginBottom="15dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="8dp"
         android:text="18/10/2022"
         android:textColor="@color/black"
-        android:textSize="@dimen/_12sdp"
-        android:textStyle="bold"
+        android:textSize="@dimen/_10sdp"
+        android:textStyle="bold|italic"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/view_swipe_left" />
+        app:layout_constraintEnd_toStartOf="@+id/view_swipe_left"
+        app:layout_constraintTop_toBottomOf="@+id/txtContentNote" />
 
     <ImageView
         android:id="@+id/view_swipe_left"
