@@ -18,6 +18,7 @@ object Constants {
     const val THEME = "theme"
     const val THEMES = "themes"
     const val LAYOUT = "layout"
+    const val VIEW_MODE = "view_mode"
 
     const val LG_VIETNAM = "vietnamese"
     const val LG_ENGLISH = "english"
@@ -59,4 +60,5 @@ object Constants {
     var colorApp: Int = R.color.blue_primary
     var themes: Int = AppCompatDelegate.MODE_NIGHT_NO
     var layout: Int = 0
+    var viewMode: Int = 0
 }

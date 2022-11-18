@@ -13,6 +13,7 @@ import androidx.appcompat.content.res.AppCompatResources
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.notes.App
@@ -27,7 +28,9 @@ import com.example.notes.model.Work
 import com.example.notes.util.Constants
 import com.example.notes.util.Event
 import com.example.notes.util.FileUtils
+import com.example.notes.util.PreferencesSettings
 import com.example.notes.viewmodels.CreateAlarmViewModel
+import com.github.mikephil.charting.formatter.IFillFormatter
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -115,6 +118,14 @@ class ListWorkFragment : Fragment() {
             it[Event.EVENT_SORT_TIME_DC]?.let {
                 workDoAdapter.submitList(listWork.sortedByDescending { it.timeNotify })
             }
+
+            it[Event.EVENT_CHANGE_VIEW_MODE]?.let { data ->
+                if (PreferencesSettings.getViewMode(requireContext()) == 0 ) {
+                    binding.recyclerview.layoutManager = LinearLayoutManager(requireContext())
+                } else {
+                    binding.recyclerview.layoutManager = GridLayoutManager(requireContext(), 2)
+                }
+            }
         }
     }
 
@@ -146,7 +157,11 @@ class ListWorkFragment : Fragment() {
     }
 
     private fun setRecyclerView() {
-        binding.recyclerview.layoutManager = LinearLayoutManager(requireContext())
+        if (PreferencesSettings.getViewMode(requireContext()) == 0 ) {
+            binding.recyclerview.layoutManager = LinearLayoutManager(requireContext())
+        } else {
+            binding.recyclerview.layoutManager = GridLayoutManager(requireContext(), 2)
+        }
         binding.recyclerview.setHasFixedSize(true)
         workDoAdapter = WorkDoAdapter()
 

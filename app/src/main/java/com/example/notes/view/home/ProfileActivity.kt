@@ -50,8 +50,8 @@ class ProfileActivity : BaseActivity() {
     private fun viewProfile() {
         val listU = userDatabase.getUser()
 
-        if (listU.size == 0 ) {
-            binding.txtTitleName.setText("")
+        if (listU.isEmpty()) {
+            binding.txtTitleName.text = ""
             binding.edtName.setText("")
             binding.edtName.isEnabled = false
 
@@ -66,7 +66,7 @@ class ProfileActivity : BaseActivity() {
 
             binding.btnSave.isVisible = false
         } else {
-            binding.txtTitleName.setText(listU[0].userName)
+            binding.txtTitleName.text = listU[0].userName
             binding.edtName.setText(listU[0].userName)
             binding.edtName.isEnabled = false
 

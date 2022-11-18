@@ -13,6 +13,7 @@ object Event {
 
     const val EVENT_CHANGE_BACKGROUND = "EVENT_CHANGE_BACKGROUND"
     const val EVENT_CHANGE_LANGUAGE = "EVENT_CHANGE_LANGUAGE"
+    const val EVENT_CHANGE_VIEW_MODE = "EVENT_CHANGE_VIEW_MODE"
 
     fun eventSortNameAscending() {
         App.eventBus.onNext(hashMapOf(EVENT_SORT_NAME_AC to Constants.SORT_AC))
@@ -44,5 +45,9 @@ object Event {
 
     fun eventChangeLanguage() {
         App.eventBus.onNext(hashMapOf(EVENT_CHANGE_LANGUAGE to Constants.LANGUAGE))
+    }
+
+    fun eventChangeViewMode() {
+        App.eventBus.onNext(hashMapOf(EVENT_CHANGE_VIEW_MODE to Constants.VIEW_MODE))
     }
 }

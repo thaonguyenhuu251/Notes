@@ -127,4 +127,17 @@ object PreferencesSettings {
             }
         }
     }
+
+    fun setViewMode(context: Context, str: Int) {
+        val sharedPref = context.getSharedPreferences(PREF_FILE, Context.MODE_PRIVATE)
+        val editor = sharedPref.edit()
+        editor.putInt(Constants.VIEW_MODE, str)
+        editor.apply()
+    }
+
+    fun getViewMode(context: Context): Int {
+        val sharedPref = context.getSharedPreferences(PREF_FILE, Context.MODE_PRIVATE)
+        val defaultValue = Constants.viewMode
+        return sharedPref.getInt(Constants.VIEW_MODE, defaultValue)
+    }
 }

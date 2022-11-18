@@ -63,8 +63,6 @@ class TimeDialog(private var onDone: OnDone) : DialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        7
     }
 
     companion object {
