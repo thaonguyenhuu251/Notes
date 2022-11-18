@@ -14,16 +14,18 @@
         android:orientation="horizontal"
         android:background="@drawable/img_background">
 
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/ivProfileUser"
             android:layout_width="@dimen/_80sdp"
             android:layout_height="@dimen/_80sdp"
             android:layout_centerInParent="true"
             android:background="@drawable/custom_circle_img_profile"
-            android:padding="@dimen/_5sdp"
-            android:src="@drawable/user" />
+            android:padding="@dimen/_3sdp"
+            android:src="@drawable/avatar"
+            app:shapeAppearanceOverlay="@style/roundedCornersImageView" />
 
         <TextView
+            android:id="@+id/txtMenuUserName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/ivProfileUser"
