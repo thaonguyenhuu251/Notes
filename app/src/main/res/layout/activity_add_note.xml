@@ -93,7 +93,8 @@
                             android:textColor="@color/black"
                             android:textSize="@dimen/_14ssp"
                             app:drawableStartCompat="@drawable/ic_calendar"
-                            app:drawableTint="?colorAccent" />
+                            app:drawableTint="?colorAccent"
+                            android:drawablePadding="@dimen/_10sdp"/>
                     </LinearLayout>
 
                     <EditText
@@ -127,6 +128,7 @@
                         android:background="@drawable/custon_circle_editext"
                         android:inputType="textMultiLine"
                         android:maxLength="1000"
+                        android:minLines="5"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_14ssp" />
                 </LinearLayout>

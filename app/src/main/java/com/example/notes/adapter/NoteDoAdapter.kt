@@ -35,7 +35,8 @@ class NoteDoAdapter : ListAdapter<Note, NoteDoAdapter.NoteHolder>(DiffCallback()
         val txtDate = holder.itemView.findViewById<TextView>(R.id.txtDateNote)
         val imgNote = holder.itemView.findViewById<ImageView>(R.id.ivNote)
         txtDate.text = SimpleDateFormat(context.getString(R.string.work_day)).format(currentItem.timeNotify)
-        txtTitle.text = context.getString(R.string.work_name, currentItem.titleNote)
+        txtTitle.text = context.getString(R.string.node_name, currentItem.titleNote)
+        txtContext.text = context.getString(R.string.node_content, currentItem.contentNote)
         Glide.with(context)
             .load("") // image url
             .error(

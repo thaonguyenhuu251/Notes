@@ -92,6 +92,9 @@
     <string name="description_work">Description Work</string>
     <string name="add_your_work">Add Your Work</string>
 
+    <string name="node_name">%s</string>
+    <string name="node_content">%s</string>
+
     <array name="string_sub">
         <item>Login Password</item>
     </array>

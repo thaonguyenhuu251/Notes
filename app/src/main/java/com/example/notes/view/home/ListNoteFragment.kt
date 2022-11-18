@@ -1,9 +1,6 @@
 package com.example.notes.view.home
 
-import android.annotation.SuppressLint
 import android.app.Activity
-import android.app.AlertDialog
-import android.app.Dialog
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
@@ -11,22 +8,17 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.WindowManager
-import android.widget.Button
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.notes.App
 import com.example.notes.R
 import com.example.notes.adapter.NoteDoAdapter
-import com.example.notes.adapter.WorkDoAdapter
 import com.example.notes.database.NoteRoomDatabaseClass
 import com.example.notes.database.NoteRoomTrashDatabase
 import com.example.notes.databinding.FragmentListNoteBinding
-import com.example.notes.databinding.FragmentListWorkBinding
 import com.example.notes.helper.SwipeHelper
 import com.example.notes.model.Note
 import com.example.notes.util.Constants
@@ -158,7 +150,7 @@ class ListNoteFragment : Fragment() {
                 underlayButtons?.add(UnderlayButton(
                     "Edit",
                     AppCompatResources.getDrawable(requireContext(), R.drawable.ic_mode_edit),
-                    Color.parseColor("#D3D3D3"),
+                    Color.parseColor("#F4A460"),
                     Color.parseColor("#FFFFFF")
                 ) { pos: Int ->
                     val intent = Intent(requireContext(), AddNoteActivity::class.java)
@@ -172,7 +164,7 @@ class ListNoteFragment : Fragment() {
                 underlayButtons?.add(UnderlayButton(
                     "Mark",
                     AppCompatResources.getDrawable(requireContext(), R.drawable.ic_star),
-                    Color.parseColor("#D3D3D3"),
+                    Color.parseColor("#F0E68C"),
                     Color.parseColor("#FFFFFF")
                 ) { pos: Int ->
                     val noteList = noteDoAdapter.currentList.toMutableList()
