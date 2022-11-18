@@ -16,7 +16,32 @@
         app:layout_constraintBottom_toTopOf="@id/activity_ring_snooze"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.186" />
+
+    <TextView
+        android:id="@+id/txtTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TITLE HERE"
+        android:textColor="@color/white"
+        android:textSize="35sp"
+        app:layout_constraintBottom_toTopOf="@id/txtContent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/date"/>
+
+    <TextView
+        android:id="@+id/txtContent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Content here"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@id/activity_ring_snooze"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtTitle"/>
 
     <LinearLayout
         android:id="@+id/activity_ring_snooze"
@@ -26,6 +51,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintVertical_bias="0.7"
         app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
@@ -35,18 +61,18 @@
             android:gravity="center">
 
             <TextView
-
+                android:id="@+id/txtRepeat10m"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="10 daqiqaga\nqoldirish"
+                android:text="Repeat after 10 minutes"
                 android:textColor="@color/white"
                 android:textSize="16sp" />
         </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/activity_ring_dismiss"
+        android:id="@+id/activity_ring"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:background="?selectableItemBackground"
@@ -54,10 +80,28 @@
         app:layout_constraintTop_toBottomOf="@id/activity_ring_snooze">
 
         <TextView
-            android:layout_width="match_parent"
+            android:id="@+id/ring_dismiss"
+            android:layout_width="0dp"
+            android:layout_weight="2"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:text="To'xtatish"
+            android:text="Dismiss"
+            android:textColor="@color/white"
+            android:background="@drawable/bg_ring_choose"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+        <View
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+        <TextView
+            android:id="@+id/ring_detail"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="Detail"
+            android:background="@drawable/bg_ring_choose"
             android:textColor="@color/white"
             android:textSize="20sp"
             android:textStyle="bold" />

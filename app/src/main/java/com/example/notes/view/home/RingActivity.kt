@@ -14,6 +14,7 @@ import com.example.notes.receiver.AlarmBroadcastReceiver
 import com.example.notes.receiver.AlarmBroadcastReceiver.Companion.CONTENT
 import com.example.notes.receiver.AlarmBroadcastReceiver.Companion.TITLE
 import com.example.notes.servive.AlarmService
+import com.example.notes.util.Constants
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -36,9 +37,16 @@ class RingActivity : AppCompatActivity() {
     }
 
     private fun setListeners() {
-        binding.activityRingDismiss.setOnClickListener {
+        binding.ringDismiss.setOnClickListener {
             val intentService = Intent(applicationContext, AlarmService::class.java)
             applicationContext.stopService(intentService)
+            finish()
+        }
+        binding.ringDetail.setOnClickListener {
+            val intentService = Intent(applicationContext, AlarmService::class.java)
+            applicationContext.stopService(intentService)
+            val i = Intent(this, ListWorkFragment::class.java)
+            startActivity(i)
             finish()
         }
         binding.activityRingSnooze.setOnClickListener {
@@ -55,6 +63,7 @@ class RingActivity : AppCompatActivity() {
                 recurring = false,
                 isVibration = false
             )
+
             alarm.schedule(applicationContext)
             val intentService = Intent(applicationContext, AlarmService::class.java)
             applicationContext.stopService(intentService)
