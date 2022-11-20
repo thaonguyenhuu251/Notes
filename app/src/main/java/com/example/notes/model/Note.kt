@@ -14,8 +14,6 @@ data class Note(
     var contentNote: String? = null,
     @ColumnInfo(name = "timeNotify")
     var timeNotify: Long? = 0L,
-    @ColumnInfo(name = "isTimeNotify")
-    var isTimeNotify: Boolean? = false,
     @ColumnInfo(name = "isMark")
     var isMark: Boolean? = false,
 )

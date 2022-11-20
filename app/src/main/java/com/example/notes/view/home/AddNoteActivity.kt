@@ -1,5 +1,6 @@
 package com.example.notes.view.home
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Intent
 import android.graphics.Typeface
@@ -26,6 +27,7 @@ class AddNoteActivity : BaseActivity(), DateDialog.OnDone {
     private var month: Int = Calendar().month
     private var day: Int = Calendar().day
 
+    @SuppressLint("NewApi")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         super.setTheme(PreferencesSettings.getBackground(this))
@@ -42,21 +44,30 @@ class AddNoteActivity : BaseActivity(), DateDialog.OnDone {
             dialogDate.show(supportFragmentManager, dialogDate.tag)
         }
 
+        binding.edtTitle.setText(intent.getStringExtra(Constants.NOTE_TITLE)?: "")
+        binding.edtDescription.setText(intent.getStringExtra(Constants.NOTE_CONTENT)?: "")
+        binding.tvToday.setText(
+            SimpleDateFormat(getString(R.string.work_day))
+                .format(intent.getLongExtra(Constants.NOTE_TIME, System.currentTimeMillis())) ?: ""
+        )
+
+
         binding.imgSave.setOnClickListener{
             try {
-                val id = System.currentTimeMillis()
+                val id = intent.getLongExtra(Constants.NOTE_ID, System.currentTimeMillis())
                 val titleNote = binding.edtTitle.text.toString().trim { it <= ' ' }
                 val contentNote = binding.edtDescription.text.toString().trim { it <= ' ' }
                 val calendar = Calendar()
                 calendar.set(year , month , day)
                 val timeNotify = calendar.timeInMillis
-                val isNoty = false
+                val isMark = intent.getBooleanExtra(Constants.NOTE_MARK,false)
 
                 val data = Intent()
                 data.putExtra(Constants.NOTE_ID, id)
                 data.putExtra(Constants.NOTE_TITLE, titleNote)
                 data.putExtra(Constants.NOTE_CONTENT, contentNote)
                 data.putExtra(Constants.NOTE_TIME, timeNotify)
+                data.putExtra(Constants.NOTE_MARK, isMark)
                 setResult(Activity.RESULT_OK, data)
 
                 Toast.makeText(this, "Data Successfully saved", Toast.LENGTH_SHORT).show()

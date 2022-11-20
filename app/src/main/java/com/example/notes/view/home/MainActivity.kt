@@ -44,6 +44,7 @@ import com.example.notes.viewmodels.CreateAlarmViewModel
 import com.google.android.material.navigation.NavigationBarView
 import de.hdodenhof.circleimageview.CircleImageView
 import io.reactivex.rxjava3.disposables.Disposable
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import java.util.*
 
@@ -107,7 +108,7 @@ class MainActivity : BaseActivity() {
                     result.data?.getLongExtra(Constants.NOTE_TIME, System.currentTimeMillis())
                 val contentNote = result.data?.getStringExtra(Constants.NOTE_CONTENT)
                 val editNote = Note(id, titleWork, contentNote, timeNotify, false)
-                lifecycleScope.launch {
+                lifecycleScope.launch (Dispatchers.IO){
                     noteDatabase.addNote(editNote)
                 }
             }
@@ -254,11 +255,15 @@ class MainActivity : BaseActivity() {
             mDrawerLayout.openDrawer(GravityCompat.START)
             FileUtils.hideKeyboard(this)
         }
-        var username:String = userDatabase.getUser().get(0).userName.toString()
-        if(username.isNullOrEmpty()){
-            username = R.string.login.toString()
+        if(userDatabase.getUser().size > 0){
+            var username:String = userDatabase.getUser().get(0).userName.toString()
+            if(username.isNullOrEmpty()){
+                username = R.string.login.toString()
+            }
+            mDrawerLayout.findViewById<TextView>(R.id.txtMenuUserName).setText(username)
         }
-        mDrawerLayout.findViewById<TextView>(R.id.txtMenuUserName).setText(username)
+
+
 
         if (PreferencesSettings.getCode(this)?.isEmpty() == false) {
             mDrawerLayout.findViewById<TextView>(R.id.txtClockApp).visibility = View.VISIBLE
