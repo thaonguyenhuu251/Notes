@@ -5,56 +5,66 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.notes.R
+import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.notes.adapter.NotifAdapter
+import com.example.notes.database.AlarmDatabase
+import com.example.notes.databinding.FragmentNotifycationBinding
+import com.example.notes.model.Alarm
+import io.reactivex.rxjava3.disposables.Disposable
+import kotlinx.coroutines.launch
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [NotificationFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class NotificationFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    private var listNotif = mutableListOf<Alarm>()
+    lateinit var notifAdapter_Flow: NotifAdapter
+    private lateinit var binding: FragmentNotifycationBinding
+    private val notifDatabase by lazy { AlarmDatabase.getDatabase(requireContext())!!.alarmDao() }
+    private var disposable: Disposable? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_notifycation, container, false)
+        binding = FragmentNotifycationBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment NotifycationFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            NotificationFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setRecyclerView()
+        observeNotif()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        disposable?.dispose()
+    }
+    /*private fun generateNotif() {
+        val notifList = notifDatabase?.getAlarm() as List<Alarm>
+        notifsAdapter = NotifsAdapter(notifList, requireContext())
+        binding.rcvNotification.adapter = notifsAdapter
+        notifsAdapter.notifyDataSetChanged()
+    }*/
+
+    private fun setRecyclerView() {
+        binding.rcvNotification.layoutManager = LinearLayoutManager(requireContext())
+        binding.rcvNotification.setHasFixedSize(true)
+        notifAdapter_Flow = NotifAdapter()
+
+        binding.rcvNotification.adapter = notifAdapter_Flow
+    }
+
+
+    private fun observeNotif() {
+        lifecycleScope.launch {
+            notifDatabase.getAlarm().collect{ notifList ->
+                listNotif = notifList.toMutableList()
+                notifAdapter_Flow.submitList(notifList)
             }
+        }
     }
 }

@@ -94,6 +94,10 @@
 
     <string name="node_name">%s</string>
     <string name="node_content">%s</string>
+    <string name="dont_forget">Don\'t forget !!</string>
+    <string name="title">Title</string>
+    <string name="dismiss">Dismiss</string>
+    <string name="detail">Detail</string>
 
     <array name="string_sub">
         <item>Login Password</item>
