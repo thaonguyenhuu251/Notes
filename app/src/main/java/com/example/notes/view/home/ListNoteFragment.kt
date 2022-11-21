@@ -11,9 +11,12 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.content.res.AppCompatResources
+import androidx.lifecycle.ViewModelProviders
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.notes.App
 import com.example.notes.R
 import com.example.notes.adapter.NoteDoAdapter
 import com.example.notes.database.NoteRoomDatabaseClass
@@ -22,7 +25,10 @@ import com.example.notes.databinding.FragmentListNoteBinding
 import com.example.notes.helper.SwipeHelper
 import com.example.notes.model.Note
 import com.example.notes.util.Constants
+import com.example.notes.util.Event
 import com.example.notes.util.FileUtils
+import com.example.notes.util.PreferencesSettings
+import com.example.notes.viewmodels.CreateAlarmViewModel
 import io.reactivex.rxjava3.disposables.Disposable
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -68,34 +74,44 @@ class ListNoteFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//        disposable = App.eventBus.subscribe{
-//            it[Event.EVENT_SEARCH_DOCUMENT]?.let { data ->
-//                (data as String?)?.let { search ->
-//                    noteDoAdapter.submitList(listNote.filter { it.titleNote!!.contains(search)
-//                            || it.contentNote!!.contains(search) })
-//                }
-//            }
-//
-//            it[Event.EVENT_SORT_NAME_AC]?.let {
-//                noteDoAdapter.submitList(listNote.sortedBy { it.contentNote })
-//            }
-//
-//            it[Event.EVENT_SORT_TIME_CREATE]?.let {
-//                noteDoAdapter.submitList(listNote.sortedBy { it.idNote})
-//            }
-//
-//            it[Event.EVENT_SORT_TIME_OPEN]?.let {
-//                //workDoAdapter.submitList(listWork.sortedBy { })
-//            }
-//
-//            it[Event.EVENT_SORT_TIME_AC]?.let {
-//                noteDoAdapter.submitList(listNote.sortedBy { it.timeNotify })
-//            }
-//
-//            it[Event.EVENT_SORT_TIME_DC]?.let {
-//                workDoAdapter.submitList(listWork.sortedByDescending { it.timeNotify })
-//            }
-//        }
+
+        //search
+        disposable = App.eventBus.subscribe{
+            it[Event.EVENT_SEARCH_DOCUMENT]?.let { data ->
+                (data as String?)?.let { search ->
+                    noteDoAdapter.submitList(listNote.filter { it.titleNote?.lowercase()!!.contains(search.lowercase())
+                            || it.contentNote?.lowercase()!!.contains(search.lowercase()) })
+                }
+            }
+
+            it[Event.EVENT_SORT_NAME_AC]?.let {
+                noteDoAdapter.submitList(listNote.sortedBy{ it.titleNote?.lowercase()})
+            }
+
+            it[Event.EVENT_SORT_TIME_CREATE]?.let {
+                noteDoAdapter.submitList(listNote.sortedBy { it.idNote})
+            }
+
+            it[Event.EVENT_SORT_TIME_OPEN]?.let {
+                //workDoAdapter.submitList(listWork.sortedBy { })
+            }
+
+            it[Event.EVENT_SORT_TIME_AC]?.let {
+                noteDoAdapter.submitList(listNote.sortedBy { it.timeNotify })
+            }
+
+            it[Event.EVENT_SORT_TIME_DC]?.let {
+                noteDoAdapter.submitList(listNote.sortedByDescending { it.timeNotify })
+            }
+
+            it[Event.EVENT_CHANGE_VIEW_MODE]?.let { data ->
+                if (PreferencesSettings.getViewMode(requireContext()) == 0 ) {
+                    binding.recyclerview.layoutManager = LinearLayoutManager(requireContext())
+                } else {
+                    binding.recyclerview.layoutManager = GridLayoutManager(requireContext(), 2)
+                }
+            }
+        }
     }
 
     override fun onDestroy() {
