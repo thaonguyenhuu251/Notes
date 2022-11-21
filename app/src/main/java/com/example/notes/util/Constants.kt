@@ -39,6 +39,7 @@ object Constants {
     const val NOTE_TITLE = "NOTE_TITLE"
     const val NOTE_CONTENT = "NOTE_CONTENT"
     const val NOTE_TIME = "NOTE_TIME"
+    const val NOTE_MARK = "NOTE_MARK"
 
     const val SORT_AC = "SORT_AC"
     const val SORT_DC = "SORT_DC"
