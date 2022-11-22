@@ -1,16 +1,11 @@
 package com.example.notes.view.home
 
 import android.annotation.SuppressLint
-import android.app.AlarmManager
-import android.app.PendingIntent
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.notes.databinding.ActivityRingBinding
 import com.example.notes.model.Alarm
-import com.example.notes.receiver.AlarmBroadcastReceiver
 import com.example.notes.receiver.AlarmBroadcastReceiver.Companion.CONTENT
 import com.example.notes.receiver.AlarmBroadcastReceiver.Companion.TITLE
 import com.example.notes.servive.AlarmService
@@ -25,24 +20,32 @@ class RingActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityRingBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        val _title = intent.getStringExtra(TITLE)
+        val _content = intent.getStringExtra(CONTENT)
+        binding.txtTitle.setText(_title)
+        binding.txtContent.setText(_content)
         setListeners()
         setValueAlarm()
     }
 
+    override fun onResume() {
+        super.onResume()
+    }
     @SuppressLint("SimpleDateFormat")
     private fun setValueAlarm() {
         val hour = SimpleDateFormat("HH").format(Date())
         val minute = SimpleDateFormat("mm").format(Date())
-        binding.date.text = "$hour:$minute"
+        binding.time.text = "$hour:$minute"
     }
 
     private fun setListeners() {
-        binding.ringDismiss.setOnClickListener {
+        binding.btnRingDismiss.setOnClickListener {
             val intentService = Intent(applicationContext, AlarmService::class.java)
             applicationContext.stopService(intentService)
             finish()
         }
-        binding.ringDetail.setOnClickListener {
+        binding.btnRingDetail.setOnClickListener {
             val intentService = Intent(applicationContext, AlarmService::class.java)
             applicationContext.stopService(intentService)
             val i = Intent(this, ListWorkFragment::class.java)
