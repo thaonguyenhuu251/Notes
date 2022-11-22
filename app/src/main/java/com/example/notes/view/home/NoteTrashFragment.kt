@@ -1,60 +1,100 @@
 package com.example.notes.view.home
 
+import android.graphics.Color
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.content.res.AppCompatResources
+import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.notes.R
+import com.example.notes.adapter.NoteDoAdapter
+import com.example.notes.adapter.WorkDoAdapter
+import com.example.notes.database.NoteRoomDatabaseClass
+import com.example.notes.database.NoteRoomTrashDatabase
+import com.example.notes.database.WorkRoomDatabaseClass
+import com.example.notes.database.WorkRoomTrashDatabase
+import com.example.notes.databinding.FragmentNoteMarkBinding
+import com.example.notes.databinding.FragmentNoteTrashBinding
+import com.example.notes.databinding.FragmentWorkTrashBinding
+import com.example.notes.helper.SwipeHelper
+import com.example.notes.model.Note
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [NoteTrashFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class NoteTrashFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    lateinit var noteDoAdapter: NoteDoAdapter
+    private lateinit var binding: FragmentNoteTrashBinding
+
+    private val noteDatabase by lazy { NoteRoomDatabaseClass.getDataBase(requireContext()).noteDao() }
+    private val noteTrash by lazy { NoteRoomTrashDatabase.getDataBase(requireContext()).noteMarkDao() }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_note_trash, container, false)
+     binding = FragmentNoteTrashBinding.inflate(inflater,container,false)
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment NoteTrashFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            NoteTrashFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setRecyclerView()
+        observeWorks()
+    }
+
+    private fun observeWorks() {
+        binding.recyclerview.layoutManager = LinearLayoutManager(requireContext())
+        binding.recyclerview.setHasFixedSize(true)
+        noteDoAdapter = NoteDoAdapter()
+
+        object : SwipeHelper(requireContext(), binding.recyclerview, false) {
+            override fun instantiateUnderlayButton(
+                viewHolder: RecyclerView.ViewHolder?,
+                underlayButtons: MutableList<UnderlayButton>?
+            ) {
+                underlayButtons?.add(UnderlayButton(
+                    "Undo",
+                    AppCompatResources.getDrawable(requireContext(), R.drawable.ic_undo_note),
+                    Color.parseColor("#ADFF2F"),
+                    Color.parseColor("#FFFFFF")
+                ) { pos: Int ->
+                    val noteList = noteDoAdapter.currentList.toMutableList()
+                    val removeNote = noteList[pos]
+                    CoroutineScope(Dispatchers.IO).launch {
+                        noteTrash.deleteNote(removeNote)
+                    }
+                    lifecycleScope.launch {
+                        noteDatabase.addNote(removeNote)
+                    }
+                })
+            }
+
+        }
+
+        binding.recyclerview.adapter = noteDoAdapter
+    }
+
+    private fun setRecyclerView() {
+        lifecycleScope.launch {
+            noteTrash.getNote().collect { notesList ->
+                if (notesList.isNotEmpty()) {
+                    binding.recyclerview.visibility = View.VISIBLE
+                    binding.imgFile.visibility = View.GONE
+                    noteDoAdapter.submitList(notesList)
+                } else {
+                    binding.recyclerview.visibility = View.GONE
+                    binding.imgFile.visibility = View.VISIBLE
                 }
             }
+        }
     }
 }

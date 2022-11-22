@@ -18,6 +18,7 @@ object Constants {
     const val THEME = "theme"
     const val THEMES = "themes"
     const val LAYOUT = "layout"
+    const val VIEW_MODE = "view_mode"
 
     const val LG_VIETNAM = "vietnamese"
     const val LG_ENGLISH = "english"
@@ -38,6 +39,7 @@ object Constants {
     const val NOTE_TITLE = "NOTE_TITLE"
     const val NOTE_CONTENT = "NOTE_CONTENT"
     const val NOTE_TIME = "NOTE_TIME"
+    const val NOTE_MARK = "NOTE_MARK"
 
     const val SORT_AC = "SORT_AC"
     const val SORT_DC = "SORT_DC"
@@ -59,4 +61,5 @@ object Constants {
     var colorApp: Int = R.color.blue_primary
     var themes: Int = AppCompatDelegate.MODE_NIGHT_NO
     var layout: Int = 0
+    var viewMode: Int = 0
 }

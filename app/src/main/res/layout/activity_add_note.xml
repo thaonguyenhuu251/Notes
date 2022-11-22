@@ -6,8 +6,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/background_grey">
+        android:layout_height="match_parent">
 
         <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/appBarLayout"
@@ -102,12 +101,15 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_10sdp"
-                        android:background="@drawable/custon_circle_editext"
                         android:padding="@dimen/_8sdp"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_14ssp"
-                        android:textStyle="bold" />
-
+                        android:textStyle="bold"
+                        android:hint="Note title..."
+                        android:paddingStart="@dimen/_20sdp"
+                        android:background="@drawable/custon_circle_editext"
+                        android:textColorHint="@color/colorText"
+                        android:ellipsize="start"/>
                     <TextView
                         android:id="@+id/tvDescription"
                         android:layout_width="match_parent"
@@ -128,9 +130,13 @@
                         android:background="@drawable/custon_circle_editext"
                         android:inputType="textMultiLine"
                         android:maxLength="1000"
-                        android:minLines="5"
+                        android:minLines="10"
                         android:textColor="@color/black"
-                        android:textSize="@dimen/_14ssp" />
+                        android:textSize="@dimen/_14ssp"
+                        android:gravity="top"
+                        android:hint="Note content ..."
+                        android:textColorHint="@color/colorText"
+                        android:ellipsize="start"/>
                 </LinearLayout>
 
             </LinearLayout>

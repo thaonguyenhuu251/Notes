@@ -1,6 +1,7 @@
 package com.example.notes.view.home
 
 import android.os.Bundle
+import android.view.View
 import com.example.notes.adapter.TrashPagerFragmentAdapter
 import com.example.notes.base.BaseActivity
 import com.example.notes.databinding.ActivityTrashBinding
@@ -19,12 +20,19 @@ class TrashActivity : BaseActivity() {
 
         initView()
 
+
     }
+
+
 
     private fun initView() {
         binding.viewPager.adapter = TrashPagerFragmentAdapter(titles,this)
         binding.viewPager.isUserInputEnabled = true
         setTabLayout()
+
+        binding.txtBack.setOnClickListener(View.OnClickListener {
+            onBackPressed()
+        })
     }
 
 

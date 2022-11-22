@@ -27,6 +27,7 @@ import com.example.notes.App
 import com.example.notes.R
 import com.example.notes.base.BaseActivity
 import com.example.notes.database.NoteRoomDatabaseClass
+import com.example.notes.database.UserDatabase
 import com.example.notes.database.WorkRoomDatabaseClass
 import com.example.notes.databinding.ActivityMainBinding
 import com.example.notes.model.Alarm
@@ -41,7 +42,9 @@ import com.example.notes.util.PreferencesSettings
 import com.example.notes.view.login.LoginPassword
 import com.example.notes.viewmodels.CreateAlarmViewModel
 import com.google.android.material.navigation.NavigationBarView
+import de.hdodenhof.circleimageview.CircleImageView
 import io.reactivex.rxjava3.disposables.Disposable
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import java.util.*
 
@@ -58,6 +61,7 @@ class MainActivity : BaseActivity() {
 
     private val workDatabase by lazy { WorkRoomDatabaseClass.getDataBase(this).workDao() }
     private val noteDatabase by lazy { NoteRoomDatabaseClass.getDataBase(this).noteDao() }
+    private val userDatabase by lazy { UserDatabase.getDataBase(applicationContext).userDao() }
     private var createAlarmViewModel: CreateAlarmViewModel? = null
 
     private val newWorkResultLauncher =
@@ -104,7 +108,7 @@ class MainActivity : BaseActivity() {
                     result.data?.getLongExtra(Constants.NOTE_TIME, System.currentTimeMillis())
                 val contentNote = result.data?.getStringExtra(Constants.NOTE_CONTENT)
                 val editNote = Note(id, titleWork, contentNote, timeNotify, false)
-                lifecycleScope.launch {
+                lifecycleScope.launch (Dispatchers.IO){
                     noteDatabase.addNote(editNote)
                 }
             }
@@ -125,7 +129,6 @@ class MainActivity : BaseActivity() {
         binding.content.setOnClickListener {
             FileUtils.hideKeyboard(this)
         }
-
         binding.bottomMenu.circleMenu.setOnItemClickListener {
             when (it) {
                 0 -> {
@@ -173,6 +176,7 @@ class MainActivity : BaseActivity() {
 
             }
         }
+        setDrawer()
     }
 
 
@@ -251,11 +255,25 @@ class MainActivity : BaseActivity() {
             mDrawerLayout.openDrawer(GravityCompat.START)
             FileUtils.hideKeyboard(this)
         }
+        if(userDatabase.getUser().size > 0){
+            var username:String = userDatabase.getUser().get(0).userName.toString()
+            if(username.isNullOrEmpty()){
+                username = R.string.login.toString()
+            }
+            mDrawerLayout.findViewById<TextView>(R.id.txtMenuUserName).setText(username)
+        }
+
+
 
         if (PreferencesSettings.getCode(this)?.isEmpty() == false) {
             mDrawerLayout.findViewById<TextView>(R.id.txtClockApp).visibility = View.VISIBLE
         } else {
             mDrawerLayout.findViewById<TextView>(R.id.txtClockApp).visibility = View.GONE
+        }
+
+        mDrawerLayout.findViewById<CircleImageView>(R.id.ivProfileUser).setOnClickListener{
+            val i = Intent(this, ProfileActivity::class.java)
+            startActivity(i)
         }
 
         mDrawerLayout.addDrawerListener(

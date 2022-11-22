@@ -36,6 +36,7 @@
         app:layout_anchor="@id/bottomAppBar"
         android:layout_marginBottom="@dimen/_24sdp"
         app:maxAngle="180"
+        app:tint="@color/white"
         app:showSelectAnimation="false"
         app:srcCompat="@drawable/ic_add"
         app:startAngle="-150"/>
