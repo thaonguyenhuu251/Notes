@@ -80,26 +80,53 @@ object Methods {
 
     fun getStringLanguage(language: String): String {
         return when (language) {
-            Constants.LG_VIETNAM -> "VietNam"
+            Constants.LG_VIETNAMESE -> "Vietnamese"
             Constants.LG_ENGLISH -> "English"
-            Constants.LG_RUSSIA -> "Russia"
+            Constants.LG_RUSSIAN -> "Russian"
             Constants.LG_KOREAN -> "Korean"
-            Constants.LG_LAO -> "Lao"
-            Constants.LG_THAILAND -> "Thai lan"
+            Constants.LG_LAOS -> "Laos"
+            Constants.LG_THAI -> "Thai"
             Constants.LG_MYANMAR -> "Myanmar"
-            else -> "Viet Nam"
+            Constants.LG_CHINESE -> "Chinese"
+            Constants.LG_JAPANESE -> "Japanese"
+            Constants.LG_FILIPINO -> "Filipino"
+            Constants.LG_INDONESIAN -> "Indonesian"
+            Constants.LG_SPANISH -> "Spanish"
+            Constants.LG_FRENCH -> "French"
+            Constants.LG_INDIAN -> "Indian"
+            Constants.LG_GERMAN -> "German"
+            Constants.LG_ITALIAN -> "Italian"
+            else -> "Vietnamese"
         }
     }
 
     fun getLanguages(language: String): Int {
         return when (language) {
-            Constants.LG_VIETNAM -> R.drawable.ic_language_vietnam
+            Constants.LG_VIETNAMESE -> R.drawable.ic_language_vietnam
             Constants.LG_ENGLISH -> R.drawable.ic_language_english_uk
-            Constants.LG_RUSSIA -> R.drawable.ic_language_russian
+            Constants.LG_RUSSIAN -> R.drawable.ic_language_russian
             Constants.LG_KOREAN -> R.drawable.ic_language_south_korea
-            Constants.LG_LAO -> R.drawable.ic_language_south_korea
-            Constants.LG_THAILAND -> R.drawable.ic_language_south_korea
-            Constants.LG_MYANMAR -> R.drawable.ic_language_south_korea
+            Constants.LG_LAOS -> R.drawable.ic_language_laos
+            Constants.LG_THAI -> R.drawable.ic_language_thailand
+            Constants.LG_MYANMAR -> R.drawable.ic_language_myanmar
+            Constants.LG_CHINESE -> R.drawable.ic_language_china
+            Constants.LG_JAPANESE -> R.drawable.ic_language_japan
+            Constants.LG_FILIPINO -> R.drawable.ic_language_philippines
+            Constants.LG_INDONESIAN -> R.drawable.ic_language_indonesia
+            Constants.LG_SPANISH -> R.drawable.ic_language_spain
+            Constants.LG_FRENCH -> R.drawable.ic_language_france
+            Constants.LG_INDIAN -> R.drawable.ic_language_india
+            Constants.LG_GERMAN -> R.drawable.ic_language_germany
+            Constants.LG_ITALIAN -> R.drawable.ic_language_italy
+
+
+
+
+
+
+
+
+
             else -> R.drawable.ic_language_vietnam
         }
     }
