@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Notes</string>
     <!-- TODO: Remove or change this placeholder text --><string name="settings">PENGATURAN</string>
@@ -59,8 +58,6 @@
     <string name="sort_by_time_decrease">Urutkan Berdasarkan Waktu Lakukan penurunan</string>
     <string name="work_name">Nama pekerjaan: %s</string>
     <string name="work_content">Pekerjaan konten: %s</string>
-    <string name="work_time">HH: mm</string>
-    <string name="work_day">dd/MM/yyyy</string>
     <string name="todo">MELAKUKAN</string>
     <string name="today">Hari ini</string>
     <string name="add_work">TAMBAH KERJA</string>

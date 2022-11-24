@@ -1,9 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Notes</string>
-    <string name="hello_blank_fragment" translatable="false">Trang trắng</string>
-
-    <string name="settings" translatable="false">CÀI ĐẶT</string>
+    <!-- TODO: Remove or change this placeholder text --><string name="settings">CÀI ĐẶT</string>
     <string name="more_effectively">Hiệu quả hơn</string>
     <string name="vip_version">PHIÊN BẢN VIP</string>
     <string name="see_more">XEM THÊM</string>
@@ -22,22 +18,12 @@
     <string name="ok">ĐƯỢC RỒI</string>
     <string name="cancel">SỰ HỦY BỎ</string>
 
-    <string name="vector_path_menu">M3,8 L21,8 21,6 3,6z M3,18 L21,18 21,16 3,16z M3,13 L21,13 21,11 3,11z</string>
-    <string name="vector_path_line">M3,13 L21,13 21,11 3,11z M3,13 L21,13 21,11 3,11z M3,12 L21,12 21,12 3,12z</string>
-    <string name="vector_path_close">M5,6.41 L17.59,19 19,17.59 6.41,5z M6.41,19 L19,6.41 17.59,5 5,17.59z M12,12 L12,12 12,12 12,12z</string>
-
-    <string name="path_cross">M6.4,6.4 L17.6,17.6 M6.4,17.6 L17.6,6.4</string>
-    <string name="path_plus">M6.4,12 L17.6,12 M12,6.4 L12,17.6</string>
-
-    <string name="plus">thêm</string>
+    <string name="plus">Thêm</string>
     <string name="groupPlusCross">groupPlusCross</string>
 
     <string name="LoginFingerprint">Đăng nhập bằng vân tay</string>
     <string name="loginPass">Mật khẩu đăng nhập</string>
-    <string name="blue">Màu xanh da trời</string>
-    <string name="orange">Quả cam</string>
-    <string name="turquoise">Màu ngọc lam</string>
-    <string name="yellow">Màu vàng</string>
+
     <string name="powered_by_squad_2">Được cung cấp bởi Squad 2</string>
     <string name="clock_app">Ứng dụng đồng hồ</string>
     <string name="contact_us">Liên hệ chúng tôi</string>
@@ -47,42 +33,30 @@
     <string name="my_profile">Thông tin của tôi</string>
     <string name="login">Đăng nhập</string>
     <string name="vietnam">Việt Nam</string>
-    <string name="englishuk">Tiếng Anh (UK)</string>
-    <string name="russian">tiếng Nga</string>
+
     <string name="choose_your_language">Chọn ngôn ngữ của bạn</string>
     <string name="south_korea">Nam Triều Tiên</string>
 
-    <string name="key_1">1</string>
-    <string name="key_2">2</string>
-    <string name="key_3">3</string>
-    <string name="key_4">4</string>
-    <string name="key_5">5</string>
-    <string name="key_6">6</string>
-    <string name="key_7">7</string>
-    <string name="key_8">8</string>
-    <string name="key_9">9</string>
-    <string name="key_0">0</string>
-    <string name="set_password" translatable="false">Đặt mật khẩu</string>
-    <string name="change_password" translatable="false">Đổi mật khẩu</string>
-    <string name="delete_password" translatable="false">Xóa mật khẩu</string>
-    <string name="dark_mode" translatable="false">Chế độ tối</string>
-    <string name="notes" translatable="false">Ghi chú</string>
+    <string name="set_password">Đặt mật khẩu</string>
+    <string name="change_password">Đổi mật khẩu</string>
+    <string name="delete_password">Xóa mật khẩu</string>
+    <string name="dark_mode">Chế độ tối</string>
+
     <string name="search">Tìm kiếm...</string>
     <string name="home">Nhà</string>
     <string name="bookmark">Dấu trang</string>
     <string name="space"/>
     <string name="notify">Thông báo</string>
     <string name="setting">Cài đặt</string>
-    <string name="sorted" translatable="false">Đã sắp xếp</string>
+    <string name="sorted">Đã sắp xếp</string>
+    <string name="hello_blank_fragment">hello_blank_fragment</string>
     <string name="sort_by_name_ascending">Sắp xếp theo tên</string>
     <string name="sort_by_name_decrease">Sắp xếp theo thời gian Tạo</string>
     <string name="sort_by_time_open">Sắp xếp theo thời gian mở</string>
     <string name="sort_by_time_ascending">Sắp xếp theo thời gian Làm tăng dần</string>
     <string name="sort_by_time_decrease">Sắp xếp theo thời gian Làm giảm</string>
-    <string name="work_name">Tên cơ quan: %s</string>
-    <string name="work_content">Nội dung hoạt động: %s</string>
-    <string name="work_time">HH:mm</string>
-    <string name="work_day">dd/MM/yyyy</string>
+    <string name="work_name">Tên cơ quan:% s</string>
+    <string name="work_content">Nội dung hoạt động:% s</string>
     <string name="todo">LÀM</string>
     <string name="today">Hôm nay</string>
     <string name="add_work">THÊM CÔNG VIỆC</string>
@@ -93,8 +67,54 @@
     <string name="description_work">Mô tả Công việc</string>
     <string name="add_your_work">Thêm công việc của bạn</string>
 
-    <string name="node_name">%s</string>
-    <string name="node_content">%s</string>
+    <string name="dont_forget">Đừng quên!!</string>
+    <string name="title">Tiêu đề</string>
+    <string name="dismiss">Bỏ qua</string>
+    <string name="detail">Chi tiết</string>
+    <string name="change_background">THAY ĐỔI NỀN TẢNG</string>
+    <string name="note_title">Ghi chú tiêu đề...</string>
+    <string name="add_note">THÊM GHI CHÚ</string>
+    <string name="description">Sự mô tả</string>
+    <string name="note_content">Nội dung lưu ý...</string>
+    <string name="enter_passcode">Nhập mật mã</string>
+    <string name="back">Mặt sau</string>
+    <string name="clear">Xa lạ</string>
+    <string name="profile">Hồ sơ</string>
+    <string name="edit_profile">Chỉnh sửa hồ sơ</string>
+    <string name="full_name">Họ và tên</string>
+    <string name="email">E-mail</string>
+    <string name="address">Địa chỉ nhà</string>
+    <string name="phone_number">Số điện thoại</string>
+    <string name="save">Tiết kiệm</string>
+    <string name="profile_details">Chi tiết hồ sơ</string>
+    <string name="reminder">Lời nhắc nhở</string>
+    <string name="repeat_after_10_minutes">Lặp lại sau 10 phút</string>
+    <string name="trash_max">RÁC</string>
+    <string name="font">Nét chữ</string>
+    <string name="poppins">poppin</string>
+
+    <string name="select_day">Chọn ngày</string>
+    <string name="done">XONG</string>
+    <string name="are_you_sure_you_want_to_delete_this_file">Bạn có chắc chắn muốn xóa tệp này không?</string>
+    <string name="delete_notes">Xóa ghi chú</string>
+    <string name="delete">Xóa bỏ</string>
+    <string name="select_time">Chọn thời gian</string>
+    <string name="exit">LỐI RA</string>
+    <string name="data_success">Dữ liệu được lưu thành công</string>
+    <string name="do_not_blank">Không để trống</string>
+    <string name="data_update_success">Cập nhật dữ liệu thành công</string>
+    <string name="action_ok">Hành động OK</string>
+    <string name="action_cancel">Hành động bị hủy</string>
+    <string name="action_fail">Diễn: Đã thất bại</string>
+    <string name="login_finger_success">Vân tay đăng nhập thành công</string>
+    <string name="register_password">Đăng ký mật khẩu</string>
+    <string name="confirm_password">Xác nhận mật khẩu</string>
+    <string name="create_password">Tạo mã</string>
+    <string name="pin_fail">Ghim không thành công</string>
+    <string name="input_code">Mở khóa bằng mã pin hoặc dấu vân tay của bạn</string>
+    <string name="cant_password">không thể nhớ</string>
+    <string name="input_pass_again">Vui lòng nhập lại mã</string>
+    <string name="code_error">Lỗi xác thực mã</string>
 
     <array name="string_sub">
         <item>Mật khẩu đăng nhập</item>

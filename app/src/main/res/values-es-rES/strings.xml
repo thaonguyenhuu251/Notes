@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Notes</string>
 
@@ -60,8 +59,6 @@
     <string name="sort_by_time_decrease">Ordenar por tiempo Hacer disminuir</string>
     <string name="work_name">Nombre del trabajo: %s</string>
     <string name="work_content">Trabajo de contenido: %s</string>
-    <string name="work_time">HH:mm</string>
-    <string name="work_day">dd/MM/aaaa</string>
     <string name="todo">QUE HACER</string>
     <string name="today">Este Dia</string>
     <string name="add_work">AGREGAR TRABAJO</string>

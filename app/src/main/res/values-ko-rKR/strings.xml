@@ -1,4 +1,130 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Notes</string>
+    <string name="settings">설정</string>
+    <string name="more_effectively">더 효율적으로</string>
+    <string name="vip_version">VIP 버전</string>
+    <string name="see_more">더보기</string>
+    <string name="create_quick_notes_on_home_screen">홈 화면에서 빠른 메모 작성</string>
+    <string name="apply">적용하다</string>
+    <string name="create_quick_checklist_on_home_screen">홈 화면에 빠른 체크리스트 만들기</string>
+    <string name="trash">쓰레기</string>
+    <string name="display">표시하다</string>
+    <string name="shareApp">공유하다</string>
+    <string name="language">언어</string>
+    <string name="privacy_policy">개인 정보 정책</string>
+    <string name="view_mode">보기 모드</string>
+
+    <string name="grid_view">그리드 보기</string>
+    <string name="list_view">목록보기</string>
+    <string name="ok">확인</string>
+    <string name="cancel">취소</string>
+
+    <string name="plus">을 더한</string>
+    <string name="groupPlusCross">그룹플러스크로스</string>
+
+    <string name="LoginFingerprint">지문 로그인</string>
+    <string name="loginPass">로그인 비밀번호</string>
+
+    <string name="powered_by_squad_2">분대 2에 의해 구동</string>
+    <string name="clock_app">시계 앱</string>
+    <string name="contact_us">문의하기</string>
+    <string name="term_privacy">기간 프라이버시</string>
+    <string name="about_us">회사 소개</string>
+    <string name="chat_with_me">나랑 대화 해요</string>
+    <string name="my_profile">내 프로필</string>
+    <string name="login">로그인</string>
+    <string name="vietnam">베트남</string>
+
+    <string name="choose_your_language">당신의 언어를 고르시 오</string>
+    <string name="south_korea">대한민국</string>
+
+    <string name="set_password">암호를 설정하세요</string>
+    <string name="change_password">비밀번호 변경</string>
+    <string name="delete_password">비밀번호 삭제</string>
+    <string name="dark_mode">다크 모드</string>
+
+    <string name="search">검색…</string>
+    <string name="home">집</string>
+    <string name="bookmark">서표</string>
+    <string name="space"/>
+    <string name="notify">알림</string>
+    <string name="setting">환경</string>
+    <string name="sorted">정렬됨</string>
+    <string name="hello_blank_fragment">hello_blank_fragment</string>
+    <string name="sort_by_name_ascending">이름으로 분류하다</string>
+    <string name="sort_by_name_decrease">시간별 정렬 만들기</string>
+    <string name="sort_by_time_open">오픈 시간별 정렬</string>
+    <string name="sort_by_time_ascending">시간순 정렬 오름차순</string>
+    <string name="sort_by_time_decrease">시간별 정렬 감소</string>
+    <string name="work_name">작업 이름: %s</string>
+    <string name="work_content">콘텐츠 작업: %s</string>
+
+    <string name="todo">할 것</string>
+    <string name="today">오늘</string>
+    <string name="add_work">작업 추가</string>
+    <string name="start_day">시작일</string>
+    <string name="day_do_work">하루 일을</string>
+    <string name="time_do_work">일할 시간</string>
+    <string name="input_name_work">입력 이름 작업</string>
+    <string name="description_work">설명 작업</string>
+    <string name="add_your_work">작업 추가</string>
+
+    <string name="dont_forget">잊지마세요!!</string>
+    <string name="title">제목</string>
+    <string name="dismiss">해고하다</string>
+    <string name="detail">세부 사항</string>
+    <string name="change_background">배경을 바꾸다</string>
+    <string name="note_title">메모 제목…</string>
+    <string name="add_note">메모를 추가</string>
+    <string name="description">설명</string>
+    <string name="note_content">참고 내용…</string>
+    <string name="enter_passcode">비밀번호 입력</string>
+    <string name="back">뒤</string>
+    <string name="clear">분명한</string>
+    <string name="profile">프로필</string>
+    <string name="edit_profile">프로필 편집</string>
+    <string name="full_name">성명</string>
+    <string name="email">이메일</string>
+    <string name="address">주소</string>
+    <string name="phone_number">전화 번호</string>
+    <string name="save">구하다</string>
+    <string name="profile_details">프로필 세부정보</string>
+    <string name="reminder">알림</string>
+    <string name="repeat_after_10_minutes">10분 후 반복</string>
+    <string name="trash_max">쓰레기</string>
+    <string name="font">폰트</string>
+    <string name="poppins">포핀스</string>
+
+    <string name="select_day">요일 선택</string>
+    <string name="done">완료</string>
+    <string name="are_you_sure_you_want_to_delete_this_file">이 파일을 삭제하시겠습니까?</string>
+    <string name="delete_notes">메모 삭제</string>
+    <string name="delete">삭제</string>
+    <string name="select_time">시간 선택</string>
+    <string name="exit">출구</string>
+    <string name="data_success">데이터가 성공적으로 저장됨</string>
+    <string name="do_not_blank">비워두지 마세요</string>
+    <string name="data_update_success">데이터 업데이트 성공</string>
+    <string name="action_ok">조치 확인</string>
+    <string name="action_cancel">작업이 취소됨</string>
+    <string name="action_fail">작업 실패</string>
+    <string name="login_finger_success">로그인 지문 성공</string>
+    <string name="register_password">비밀번호 등록</string>
+    <string name="confirm_password">비밀번호 확인</string>
+    <string name="create_password">코드 생성</string>
+    <string name="pin_fail">고정 실패</string>
+    <string name="input_code">핀 코드 또는 지문으로 잠금 해제</string>
+    <string name="cant_password">기억이 안나요</string>
+    <string name="input_pass_again">코드를 다시 입력하십시오</string>
+    <string name="code_error">코드 유효성 검사 오류</string>
+
+    <array name="string_sub">
+        <item>로그인 비밀번호</item>
+    </array>
+
+    <array name="string_list">
+        <item>암호를 설정하세요</item>
+        <item>비밀번호 변경</item>
+        <item>비밀번호 삭제</item>
+    </array>
+
 </resources>

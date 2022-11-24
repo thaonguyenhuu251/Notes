@@ -66,46 +66,40 @@ open class BaseActivity : AppCompatActivity() {
                 "en"
             }
             Constants.LG_RUSSIAN -> {
-                "ru"
+                "sah"
             }
             Constants.LG_LAOS -> {
-                "la"
+                "lo"
             }
             Constants.LG_THAI -> {
                 "th"
-            }
-            Constants.LG_MYANMAR -> {
-                "my"
             }
             Constants.LG_KOREAN -> {
                 "ko"
             }
             Constants.LG_CHINESE -> {
-                "my"
+                "zh"
             }
             Constants.LG_JAPANESE -> {
-                "ko"
-            }
-            Constants.LG_FILIPINO -> {
-                "my"
+                "ja"
             }
             Constants.LG_INDONESIAN -> {
-                "ko"
+                "in"
             }
             Constants.LG_SPANISH -> {
-                "my"
+                "es"
             }
             Constants.LG_FRENCH -> {
-                "ko"
+                "fr"
             }
             Constants.LG_INDIAN -> {
-                "ko"
+                "kn"
             }
             Constants.LG_GERMAN -> {
-                "my"
+                "de"
             }
             Constants.LG_ITALIAN -> {
-                "ko"
+                "it"
             }
             else -> {
                 "en"

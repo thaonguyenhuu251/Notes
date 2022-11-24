@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Notes</string>
     <!-- TODO: Remove or change this placeholder text --><string name="settings">IMPOSTAZIONI</string>
@@ -59,8 +58,6 @@
     <string name="sort_by_time_decrease">Ordina per tempo Riduci</string>
     <string name="work_name">Nome lavoro: %s</string>
     <string name="work_content">Lavoro contenuto: %s</string>
-    <string name="work_time">HH:mm</string>
-    <string name="work_day">gg/MM/aaaa</string>
     <string name="todo">DA FARE</string>
     <string name="today">In data odierna</string>
     <string name="add_work">AGGIUNGI LAVORO</string>
@@ -102,7 +99,7 @@
     <string name="are_you_sure_you_want_to_delete_this_file">Sei sicuro di voler eliminare questo file?</string>
     <string name="delete_notes">Elimina note</string>
     <string name="delete">Elimina</string>
-    <string name="select_time">Seleziona l'ora</string>
+    <string name="select_time">Seleziona lora</string>
     <string name="exit">USCITA</string>
     <string name="data_success">Dati salvati con successo</string>
     <string name="do_not_blank">Non lasciare vuoto</string>
@@ -115,7 +112,7 @@
     <string name="confirm_password">Conferma password</string>
     <string name="create_password">Crea codice</string>
     <string name="pin_fail">Pin fallito</string>
-    <string name="input_code">Sblocca con il codice pin o l'impronta digitale</string>
+    <string name="input_code">Sblocca con il codice pin o limpronta digitale</string>
     <string name="cant_password">Non ricordo</string>
     <string name="input_pass_again">Inserisci di nuovo il codice</string>
     <string name="code_error">Errore di convalida del codice</string>

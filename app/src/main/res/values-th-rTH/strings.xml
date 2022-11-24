@@ -1,4 +1,130 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Notes</string>
+
+    <!-- TODO: Remove or change this placeholder text --><string name="settings">การตั้งค่า</string>
+    <string name="more_effectively">อย่างมีประสิทธิภาพมากขึ้น</string>
+    <string name="vip_version">รุ่นวีไอพี</string>
+    <string name="see_more">ดูเพิ่มเติม</string>
+    <string name="create_quick_notes_on_home_screen">สร้างบันทึกด่วนบนหน้าจอหลัก</string>
+    <string name="apply">นำมาใช้</string>
+    <string name="create_quick_checklist_on_home_screen">สร้างรายการตรวจสอบด่วนบนหน้าจอหลัก</string>
+    <string name="trash">ขยะ</string>
+    <string name="display">แสดง</string>
+    <string name="shareApp">แบ่งปัน</string>
+    <string name="language">ภาษา</string>
+    <string name="privacy_policy">นโยบายความเป็นส่วนตัว</string>
+    <string name="view_mode">ดูโหมด</string>
+
+    <string name="grid_view">มุมมองกริด</string>
+    <string name="list_view">มุมมองรายการ</string>
+    <string name="ok">ตกลง</string>
+    <string name="cancel">ยกเลิก</string>
+
+    <string name="plus">บวก</string>
+    <string name="groupPlusCross">กลุ่มพลัสครอส</string>
+
+    <string name="LoginFingerprint">เข้าสู่ระบบลายนิ้วมือ</string>
+    <string name="loginPass">รหัสผ่านในการเข้าสู่ระบบ</string>
+
+    <string name="powered_by_squad_2">ขับเคลื่อนโดยทีม 2</string>
+    <string name="clock_app">แอพนาฬิกา</string>
+    <string name="contact_us">ติดต่อเรา</string>
+    <string name="term_privacy">ข้อกำหนดความเป็นส่วนตัว</string>
+    <string name="about_us">เกี่ยวกับเรา</string>
+    <string name="chat_with_me">แชทกับฉัน</string>
+    <string name="my_profile">ประวัติของฉัน</string>
+    <string name="login">เข้าสู่ระบบ</string>
+    <string name="vietnam">เวียดนาม</string>
+
+    <string name="choose_your_language">เลือกภาษาของคุณ</string>
+    <string name="south_korea">เกาหลีใต้</string>
+
+    <string name="set_password">ตั้งรหัสผ่าน</string>
+    <string name="change_password">เปลี่ยนรหัสผ่าน</string>
+    <string name="delete_password">ลบรหัสผ่าน</string>
+    <string name="dark_mode">โหมดมืด</string>
+
+    <string name="search">ค้นหา...</string>
+    <string name="home">บ้าน</string>
+    <string name="bookmark">ที่คั่นหนังสือ</string>
+    <string name="space"/>
+    <string name="notify">แจ้ง</string>
+    <string name="setting">การตั้งค่า</string>
+    <string name="sorted">จัดเรียง</string>
+    <string name="hello_blank_fragment">สวัสดี_blank_fragment</string>
+    <string name="sort_by_name_ascending">เรียงตามชื่อ</string>
+    <string name="sort_by_name_decrease">เรียงตามเวลา สร้าง</string>
+    <string name="sort_by_time_open">เรียงตามเวลาเปิด</string>
+    <string name="sort_by_time_ascending">เรียงตามเวลา ทำจากน้อยไปหามาก</string>
+    <string name="sort_by_time_decrease">เรียงตามเวลา ลดลง</string>
+    <string name="work_name">ชื่องาน: %s</string>
+    <string name="work_content">งานเนื้อหา: %s</string>
+    <string name="todo">ทำ</string>
+    <string name="today">วันนี้</string>
+    <string name="add_work">เพิ่มงาน</string>
+    <string name="start_day">วันเริ่มต้น</string>
+    <string name="day_do_work">วันทำงาน</string>
+    <string name="time_do_work">เวลาทำงาน</string>
+    <string name="input_name_work">ใส่ชื่องาน</string>
+    <string name="description_work">คำอธิบาย งาน</string>
+    <string name="add_your_work">เพิ่มงานของคุณ</string>
+
+    <string name="dont_forget">อย่าลืม!!</string>
+    <string name="title">ชื่อ</string>
+    <string name="dismiss">อนุญาตให้ออกไป</string>
+    <string name="detail">รายละเอียด</string>
+    <string name="change_background">เปลี่ยนพื้นหลัง</string>
+    <string name="note_title">ชื่อหมายเหตุ...</string>
+    <string name="add_note">เพิ่มหมายเหตุ</string>
+    <string name="description">คำอธิบาย</string>
+    <string name="note_content">หมายเหตุ เนื้อหา...</string>
+    <string name="enter_passcode">ป้อนรหัสผ่าน</string>
+    <string name="back">กลับ</string>
+    <string name="clear">ชัดเจน</string>
+    <string name="profile">ประวัติโดยย่อ</string>
+    <string name="edit_profile">แก้ไขโปรไฟล์</string>
+    <string name="full_name">ชื่อเต็ม</string>
+    <string name="email">อีเมล</string>
+    <string name="address">ที่อยู่</string>
+    <string name="phone_number">หมายเลขโทรศัพท์</string>
+    <string name="save">บันทึก</string>
+    <string name="profile_details">รายละเอียดโปรไฟล์</string>
+    <string name="reminder">เตือนความจำ</string>
+    <string name="repeat_after_10_minutes">ทำซ้ำหลังจาก 10 นาที</string>
+    <string name="trash_max">ขยะ</string>
+    <string name="font">แบบอักษร</string>
+    <string name="poppins">ป๊อปปิ้นส์</string>
+
+    <string name="select_day">เลือกวัน</string>
+    <string name="done">เสร็จแล้ว</string>
+    <string name="are_you_sure_you_want_to_delete_this_file">คุณแน่ใจหรือไม่ว่าต้องการลบไฟล์นี้</string>
+    <string name="delete_notes">ลบบันทึก</string>
+    <string name="delete">ลบ</string>
+    <string name="select_time">เลือกเวลา</string>
+    <string name="exit">ทางออก</string>
+    <string name="data_success">บันทึกข้อมูลสำเร็จ</string>
+    <string name="do_not_blank">อย่าเว้นว่างไว้</string>
+    <string name="data_update_success">การอัปเดตข้อมูลสำเร็จ</string>
+    <string name="action_ok">การดำเนินการตกลง</string>
+    <string name="action_cancel">ยกเลิกการดำเนินการแล้ว</string>
+    <string name="action_fail">การดำเนินการล้มเหลว</string>
+    <string name="login_finger_success">เข้าสู่ระบบลายนิ้วมือสำเร็จ</string>
+    <string name="register_password">ลงทะเบียนรหัสผ่าน</string>
+    <string name="confirm_password">ยืนยันรหัสผ่าน</string>
+    <string name="create_password">สร้างรหัส</string>
+    <string name="pin_fail">ปักหมุดไม่สำเร็จ</string>
+    <string name="input_code">ปลดล็อกด้วยรหัสพินหรือลายนิ้วมือของคุณ</string>
+    <string name="cant_password">จำไม่ได้</string>
+    <string name="input_pass_again">กรุณาใส่รหัสอีกครั้ง</string>
+    <string name="code_error">ข้อผิดพลาดในการตรวจสอบรหัส</string>
+
+    <array name="string_sub">
+        <item>รหัสผ่านในการเข้าสู่ระบบ</item>
+    </array>
+
+    <array name="string_list">
+        <item>ตั้งรหัสผ่าน</item>
+        <item>เปลี่ยนรหัสผ่าน</item>
+        <item>ลบรหัสผ่าน</item>
+    </array>
 </resources>

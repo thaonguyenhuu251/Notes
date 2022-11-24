@@ -3,10 +3,44 @@
     <string name="vector_path_menu" translatable="false">M3,8 L21,8 21,6 3,6z M3,18 L21,18 21,16 3,16z M3,13 L21,13 21,11 3,11z</string>
     <string name="vector_path_line" translatable="false">M3,13 L21,13 21,11 3,11z M3,13 L21,13 21,11 3,11z M3,12 L21,12 21,12 3,12z</string>
     <string name="vector_path_close" translatable="false">M5,6.41 L17.59,19 19,17.59 6.41,5z M6.41,19 L19,6.41 17.59,5 5,17.59z M12,12 L12,12 12,12 12,12z</string>
-    <string name="path_cross">M6.4,6.4 L17.6,17.6 M6.4,17.6 L17.6,6.4</string>
-    <string name="path_plus">M6.4,12 L17.6,12 M12,6.4 L12,17.6</string>
+    <string name="path_cross" translatable="false">M6.4,6.4 L17.6,17.6 M6.4,17.6 L17.6,6.4</string>
+    <string name="path_plus" translatable="false">M6.4,12 L17.6,12 M12,6.4 L12,17.6</string>
+
+    <string name="key_1" translatable="false">1</string>
+    <string name="key_2" translatable="false">2</string>
+    <string name="key_3" translatable="false">3</string>
+    <string name="key_4" translatable="false">4</string>
+    <string name="key_5" translatable="false">5</string>
+    <string name="key_6" translatable="false">6</string>
+    <string name="key_7" translatable="false">7</string>
+    <string name="key_8" translatable="false">8</string>
+    <string name="key_9" translatable="false">9</string>
+    <string name="key_0" translatable="false">0</string>
+
+    <string name="def" translatable="false">DEF</string>
+    <string name="abc" translatable="false">ABC</string>
+    <string name="jkl" translatable="false">JKL</string>
+    <string name="mno" translatable="false">MNO</string>
+    <string name="wxyz" translatable="false">WXYZ</string>
+    <string name="tuv" translatable="false">TUV</string>
+    <string name="pqrs" translatable="false">PQRS</string>
+
+    <string name="blue" translatable="false">Blue</string>
+    <string name="orange" translatable="false">Orange</string>
+    <string name="turquoise" translatable="false">Turquoise</string>
+    <string name="yellow" translatable="false">Yellow</string>
+
+    <string name="englishuk" translatable="false">English (UK)</string>
+    <string name="russian" translatable="false">Russian</string>
+
+    <string name="notes" translatable="false">Notes</string>
+    <string name="node_name" translatable="false">%s</string>
+    <string name="node_content" translatable="false">%s</string>
+    <string name="work_time" translatable="false">HH:mm</string>
+    <string name="work_day" translatable="false">dd/MM/yyyy</string>
+
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="settings" translatable="false">SETTINGS</string>
+    <string name="settings">SETTINGS</string>
     <string name="more_effectively">More effectively</string>
     <string name="vip_version">VIP VERSION</string>
     <string name="see_more">SEE MORE</string>
@@ -25,15 +59,12 @@
     <string name="ok">OK</string>
     <string name="cancel">CANCEL</string>
 
-    <string name="plus">plus</string>
+    <string name="plus">Plus</string>
     <string name="groupPlusCross">groupPlusCross</string>
 
     <string name="LoginFingerprint">Fingerprint Login</string>
     <string name="loginPass">Login Password</string>
-    <string name="blue">Blue</string>
-    <string name="orange">Orange</string>
-    <string name="turquoise">Turquoise</string>
-    <string name="yellow">Yellow</string>
+
     <string name="powered_by_squad_2">Powered by Squad 2</string>
     <string name="clock_app">Clock App</string>
     <string name="contact_us">Contact Us</string>
@@ -43,33 +74,22 @@
     <string name="my_profile">My Profile</string>
     <string name="login">Login</string>
     <string name="vietnam">Vietnam</string>
-    <string name="englishuk">English (UK)</string>
-    <string name="russian">Russian</string>
+
     <string name="choose_your_language">Choose your language</string>
     <string name="south_korea">South Korea</string>
 
-    <string name="key_1">1</string>
-    <string name="key_2">2</string>
-    <string name="key_3">3</string>
-    <string name="key_4">4</string>
-    <string name="key_5">5</string>
-    <string name="key_6">6</string>
-    <string name="key_7">7</string>
-    <string name="key_8">8</string>
-    <string name="key_9">9</string>
-    <string name="key_0">0</string>
-    <string name="set_password" translatable="false">Set Password</string>
-    <string name="change_password" translatable="false">Change Password</string>
-    <string name="delete_password" translatable="false">Delete Password</string>
-    <string name="dark_mode" translatable="false">Dark Mode</string>
-    <string name="notes" translatable="false">Notes</string>
+    <string name="set_password">Set Password</string>
+    <string name="change_password">Change Password</string>
+    <string name="delete_password">Delete Password</string>
+    <string name="dark_mode">Dark Mode</string>
+
     <string name="search">Search...</string>
     <string name="home">Home</string>
     <string name="bookmark">Bookmark</string>
     <string name="space" />
     <string name="notify">Notify</string>
     <string name="setting">Setting</string>
-    <string name="sorted" translatable="false">Sorted</string>
+    <string name="sorted">Sorted</string>
     <string name="hello_blank_fragment">hello_blank_fragment</string>
     <string name="sort_by_name_ascending">Sort By Name</string>
     <string name="sort_by_name_decrease">Sort By Time Create</string>
@@ -78,8 +98,7 @@
     <string name="sort_by_time_decrease">Sort By Time Do decrease</string>
     <string name="work_name">Name work: %s</string>
     <string name="work_content">Content work: %s</string>
-    <string name="work_time">HH:mm</string>
-    <string name="work_day">dd/MM/yyyy</string>
+
     <string name="todo">TODO</string>
     <string name="today">Today</string>
     <string name="add_work">ADD WORK</string>
@@ -90,8 +109,6 @@
     <string name="description_work">Description Work</string>
     <string name="add_your_work">Add Your Work</string>
 
-    <string name="node_name">%s</string>
-    <string name="node_content">%s</string>
     <string name="dont_forget">Don\'t forget !!</string>
     <string name="title">Title</string>
     <string name="dismiss">Dismiss</string>
@@ -117,18 +134,12 @@
     <string name="trash_max">TRASH</string>
     <string name="font">Font</string>
     <string name="poppins">Poppins</string>
-    <string name="def">DEF</string>
-    <string name="abc">ABC</string>
-    <string name="jkl">JKL</string>
-    <string name="mno">MNO</string>
-    <string name="wxyz">WXYZ</string>
-    <string name="tuv">TUV</string>
-    <string name="pqrs">PQRS</string>
+
     <string name="select_day">Select day</string>
     <string name="done">DONE</string>
     <string name="are_you_sure_you_want_to_delete_this_file">Are you sure you want to delete this file?</string>
     <string name="delete_notes">Delete Notes</string>
-    <string name="delete">delete</string>
+    <string name="delete">Delete</string>
     <string name="select_time">Select time</string>
     <string name="exit">EXIT</string>
     <string name="data_success">Data Successfully saved</string>
