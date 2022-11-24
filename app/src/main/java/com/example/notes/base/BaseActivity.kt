@@ -59,25 +59,52 @@ open class BaseActivity : AppCompatActivity() {
 
     override fun attachBaseContext(newBase: Context) {
         val change = when (PreferencesSettings.getLanguage(newBase)) {
-            Constants.LG_VIETNAM -> {
+            Constants.LG_VIETNAMESE -> {
                 "vi"
             }
             Constants.LG_ENGLISH -> {
                 "en"
             }
-            Constants.LG_RUSSIA -> {
+            Constants.LG_RUSSIAN -> {
                 "ru"
             }
-            Constants.LG_LAO -> {
+            Constants.LG_LAOS -> {
                 "la"
             }
-            Constants.LG_THAILAND -> {
+            Constants.LG_THAI -> {
                 "th"
             }
             Constants.LG_MYANMAR -> {
                 "my"
             }
             Constants.LG_KOREAN -> {
+                "ko"
+            }
+            Constants.LG_CHINESE -> {
+                "my"
+            }
+            Constants.LG_JAPANESE -> {
+                "ko"
+            }
+            Constants.LG_FILIPINO -> {
+                "my"
+            }
+            Constants.LG_INDONESIAN -> {
+                "ko"
+            }
+            Constants.LG_SPANISH -> {
+                "my"
+            }
+            Constants.LG_FRENCH -> {
+                "ko"
+            }
+            Constants.LG_INDIAN -> {
+                "ko"
+            }
+            Constants.LG_GERMAN -> {
+                "my"
+            }
+            Constants.LG_ITALIAN -> {
                 "ko"
             }
             else -> {
