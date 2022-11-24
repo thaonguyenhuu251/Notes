@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Notes</string>
+
+    <string name="settings">設定</string>
+    <string name="more_effectively">より効果的に</string>
+    <string name="vip_version">VIP版</string>
+    <string name="see_more">続きを見る</string>
+    <string name="create_quick_notes_on_home_screen">ホーム画面で簡単なメモを作成する</string>
+    <string name="apply">申し込み</string>
+    <string name="create_quick_checklist_on_home_screen">ホーム画面に簡単なチェックリストを作成する</string>
+    <string name="trash">ごみ</string>
+    <string name="display">画面</string>
+    <string name="shareApp">シェア</string>
+    <string name="language">言語</string>
+    <string name="privacy_policy">プライバシーポリシー</string>
+    <string name="view_mode">ビューモード</string>
+
+    <string name="grid_view">グリッドビュー</string>
+    <string name="list_view">リストビュー</string>
+    <string name="ok">わかった</string>
+    <string name="cancel">キャンセル</string>
+
+    <string name="plus">プラス</string>
+    <string name="groupPlusCross">グループプラスクロス</string>
+
+    <string name="LoginFingerprint">指紋ログイン</string>
+    <string name="loginPass">ログインパスワード</string>
+
+    <string name="powered_by_squad_2">Squad 2搭載</string>
+    <string name="clock_app">時計アプリ</string>
+    <string name="contact_us">お問い合わせ</string>
+    <string name="term_privacy">用語プライバシー</string>
+    <string name="about_us">私たちに関しては</string>
+    <string name="chat_with_me">私とチャットしてくれ</string>
+    <string name="my_profile">私のプロフィール</string>
+    <string name="login">ログイン</string>
+    <string name="vietnam">ベトナム</string>
+
+    <string name="choose_your_language">言語を選択してください</string>
+    <string name="south_korea">韓国</string>
+
+    <string name="set_password">パスワードを設定してください</string>
+    <string name="change_password">パスワードを変更する</string>
+    <string name="delete_password">パスワードの削除</string>
+    <string name="dark_mode">ダークモード</string>
+
+    <string name="search">探す...</string>
+    <string name="home">家</string>
+    <string name="bookmark">ブックマーク</string>
+    <string name="space"/>
+    <string name="notify">通知する</string>
+    <string name="setting">設定</string>
+    <string name="sorted">ソート済み</string>
+    <string name="hello_blank_fragment">hello_blank_fragment</string>
+    <string name="sort_by_name_ascending">名前順</string>
+    <string name="sort_by_name_decrease">時間で並べ替え 作成</string>
+    <string name="sort_by_time_open">オープン時間で並べ替え</string>
+    <string name="sort_by_time_ascending">時間で並べ替え 昇順で並べ替え</string>
+    <string name="sort_by_time_decrease">時間で並べ替え</string>
+    <string name="work_name">作品名: %s</string>
+    <string name="work_content">コンテンツ作業: %s</string>
+    <string name="work_time">高さ:mm</string>
+    <string name="work_day">dd/mm/yyyy</string>
+    <string name="todo">TODO</string>
+    <string name="today">今日</string>
+    <string name="add_work">仕事を追加</string>
+    <string name="start_day">開始日</string>
+    <string name="day_do_work">仕事をする日</string>
+    <string name="time_do_work">働く時間</string>
+    <string name="input_name_work">入力名作品</string>
+    <string name="description_work">説明 作品</string>
+    <string name="add_your_work">作品を追加</string>
+
+    <string name="dont_forget">忘れないで ！！</string>
+    <string name="title">題名</string>
+    <string name="dismiss">解散</string>
+    <string name="detail">詳細</string>
+    <string name="change_background">背景を変更</string>
+    <string name="note_title">ノートのタイトル...</string>
+    <string name="add_note">メモを追加</string>
+    <string name="description">説明</string>
+    <string name="note_content">注意内容・・・</string>
+    <string name="enter_passcode">パスコードを入力</string>
+    <string name="back">戻る</string>
+    <string name="clear">クリア</string>
+    <string name="profile">プロフィール</string>
+    <string name="edit_profile">プロファイル編集</string>
+    <string name="full_name">フルネーム</string>
+    <string name="email">Eメール</string>
+    <string name="address">住所</string>
+    <string name="phone_number">電話番号</string>
+    <string name="save">保存</string>
+    <string name="profile_details">プロフィールの詳細</string>
+    <string name="reminder">リマインダー</string>
+    <string name="repeat_after_10_minutes">10分後に繰り返す</string>
+    <string name="trash_max">ごみ</string>
+    <string name="font">フォント</string>
+    <string name="poppins">ポピンズ</string>
+
+    <string name="select_day">曜日を選択</string>
+    <string name="done">終わり</string>
+    <string name="are_you_sure_you_want_to_delete_this_file">このファイルを削除してもよろしいですか?</string>
+    <string name="delete_notes">メモを削除</string>
+    <string name="delete">消去</string>
+    <string name="select_time">時間を選択</string>
+    <string name="exit">出口</string>
+    <string name="data_success">データが正常に保存されました</string>
+    <string name="do_not_blank">空欄にしないでください</string>
+    <string name="data_update_success">データ更新成功</string>
+    <string name="action_ok">アクション OK</string>
+    <string name="action_cancel">アクションがキャンセルされました</string>
+    <string name="action_fail">アクション失敗</string>
+    <string name="login_finger_success">ログイン フィンガープリントの成功</string>
+    <string name="register_password">パスワードを登録する</string>
+    <string name="confirm_password">パスワードを認証する</string>
+    <string name="create_password">コードの作成</string>
+    <string name="pin_fail">固定できませんでした</string>
+    <string name="input_code">暗証番号または指紋でロックを解除</string>
+    <string name="cant_password">思い出せない</string>
+    <string name="input_pass_again">コードをもう一度入力してください</string>
+    <string name="code_error">コード検証エラー</string>
+
+    <array name="string_sub">
+        <item>ログインパスワード</item>
+    </array>
+
+    <array name="string_list">
+        <item>パスワードを設定してください</item>
+        <item>パスワードを変更する</item>
+        <item>パスワードの削除</item>
+    </array>
+</resources>
