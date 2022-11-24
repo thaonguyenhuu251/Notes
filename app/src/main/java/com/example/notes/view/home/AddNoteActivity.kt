@@ -70,12 +70,12 @@ class AddNoteActivity : BaseActivity(), DateDialog.OnDone {
                 data.putExtra(Constants.NOTE_MARK, isMark)
                 setResult(Activity.RESULT_OK, data)
 
-                Toast.makeText(this, "Data Successfully saved", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.data_success), Toast.LENGTH_SHORT).show()
                 binding.edtTitle.setText("")
                 binding.edtDescription.setText("")
                 onBackPressed()
             } catch (e: Exception) {
-                Toast.makeText(this, "Do not leave blank", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.do_not_blank), Toast.LENGTH_SHORT).show()
             }
         }
     }

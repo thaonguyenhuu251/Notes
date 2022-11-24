@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -27,13 +28,13 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:drawablePadding="@dimen/_10sdp"
-                    android:drawableTint="@color/white"
                     android:paddingVertical="@dimen/_5sdp"
-                    android:text="ADD NOTE"
+                    android:text="@string/add_note"
                     android:textColor="@color/white"
                     android:textSize="@dimen/_14ssp"
                     android:textStyle="bold"
-                    app:drawableStartCompat="@drawable/ic_arrow_back" />
+                    app:drawableStartCompat="@drawable/ic_arrow_back"
+                    app:drawableTint="@color/white" />
 
                 <ImageView
                     android:id="@+id/imgSave"
@@ -41,7 +42,8 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="end"
                     android:layout_marginEnd="@dimen/_15sdp"
-                    android:src="@drawable/ic_save" />
+                    android:src="@drawable/ic_save"
+                    android:contentDescription="@string/todo" />
 
             </androidx.appcompat.widget.Toolbar>
 
@@ -66,7 +68,8 @@
                     android:layout_height="match_parent"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:orientation="vertical"
-                    android:padding="@dimen/_15sdp">
+                    android:padding="@dimen/_15sdp"
+                    tools:ignore="UselessParent">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -78,7 +81,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Title"
+                            android:text="@string/title"
                             android:textColor="@color/black"
                             android:textSize="@dimen/_14ssp"
                             android:textStyle="bold" />
@@ -88,7 +91,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="end"
-                            android:text="Today"
+                            android:text="@string/today"
                             android:textColor="@color/black"
                             android:textSize="@dimen/_14ssp"
                             app:drawableStartCompat="@drawable/ic_calendar"
@@ -105,17 +108,21 @@
                         android:textColor="@color/black"
                         android:textSize="@dimen/_14ssp"
                         android:textStyle="bold"
-                        android:hint="Note title..."
+                        android:hint="@string/note_title"
                         android:paddingStart="@dimen/_20sdp"
+                        android:maxLength="30"
                         android:background="@drawable/custon_circle_editext"
                         android:textColorHint="@color/colorText"
-                        android:ellipsize="start"/>
+                        android:ellipsize="start"
+                        android:inputType="text"
+                        tools:ignore="RtlSymmetry"
+                        android:autofillHints="no" />
                     <TextView
                         android:id="@+id/tvDescription"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_25sdp"
-                        android:text="Description"
+                        android:text="@string/description"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_14ssp"
                         android:textStyle="bold" />
@@ -134,9 +141,10 @@
                         android:textColor="@color/black"
                         android:textSize="@dimen/_14ssp"
                         android:gravity="top"
-                        android:hint="Note content ..."
+                        android:hint="@string/note_content"
                         android:textColorHint="@color/colorText"
-                        android:ellipsize="start"/>
+                        android:ellipsize="start"
+                        android:importantForAutofill="no" />
                 </LinearLayout>
 
             </LinearLayout>

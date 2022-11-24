@@ -33,7 +33,7 @@ class NoteMarkFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentNoteMarkBinding.inflate(inflater,container,false)
         return binding.root
     }

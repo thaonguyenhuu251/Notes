@@ -63,7 +63,8 @@
         android:gravity="left|center_vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+        tools:ignore="RtlHardcoded">
 
         <TextView
             android:id="@+id/txtCreateQuickNote"
@@ -98,7 +99,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lnVipVersion"
-        tools:ignore="UselessParent">
+        tools:ignore="RtlHardcoded,UselessParent">
 
         <TextView
             android:id="@+id/txtCreateQuickChecklist"

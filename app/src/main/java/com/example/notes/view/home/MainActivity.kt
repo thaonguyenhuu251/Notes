@@ -408,13 +408,13 @@ class MainActivity : BaseActivity() {
             when (resultCode) {
                 RESULT_OK -> {
                     // Do something with data (Result returned).
-                    Toast.makeText(this, "Action OK", Toast.LENGTH_LONG).show()
+                    Toast.makeText(this, getString(R.string.action_ok), Toast.LENGTH_LONG).show()
                 }
                 RESULT_CANCELED -> {
-                    Toast.makeText(this, "Action Cancelled", Toast.LENGTH_LONG).show()
+                    Toast.makeText(this, getString(R.string.action_cancel), Toast.LENGTH_LONG).show()
                 }
                 else -> {
-                    Toast.makeText(this, "Action Failed", Toast.LENGTH_LONG).show()
+                    Toast.makeText(this, getString(R.string.action_fail), Toast.LENGTH_LONG).show()
                 }
             }
         }

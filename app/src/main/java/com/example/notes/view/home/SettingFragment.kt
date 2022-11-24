@@ -138,10 +138,10 @@ class SettingFragment : Fragment() {
                 isChecked -> {
                     if (PreferencesSettings.getCode(requireContext())?.isEmpty() == false) {
                         PreferencesSettings.saveToFinger(requireContext(), true)
-                        Toast.makeText(requireContext(), "Login fingerprint success", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(requireContext(), getString(R.string.login_finger_success), Toast.LENGTH_SHORT).show()
                     } else {
                         PreferencesSettings.saveToFinger(requireContext(), false)
-                        Toast.makeText(requireContext(), "register password", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(requireContext(), getString(R.string.register_password), Toast.LENGTH_SHORT).show()
                         binding.swLoginFingerprint.isChecked = false
                     }
                 }

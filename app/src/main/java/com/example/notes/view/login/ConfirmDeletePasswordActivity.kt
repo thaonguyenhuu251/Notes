@@ -40,7 +40,7 @@ class ConfirmDeletePasswordActivity : AppCompatActivity() {
         }
 
         override fun onPinLoginFailed() {
-            Toast.makeText(this@ConfirmDeletePasswordActivity, "Pin failed", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this@ConfirmDeletePasswordActivity, getString(R.string.pin_fail), Toast.LENGTH_SHORT).show()
         }
 
         override fun onFingerprintLoginFailed() {
@@ -50,7 +50,7 @@ class ConfirmDeletePasswordActivity : AppCompatActivity() {
 
     private fun showLockScreenFragment(isPinExist: Boolean) {
         val builder = PFFLockScreenConfiguration.Builder(this)
-            .setTitle(if (isPinExist) "Confirm Password" else "Create Code")
+            .setTitle(if (isPinExist) getString(R.string.confirm_password) else getString(R.string.create_password))
             .setCodeLength(6)
             .setUseFingerprint(false)
         val fragment = PFLockScreenFragment()

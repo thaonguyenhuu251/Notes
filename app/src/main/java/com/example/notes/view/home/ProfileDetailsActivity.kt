@@ -1,6 +1,5 @@
 package com.example.notes.view.home
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import com.example.notes.base.BaseActivity

@@ -88,7 +88,7 @@ class AddWorkActivity : BaseActivity(), DateDialog.OnDone, TimeDialog.OnDone {
                     )
                     alarmManager.setExact(AlarmManager.RTC_WAKEUP, timeNotify, pendingIntent)
                 }
-                Toast.makeText(this, "Data Successfully saved", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.data_success), Toast.LENGTH_SHORT).show()
                 binding.edtStartDay.setText("")
                 binding.edtNameWork.setText("")
                 binding.edtTimeComplete.setText("")
@@ -96,7 +96,7 @@ class AddWorkActivity : BaseActivity(), DateDialog.OnDone, TimeDialog.OnDone {
                 onBackPressed()
 
             } catch (e: Exception) {
-                Toast.makeText(this, "do not leave blank", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.do_not_blank), Toast.LENGTH_SHORT).show()
             }
         }
     }

@@ -217,7 +217,7 @@ class ListWorkFragment : Fragment() {
                     CoroutineScope(Dispatchers.IO).launch {
                         workDatabase.updateWork(updateWork)
                     }
-                    Toast.makeText(requireContext(), "Data Update Success", Toast.LENGTH_LONG).show()
+                    Toast.makeText(requireContext(), getString(R.string.data_update_success), Toast.LENGTH_LONG).show()
                 })
             }
 

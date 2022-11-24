@@ -20,10 +20,7 @@ class TrashActivity : BaseActivity() {
 
         initView()
 
-
     }
-
-
 
     private fun initView() {
         binding.viewPager.adapter = TrashPagerFragmentAdapter(titles,this)

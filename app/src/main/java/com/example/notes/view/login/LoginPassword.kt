@@ -35,19 +35,19 @@ class LoginPassword : AppCompatActivity() {
         }
 
         override fun onPinLoginFailed() {
-            Toast.makeText(this@LoginPassword, "Pin failed", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this@LoginPassword, getString(R.string.pin_fail), Toast.LENGTH_SHORT).show()
         }
 
         override fun onFingerprintLoginFailed() {
-            Toast.makeText(this@LoginPassword, "Pin failed", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this@LoginPassword, getString(R.string.pin_fail), Toast.LENGTH_SHORT).show()
         }
     }
 
     private fun showLockScreenFragment(isPinExist: Boolean) {
         val builder = PFFLockScreenConfiguration.Builder(this)
-            .setTitle(if (isPinExist) "Unlock with your pin code or fingerprint" else "Create Code")
+            .setTitle(if (isPinExist) getString(R.string.input_code) else getString(R.string.create_password))
             .setCodeLength(6)
-            .setLeftButton("Can't remember")
+            .setLeftButton(getString(R.string.cant_password))
             .setUseFingerprint(PreferencesSettings.getFinger(this))
         val fragment = PFLockScreenFragment()
         fragment.setOnLeftButtonClickListener {

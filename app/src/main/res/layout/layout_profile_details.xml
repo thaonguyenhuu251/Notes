@@ -23,12 +23,13 @@
             android:layout_marginTop="24dp"
             android:paddingStart="@dimen/_30sdp"
             android:background="@drawable/custom_circle_information_profile"
-            android:hint="Last Name"
             android:inputType="text"
             android:padding="@dimen/_12sdp"
             android:textColorHint="@color/colorText"
             android:textSize="@dimen/_14ssp"
-            android:textColor="@color/white"/>
+            android:textColor="@color/white"
+            android:importantForAutofill="no"
+            tools:ignore="RtlSymmetry" />
 
         <EditText
             android:id="@+id/edtFirstName"
@@ -65,7 +66,6 @@
         android:layout_height="wrap_content"
         android:background="@drawable/custom_circle_profile_detail_change"
         android:padding="@dimen/_15sdp"
-        android:text="      Change      "
         android:textColor="@color/white"
         android:textSize="@dimen/_20sdp"
         app:layout_constraintBottom_toBottomOf="parent"

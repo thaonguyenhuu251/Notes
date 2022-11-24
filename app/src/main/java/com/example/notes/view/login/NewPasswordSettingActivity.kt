@@ -34,18 +34,18 @@ class NewPasswordSettingActivity : AppCompatActivity() {
             }
 
             override fun onNewCodeValidationFailed() {
-                Toast.makeText(this@NewPasswordSettingActivity, "Code validation error", Toast.LENGTH_SHORT)
+                Toast.makeText(this@NewPasswordSettingActivity, getString(R.string.code_error), Toast.LENGTH_SHORT)
                     .show()
             }
         }
 
     private fun showLockScreenFragment(isPinExist: Boolean) {
         val builder = PFFLockScreenConfiguration.Builder(this)
-            .setTitle(if (isPinExist) "Unlock with your pin code or fingerprint" else "Create Code")
+            .setTitle(if (isPinExist) getString(R.string.input_code) else getString(R.string.create_password))
             .setCodeLength(6)
-            .setLeftButton("Can't remeber")
+            .setLeftButton(getString(R.string.cant_password))
             .setNewCodeValidation(true)
-            .setNewCodeValidationTitle("Please input code again")
+            .setNewCodeValidationTitle(getString(R.string.input_pass_again))
             .setUseFingerprint(false)
         val fragment = PFLockScreenFragment()
         fragment.setOnLeftButtonClickListener {
