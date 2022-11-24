@@ -72,13 +72,22 @@ class LanguageDialog : DialogFragment() {
     }
 
     private fun addListLanguage() {
-        listLanguage.add(Constants.LG_VIETNAM)
+        listLanguage.add(Constants.LG_VIETNAMESE)
         listLanguage.add(Constants.LG_KOREAN)
         listLanguage.add(Constants.LG_ENGLISH)
-        listLanguage.add(Constants.LG_LAO)
+        listLanguage.add(Constants.LG_LAOS)
         listLanguage.add(Constants.LG_MYANMAR)
-        listLanguage.add(Constants.LG_RUSSIA)
-        listLanguage.add(Constants.LG_THAILAND)
+        listLanguage.add(Constants.LG_RUSSIAN)
+        listLanguage.add(Constants.LG_THAI)
+        listLanguage.add(Constants.LG_CHINESE)
+        listLanguage.add(Constants.LG_JAPANESE)
+        listLanguage.add(Constants.LG_FILIPINO)
+        listLanguage.add(Constants.LG_INDONESIAN)
+        listLanguage.add(Constants.LG_SPANISH)
+        listLanguage.add(Constants.LG_FRENCH)
+        listLanguage.add(Constants.LG_INDIAN)
+        listLanguage.add(Constants.LG_GERMAN)
+        listLanguage.add(Constants.LG_ITALIAN)
     }
 
     companion object {
