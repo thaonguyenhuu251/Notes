@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Notes</string>
+    <!-- TODO: Remove or change this placeholder text --><string name="settings">PENGATURAN</string>
+    <string name="more_effectively">Lebih efektif</string>
+    <string name="vip_version">VERSI VIP</string>
+    <string name="see_more">LIHAT LEBIH BANYAK</string>
+    <string name="create_quick_notes_on_home_screen">Buat catatan cepat di layar beranda</string>
+    <string name="apply">Berlaku</string>
+    <string name="create_quick_checklist_on_home_screen">Buat daftar periksa cepat di layar beranda</string>
+    <string name="trash">Sampah</string>
+    <string name="display">Menampilkan</string>
+    <string name="shareApp">Membagikan</string>
+    <string name="language">Bahasa</string>
+    <string name="privacy_policy">Kebijakan pribadi</string>
+    <string name="view_mode">Modus Tampilan</string>
+
+    <string name="grid_view">Tampilan bergaris</string>
+    <string name="list_view">Tampilan Daftar</string>
+    <string name="ok">Oke</string>
+    <string name="cancel">MEMBATALKAN</string>
+
+    <string name="plus">Plus</string>
+    <string name="groupPlusCross">groupPlusCross</string>
+
+    <string name="LoginFingerprint">Masuk Sidik Jari</string>
+    <string name="loginPass">Kata sandi masuk</string>
+
+    <string name="powered_by_squad_2">Didukung oleh Pasukan 2</string>
+    <string name="clock_app">Aplikasi Jam</string>
+    <string name="contact_us">Hubungi kami</string>
+    <string name="term_privacy">Privasi Istilah</string>
+    <string name="about_us">Tentang kami</string>
+    <string name="chat_with_me">Ngobrol denganku</string>
+    <string name="my_profile">Profil saya</string>
+    <string name="login">Gabung</string>
+    <string name="vietnam">Vietnam</string>
+
+    <string name="choose_your_language">Pilih bahasamu</string>
+    <string name="south_korea">Korea Selatan</string>
+
+    <string name="set_password">Tetapkan Kata Sandi</string>
+    <string name="change_password">Ganti kata sandi</string>
+    <string name="delete_password">Hapus Kata Sandi</string>
+    <string name="dark_mode">Mode Gelap</string>
+
+    <string name="search">Mencari...</string>
+    <string name="home">Rumah</string>
+    <string name="bookmark">Penanda buku</string>
+    <string name="space"/>
+    <string name="notify">Memberitahukan</string>
+    <string name="setting">Pengaturan</string>
+    <string name="sorted">Diurutkan</string>
+    <string name="hello_blank_fragment">halo_blank_fragment</string>
+    <string name="sort_by_name_ascending">Diurutkan berdasarkan nama</string>
+    <string name="sort_by_name_decrease">Urutkan Berdasarkan Waktu Buat</string>
+    <string name="sort_by_time_open">Urutkan Berdasarkan Waktu Buka</string>
+    <string name="sort_by_time_ascending">Urutkan Berdasarkan Waktu Melakukan Ascending</string>
+    <string name="sort_by_time_decrease">Urutkan Berdasarkan Waktu Lakukan penurunan</string>
+    <string name="work_name">Nama pekerjaan: %s</string>
+    <string name="work_content">Pekerjaan konten: %s</string>
+    <string name="work_time">HH: mm</string>
+    <string name="work_day">dd/MM/yyyy</string>
+    <string name="todo">MELAKUKAN</string>
+    <string name="today">Hari ini</string>
+    <string name="add_work">TAMBAH KERJA</string>
+    <string name="start_day">Mulai Hari</string>
+    <string name="day_do_work">Hari melakukan pekerjaan</string>
+    <string name="time_do_work">Waktu bekerja</string>
+    <string name="input_name_work">Masukan Nama Pekerjaan</string>
+    <string name="description_work">Deskripsi Pekerjaan</string>
+    <string name="add_your_work">Tambahkan Pekerjaan Anda</string>
+
+    <string name="dont_forget">Jangan lupa!!</string>
+    <string name="title">Judul</string>
+    <string name="dismiss">Membubarkan</string>
+    <string name="detail">Detil</string>
+    <string name="change_background">UBAH LATAR BELAKANG</string>
+    <string name="note_title">Judul catatan...</string>
+    <string name="add_note">MENAMBAHKAN CATATAN</string>
+    <string name="description">Keterangan</string>
+    <string name="note_content">Isi catatan ...</string>
+    <string name="enter_passcode">Masukkan Kode Sandi</string>
+    <string name="back">Kembali</string>
+    <string name="clear">Jernih</string>
+    <string name="profile">Profil</string>
+    <string name="edit_profile">Sunting profil</string>
+    <string name="full_name">Nama lengkap</string>
+    <string name="email">Surel</string>
+    <string name="address">Alamat</string>
+    <string name="phone_number">Nomor telepon</string>
+    <string name="save">Menyimpan</string>
+    <string name="profile_details">Profil lengkap</string>
+    <string name="reminder">Pengingat</string>
+    <string name="repeat_after_10_minutes">Ulangi setelah 10 menit</string>
+    <string name="trash_max">SAMPAH</string>
+    <string name="font">Fon</string>
+    <string name="poppins">Poppin</string>
+
+    <string name="select_day">Pilih hari</string>
+    <string name="done">SELESAI</string>
+    <string name="are_you_sure_you_want_to_delete_this_file">Apakah Anda yakin ingin menghapus file ini?</string>
+    <string name="delete_notes">Hapus Catatan</string>
+    <string name="delete">Menghapus</string>
+    <string name="select_time">Pilih waktu</string>
+    <string name="exit">KELUAR</string>
+    <string name="data_success">Data Berhasil disimpan</string>
+    <string name="do_not_blank">Jangan biarkan kosong</string>
+    <string name="data_update_success">Pembaruan Data Berhasil</string>
+    <string name="action_ok">Tindakan oke</string>
+    <string name="action_cancel">Tindakan Dibatalkan</string>
+    <string name="action_fail">Aksi: Gagal</string>
+    <string name="login_finger_success">Login sidik jari berhasil</string>
+    <string name="register_password">Daftarkan kata sandi</string>
+    <string name="confirm_password">konfirmasi sandi</string>
+    <string name="create_password">Buat Kode</string>
+    <string name="pin_fail">Penyematan gagal</string>
+    <string name="input_code">Buka kunci dengan kode pin atau sidik jari Anda</string>
+    <string name="cant_password">Tidak ingat</string>
+    <string name="input_pass_again">Harap masukkan kode lagi</string>
+    <string name="code_error">Kesalahan validasi kode</string>
+
+    <array name="string_sub">
+        <item>Kata sandi masuk</item>
+    </array>
+
+    <array name="string_list">
+        <item>Tetapkan Kata Sandi</item>
+        <item>Ganti kata sandi</item>
+        <item>Hapus Kata Sandi</item>
+    </array>
+</resources>
