@@ -5,18 +5,18 @@
     <string name="see_more">XEM THÊM</string>
     <string name="create_quick_notes_on_home_screen">Tạo ghi chú nhanh trên màn hình chính</string>
     <string name="apply">Ứng dụng</string>
-    <string name="create_quick_checklist_on_home_screen">Tạo danh sách kiểm tra nhanh trên màn hình chính</string>
-    <string name="trash">Rác</string>
-    <string name="display">Trưng bày</string>
-    <string name="shareApp">Đăng lại</string>
+    <string name="create_quick_checklist_on_home_screen">Tạo danh sách xem nhanh trên màn hình chính</string>
+    <string name="trash">Thùng Rác</string>
+    <string name="display">Hiển thị</string>
+    <string name="shareApp">Chia sẻ</string>
     <string name="language">Ngôn ngữ</string>
     <string name="privacy_policy">Chính sách bảo mật</string>
     <string name="view_mode">Chế độ xem</string>
 
     <string name="grid_view">Chế độ hiển thị theo ô</string>
-    <string name="list_view">Xem danh sách</string>
-    <string name="ok">ĐƯỢC RỒI</string>
-    <string name="cancel">SỰ HỦY BỎ</string>
+    <string name="list_view">Chế độ hiển thị danh sách</string>
+    <string name="ok">Đồng ý</string>
+    <string name="cancel">Hủy</string>
 
     <string name="plus">Thêm</string>
     <string name="groupPlusCross">groupPlusCross</string>
@@ -25,12 +25,12 @@
     <string name="loginPass">Mật khẩu đăng nhập</string>
 
     <string name="powered_by_squad_2">Được cung cấp bởi Squad 2</string>
-    <string name="clock_app">Ứng dụng đồng hồ</string>
-    <string name="contact_us">Liên hệ chúng tôi</string>
+    <string name="clock_app">Khóa Ứng dụng</string>
+    <string name="contact_us">Liên hệ</string>
     <string name="term_privacy">Bảo mật điều khoản</string>
-    <string name="about_us">Về chúng tôi</string>
-    <string name="chat_with_me">Tro chuyện vơi tôi</string>
-    <string name="my_profile">Thông tin của tôi</string>
+    <string name="about_us">Về nhà cung cấp</string>
+    <string name="chat_with_me">Trò chuyện với Squad2</string>
+    <string name="my_profile">Thông tin của </string>
     <string name="login">Đăng nhập</string>
     <string name="vietnam">Việt Nam</string>
 
@@ -42,8 +42,8 @@
     <string name="delete_password">Xóa mật khẩu</string>
     <string name="dark_mode">Chế độ tối</string>
 
-    <string name="search">Tìm kiếm...</string>
-    <string name="home">Nhà</string>
+    <string name="search">Tìm kiếm…</string>
+    <string name="home">Trang chủ</string>
     <string name="bookmark">Dấu trang</string>
     <string name="space"/>
     <string name="notify">Thông báo</string>
@@ -55,7 +55,7 @@
     <string name="sort_by_time_open">Sắp xếp theo thời gian mở</string>
     <string name="sort_by_time_ascending">Sắp xếp theo thời gian Làm tăng dần</string>
     <string name="sort_by_time_decrease">Sắp xếp theo thời gian Làm giảm</string>
-    <string name="work_name">Tên cơ quan:% s</string>
+    <string name="work_name">Tên công việc:% s</string>
     <string name="work_content">Nội dung hoạt động:% s</string>
     <string name="todo">LÀM</string>
     <string name="today">Hôm nay</string>
@@ -72,10 +72,10 @@
     <string name="dismiss">Bỏ qua</string>
     <string name="detail">Chi tiết</string>
     <string name="change_background">THAY ĐỔI NỀN TẢNG</string>
-    <string name="note_title">Ghi chú tiêu đề...</string>
+    <string name="note_title">Ghi chú tiêu đề…</string>
     <string name="add_note">THÊM GHI CHÚ</string>
     <string name="description">Sự mô tả</string>
-    <string name="note_content">Nội dung lưu ý...</string>
+    <string name="note_content">Nội dung lưu ý…</string>
     <string name="enter_passcode">Nhập mật mã</string>
     <string name="back">Mặt sau</string>
     <string name="clear">Xa lạ</string>
@@ -89,7 +89,7 @@
     <string name="profile_details">Chi tiết hồ sơ</string>
     <string name="reminder">Lời nhắc nhở</string>
     <string name="repeat_after_10_minutes">Lặp lại sau 10 phút</string>
-    <string name="trash_max">RÁC</string>
+    <string name="trash_max">Thùng RÁC</string>
     <string name="font">Nét chữ</string>
     <string name="poppins">poppin</string>
 
@@ -103,10 +103,10 @@
     <string name="data_success">Dữ liệu được lưu thành công</string>
     <string name="do_not_blank">Không để trống</string>
     <string name="data_update_success">Cập nhật dữ liệu thành công</string>
-    <string name="action_ok">Hành động OK</string>
-    <string name="action_cancel">Hành động bị hủy</string>
-    <string name="action_fail">Diễn: Đã thất bại</string>
-    <string name="login_finger_success">Vân tay đăng nhập thành công</string>
+    <string name="action_ok">OK</string>
+    <string name="action_cancel">Hủy</string>
+    <string name="action_fail">Hành động thất bại</string>
+    <string name="login_finger_success">Đăng nhập vân tay thành công</string>
     <string name="register_password">Đăng ký mật khẩu</string>
     <string name="confirm_password">Xác nhận mật khẩu</string>
     <string name="create_password">Tạo mã</string>

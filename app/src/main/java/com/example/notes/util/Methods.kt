@@ -109,7 +109,7 @@ object Methods {
             Constants.LG_LAOS -> R.drawable.ic_language_laos
             Constants.LG_THAI -> R.drawable.ic_language_thailand
             Constants.LG_MYANMAR -> R.drawable.ic_language_myanmar
-            Constants.LG_CHINESE -> R.drawable.ic_language_myanmar
+            Constants.LG_CHINESE -> R.drawable.ic_china_svgrepo_com
             Constants.LG_JAPANESE -> R.drawable.ic_language_japan
             Constants.LG_FILIPINO -> R.drawable.ic_language_philippines
             Constants.LG_INDONESIAN -> R.drawable.ic_language_indonesia
@@ -118,15 +118,6 @@ object Methods {
             Constants.LG_INDIAN -> R.drawable.ic_language_india
             Constants.LG_GERMAN -> R.drawable.ic_language_germany
             Constants.LG_ITALIAN -> R.drawable.ic_language_italy
-
-
-
-
-
-
-
-
-
             else -> R.drawable.ic_language_vietnam
         }
     }
