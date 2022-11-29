@@ -14,47 +14,48 @@
     <color name="blue_light">#D4EAFF</color>
 
     <color name="red_primary">#ff0000</color>
-    <color name="red_dark">#DF0000</color>
-    <color name="red_light">#E4B3B3</color>
+    <color name="red_dark">#F80000</color>
+    <color name="red_light">#F45858</color>
     <color name="red_status">#FF5E5E</color>
     <color name="background_red">#E84C39</color>
 
     <color name="pink_primary">#e91e63</color>
-    <color name="pink_dark">#CB1755</color>
     <color name="pink_status">#FF69B4</color>
-    <color name="pink_light">#FFDEE4</color>
+    <color name="pink_light">#F3A1EE</color>
+    <color name="pink_dark">#E45BDC</color>
 
     <color name="darkpink_colorPrimary">#9b26af</color>
     <color name="darkpink_colorPrimaryDark">#7a1ea1</color>
     <color name="darkpink_colorAccent">#f34235</color>
-    <color name="darkpink_light">#FF00FF</color>
+    <color name="darkpink_light">#e75480</color>
+    <color name="darkpink_dark">#B14062</color>
 
     <color name="violet_colorPrimary">#6639b6</color>
-    <color name="violet_colorPrimaryDark">#502ca7</color>
+    <color name="violet_dark">#85219C</color>
     <color name="violet_colorAccent">#e81d62</color>
-    <color name="violet_light">#C9BEDD</color>
+    <color name="violet_light">#B441CD</color>
 
     <color name="blue_colorPrimary">#3F51B5</color>
     <color name="blue_colorPrimaryDark">#3445A2</color>
     <color name="blue_colorAccent">#e81d62</color>
 
-    <color name="skyblue_colorPrimary">#03A9F4</color>
+    <color name="skyblue_dark">#017FB8</color>
     <color name="skyblue_colorPrimaryDark">#0094D7</color>
     <color name="skyblue_colorAccent">#fec006</color>
 
-    <color name="green_colorPrimary">#4CAF50</color>
+    <color name="green_dark">#029A08</color>
     <color name="green_colorPrimaryDark">#419744</color>
     <color name="green_colorAccent">#4CAF50</color>
-    <color name="green_light">#00FF7F</color>
+    <color name="green_light">#78E47C</color>
 
     <color name="grey_colorPrimary">#9d9d9d</color>
-    <color name="grey_colorPrimaryDark">#606060</color>
+    <color name="grey_dark">#5A5959</color>
     <color name="grey_colorAccent">#f90</color>
-    <color name="grey_light">#D3D3D3</color>
+    <color name="grey_light">#A6A5A5</color>
     <color name="background_grey">#E9E9E9</color>
 
     <color name="brown_light">#CAB1AC</color>
-    <color name="brown_colorPrimary">#795548</color>
+    <color name="brown_dark">#795548</color>
     <color name="brown_colorPrimaryDark">#63453B</color>
     <color name="brown_colorAccent">#e81d62</color>
 
@@ -175,7 +176,7 @@
     <color name="dark_magenta">#8B008B</color>
     <color name="dark_red">#8B0000</color>
     <color name="blue_violet">#8A2BE2</color>
-    <color name="light_sky_blue">#87CEFA</color>
+    <color name="skyblue_light">#88BDDD</color>
     <color name="sky_blue">#87CEEB</color>
     <color name="gray">#808080</color>
     <color name="olive">#808000</color>
@@ -250,4 +251,5 @@
     <color name="black_trans">#26000000</color>
     <color name="red_colorAccent">#F7F72D</color>
     <color name="pink_colorAccent">#2095f2</color>
+    <color name="gray_light">#C8C8C8</color>
 </resources>

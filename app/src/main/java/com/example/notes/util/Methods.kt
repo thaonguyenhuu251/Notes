@@ -22,13 +22,13 @@ object Methods {
         return when (color) {
             Constants.COLOR_RED -> R.color.red_dark
             Constants.COLOR_PINK -> R.color.pink_dark
-            Constants.COLOR_DARKPINK -> R.color.pink_dark
-            Constants.COLOR_VIOLET -> R.color.violet_colorPrimaryDark
+            Constants.COLOR_DARKPINK -> R.color.darkpink_dark
+            Constants.COLOR_VIOLET -> R.color.violet_dark
             Constants.COLOR_BLUE -> R.color.blue_primary
-            Constants.COLOR_SKYBLUE -> R.color.skyblue_colorPrimary
-            Constants.COLOR_GREEN -> R.color.green_colorPrimary
-            Constants.COLOR_GREY -> R.color.grey_colorPrimaryDark
-            Constants.COLOR_BROWN -> R.color.brown_colorPrimary
+            Constants.COLOR_SKYBLUE -> R.color.skyblue_dark
+            Constants.COLOR_GREEN -> R.color.green_dark
+            Constants.COLOR_GREY -> R.color.grey_dark
+            Constants.COLOR_BROWN -> R.color.brown_dark
             else -> R.color.blue_primary
         }
     }
@@ -37,12 +37,12 @@ object Methods {
         return when (color) {
             Constants.COLOR_RED -> R.color.red_light
             Constants.COLOR_PINK -> R.color.pink_light
-            Constants.COLOR_DARKPINK -> R.color.light_pink
+            Constants.COLOR_DARKPINK -> R.color.darkpink_light
             Constants.COLOR_VIOLET -> R.color.violet_light
             Constants.COLOR_BLUE -> R.color.blue_light
-            Constants.COLOR_SKYBLUE -> R.color.light_sky_blue
+            Constants.COLOR_SKYBLUE -> R.color.skyblue_light
             Constants.COLOR_GREEN -> R.color.green_light
-            Constants.COLOR_GREY -> R.color.green_light
+            Constants.COLOR_GREY -> R.color.gray_light
             Constants.COLOR_BROWN -> R.color.brown_light
             else -> R.color.blue_light
         }

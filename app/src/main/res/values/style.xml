@@ -104,11 +104,11 @@
     </style>
 
     <style name="AppTheme_skyblue" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <item name="colorPrimary">@color/skyblue_colorPrimary</item>
-        <item name="colorPrimaryVariant">@color/skyblue_colorPrimary</item>
-        <item name="colorPrimaryDark">@color/skyblue_colorPrimary</item>
+        <item name="colorPrimary">@color/skyblue_dark</item>
+        <item name="colorPrimaryVariant">@color/skyblue_dark</item>
+        <item name="colorPrimaryDark">@color/skyblue_dark</item>
 
-        <item name="colorAccent">@color/skyblue_colorPrimary</item>
+        <item name="colorAccent">@color/skyblue_dark</item>
         <item name="colorSecondary">@color/blue_light</item>
         <item name="colorOnPrimary">@color/white</item>
         <item name="colorOnSecondary">@color/black</item>
@@ -121,11 +121,11 @@
     </style>
 
     <style name="AppTheme_green" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <item name="colorPrimary">@color/green_colorPrimary</item>
-        <item name="colorPrimaryVariant">@color/green_colorPrimary</item>
-        <item name="colorPrimaryDark">@color/green_colorPrimary</item>
+        <item name="colorPrimary">@color/green_dark</item>
+        <item name="colorPrimaryVariant">@color/green_dark</item>
+        <item name="colorPrimaryDark">@color/green_dark</item>
 
-        <item name="colorAccent">@color/green_colorPrimary</item>
+        <item name="colorAccent">@color/green_dark</item>
         <item name="colorSecondary">@color/green_light</item>
         <item name="colorOnPrimary">@color/white</item>
         <item name="colorOnSecondary">@color/black</item>
@@ -155,11 +155,11 @@
     </style>
 
     <style name="AppTheme_brown" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <item name="colorPrimary">@color/brown_colorPrimary</item>
-        <item name="colorPrimaryVariant">@color/brown_colorPrimary</item>
-        <item name="colorPrimaryDark">@color/brown_colorPrimary</item>
+        <item name="colorPrimary">@color/brown_dark</item>
+        <item name="colorPrimaryVariant">@color/brown_dark</item>
+        <item name="colorPrimaryDark">@color/brown_dark</item>
 
-        <item name="colorAccent">@color/brown_colorPrimary</item>
+        <item name="colorAccent">@color/brown_dark</item>
         <item name="colorSecondary">@color/brown_light</item>
         <item name="colorOnPrimary">@color/white</item>
         <item name="colorOnSecondary">@color/black</item>
