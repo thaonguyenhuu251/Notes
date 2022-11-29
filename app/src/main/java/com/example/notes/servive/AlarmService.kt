@@ -28,7 +28,9 @@ class AlarmService : Service() {
     override fun onStartCommand(intent: Intent, flags: Int, startId: Int): Int {
         val booleanExtra = intent.getBooleanExtra(VIBRATION, true)
         val notificationIntent = Intent(this, RingActivity::class.java)
-        val pendingIntent = PendingIntent.getActivity(this, 0, notificationIntent, 0)
+        notificationIntent.putExtra(TITLE, intent.getStringExtra(TITLE))
+        notificationIntent.putExtra(CONTENT, intent.getStringExtra(CONTENT))
+        val pendingIntent = PendingIntent.getActivity(this, 0, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT)
         val alarmTitle = intent.getStringExtra(TITLE)
         val alarmContent = intent.getStringExtra(CONTENT)
         val notification: Notification = NotificationCompat.Builder(this, CHANNEL_ID)
