@@ -44,12 +44,12 @@ class AddNoteActivity : BaseActivity(), DateDialog.OnDone {
             dialogDate.show(supportFragmentManager, dialogDate.tag)
         }
 
-        binding.edtTitle.setText(intent.getStringExtra(Constants.NOTE_TITLE)?: "")
-        binding.edtDescription.setText(intent.getStringExtra(Constants.NOTE_CONTENT)?: "")
-        binding.tvToday.setText(
-            SimpleDateFormat(getString(R.string.work_day))
-                .format(intent.getLongExtra(Constants.NOTE_TIME, System.currentTimeMillis())) ?: ""
-        )
+            binding.edtTitle.setText(intent.getStringExtra(Constants.NOTE_TITLE)?: "")
+            binding.edtDescription.setText(intent.getStringExtra(Constants.NOTE_CONTENT)?: "")
+            binding.tvToday.setText(
+                SimpleDateFormat(getString(R.string.work_day))
+                    .format(intent.getLongExtra(Constants.NOTE_TIME, System.currentTimeMillis())) ?: ""
+            )
 
 
         binding.imgSave.setOnClickListener{
@@ -62,18 +62,23 @@ class AddNoteActivity : BaseActivity(), DateDialog.OnDone {
                 val timeNotify = calendar.timeInMillis
                 val isMark = intent.getBooleanExtra(Constants.NOTE_MARK,false)
 
-                val data = Intent()
-                data.putExtra(Constants.NOTE_ID, id)
-                data.putExtra(Constants.NOTE_TITLE, titleNote)
-                data.putExtra(Constants.NOTE_CONTENT, contentNote)
-                data.putExtra(Constants.NOTE_TIME, timeNotify)
-                data.putExtra(Constants.NOTE_MARK, isMark)
-                setResult(Activity.RESULT_OK, data)
+                if (titleNote.isEmpty() || contentNote.isEmpty()){
+                    Toast.makeText(this, getString(R.string.do_not_blank), Toast.LENGTH_SHORT).show()
+                }else{
+                    val data = Intent()
+                    data.putExtra(Constants.NOTE_ID, id)
+                    data.putExtra(Constants.NOTE_TITLE, titleNote)
+                    data.putExtra(Constants.NOTE_CONTENT, contentNote)
+                    data.putExtra(Constants.NOTE_TIME, timeNotify)
+                    data.putExtra(Constants.NOTE_MARK, isMark)
+                    setResult(Activity.RESULT_OK, data)
 
-                Toast.makeText(this, getString(R.string.data_success), Toast.LENGTH_SHORT).show()
-                binding.edtTitle.setText("")
-                binding.edtDescription.setText("")
-                onBackPressed()
+                    Toast.makeText(this, getString(R.string.data_success), Toast.LENGTH_SHORT).show()
+                    binding.edtTitle.setText("")
+                    binding.edtDescription.setText("")
+                    onBackPressed()
+                }
+
             } catch (e: Exception) {
                 Toast.makeText(this, getString(R.string.do_not_blank), Toast.LENGTH_SHORT).show()
             }
