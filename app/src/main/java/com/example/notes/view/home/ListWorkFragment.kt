@@ -153,7 +153,7 @@ class ListWorkFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-
+        observeWorks()
     }
 
     private fun setRecyclerView() {
@@ -238,6 +238,7 @@ class ListWorkFragment : Fragment() {
                     binding.recyclerview.visibility = View.GONE
                     binding.imgFile.visibility = View.VISIBLE
                 }
+                binding.tvNumberFile.text = worksList.size.toString() + " Records"
             }
         }
     }

@@ -138,7 +138,7 @@ class ListNoteFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-
+        observeNotes()
     }
 
     private fun setRecyclerView() {
@@ -220,6 +220,7 @@ class ListNoteFragment : Fragment() {
                     binding.recyclerview.visibility = View.GONE
                     binding.imgFile.visibility = View.VISIBLE
                 }
+                binding.tvNumberFile.text = notesList.size.toString() + " Records"
             }
         }
     }
