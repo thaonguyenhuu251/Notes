@@ -32,7 +32,7 @@ object Constants {
     const val LG_FILIPINO = "filipino"
     const val LG_INDONESIAN = "indonesian"
     const val LG_SPANISH = "spanish"
-        const val LG_FRENCH = "french"
+    const val LG_FRENCH = "french"
     const val LG_INDIAN = "indian"
     const val LG_GERMAN = "german"
     const val LG_ITALIAN = "italian"

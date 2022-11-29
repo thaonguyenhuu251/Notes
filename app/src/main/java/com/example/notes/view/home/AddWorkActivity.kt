@@ -61,39 +61,46 @@ class AddWorkActivity : BaseActivity(), DateDialog.OnDone, TimeDialog.OnDone {
         binding.btnAddWork.setOnClickListener {
             try {
                 val id = intent.getLongExtra(Constants.WORK_ID, System.currentTimeMillis())
-                val nameWork = binding.edtNameWork.text.toString().trim { it <= ' ' }
-                val contentWork = binding.edtContentWork.text.toString().trim { it <= ' ' }
+                val nameWork = binding.edtNameWork.text.toString().trim()
+                val contentWork = binding.edtContentWork.text.toString().trim()
                 val calendar = Calendar()
                 calendar.set(year, month, day, hour, minutes)
                 val timeNotify = calendar.timeInMillis
                 val isNoty = binding.ckbNotification.isChecked
                 val isMark = intent.getBooleanExtra(Constants.WORK_MARK, false)
-                val data = Intent()
-                data.putExtra(Constants.WORK_ID, id)
-                data.putExtra(Constants.WORK_NAME, nameWork)
-                data.putExtra(Constants.WORK_CONTENT, contentWork)
-                data.putExtra(Constants.WORK_TIME, timeNotify)
-                data.putExtra(Constants.WORK_NOTIFY, isNoty)
-                data.putExtra(Constants.WORK_MARK, isMark)
-                setResult(Activity.RESULT_OK, data)
-                createNotificationChannel()
-                if (isNoty) {
-                    alarmManager = getSystemService(ALARM_SERVICE) as AlarmManager
-                    val aIntent = Intent(this, NotificationReceiver::class.java)
-                    val pendingIntent = PendingIntent.getBroadcast(
-                        this,
-                        Random().nextInt(Int.MAX_VALUE),
-                        aIntent,
-                        PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
-                    )
-                    alarmManager.setExact(AlarmManager.RTC_WAKEUP, timeNotify, pendingIntent)
+                if (nameWork.isEmpty() || contentWork.isEmpty()) {
+                    Toast.makeText(this, getString(R.string.do_not_blank), Toast.LENGTH_SHORT)
+                        .show()
+                } else {
+                    val data = Intent()
+                    data.putExtra(Constants.WORK_ID, id)
+                    data.putExtra(Constants.WORK_NAME, nameWork)
+                    data.putExtra(Constants.WORK_CONTENT, contentWork)
+                    data.putExtra(Constants.WORK_TIME, timeNotify)
+                    data.putExtra(Constants.WORK_NOTIFY, isNoty)
+                    data.putExtra(Constants.WORK_MARK, isMark)
+                    setResult(Activity.RESULT_OK, data)
+                    createNotificationChannel()
+                    if (isNoty) {
+                        alarmManager = getSystemService(ALARM_SERVICE) as AlarmManager
+                        val aIntent = Intent(this, NotificationReceiver::class.java)
+                        val pendingIntent = PendingIntent.getBroadcast(
+                            this,
+                            Random().nextInt(Int.MAX_VALUE),
+                            aIntent,
+                            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
+                        )
+                        alarmManager.setExact(AlarmManager.RTC_WAKEUP, timeNotify, pendingIntent)
+                    }
+                    Toast.makeText(this, getString(R.string.data_success), Toast.LENGTH_SHORT)
+                        .show()
+                    binding.edtStartDay.setText("")
+                    binding.edtNameWork.setText("")
+                    binding.edtTimeComplete.setText("")
+                    binding.edtContentWork.setText("")
+                    onBackPressed()
+
                 }
-                Toast.makeText(this, getString(R.string.data_success), Toast.LENGTH_SHORT).show()
-                binding.edtStartDay.setText("")
-                binding.edtNameWork.setText("")
-                binding.edtTimeComplete.setText("")
-                binding.edtContentWork.setText("")
-                onBackPressed()
 
             } catch (e: Exception) {
                 Toast.makeText(this, getString(R.string.do_not_blank), Toast.LENGTH_SHORT).show()

@@ -64,7 +64,7 @@ class AddNoteActivity : BaseActivity(), DateDialog.OnDone {
 
                 if (titleNote.isEmpty() || contentNote.isEmpty()){
                     Toast.makeText(this, getString(R.string.do_not_blank), Toast.LENGTH_SHORT).show()
-                }else{
+                } else {
                     val data = Intent()
                     data.putExtra(Constants.NOTE_ID, id)
                     data.putExtra(Constants.NOTE_TITLE, titleNote)

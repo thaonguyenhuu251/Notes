@@ -43,7 +43,7 @@
     <string name="delete_password">Hapus Kata Sandi</string>
     <string name="dark_mode">Mode Gelap</string>
 
-    <string name="search">Mencari...</string>
+    <string name="search">Mencari…</string>
     <string name="home">Rumah</string>
     <string name="bookmark">Penanda buku</string>
     <string name="space"/>
@@ -73,10 +73,10 @@
     <string name="dismiss">Membubarkan</string>
     <string name="detail">Detil</string>
     <string name="change_background">UBAH LATAR BELAKANG</string>
-    <string name="note_title">Judul catatan...</string>
+    <string name="note_title">Judul catatan…</string>
     <string name="add_note">MENAMBAHKAN CATATAN</string>
     <string name="description">Keterangan</string>
-    <string name="note_content">Isi catatan ...</string>
+    <string name="note_content">Isi catatan …</string>
     <string name="enter_passcode">Masukkan Kode Sandi</string>
     <string name="back">Kembali</string>
     <string name="clear">Jernih</string>

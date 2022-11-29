@@ -30,7 +30,7 @@
     <string name="term_privacy">Bảo mật điều khoản</string>
     <string name="about_us">Về nhà cung cấp</string>
     <string name="chat_with_me">Trò chuyện với Squad2</string>
-    <string name="my_profile">Thông tin của </string>
+    <string name="my_profile">Thông tin của tôi</string>
     <string name="login">Đăng nhập</string>
     <string name="vietnam">Việt Nam</string>
 
@@ -55,8 +55,8 @@
     <string name="sort_by_time_open">Sắp xếp theo thời gian mở</string>
     <string name="sort_by_time_ascending">Sắp xếp theo thời gian Làm tăng dần</string>
     <string name="sort_by_time_decrease">Sắp xếp theo thời gian Làm giảm</string>
-    <string name="work_name">Tên công việc:% s</string>
-    <string name="work_content">Nội dung hoạt động:% s</string>
+    <string name="work_name">Tên công việc: %s</string>
+    <string name="work_content">Nội dung hoạt động: %s</string>
     <string name="todo">LÀM</string>
     <string name="today">Hôm nay</string>
     <string name="add_work">THÊM CÔNG VIỆC</string>
@@ -99,7 +99,7 @@
     <string name="delete_notes">Xóa ghi chú</string>
     <string name="delete">Xóa bỏ</string>
     <string name="select_time">Chọn thời gian</string>
-    <string name="exit">LỐI RA</string>
+    <string name="exit">Thoát</string>
     <string name="data_success">Dữ liệu được lưu thành công</string>
     <string name="do_not_blank">Không để trống</string>
     <string name="data_update_success">Cập nhật dữ liệu thành công</string>

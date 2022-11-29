@@ -18,6 +18,36 @@ object Methods {
         }
     }
 
+    /*fun getColorDark(color: String): Int {
+        return when (color) {
+            Constants.COLOR_RED -> R.color.red_dark
+            Constants.COLOR_PINK -> R.color.pink_dark
+            Constants.COLOR_DARKPINK -> R.color.orange_dark
+            Constants.COLOR_VIOLET -> R.color.violet_dark
+            Constants.COLOR_BLUE -> R.color.blue_dark
+            Constants.COLOR_SKYBLUE -> R.color.skyblue_dark
+            Constants.COLOR_GREEN -> R.color.green_dark
+            Constants.COLOR_GREY -> R.color.grey_dark
+            Constants.COLOR_BROWN -> R.color.brown_dark
+            else -> R.color.blue_dark
+        }
+    }
+
+    fun getColorLight(color: String): Int {
+        return when (color) {
+            Constants.COLOR_RED -> R.color.red_light
+            Constants.COLOR_PINK -> R.color.pink_light
+            Constants.COLOR_DARKPINK -> R.color.orange_red
+            Constants.COLOR_VIOLET -> R.color.violet_light
+            Constants.COLOR_BLUE -> R.color.blue_light
+            Constants.COLOR_SKYBLUE -> R.color.skyblue_light
+            Constants.COLOR_GREEN -> R.color.green_light
+            Constants.COLOR_GREY -> R.color.grey_light
+            Constants.COLOR_BROWN -> R.color.brown_light
+            else -> R.color.blue_light
+        }
+    }*/
+
     fun getColorDark(color: String): Int {
         return when (color) {
             Constants.COLOR_RED -> R.color.red_dark

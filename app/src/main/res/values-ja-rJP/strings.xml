@@ -59,8 +59,6 @@
     <string name="sort_by_time_decrease">時間で並べ替え</string>
     <string name="work_name">作品名: %s</string>
     <string name="work_content">コンテンツ作業: %s</string>
-    <string name="work_time">高さ:mm</string>
-    <string name="work_day">dd/mm/yyyy</string>
     <string name="todo">TODO</string>
     <string name="today">今日</string>
     <string name="add_work">仕事を追加</string>

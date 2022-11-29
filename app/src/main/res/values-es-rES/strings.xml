@@ -60,10 +60,10 @@
     <string name="work_name">Nombre del trabajo: %s</string>
     <string name="work_content">Trabajo de contenido: %s</string>
     <string name="todo">QUE HACER</string>
-    <string name="today">Este Dia</string>
+    <string name="today">Este Día</string>
     <string name="add_work">AGREGAR TRABAJO</string>
     <string name="start_day">Día de inicio</string>
-    <string name="day_do_work">dia de trabajo</string>
+    <string name="day_do_work">día de trabajo</string>
     <string name="time_do_work">el tiempo trabaja</string>
     <string name="input_name_work">Nombre de entrada Trabajo</string>
     <string name="description_work">Descripción Trabajo</string>
@@ -74,10 +74,10 @@
     <string name="dismiss">Despedir</string>
     <string name="detail">Detalle</string>
     <string name="change_background">CAMBIAR EL FONDO</string>
-    <string name="note_title">Título de la nota...</string>
+    <string name="note_title">Título de la nota…</string>
     <string name="add_note">AÑADIR LA NOTA</string>
     <string name="description">Descripción</string>
-    <string name="note_content">Contenido de la nota...</string>
+    <string name="note_content">Contenido de la nota…</string>
     <string name="enter_passcode">Introduce un código de acceso</string>
     <string name="back">atrás</string>
     <string name="clear">Claro</string>
@@ -107,7 +107,7 @@
     <string name="data_update_success">Éxito en la actualización de datos</string>
     <string name="action_ok">Acción Aceptar</string>
     <string name="action_cancel">Acción cancelada</string>
-    <string name="action_fail">Accion: Fallida</string>
+    <string name="action_fail">Acción: Fallida</string>
     <string name="login_finger_success">Éxito de la huella digital de inicio de sesión</string>
     <string name="register_password">Registrar contraseña</string>
     <string name="confirm_password">Confirmar contraseña</string>

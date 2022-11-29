@@ -74,10 +74,10 @@
     <string name="dismiss">Rejeter</string>
     <string name="detail">Détail</string>
     <string name="change_background">CHANGEMENT DE FOND</string>
-    <string name="note_title">Notez le titre...</string>
+    <string name="note_title">Notez le titre…</string>
     <string name="add_note">AJOUTER UNE NOTE</string>
     <string name="description">La description</string>
-    <string name="note_content">Notez le contenu...</string>
+    <string name="note_content">Notez le contenu…</string>
     <string name="enter_passcode">Entrer le mot de passe</string>
     <string name="back">Retour</string>
     <string name="clear">Dégager</string>

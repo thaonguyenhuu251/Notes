@@ -83,7 +83,7 @@
     <string name="delete_password">Delete Password</string>
     <string name="dark_mode">Dark Mode</string>
 
-    <string name="search">Search...</string>
+    <string name="search">Search…</string>
     <string name="home">Home</string>
     <string name="bookmark">Bookmark</string>
     <string name="space" />
@@ -114,10 +114,10 @@
     <string name="dismiss">Dismiss</string>
     <string name="detail">Detail</string>
     <string name="change_background">CHANGE BACKGROUND</string>
-    <string name="note_title">Note title...</string>
+    <string name="note_title">Note title…</string>
     <string name="add_note">ADD NOTE</string>
     <string name="description">Description</string>
-    <string name="note_content">Note content ...</string>
+    <string name="note_content">Note content …</string>
     <string name="enter_passcode">Enter Passcode</string>
     <string name="back">Back</string>
     <string name="clear">Clear</string>
