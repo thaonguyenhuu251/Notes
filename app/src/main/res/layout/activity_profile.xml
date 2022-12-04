@@ -82,7 +82,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="28dp"
             android:drawablePadding="@dimen/_10sdp"
-            android:text="Edit profile"
+            android:text="@string/edit_profile"
             android:textColor="@color/gray"
             android:textSize="@dimen/_12ssp"
             android:textStyle="bold"
