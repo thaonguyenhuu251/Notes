@@ -1,6 +1,7 @@
 package com.example.notes.adapter
 
 import android.content.Context
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,6 +16,7 @@ import com.example.notes.R
 import com.example.notes.model.Work
 import com.example.notes.util.FileUtils
 import com.example.notes.util.SimpleDateFormat
+import com.example.notes.view.components.ShowResultDialog
 
 class WorkDoAdapter : ListAdapter<Work, WorkDoAdapter.WorkHolder>(DiffCallback()) {
     lateinit var context: Context

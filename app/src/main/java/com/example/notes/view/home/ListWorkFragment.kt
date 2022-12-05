@@ -1,36 +1,34 @@
 package com.example.notes.view.home
 
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import androidx.lifecycle.lifecycleScope
-import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.*
+import com.bumptech.glide.Glide
 import com.example.notes.App
 import com.example.notes.R
-import com.example.notes.adapter.WorkDoAdapter
 import com.example.notes.database.WorkRoomDatabaseClass
 import com.example.notes.database.WorkRoomTrashDatabase
 import com.example.notes.databinding.FragmentListWorkBinding
 import com.example.notes.helper.SwipeHelper
 import com.example.notes.model.Alarm
 import com.example.notes.model.Work
-import com.example.notes.util.Constants
-import com.example.notes.util.Event
-import com.example.notes.util.FileUtils
-import com.example.notes.util.PreferencesSettings
+import com.example.notes.util.*
+import com.example.notes.view.components.ShowResultDialog
 import com.example.notes.viewmodels.CreateAlarmViewModel
-import com.github.mikephil.charting.formatter.IFillFormatter
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -241,6 +239,83 @@ class ListWorkFragment : Fragment() {
                 binding.tvNumberFile.text = worksList.size.toString() + " Records"
             }
         }
+    }
+
+    inner class WorkDoAdapter : ListAdapter<Work, WorkDoAdapter.WorkHolder>(DiffCallback()) {
+        lateinit var context: Context
+
+        inner class WorkHolder(view: View) : RecyclerView.ViewHolder(view)
+
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WorkHolder {
+            val v = LayoutInflater.from(parent.context).inflate(R.layout.item_work, parent, false)
+            context = parent.context
+            return WorkHolder(v)
+        }
+
+        override fun onBindViewHolder(holder: WorkHolder, position: Int) {
+            val currentItem = getItem(position)
+            val txtName = holder.itemView.findViewById<TextView>(R.id.txtName)
+            val txtContentWork = holder.itemView.findViewById<TextView>(R.id.txtContentWork)
+            val txtTimeComplete = holder.itemView.findViewById<TextView>(R.id.txtTimeComplete)
+            val imgWork = holder.itemView.findViewById<ImageView>(R.id.imgWork)
+
+            txtName.text = context.getString(R.string.work_name, currentItem.nameWork)
+            txtContentWork.text = context.getString(R.string.work_content, currentItem.contentWork)
+            txtTimeComplete.text = SimpleDateFormat(context.getString(R.string.work_day)).format(currentItem.timeNotify) + " " +
+                    SimpleDateFormat(context.getString(R.string.work_time)).format(currentItem.timeNotify)
+
+            holder.itemView.setOnClickListener {
+                val intent = Intent(requireContext(), AddWorkActivity::class.java)
+                intent.putExtra(Constants.WORK_ID, currentItem.idWork)
+                intent.putExtra(Constants.WORK_NAME, currentItem.nameWork)
+                intent.putExtra(Constants.WORK_CONTENT, currentItem.contentWork)
+                intent.putExtra(Constants.WORK_TIME, currentItem.timeNotify)
+                intent.putExtra(Constants.WORK_NOTIFY, currentItem.isTimeNotify)
+                intent.putExtra(Constants.WORK_MARK, currentItem.isMark)
+                editWorkResultLauncher.launch(intent)
+            }
+
+            if (FileUtils.isPrimeNumber(position) && position % 2 == 0) {
+                Glide.with(context)
+                    .load("") // image url
+                    .error(
+                        AppCompatResources.getDrawable(
+                            context,
+                            R.drawable.ic_celendar_color
+                        )
+                    ) // any image in case of error
+                    .into(imgWork)
+            } else if (FileUtils.isPrimeNumber(position) && position % 2 == 1) {
+                Glide.with(context)
+                    .load("") // image url
+                    .error(
+                        AppCompatResources.getDrawable(
+                            context,
+                            R.drawable.ic_time_color
+                        )
+                    ) // any image in case of error
+                    .into(imgWork)
+            } else {
+                Glide.with(context)
+                    .load("") // image url
+                    .error(
+                        AppCompatResources.getDrawable(
+                            context,
+                            R.drawable.ic_book_color
+                        )
+                    ) // any image in case of error
+                    .into(imgWork)
+            }
+        }
+
+    }
+
+    class DiffCallback : DiffUtil.ItemCallback<Work>() {
+        override fun areItemsTheSame(oldItem: Work, newItem: Work) =
+            oldItem.idWork == newItem.idWork
+
+        override fun areContentsTheSame(oldItem: Work, newItem: Work) =
+            oldItem == newItem
     }
 
     companion object {

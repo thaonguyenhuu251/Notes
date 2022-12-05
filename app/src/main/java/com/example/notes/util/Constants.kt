@@ -37,6 +37,7 @@ object Constants {
     const val LG_GERMAN = "german"
     const val LG_ITALIAN = "italian"
 
+    const val WORK = "WORk"
     const val WORK_ID = "WORK_ID"
     const val WORK_NAME = "WORK_NAME"
     const val WORK_CONTENT = "WORK_CONTENT"
