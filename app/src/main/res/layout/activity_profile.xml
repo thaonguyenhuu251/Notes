@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/linearLayout2"
@@ -10,22 +10,26 @@
     android:weightSum="5">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout2"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="2">
+        android:layout_weight="2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/txtBack"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_arrow_back"
             android:text="@string/profile"
             android:textColor="@color/black"
             android:textSize="@dimen/_20sdp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:drawableLeftCompat="@drawable/ic_arrow_back" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/shapeableImageView"
@@ -55,8 +59,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scaleType="centerCrop"
-                android:src="@drawable/img_selfile_user"
-                android:contentDescription="@string/todo" />
+                android:src="@drawable/avatar" />
         </androidx.cardview.widget.CardView>
 
         <TextView
@@ -64,6 +67,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="28dp"
+            android:text="@string/full_name"
             android:textColor="@color/black_grey"
             android:textSize="@dimen/_18sdp"
             android:textStyle="bold"
@@ -76,106 +80,112 @@
             android:id="@+id/txtEditProfile"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="28dp"
+            android:drawablePadding="@dimen/_10sdp"
             android:text="@string/edit_profile"
-            android:textStyle="bold"
             android:textColor="@color/gray"
             android:textSize="@dimen/_12ssp"
+            android:textStyle="bold"
             app:drawableEndCompat="@drawable/ic_profile_edit"
-            android:drawablePadding="@dimen/_10sdp"
-            android:layout_marginEnd="28dp"
-            app:drawableTint="@color/gray" />
+            app:drawableTint="@color/gray"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <LinearLayout
+
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="3"
-        android:orientation="vertical">
+        android:fillViewport="true"
+        android:nestedScrollingEnabled="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout2">
 
-
-        <EditText
-            android:id="@+id/edtName"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:background="@drawable/custon_circle_editext"
-            android:backgroundTint="@color/white_smoke"
-            android:drawableStart="@drawable/ic_profile_user"
-            android:drawableTint="@color/black_grey"
-            android:hint="@string/full_name"
-            android:padding="@dimen/_12sdp"
-            android:textSize="@dimen/_14ssp"
-            android:drawablePadding="@dimen/_20sdp"
-            android:inputType="text"
-            tools:targetApi="m"
-            android:importantForAutofill="no" />
-        <EditText
-            android:id="@+id/edtEmail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:background="@drawable/custon_circle_editext"
-            android:backgroundTint="@color/white_smoke"
-            android:drawableStart="@drawable/ic_profile_mail"
-            android:drawableTint="@color/black_grey"
-            android:hint="@string/email"
-            android:padding="@dimen/_12sdp"
-            android:textSize="@dimen/_14ssp"
-            android:drawablePadding="@dimen/_20sdp"
-            tools:targetApi="m"
-            android:importantForAutofill="no"
-            android:inputType="text"
-            tools:ignore="TextFields" />
-        <EditText
-            android:id="@+id/edtAddress"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:background="@drawable/custon_circle_editext"
-            android:backgroundTint="@color/white_smoke"
-            android:drawableStart="@drawable/ic_location"
-            android:drawableTint="@color/black_grey"
-            android:hint="@string/address"
-            android:padding="@dimen/_12sdp"
-            android:textSize="@dimen/_14ssp"
-            android:drawablePadding="@dimen/_20sdp"
-            tools:targetApi="m"
-            android:inputType="text"
-            android:importantForAutofill="no" />
-
-        <EditText
-            android:id="@+id/edtPhoneNumber"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:background="@drawable/custon_circle_editext"
-            android:backgroundTint="@color/white_smoke"
-            android:drawableStart="@drawable/ic_phone"
-            android:drawableTint="@color/black_grey"
-            android:hint="@string/phone_number"
-            android:padding="@dimen/_12sdp"
-            android:textSize="@dimen/_14ssp"
-            android:inputType="phone"
-            android:drawablePadding="@dimen/_20sdp"
-            tools:targetApi="m"
-            android:importantForAutofill="no" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnSave"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="28dp"
-            android:backgroundTint="@color/pink"
-            android:padding="@dimen/_10sdp"
-            android:text="@string/save"
-            android:textColor="@color/blue_colorAccent"
-            app:cornerRadius="20dp"
-            android:layout_gravity="end"
-            android:inputType="phone"/>
-    </LinearLayout>
+            android:layout_height="0dp"
+            android:layout_weight="3"
+            android:orientation="vertical">
 
 
-</LinearLayout>
+            <EditText
+                android:id="@+id/edtName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:background="@drawable/custon_circle_editext"
+                android:backgroundTint="@color/white_smoke"
+                android:drawableLeft="@drawable/ic_profile_user"
+                android:drawablePadding="@dimen/_20sdp"
+                android:drawableTint="@color/black_grey"
+                android:hint="@string/full_name"
+                android:padding="@dimen/_12sdp"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_14ssp" />
+
+            <EditText
+                android:id="@+id/edtEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:background="@drawable/custon_circle_editext"
+                android:backgroundTint="@color/white_smoke"
+                android:drawableLeft="@drawable/ic_profile_mail"
+                android:drawablePadding="@dimen/_20sdp"
+                android:drawableTint="@color/black_grey"
+                android:hint="@string/email"
+                android:padding="@dimen/_12sdp"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_14ssp" />
+
+            <EditText
+                android:id="@+id/edtAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:background="@drawable/custon_circle_editext"
+                android:backgroundTint="@color/white_smoke"
+                android:drawableLeft="@drawable/ic_location"
+                android:drawablePadding="@dimen/_20sdp"
+                android:drawableTint="@color/black_grey"
+                android:hint="@string/address"
+                android:padding="@dimen/_12sdp"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_14ssp" />
+
+            <EditText
+                android:id="@+id/edtPhoneNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:background="@drawable/custon_circle_editext"
+                android:backgroundTint="@color/white_smoke"
+                android:drawableLeft="@drawable/ic_phone"
+                android:drawablePadding="@dimen/_20sdp"
+                android:drawableTint="@color/black_grey"
+                android:hint="@string/phone_number"
+                android:inputType="phone"
+                android:padding="@dimen/_12sdp"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_14ssp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSave"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="28dp"
+                android:backgroundTint="@color/pink"
+                android:inputType="phone"
+                android:padding="@dimen/_10sdp"
+                android:text="@string/save"
+                android:textColor="@color/blue_colorAccent"
+                app:cornerRadius="20dp" />
+        </LinearLayout>
+    </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
