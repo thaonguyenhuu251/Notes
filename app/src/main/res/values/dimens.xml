@@ -1,0 +1,13 @@
+<resources>
+    <dimen name="circle_menu_button_size">56dp</dimen>
+    <dimen name="circle_menu_distance">100dp</dimen>
+
+    <dimen name="finger_print_text_size">1sp</dimen>
+    <dimen name="key_text_size">35dp</dimen>
+    <dimen name="key_stroke_width">4dp</dimen>
+    <dimen name="indicator_stroke_width">1dp</dimen>
+    <dimen name="indicator_radius">4dp</dimen>
+    <dimen name="key_padding">10dp</dimen>
+
+    <dimen name="pattern_cell_radius">5dp</dimen>
+</resources>

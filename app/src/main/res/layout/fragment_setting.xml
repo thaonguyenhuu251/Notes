@@ -5,4 +5,302 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <RelativeLayout
+        android:id="@+id/lnVipVersion"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_80sdp"
+        android:layout_margin="@dimen/_10sdp"
+        android:background="@drawable/bg_vip_version"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="DisableBaselineAlignment,UselessParent">
+
+        <TextView
+            android:id="@+id/txtMoreEffectively"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:fontFamily="casual"
+            android:text="@string/more_effectively"
+            android:textColor="?colorAccent"
+            android:textSize="@dimen/_10ssp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txtVipVersion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtMoreEffectively"
+            android:layout_alignStart="@+id/txtMoreEffectively"
+            android:fontFamily="sans-serif-medium"
+            android:text="@string/vip_version"
+            android:textColor="?colorAccent"
+            android:textSize="@dimen/_17ssp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btnSeeMore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:text="@string/see_more" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_15sdp"
+        android:gravity="left|center_vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+        tools:ignore="RtlHardcoded">
+
+        <TextView
+            android:id="@+id/txtCreateQuickNote"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="7"
+            android:drawablePadding="@dimen/_10sdp"
+            android:paddingEnd="@dimen/_10sdp"
+            android:text="@string/create_quick_notes_on_home_screen"
+            android:textSize="@dimen/_12ssp"
+            app:drawableStartCompat="@drawable/ic_add_note"
+            tools:ignore="RtlSymmetry"
+            app:drawableTint="?colorAccent" />
+
+        <Button
+            android:id="@+id/btnQuickNoteApply"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginBottom="@dimen/_8sdp"
+            android:layout_weight="2"
+            android:text="@string/apply"
+            android:textSize="@dimen/_8ssp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_15sdp"
+        android:gravity="left|center_vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lnVipVersion"
+        tools:ignore="RtlHardcoded,UselessParent">
+
+        <TextView
+            android:id="@+id/txtCreateQuickChecklist"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="7"
+            android:drawablePadding="@dimen/_10sdp"
+            app:paddingEnd="@dimen/_10sdp"
+            android:text="@string/create_quick_checklist_on_home_screen"
+            android:textSize="@dimen/_12ssp"
+            app:drawableStartCompat="@drawable/ic_file"
+            app:drawableTint="?colorAccent" />
+
+        <Button
+            android:id="@+id/btnQuickChecklistApply"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginBottom="@dimen/_8sdp"
+            android:layout_weight="2"
+            android:text="@string/apply"
+            android:textSize="@dimen/_8ssp" />
+    </LinearLayout>
+
+    <View
+        android:id="@+id/view2"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_1sdp"
+        android:layout_marginHorizontal="@dimen/_10sdp"
+        android:background="@color/dark_gray"
+        app:layout_constraintBottom_toBottomOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:fillViewport="true"
+        android:nestedScrollingEnabled="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view2">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_margin="@dimen/_10sdp"
+            android:orientation="vertical">
+            <!--Vip version weight:1-->
+
+            <!--Tạo ghi chú check list nhanh trên mà hình weight:1-->
+
+            <!--Các chức năng-->
+
+            <LinearLayout
+                android:id="@+id/lnLoginFingerprint"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/txtLoginFingerprint"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="8"
+                    android:drawablePadding="@dimen/_10sdp"
+                    android:padding="@dimen/_15sdp"
+                    android:text="@string/LoginFingerprint"
+                    android:textSize="@dimen/_12ssp"
+                    app:drawableStartCompat="@drawable/ic_fingerprint_setting"
+                    app:drawableTint="?colorAccent"  />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/swLoginFingerprint"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:gravity="center"
+                    android:paddingEnd="@dimen/_10sdp"
+                    app:drawableTint="?colorAccent"
+                    android:thumb="@drawable/thumb"
+                    app:track="@drawable/track"
+                    tools:ignore="RtlSymmetry" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lnDarkMode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/txtDarkMode"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="8"
+                    android:drawablePadding="@dimen/_10sdp"
+                    android:padding="@dimen/_15sdp"
+                    android:text="@string/dark_mode"
+                    android:textSize="@dimen/_12ssp"
+                    app:drawableStartCompat="@drawable/ic_dark_mode"
+                    app:drawableTint="?colorAccent"  />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/swDarkMode"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:gravity="center"
+                    android:paddingEnd="@dimen/_10sdp"
+                    app:drawableTint="?colorAccent"
+                    android:thumb="@drawable/thumb"
+                    app:track="@drawable/track"
+                    tools:ignore="RtlSymmetry" />
+
+            </LinearLayout>
+
+            <ExpandableListView
+                android:id="@+id/expandableListView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:groupIndicator="@null"
+                android:scrollbars="none"
+                android:childDivider="@color/textColorAppNight"
+                />
+
+            <TextView
+                android:id="@+id/txtLanguage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:drawableEndCompat="@drawable/ic_back_right"
+                android:drawablePadding="@dimen/_10sdp"
+                android:padding="@dimen/_15sdp"
+                android:text="@string/language"
+                android:textSize="@dimen/_12ssp"
+                app:drawableStartCompat="@drawable/ic_language"
+                app:drawableTint="?colorAccent" />
+
+            <TextView
+                android:id="@+id/txtTrash"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="@dimen/_10sdp"
+                android:padding="@dimen/_15sdp"
+                android:text="@string/trash"
+                android:textSize="@dimen/_12ssp"
+                app:drawableEndCompat="@drawable/ic_back_right"
+                app:drawableStartCompat="@drawable/ic_trash"
+                app:drawableTint="?colorAccent"  />
+
+            <TextView
+                android:id="@+id/txtDisplay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:drawableEndCompat="@drawable/ic_back_right"
+                android:drawablePadding="@dimen/_10sdp"
+                android:padding="@dimen/_15sdp"
+                android:text="@string/display"
+                android:textSize="@dimen/_12ssp"
+                app:drawableStartCompat="@drawable/ic_display_settings"
+                app:drawableTint="?colorAccent" />
+
+            <TextView
+                android:id="@+id/txtViewMode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="@dimen/_10sdp"
+                android:padding="@dimen/_15sdp"
+                android:text="@string/view_mode"
+                android:textSize="@dimen/_12ssp"
+                app:drawableEndCompat="@drawable/ic_back_right"
+                app:drawableStartCompat="@drawable/ic_view_mode"
+                app:drawableTint="?colorAccent" />
+
+            <TextView
+                android:id="@+id/txtShareApp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="@dimen/_10sdp"
+                android:padding="@dimen/_15sdp"
+                android:text="@string/shareApp"
+                android:textSize="@dimen/_12ssp"
+                app:drawableEndCompat="@drawable/ic_back_right"
+                app:drawableStartCompat="@drawable/ic_share"
+                app:drawableTint="?colorAccent"  />
+
+            <TextView
+                android:id="@+id/txtPrivacyPolicy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:drawableEndCompat="@drawable/ic_back_right"
+                android:drawablePadding="@dimen/_10sdp"
+                android:padding="@dimen/_15sdp"
+                android:text="@string/privacy_policy"
+                android:textSize="@dimen/_12ssp"
+                app:drawableStartCompat="@drawable/ic_privacy"
+                app:drawableTint="?colorAccent"  />
+        </LinearLayout>
+    </ScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

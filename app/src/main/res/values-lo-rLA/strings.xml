@@ -1,0 +1,132 @@
+<resources>
+    <string name="app_name">Notes</string>
+
+    <!-- TODO: Remove or change this placeholder text --><string name="settings">ການຕັ້ງຄ່າ</string>
+    <string name="more_effectively">ມີປະສິດທິພາບຫຼາຍຂຶ້ນ</string>
+    <string name="vip_version">ລຸ້ນ VIP</string>
+    <string name="see_more">ເບິ່ງເພີ່ມເຕີມ</string>
+    <string name="create_quick_notes_on_home_screen">ສ້າງບັນທຶກດ່ວນໃນຫນ້າຈໍຫຼັກ</string>
+    <string name="apply">ສະໝັກ</string>
+    <string name="create_quick_checklist_on_home_screen">ສ້າງລາຍການກວດສອບດ່ວນໃນໜ້າຈໍຫຼັກ</string>
+    <string name="trash">ຖັງຂີ້ເຫຍື້ອ</string>
+    <string name="display">ຈໍສະແດງຜົນ</string>
+    <string name="shareApp">ແບ່ງປັນ</string>
+    <string name="language">ພາສາ</string>
+    <string name="privacy_policy">ນະໂຍບາຍຄວາມເປັນສ່ວນຕົວ</string>
+    <string name="view_mode">ໂໝດເບິ່ງ</string>
+
+    <string name="grid_view">Grid View</string>
+    <string name="list_view">ລາຍການເບິ່ງ</string>
+    <string name="ok">ຕົກ​ລົງ</string>
+    <string name="cancel">ຍົກເລີກ</string>
+
+    <string name="plus">ບວກ</string>
+    <string name="groupPlusCross">groupPlusCross</string>
+
+    <string name="LoginFingerprint">ເຂົ້າສູ່ລະບົບດ້ວຍລາຍນິ້ວມື</string>
+    <string name="loginPass">ເຂົ້າສູ່ລະບົບລະຫັດຜ່ານ</string>
+
+    <string name="powered_by_squad_2">ຂັບເຄື່ອນໂດຍ Squad 2</string>
+    <string name="clock_app">ແອັບໂມງ</string>
+    <string name="contact_us">ຕິດ​ຕໍ່​ພວກ​ເຮົາ</string>
+    <string name="term_privacy">ຄວາມເປັນສ່ວນຕົວໄລຍະ</string>
+    <string name="about_us">ກ່ຽວ​ກັບ​ພວກ​ເຮົາ</string>
+    <string name="chat_with_me">ສົນທະນາກັບຂ້ອຍ</string>
+    <string name="my_profile">ໂປຣໄຟລ໌ຂອງຂ້ອຍ</string>
+    <string name="login">ເຂົ້າ​ສູ່​ລະ​ບົບ</string>
+    <string name="vietnam">ຫວຽດນາມ</string>
+
+    <string name="choose_your_language">ເລືອກພາສາຂອງທ່ານ</string>
+    <string name="south_korea">ເກົາ​ຫຼີ​ໃຕ້</string>
+
+    <string name="set_password">ຕັ້ງລະຫັດຜ່ານ</string>
+    <string name="change_password">ປ່ຽນ​ລະ​ຫັດ​ຜ່ານ</string>
+    <string name="delete_password">ລຶບລະຫັດຜ່ານ</string>
+    <string name="dark_mode">ໂໝດມືດ</string>
+
+    <string name="search">ຊອກຫາ...</string>
+    <string name="home">ບ້ານ</string>
+    <string name="bookmark">ບຸກມາກ</string>
+    <string name="space"/>
+    <string name="notify">ແຈ້ງ</string>
+    <string name="setting">ການຕັ້ງຄ່າ</string>
+    <string name="sorted">ຈັດຮຽງ</string>
+    <string name="hello_blank_fragment">ສະບາຍດີ_blank_fragment</string>
+    <string name="sort_by_name_ascending">ຈັດຮຽງຕາມຊື່</string>
+    <string name="sort_by_name_decrease">ຈັດຮຽງຕາມເວລາສ້າງ</string>
+    <string name="sort_by_time_open">ຈັດຮຽງຕາມເວລາເປີດ</string>
+    <string name="sort_by_time_ascending">ຈັດຮຽງຕາມເວລາ ເຮັດຕັ້ງຊັນຂຶ້ນ</string>
+    <string name="sort_by_time_decrease">ຈັດຮຽງຕາມເວລາ ຫຼຸດລົງ</string>
+    <string name="work_name">ຊື່ວຽກ: %s</string>
+    <string name="work_content">ເນື້ອໃນການເຮັດວຽກ: %s</string>
+    <string name="work_time">ຮຮ:ມມ</string>
+    <string name="work_day">dd/MM/yyyy</string>
+    <string name="todo">TODO</string>
+    <string name="today">ມື້​ນີ້</string>
+    <string name="add_work">ເພີ່ມວຽກ</string>
+    <string name="start_day">ມື້ເລີ່ມຕົ້ນ</string>
+    <string name="day_do_work">ມື້ເຮັດວຽກ</string>
+    <string name="time_do_work">ເວລາເຮັດວຽກ</string>
+    <string name="input_name_work">ການໃສ່ຊື່ເຮັດວຽກ</string>
+    <string name="description_work">ລາຍລະອຽດການເຮັດວຽກ</string>
+    <string name="add_your_work">ເພີ່ມວຽກຂອງເຈົ້າ</string>
+
+    <string name="dont_forget">ຢ່າລືມ!!</string>
+    <string name="title">ຫົວຂໍ້</string>
+    <string name="dismiss">ປິດ</string>
+    <string name="detail">ລາຍລະອຽດ</string>
+    <string name="change_background">ປ່ຽນພື້ນຫຼັງ</string>
+    <string name="note_title">ຊື່ບັນທຶກ...</string>
+    <string name="add_note">ເພີ່ມບັນທຶກ</string>
+    <string name="description">ລາຍລະອຽດ</string>
+    <string name="note_content">ເນື້ອໃນບັນທຶກ ...</string>
+    <string name="enter_passcode">ໃສ່ລະຫັດ</string>
+    <string name="back">ກັບຄືນໄປບ່ອນ</string>
+    <string name="clear">ຈະແຈ້ງ</string>
+    <string name="profile">ໂປຣໄຟລ໌</string>
+    <string name="edit_profile">ແກ້ໄຂໂປຣໄຟລ໌</string>
+    <string name="full_name">ຊື່​ເຕັມ</string>
+    <string name="email">ອີເມວ</string>
+    <string name="address">ທີ່ຢູ່</string>
+    <string name="phone_number">ເບີ​ໂທລະ​ສັບ</string>
+    <string name="save">ບັນທຶກ</string>
+    <string name="profile_details">ລາຍລະອຽດໂປຣໄຟລ໌</string>
+    <string name="reminder">ເຕືອນ</string>
+    <string name="repeat_after_10_minutes">ເຮັດຊ້ໍາອີກຄັ້ງຫຼັງຈາກ 10 ນາທີ</string>
+    <string name="trash_max">ກະຕ່າຂີ້ເຫຍື້ອ</string>
+    <string name="font">ຟອນ</string>
+    <string name="poppins">ປັອບປິງ</string>
+
+    <string name="select_day">ເລືອກມື້</string>
+    <string name="done">ແລ້ວໆ</string>
+    <string name="are_you_sure_you_want_to_delete_this_file">ທ່ານແນ່ໃຈບໍ່ວ່າຕ້ອງການລຶບໄຟລ໌ນີ້?</string>
+    <string name="delete_notes">ລຶບບັນທຶກ</string>
+    <string name="delete">ລຶບ</string>
+    <string name="select_time">ເລືອກເວລາ</string>
+    <string name="exit">ອອກໄປ</string>
+    <string name="data_success">ບັນທຶກຂໍ້ມູນສຳເລັດແລ້ວ</string>
+    <string name="do_not_blank">ຢ່າປ່ອຍໃຫ້ຫວ່າງ</string>
+    <string name="data_update_success">ອັບເດດຂໍ້ມູນສຳເລັດແລ້ວ</string>
+    <string name="action_ok">ປະຕິບັດ OK</string>
+    <string name="action_cancel">ຍົກເລີກຄຳສັ່ງແລ້ວ</string>
+    <string name="action_fail">ການປະຕິບັດລົ້ມເຫລວ</string>
+    <string name="login_finger_success">ເຂົ້າສູ່ລະບົບດ້ວຍລາຍນິ້ວມືສຳເລັດແລ້ວ</string>
+    <string name="register_password">ລົງທະບຽນລະຫັດຜ່ານ</string>
+    <string name="confirm_password">ຢືນ​ຢັນ​ລະ​ຫັດ</string>
+    <string name="create_password">ສ້າງລະຫັດ</string>
+    <string name="pin_fail">ປັກໝຸດລົ້ມເຫລວ</string>
+    <string name="input_code">ປົດລັອກດ້ວຍລະຫັດ PIN ຫຼືລາຍນິ້ວມືຂອງທ່ານ</string>
+    <string name="cant_password">ຈື່ບໍ່ໄດ້</string>
+    <string name="input_pass_again">ກະລຸນາໃສ່ລະຫັດອີກຄັ້ງ</string>
+    <string name="code_error">ການກວດສອບລະຫັດຜິດພາດ</string>
+
+    <array name="string_sub">
+        <item>ເຂົ້າສູ່ລະບົບລະຫັດຜ່ານ</item>
+    </array>
+
+    <array name="string_list">
+        <item>ຕັ້ງລະຫັດຜ່ານ</item>
+        <item>ປ່ຽນ​ລະ​ຫັດ​ຜ່ານ</item>
+        <item>ລຶບລະຫັດຜ່ານ</item>
+    </array>
+</resources>

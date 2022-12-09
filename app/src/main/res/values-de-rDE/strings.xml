@@ -1,0 +1,130 @@
+<resources>
+    <string name="app_name">Notes</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="settings">RÉGLAGES</string>
+    <string name="more_effectively">Plus efficacement</string>
+    <string name="vip_version">VERSION VIP</string>
+    <string name="see_more">VOIR PLUS</string>
+    <string name="create_quick_notes_on_home_screen">Créer des notes rapides sur lécran daccueil</string>
+    <string name="apply">Appliquer</string>
+    <string name="create_quick_checklist_on_home_screen">Créer une liste de contrôle rapide sur décran daccueil</string>
+    <string name="trash">Poubelle</string>
+    <string name="display">Affichage</string>
+    <string name="shareApp">Partager</string>
+    <string name="language">Langue</string>
+    <string name="privacy_policy">Politique de confidentialité</string>
+    <string name="view_mode">Mode daffichage</string>
+
+    <string name="grid_view">Vue Grille</string>
+    <string name="list_view">Affichage de liste</string>
+    <string name="ok">DACCORD</string>
+    <string name="cancel">ANNULER</string>
+
+    <string name="plus">Plus</string>
+    <string name="groupPlusCross">groupePlusCroix</string>
+
+    <string name="LoginFingerprint">Connexion par empreinte digitale</string>
+    <string name="loginPass">Mot de passe</string>
+
+    <string name="powered_by_squad_2">Propulsé par Squad 2</string>
+    <string name="clock_app">Application Horloge</string>
+    <string name="contact_us">Nous contacter</string>
+    <string name="term_privacy">Terme Confidentialité</string>
+    <string name="about_us">À propos de nous</string>
+    <string name="chat_with_me">Discuter avec moi</string>
+    <string name="my_profile">Mon profil</string>
+    <string name="login">Connexion</string>
+    <string name="vietnam">Viêt Nam</string>
+
+    <string name="choose_your_language">Choisissez votre langue</string>
+    <string name="south_korea">Corée du Sud</string>
+
+    <string name="set_password">Définir le mot de passe</string>
+    <string name="change_password">Changer le mot de passe</string>
+    <string name="delete_password">Supprimer le mot de passe</string>
+    <string name="dark_mode">Mode sombre</string>
+
+    <string name="search">Chercher...</string>
+    <string name="home">Maison</string>
+    <string name="bookmark">Signet</string>
+    <string name="space"/>
+    <string name="notify">Notifier</string>
+    <string name="setting">Paramètre</string>
+    <string name="sorted">Trié</string>
+    <string name="hello_blank_fragment">hello_blank_fragment</string>
+    <string name="sort_by_name_ascending">Trier par nom</string>
+    <string name="sort_by_name_decrease">Trier par heure Créer</string>
+    <string name="sort_by_time_open">Trier par heure douverture</string>
+    <string name="sort_by_time_ascending">Trier par heure Faire croissant</string>
+    <string name="sort_by_time_decrease">Trier par heure Do diminuer</string>
+    <string name="work_name">Travail de nom: %s</string>
+    <string name="work_content">Travail de contenu: %s</string>
+    <string name="todo">FAIRE</string>
+    <string name="today">Aujourdhui</string>
+    <string name="add_work">AJOUTER UN TRAVAIL</string>
+    <string name="start_day">Commence jour</string>
+    <string name="day_do_work">Journée de travail</string>
+    <string name="time_do_work">Le temps fonctionne</string>
+    <string name="input_name_work">Nom dentrée Travail</string>
+    <string name="description_work">Descriptif Travail</string>
+    <string name="add_your_work">Ajoutez votre travail</string>
+
+    <string name="dont_forget">Noubliez pas !!</string>
+    <string name="title">Titre</string>
+    <string name="dismiss">Rejeter</string>
+    <string name="detail">Détail</string>
+    <string name="change_background">CHANGEMENT DE FOND</string>
+    <string name="note_title">Notez le titre...</string>
+    <string name="add_note">AJOUTER UNE NOTE</string>
+    <string name="description">La description</string>
+    <string name="note_content">Notez le contenu...</string>
+    <string name="enter_passcode">Entrer le mot de passe</string>
+    <string name="back">Retour</string>
+    <string name="clear">Dégager</string>
+    <string name="profile">Profil</string>
+    <string name="edit_profile">Editer le profil</string>
+    <string name="full_name">Nom et prénom</string>
+    <string name="email">E-mail</string>
+    <string name="address">Adresse</string>
+    <string name="phone_number">Numéro de téléphone</string>
+    <string name="save">sauvegarder</string>
+    <string name="profile_details">Détails du profil</string>
+    <string name="reminder">Rappel</string>
+    <string name="repeat_after_10_minutes">Répéter après 10 minutes</string>
+    <string name="trash_max">DÉCHETS</string>
+    <string name="font">Police de caractère</string>
+    <string name="poppins">Poppins</string>
+
+    <string name="select_day">Sélectionnez le jour</string>
+    <string name="done">FINI</string>
+    <string name="are_you_sure_you_want_to_delete_this_file">Voulez-vous vraiment supprimer ce fichier&#x00a0;?</string>
+    <string name="delete_notes">Supprimer les notes</string>
+    <string name="delete">Effacer</string>
+    <string name="select_time">Sélectionnez lheure</string>
+    <string name="exit">SORTIR</string>
+    <string name="data_success">Données enregistrées avec succès</string>
+    <string name="do_not_blank">Ne pas laisser vide</string>
+    <string name="data_update_success">Succès de la mise à jour des données</string>
+    <string name="action_ok">OK</string>
+    <string name="action_cancel">Action annulée</string>
+    <string name="action_fail">Action: échoué</string>
+    <string name="login_finger_success">Connexion réussie par empreinte digitale</string>
+    <string name="register_password">Enregistrer le mot de passe</string>
+    <string name="confirm_password">Confirmez le mot de passe</string>
+    <string name="create_password">Créer un code</string>
+    <string name="pin_fail">Échec de la broche</string>
+    <string name="input_code">Déverrouillez avec votre code PIN ou votre empreinte digitale</string>
+    <string name="cant_password">Je ne me souviens pas</string>
+    <string name="input_pass_again">Veuillez saisir à nouveau le code</string>
+    <string name="code_error">Erreur de validation du code</string>
+
+    <array name="string_sub">
+        <item>Mot de passe</item>
+    </array>
+
+    <array name="string_list">
+        <item>Définir le mot de passe</item>
+        <item>Changer le mot de passe</item>
+        <item>Supprimer le mot de passe</item>
+    </array>
+</resources>

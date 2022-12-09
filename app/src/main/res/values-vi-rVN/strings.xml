@@ -1,0 +1,128 @@
+<resources>
+    <!-- TODO: Remove or change this placeholder text --><string name="settings">CÀI ĐẶT</string>
+    <string name="more_effectively">Hiệu quả hơn</string>
+    <string name="vip_version">PHIÊN BẢN VIP</string>
+    <string name="see_more">XEM THÊM</string>
+    <string name="create_quick_notes_on_home_screen">Tạo ghi chú nhanh trên màn hình chính</string>
+    <string name="apply">Ứng dụng</string>
+    <string name="create_quick_checklist_on_home_screen">Tạo danh sách xem nhanh trên màn hình chính</string>
+    <string name="trash">Thùng Rác</string>
+    <string name="display">Hiển thị</string>
+    <string name="shareApp">Chia sẻ</string>
+    <string name="language">Ngôn ngữ</string>
+    <string name="privacy_policy">Chính sách bảo mật</string>
+    <string name="view_mode">Chế độ xem</string>
+
+    <string name="grid_view">Chế độ hiển thị theo ô</string>
+    <string name="list_view">Chế độ hiển thị danh sách</string>
+    <string name="ok">Đồng ý</string>
+    <string name="cancel">Hủy</string>
+
+    <string name="plus">Thêm</string>
+    <string name="groupPlusCross">groupPlusCross</string>
+
+    <string name="LoginFingerprint">Đăng nhập bằng vân tay</string>
+    <string name="loginPass">Đăng nhập bằng mật khẩu</string>
+
+    <string name="powered_by_squad_2">Được cung cấp bởi Squad 2</string>
+    <string name="clock_app">Khóa ứng dụng</string>
+    <string name="contact_us">Liên hệ</string>
+    <string name="term_privacy">Điều khoản bảo mật</string>
+    <string name="about_us">Về nhà cung cấp</string>
+    <string name="chat_with_me">Trò chuyện với Squad2</string>
+    <string name="my_profile">Thông tin của tôi</string>
+    <string name="login">Đăng nhập</string>
+    <string name="vietnam">Việt Nam</string>
+
+    <string name="choose_your_language">Chọn ngôn ngữ của bạn</string>
+    <string name="south_korea">Hàn Quốc</string>
+
+    <string name="set_password">Đặt mật khẩu</string>
+    <string name="change_password">Đổi mật khẩu</string>
+    <string name="delete_password">Xóa mật khẩu</string>
+    <string name="dark_mode">Chế độ tối</string>
+
+    <string name="search">Tìm kiếm…</string>
+    <string name="home">Trang chủ</string>
+    <string name="bookmark">Dấu trang</string>
+    <string name="space"/>
+    <string name="notify">Thông báo</string>
+    <string name="setting">Cài đặt</string>
+    <string name="sorted">Đã sắp xếp</string>
+    <string name="hello_blank_fragment">hello_blank_fragment</string>
+    <string name="sort_by_name_ascending">Sắp xếp theo tên</string>
+    <string name="sort_by_name_decrease">Sắp xếp theo thời gian tạo</string>
+    <string name="sort_by_time_open">Sắp xếp theo thời gian mở</string>
+    <string name="sort_by_time_ascending">Sắp xếp theo thời gian Làm tăng dần</string>
+    <string name="sort_by_time_decrease">Sắp xếp theo thời gian Làm giảm</string>
+    <string name="work_name">Tên công việc: %s</string>
+    <string name="work_content">Nội dung công việc: %s</string>
+    <string name="todo">Cần làm</string>
+    <string name="today">Hôm nay</string>
+    <string name="add_work">THÊM CÔNG VIỆC</string>
+    <string name="start_day">Ngày bắt đầu</string>
+    <string name="day_do_work">Ngày làm việc</string>
+    <string name="time_do_work">Thời gian làm việc</string>
+    <string name="input_name_work">Nhập Tên Công việc</string>
+    <string name="description_work">Mô tả Công việc</string>
+    <string name="add_your_work">Thêm công việc</string>
+
+    <string name="dont_forget">Đừng quên!!</string>
+    <string name="title">Tiêu đề</string>
+    <string name="dismiss">Bỏ qua</string>
+    <string name="detail">Chi tiết</string>
+    <string name="change_background">THAY ĐỔI MÀU NỀN</string>
+    <string name="note_title">tiêu đề…</string>
+    <string name="add_note">THÊM GHI CHÚ</string>
+    <string name="description">Mô tả</string>
+    <string name="note_content">Nội dung …</string>
+    <string name="enter_passcode">Nhập mật mã</string>
+    <string name="back">Trở lại</string>
+    <string name="clear">Xóa</string>
+    <string name="profile">Hồ sơ</string>
+    <string name="edit_profile">Chỉnh sửa hồ sơ</string>
+    <string name="full_name">Họ và tên</string>
+    <string name="email">E-mail</string>
+    <string name="address">Địa chỉ</string>
+    <string name="phone_number">Số điện thoại</string>
+    <string name="save">Lưu</string>
+    <string name="profile_details">Chi tiết hồ sơ</string>
+    <string name="reminder">Nhắc nhở</string>
+    <string name="repeat_after_10_minutes">Lặp lại sau 10 phút</string>
+    <string name="trash_max">Thùng rác</string>
+    <string name="font">Phông chữ</string>
+    <string name="poppins">poppin</string>
+
+    <string name="select_day">Chọn ngày</string>
+    <string name="done">XONG</string>
+    <string name="are_you_sure_you_want_to_delete_this_file">Bạn có chắc chắn muốn xóa tệp này không?</string>
+    <string name="delete_notes">Xóa ghi chú</string>
+    <string name="delete">Xóa</string>
+    <string name="select_time">Chọn thời gian</string>
+    <string name="exit">Thoát</string>
+    <string name="data_success">Dữ liệu được lưu thành công</string>
+    <string name="do_not_blank">Không để trống</string>
+    <string name="data_update_success">Cập nhật dữ liệu thành công</string>
+    <string name="action_ok">OK</string>
+    <string name="action_cancel">Hủy</string>
+    <string name="action_fail">Hành động thất bại</string>
+    <string name="login_finger_success">Đăng nhập vân tay thành công</string>
+    <string name="register_password">Đăng ký mật khẩu</string>
+    <string name="confirm_password">Xác nhận mật khẩu</string>
+    <string name="create_password">Tạo mật khẩu</string>
+    <string name="pin_fail">Ghim không thành công</string>
+    <string name="input_code">Mở khóa bằng mã pin hoặc dấu vân tay của bạn</string>
+    <string name="cant_password">không thể nhớ</string>
+    <string name="input_pass_again">Vui lòng nhập lại mã</string>
+    <string name="code_error">Lỗi xác thực mã</string>
+
+    <array name="string_sub">
+        <item>Mật khẩu đăng nhập</item>
+    </array>
+
+    <array name="string_list">
+        <item>Đặt mật khẩu</item>
+        <item>Đổi mật khẩu</item>
+        <item>Xóa mật khẩu</item>
+    </array>
+</resources>

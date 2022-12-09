@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/custon_circle_textview"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/_10sdp"
+    app:behavior_hideable="false"
+    app:behavior_peekHeight="@dimen/_50sdp"
+    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_baseline_horizontal"
+        android:contentDescription="@string/todo" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingHorizontal="@dimen/_5sdp">
+
+        <ImageView
+            android:id="@+id/ivBold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="@dimen/_5sdp"
+            android:onClick="buttonBold"
+            android:src="@drawable/ic_bold"
+            tools:ignore="UsingOnClickInXml"
+            android:contentDescription="@string/todo"/>
+
+        <ImageView
+            android:id="@+id/ivItalic"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="@dimen/_5sdp"
+            android:onClick="buttonItalics"
+            android:src="@drawable/ic_italic"
+            tools:ignore="UsingOnClickInXml"
+            android:contentDescription="@string/todo"/>
+
+        <ImageView
+            android:id="@+id/ivUnderline"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="@dimen/_5sdp"
+            android:src="@drawable/ic_underline"
+            android:contentDescription="@string/todo"
+            android:onClick="buttonUnderline"
+            tools:ignore="UsingOnClickInXml" />
+
+        <ImageView
+            android:id="@+id/ivImage"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="@dimen/_5sdp"
+            android:src="@drawable/ic_image"
+            android:contentDescription="@string/todo"/>
+
+        <ImageView
+            android:id="@+id/ivSmile"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="@dimen/_5sdp"
+            android:src="@drawable/ic_smile"
+            android:contentDescription="@string/todo"/>
+
+        <ImageView
+            android:id="@+id/ivMic"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="@dimen/_5sdp"
+            android:src="@drawable/ic_mic"
+            android:contentDescription="@string/todo"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="@dimen/_8sdp"
+        android:weightSum="5">
+
+        <TextView
+            android:id="@+id/tvFont"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/font"
+            android:padding="@dimen/_5sdp"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_14ssp" />
+
+        <TextView
+            android:id="@+id/tvPoppins"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_15sdp"
+            android:layout_weight="4"
+            android:background="@drawable/preview_spinner"
+            android:gravity="center"
+            android:text="@string/poppins"
+            android:padding="@dimen/_3sdp"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_14ssp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="@dimen/_8sdp"
+        android:weightSum="7">
+
+        <Spinner
+            android:id="@+id/spinner_medicine"
+            style="@style/SpinnerTheme"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_weight="2"
+            android:dropDownWidth="wrap_content"
+            android:popupBackground="@drawable/preview_spinner"
+            android:popupElevation="@dimen/_5sdp"
+            android:spinnerMode="dropdown"
+            android:textSize="@dimen/_14ssp" />
+
+
+        <ImageView
+            android:id="@+id/ivAlignLeft"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="@dimen/_5sdp"
+            android:contentDescription="@string/todo"
+            android:onClick="buttonAlignmentLeft"
+            android:src="@drawable/ic_align_left"
+            tools:ignore="UsingOnClickInXml" />
+
+        <ImageView
+            android:id="@+id/ivAlignCenter"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="@dimen/_5sdp"
+            android:contentDescription="@string/todo"
+            android:onClick="buttonAlignmentCenter"
+            android:src="@drawable/ic_align_center"
+            tools:ignore="UsingOnClickInXml" />
+
+        <ImageView
+            android:id="@+id/ivAlignRight"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="@dimen/_5sdp"
+            android:contentDescription="@string/todo"
+            android:onClick="buttonAlignmentRight"
+            android:src="@drawable/ic_align_right"
+            tools:ignore="UsingOnClickInXml" />
+
+        <ImageView
+            android:id="@+id/ivAlignJustify"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="@dimen/_5sdp"
+            android:contentDescription="@string/todo"
+            android:onClick="buttonAlignmentGravity"
+            android:src="@drawable/ic_align_justify"
+            tools:ignore="UsingOnClickInXml" />
+
+        <TextView
+            android:id="@+id/tvWhite"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="@dimen/_5sdp"
+            android:layout_weight="0.5"
+            android:padding="@dimen/_5sdp"
+            android:background="@color/white_smoke" />
+
+        <TextView
+            android:id="@+id/tvBlack"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_weight="0.5"
+            android:padding="@dimen/_5sdp"
+            android:background="@color/black" />
+    </LinearLayout>
+</LinearLayout>

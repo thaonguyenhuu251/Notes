@@ -1,0 +1,132 @@
+<resources>
+    <string name="app_name">Notes</string>
+
+    <!-- TODO: Remove or change this placeholder text --><string name="settings">НАСТРОЙКИ</string>
+    <string name="more_effectively">Более эффективно</string>
+    <string name="vip_version">VIP ВЕРСИЯ</string>
+    <string name="see_more">УЗНАТЬ БОЛЬШЕ</string>
+    <string name="create_quick_notes_on_home_screen">Создание быстрых заметок на главном экране</string>
+    <string name="apply">Подать заявление</string>
+    <string name="create_quick_checklist_on_home_screen">Создать быстрый контрольный список на главном экране</string>
+    <string name="trash">Мусор</string>
+    <string name="display">Отображать</string>
+    <string name="shareApp">Делиться</string>
+    <string name="language">Язык</string>
+    <string name="privacy_policy">Политика конфиденциальности</string>
+    <string name="view_mode">Режим просмотра</string>
+
+    <string name="grid_view">Вид сетки</string>
+    <string name="list_view">Посмотреть список</string>
+    <string name="ok">ХОРОШО</string>
+    <string name="cancel">ОТМЕНИТЬ</string>
+
+    <string name="plus">Плюс</string>
+    <string name="groupPlusCross">группаPlusCross</string>
+
+    <string name="LoginFingerprint">Вход по отпечатку пальца</string>
+    <string name="loginPass">Логин Пароль</string>
+
+    <string name="powered_by_squad_2">При поддержке отряда 2</string>
+    <string name="clock_app">Приложение часов</string>
+    <string name="contact_us">Свяжитесь с нами</string>
+    <string name="term_privacy">Срок Конфиденциальность</string>
+    <string name="about_us">О нас</string>
+    <string name="chat_with_me">Общаться со мной</string>
+    <string name="my_profile">Мой профиль</string>
+    <string name="login">Авторизоваться</string>
+    <string name="vietnam">Вьетнам</string>
+
+    <string name="choose_your_language">Выберите свой язык</string>
+    <string name="south_korea">Южная Корея</string>
+
+    <string name="set_password">Установка пароля</string>
+    <string name="change_password">Изменить пароль</string>
+    <string name="delete_password">Удалить пароль</string>
+    <string name="dark_mode">Темный режим</string>
+
+    <string name="search">Поиск...</string>
+    <string name="home">Дом</string>
+    <string name="bookmark">Закладка</string>
+    <string name="space"/>
+    <string name="notify">Уведомлять</string>
+    <string name="setting">Параметр</string>
+    <string name="sorted">Сортировка</string>
+    <string name="hello_blank_fragment">привет_пустой_фрагмент</string>
+    <string name="sort_by_name_ascending">Сортировать по имени</string>
+    <string name="sort_by_name_decrease">Сортировать по времени создания</string>
+    <string name="sort_by_time_open">Сортировать по времени открытия</string>
+    <string name="sort_by_time_ascending">Сортировать по времени Делать по возрастанию</string>
+    <string name="sort_by_time_decrease">Сортировать по времени Уменьшить</string>
+    <string name="work_name">Название работы: %s</string>
+    <string name="work_content">Контентная работа: %s</string>
+    <string name="work_time">ЧЧ:мм</string>
+    <string name="work_day">дд/мм/гггг</string>
+    <string name="todo">СДЕЛАТЬ</string>
+    <string name="today">Сегодня</string>
+    <string name="add_work">ДОБАВИТЬ РАБОТУ</string>
+    <string name="start_day">День начала</string>
+    <string name="day_do_work">День работай</string>
+    <string name="time_do_work">Время делать работу</string>
+    <string name="input_name_work">Введите имя Работа</string>
+    <string name="description_work">Описание Работа</string>
+    <string name="add_your_work">Добавьте свою работу</string>
+
+    <string name="dont_forget">Не забывайте !!</string>
+    <string name="title">Заголовок</string>
+    <string name="dismiss">Увольнять</string>
+    <string name="detail">Деталь</string>
+    <string name="change_background">ИЗМЕНИТЬ ФОН</string>
+    <string name="note_title">Обратите внимание на заголовок...</string>
+    <string name="add_note">ДОБАВИТЬ ЗАМЕТКУ</string>
+    <string name="description">Описание</string>
+    <string name="note_content">Содержание заметки...</string>
+    <string name="enter_passcode">Введите пароль</string>
+    <string name="back">Назад</string>
+    <string name="clear">чистый</string>
+    <string name="profile">Профиль</string>
+    <string name="edit_profile">Редактировать профиль</string>
+    <string name="full_name">ФИО</string>
+    <string name="email">Эл. адрес</string>
+    <string name="address">Адрес</string>
+    <string name="phone_number">Номер телефона</string>
+    <string name="save">Сохранять</string>
+    <string name="profile_details">Детали профиля</string>
+    <string name="reminder">Напоминание</string>
+    <string name="repeat_after_10_minutes">Повторить через 10 минут</string>
+    <string name="trash_max">МУСОР</string>
+    <string name="font">Шрифт</string>
+    <string name="poppins">Поппинс</string>
+
+    <string name="select_day">Выберите день</string>
+    <string name="done">ВЫПОЛНЕНО</string>
+    <string name="are_you_sure_you_want_to_delete_this_file">Вы уверены, что хотите удалить этот файл?</string>
+    <string name="delete_notes">Удалить заметки</string>
+    <string name="delete">Удалить</string>
+    <string name="select_time">Выберите время</string>
+    <string name="exit">ВЫХОД</string>
+    <string name="data_success">Данные успешно сохранены</string>
+    <string name="do_not_blank">Не оставляйте пустым</string>
+    <string name="data_update_success">Обновление данных успешно</string>
+    <string name="action_ok">Действие ОК</string>
+    <string name="action_cancel">Действие отменено</string>
+    <string name="action_fail">Действие не выполнено</string>
+    <string name="login_finger_success">Успешный вход по отпечатку пальца</string>
+    <string name="register_password">Зарегистрировать пароль</string>
+    <string name="confirm_password">Подтвердить Пароль</string>
+    <string name="create_password">Создать код</string>
+    <string name="pin_fail">Ошибка PIN-кода</string>
+    <string name="input_code">Разблокируйте с помощью пин-кода или отпечатка пальца</string>
+    <string name="cant_password">Не могу вспомнить</string>
+    <string name="input_pass_again">Пожалуйста, введите код еще раз</string>
+    <string name="code_error">Ошибка проверки кода</string>
+
+    <array name="string_sub">
+        <item>Логин Пароль</item>
+    </array>
+
+    <array name="string_list">
+        <item>Установка пароля</item>
+        <item>Изменить пароль</item>
+        <item>Удалить пароль</item>
+    </array>
+</resources>
