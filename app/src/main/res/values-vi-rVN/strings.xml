@@ -6,7 +6,7 @@
     <string name="create_quick_notes_on_home_screen">Tạo ghi chú nhanh trên màn hình chính</string>
     <string name="apply">Ứng dụng</string>
     <string name="create_quick_checklist_on_home_screen">Tạo danh sách xem nhanh trên màn hình chính</string>
-    <string name="trash">Thùng Rác</string>
+    <string name="trash">Thùng rác</string>
     <string name="display">Hiển thị</string>
     <string name="shareApp">Chia sẻ</string>
     <string name="language">Ngôn ngữ</string>
@@ -99,7 +99,7 @@
     <string name="delete_notes">Xóa ghi chú</string>
     <string name="delete">Xóa</string>
     <string name="select_time">Chọn thời gian</string>
-    <string name="exit">Thoát</string>
+    <string name="exit">THOÁT</string>
     <string name="data_success">Dữ liệu được lưu thành công</string>
     <string name="do_not_blank">Không để trống</string>
     <string name="data_update_success">Cập nhật dữ liệu thành công</string>
@@ -117,7 +117,7 @@
     <string name="code_error">Lỗi xác thực mã</string>
 
     <array name="string_sub">
-        <item>Mật khẩu đăng nhập</item>
+        <item>Đăng nhập bằng mật khẩu</item>
     </array>
 
     <array name="string_list">

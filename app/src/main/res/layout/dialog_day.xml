@@ -48,7 +48,7 @@
         android:background="@drawable/bg_button"
         android:paddingHorizontal="@dimen/_20sdp"
         android:paddingVertical="@dimen/_10sdp"
-        android:text="EXIT"
+        android:text="@string/exit"
         android:textColor="@color/white"
         android:textStyle="bold"
         android:layout_marginTop="-25dp"
