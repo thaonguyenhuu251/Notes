@@ -48,7 +48,7 @@
     <string name="space"/>
     <string name="notify">Thông báo</string>
     <string name="setting">Cài đặt</string>
-    <string name="sorted">Đã sắp xếp</string>
+    <string name="sorted">Sắp xếp danh sách</string>
     <string name="hello_blank_fragment">hello_blank_fragment</string>
     <string name="sort_by_name_ascending">Sắp xếp theo tên</string>
     <string name="sort_by_name_decrease">Sắp xếp theo thời gian tạo</string>
