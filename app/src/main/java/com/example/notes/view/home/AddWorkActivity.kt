@@ -64,7 +64,7 @@ class AddWorkActivity : BaseActivity(), DateDialog.OnDone, TimeDialog.OnDone {
                 val nameWork = binding.edtNameWork.text.toString().trim()
                 val contentWork = binding.edtContentWork.text.toString().trim()
                 val calendar = Calendar()
-                calendar.set(year, month, day, hour, minutes)
+                calendar.set(year, month - 1, day, hour, minutes)
                 val timeNotify = calendar.timeInMillis
                 val isNoty = binding.ckbNotification.isChecked
                 val isMark = intent.getBooleanExtra(Constants.WORK_MARK, false)

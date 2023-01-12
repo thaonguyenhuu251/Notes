@@ -58,7 +58,7 @@ class AddNoteActivity : BaseActivity(), DateDialog.OnDone {
                 val titleNote = binding.edtTitle.text.toString().trim { it <= ' ' }
                 val contentNote = binding.edtDescription.text.toString().trim { it <= ' ' }
                 val calendar = Calendar()
-                calendar.set(year , month , day)
+                calendar.set(year , month - 1 , day)
                 val timeNotify = calendar.timeInMillis
                 val isMark = intent.getBooleanExtra(Constants.NOTE_MARK,false)
 
